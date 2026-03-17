@@ -24,7 +24,6 @@ import {
 export default function PageContact() {
   const { openLogin } = useLogin();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
   const [userEmail, setUserEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -44,7 +43,6 @@ export default function PageContact() {
       const loggedIn = !!session?.user;
       const sessionEmail = session?.user?.email || "";
       setIsLoggedIn(loggedIn);
-      setUserId(session?.user?.id || null);
       setUserEmail(sessionEmail);
       form.setValue("user_email", sessionEmail);
       if (!loggedIn) setShowForm(false);
@@ -52,20 +50,24 @@ export default function PageContact() {
   }, [form, supabase.auth]);
 
   const onSubmit = async (data: ContactFormValues) => {
-    if (!userId) {
+    if (!isLoggedIn) {
       toast.error("로그인이 필요합니다.");
       return;
     }
 
     try {
-      const { error } = await supabase.from("contacts").insert({
-        user_id: userId,
-        user_email: data.user_email,
-        message: data.message,
-        status: "pending",
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
       });
 
-      if (error) throw error;
+      if (!response.ok) {
+        const result = (await response.json()) as { message?: string };
+        throw new Error(result.message || "문의 접수 중 오류가 발생했습니다.");
+      }
 
       toast.success("문의가 성공적으로 접수되었습니다.");
       form.reset({ message: "", user_email: userEmail });

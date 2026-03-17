@@ -29,6 +29,24 @@ export async function sendAdminFirstLoginEmail() {
     from,
     to,
     subject: `[eventzoa] ${getTodayLabel()} 새로운 회원 가입`,
-    text: "화이팅!!",
+    text: "새로운 사용자가 회원 가입을 했습니다. 관리자 페이지에서 확인해주세요.",
+  });
+}
+
+export async function sendAdminContactEmail() {
+  const to = process.env.RESEND_ADMIN_EMAIL;
+  const from = process.env.RESEND_FROM_EMAIL;
+
+  if (!to || !from) {
+    throw new Error(
+      "RESEND_ADMIN_EMAIL or RESEND_FROM_EMAIL is not configured.",
+    );
+  }
+
+  return resend.emails.send({
+    from,
+    to,
+    subject: `[eventzoa] ${getTodayLabel()} 새로운 문의 등록`,
+    text: "사용자가 새로운 문의를 등록했습니다. 관리자 페이지에서 확인해주세요.",
   });
 }
