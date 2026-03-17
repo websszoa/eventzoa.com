@@ -6,6 +6,7 @@ export default function HeaderLeft() {
     <h1>
       <Link
         href={"/"}
+        prefetch
         className="text-2xl font-black uppercase font-paperlogy text-brand mb-4"
       >
         {APP_ENG_NAME}

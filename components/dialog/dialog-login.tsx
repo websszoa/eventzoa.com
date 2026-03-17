@@ -1,7 +1,7 @@
 "use client";
 
 import { TentTree } from "lucide-react";
-import { APP_ENG_NAME } from "@/lib/constants";
+import { APP_ENG_NAME, APP_NAME } from "@/lib/constants";
 import {
   Dialog,
   DialogContent,
@@ -31,7 +31,7 @@ export default function DialogLogin({ open, onOpenChange }: DialogLoginProps) {
               </div>
             </div>
             <DialogTitle className="font-paperlogy text-xl mt-2">
-              런조아에 오신걸 환영합니다.
+              {APP_NAME}에 오신걸 환영합니다.
             </DialogTitle>
           </div>
           <DialogDescription className="text-sm text-center font-anyvid break-keep">
@@ -55,7 +55,7 @@ export default function DialogLogin({ open, onOpenChange }: DialogLoginProps) {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-2 pt-2">
+        <div className="space-y-2">
           <LoginButtonGoogle />
           <LoginButtonKakao />
         </div>

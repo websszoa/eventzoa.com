@@ -12,6 +12,7 @@ import {
   Cable,
   Gamepad2,
   Helicopter,
+  HandHeart,
 } from "lucide-react";
 
 export interface MenuItem {
@@ -44,6 +45,7 @@ export const userMenuItems: MenuItem[] = [
 
 // 푸터 메뉴
 export const footerMenuItems: MenuItem[] = [
+  { icon: HandHeart, label: "소개", href: "/about" },
   { icon: Hamburger, label: "문의사항", href: "/contact" },
 ];
 

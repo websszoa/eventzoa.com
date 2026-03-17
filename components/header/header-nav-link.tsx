@@ -23,6 +23,7 @@ export default function HeaderNavLink({
   return (
     <Link
       href={href}
+      prefetch
       onClick={() => onClick?.()}
       className={cn(
         "flex items-center justify-between gap-3 px-6 py-3 text-sm transition-colors",
@@ -39,4 +40,3 @@ export default function HeaderNavLink({
     </Link>
   );
 }
-

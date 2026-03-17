@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LoginProvider } from "@/contexts/login-context";
+import { SheetProvider } from "@/contexts/sheet-context";
+import { AuthProvider } from "@/contexts/auth-context";
 import {
   APP_DESCRIPTION,
   APP_KEYWORDS,
@@ -11,8 +15,7 @@ import {
   APP_SLOGAN,
 } from "@/lib/constants";
 
-import { LoginProvider } from "@/contexts/login-context";
-import { SheetProvider } from "@/contexts/sheet-context";
+import AuthToast from "@/components/auth/auth-toast";
 
 const anyvid = localFont({
   variable: "--font-anyvid",
@@ -127,20 +130,25 @@ export default function RootLayout({
       <body
         className={`${anyvid.variable} ${nanumSquare.variable} ${paperlogy.variable}`}
       >
-        <LoginProvider>
-          <SheetProvider>
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                classNames: {
-                  title: "font-anyvid",
-                  description: "font-anyvid",
-                },
-              }}
-            />
-            <TooltipProvider>{children}</TooltipProvider>
-          </SheetProvider>
-        </LoginProvider>
+        <AuthProvider>
+          <LoginProvider>
+            <SheetProvider>
+              <Toaster
+                position="top-center"
+                toastOptions={{
+                  classNames: {
+                    title: "font-anyvid",
+                    description: "font-anyvid",
+                  },
+                }}
+              />
+              <Suspense fallback={null}>
+                <AuthToast />
+              </Suspense>
+              <TooltipProvider>{children}</TooltipProvider>
+            </SheetProvider>
+          </LoginProvider>
+        </AuthProvider>
       </body>
     </html>
   );

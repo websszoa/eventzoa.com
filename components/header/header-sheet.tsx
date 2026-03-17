@@ -29,7 +29,6 @@ export default function HeaderSheet({ user }: HeaderSheetProps) {
     setIsOpen(false);
     toast.success("로그아웃 되었습니다.");
     router.push("/");
-    router.refresh();
   };
 
   return (

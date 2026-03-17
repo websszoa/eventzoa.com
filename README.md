@@ -139,6 +139,106 @@ Soft Delete 방식을 사용한 안전한 회원 탈퇴 프로세스입니다.
 
 ---
 
+## 📧 신규 가입 관리자 알림 메일 과정
+
+Supabase Webhook + Nodemailer를 통해 신규 유저 가입 시 관리자에게 자동으로 이메일을 발송합니다.
+
+```
+─────────────────────────────────────────────────────────────────
+  1. 신규 유저 최초 로그인 (Google / Kakao OAuth)
+     /auth/callback/route.ts
+     → Supabase가 auth.users에 신규 유저 INSERT
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  2. DB Trigger 자동 실행
+     supabase_function.sql
+     → auth.users INSERT 감지
+     → public.profiles 테이블에 신규 row INSERT
+     (handle_new_user 트리거)
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  3. Supabase Database Webhook 발송
+     Supabase 대시보드 > Database > Webhooks
+     - 테이블: public.profiles
+     - 이벤트: INSERT
+     - URL: https://[DOMAIN]/api/webhook/new-user
+     - Secret: WEBHOOK_SECRET (환경변수)
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  4. Next.js API Route 수신
+     /api/webhook/new-user/route.ts
+     - Authorization 헤더로 WEBHOOK_SECRET 검증
+     - 요청 body에서 신규 유저 정보 추출
+       (email, full_name, signup_provider, created_at)
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  5. Nodemailer로 관리자 메일 발송
+     - SMTP: Gmail (App Password 사용)
+     - 발신: SMTP_USER (환경변수)
+     - 수신: ADMIN_EMAIL (환경변수)
+     - 내용: 신규 가입자 정보 (이름, 이메일, 가입 경로, 일시)
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  6. 발송 완료
+     - 성공: 200 OK 반환
+     - 실패: 500 에러 반환 (Supabase Webhook 자동 재시도)
+─────────────────────────────────────────────────────────────────
+```
+
+### 환경변수 설정
+
+```env
+# Webhook 인증 시크릿 (Supabase Webhook 설정과 동일한 값)
+WEBHOOK_SECRET=your_webhook_secret
+
+# Gmail SMTP (Google 계정 > 앱 비밀번호 발급)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_gmail@gmail.com
+SMTP_PASS=your_gmail_app_password
+
+# 알림 수신 관리자 이메일
+ADMIN_EMAIL=admin@example.com
+```
+
+### 파일 구성
+
+```text
+app/
+└── api/
+    └── webhook/
+        └── new-user/
+            └── route.ts     # Webhook 수신 + Nodemailer 발송
+
+lib/
+└── mailer.ts                # Nodemailer 트랜스포터 설정
+```
+
+### 패키지 설치
+
+```bash
+npm install nodemailer
+npm install --save-dev @types/nodemailer
+```
+
+### Supabase Webhook 설정 순서
+
+```text
+1. Supabase 대시보드 → Database → Webhooks → Create Webhook
+2. 이름: notify-admin-new-user
+3. 테이블: public.profiles / 이벤트: INSERT
+4. URL: https://[DOMAIN]/api/webhook/new-user
+5. HTTP Headers: { "Authorization": "Bearer [WEBHOOK_SECRET]" }
+6. 저장
+```
+
+---
+
 ## SQL 정리
 
 현재 `sql` 폴더는 이벤트 기준 스키마로 정리되어 있습니다.

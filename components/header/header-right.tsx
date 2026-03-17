@@ -1,9 +1,9 @@
 "use client";
 
-import type { User } from "@supabase/supabase-js";
 import { Candy } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useSheet } from "@/contexts/sheet-context";
+import { useAuth } from "@/contexts/auth-context";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import HeaderInfo from "./header-info";
@@ -11,12 +11,9 @@ import HeaderSheet from "./header-sheet";
 import HeaderUser from "./header-user";
 import HeaderNav from "./header-nav";
 
-interface HeaderRightProps {
-  user: User | null;
-}
-
-export default function HeaderRight({ user }: HeaderRightProps) {
+export default function HeaderRight() {
   const { isOpen, setIsOpen } = useSheet();
+  const { user } = useAuth();
 
   return (
     <>
@@ -34,7 +31,7 @@ export default function HeaderRight({ user }: HeaderRightProps) {
         </SheetTrigger>
         <SheetContent>
           <HeaderSheet user={user} />
-          <HeaderUser userId={user?.id} />
+          <HeaderUser userId={user?.id} isOpen={isOpen} />
           <HeaderNav user={user} />
           <HeaderInfo />
         </SheetContent>
