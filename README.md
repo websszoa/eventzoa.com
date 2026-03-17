@@ -28,6 +28,8 @@ npx shadcn@latest add input-otp
 npx shadcn@latest add table
 npx shadcn@latest add avatar
 npx shadcn@latest add field
+
+npm install resend    # 이메일 보내기
 ```
 
 ### 폰트 사이즈
@@ -189,55 +191,6 @@ Supabase Webhook + Nodemailer를 통해 신규 유저 가입 시 관리자에게
      - 실패: 500 에러 반환 (Supabase Webhook 자동 재시도)
 ─────────────────────────────────────────────────────────────────
 ```
-
-### 환경변수 설정
-
-```env
-# Webhook 인증 시크릿 (Supabase Webhook 설정과 동일한 값)
-WEBHOOK_SECRET=your_webhook_secret
-
-# Gmail SMTP (Google 계정 > 앱 비밀번호 발급)
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=your_gmail@gmail.com
-SMTP_PASS=your_gmail_app_password
-
-# 알림 수신 관리자 이메일
-ADMIN_EMAIL=admin@example.com
-```
-
-### 파일 구성
-
-```text
-app/
-└── api/
-    └── webhook/
-        └── new-user/
-            └── route.ts     # Webhook 수신 + Nodemailer 발송
-
-lib/
-└── mailer.ts                # Nodemailer 트랜스포터 설정
-```
-
-### 패키지 설치
-
-```bash
-npm install nodemailer
-npm install --save-dev @types/nodemailer
-```
-
-### Supabase Webhook 설정 순서
-
-```text
-1. Supabase 대시보드 → Database → Webhooks → Create Webhook
-2. 이름: notify-admin-new-user
-3. 테이블: public.profiles / 이벤트: INSERT
-4. URL: https://[DOMAIN]/api/webhook/new-user
-5. HTTP Headers: { "Authorization": "Bearer [WEBHOOK_SECRET]" }
-6. 저장
-```
-
----
 
 ## SQL 정리
 

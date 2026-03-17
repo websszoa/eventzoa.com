@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createClient } from "@/lib/supabase/server";
+import { sendAdminFirstLoginEmail } from "@/lib/email";
 
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
@@ -29,14 +30,35 @@ export async function GET(request: NextRequest) {
         return NextResponse.redirect(url);
       }
 
-      // 2. 방문 횟수 증가
+      // 2. 신규 가입자면 관리자 알림 메일 발송
+      const {
+        data: { user: currentUser },
+      } = await supabase.auth.getUser();
+
+      if (currentUser?.email) {
+        const createdAt = new Date(currentUser.created_at).getTime();
+        const lastSignInAt = new Date(
+          currentUser.last_sign_in_at ?? currentUser.created_at,
+        ).getTime();
+        const isNewUser = Math.abs(lastSignInAt - createdAt) < 5000;
+
+        if (isNewUser) {
+          try {
+            await sendAdminFirstLoginEmail();
+          } catch (mailError) {
+            console.error("관리자 가입 알림 메일 발송 실패:", mailError);
+          }
+        }
+      }
+
+      // 3. 방문 횟수 증가
       try {
         await supabase.rpc("increment_visit_count");
       } catch (rpcError) {
         console.error("방문 횟수 증가 실패:", rpcError);
       }
 
-      // 3. 로그인 성공 리다이렉트
+      // 4. 로그인 성공 리다이렉트
       const url = new URL(next, baseUrl);
       url.searchParams.set("welcome", "true");
       return NextResponse.redirect(url);
