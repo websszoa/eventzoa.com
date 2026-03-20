@@ -13,20 +13,21 @@ CREATE TABLE IF NOT EXISTS public.events (
   slug TEXT UNIQUE NOT NULL,                         -- 슬러그
   description TEXT NOT NULL,                         -- 설명
 
-  event_start_at TIMESTAMPTZ NOT NULL,               -- 이벤트 시작 일시
+  event_start_at TIMESTAMPTZ,                        -- 이벤트 시작 일시
   event_end_at TIMESTAMPTZ,                          -- 이벤트 종료 일시
   event_scale INT,                                   -- 이벤트 규모
-  event_type TEXT NOT NULL,                          -- 이벤트 타입
+  event_type TEXT,                                   -- 이벤트 타입
   event_site TEXT,                                   -- 이벤트 웹사이트
+  event_program Text,                                -- 이벤트 프로그램 정보
 
-  registration_status TEXT NOT NULL CHECK (registration_status IN ('접수대기', '접수중', '접수마감', '추가접수')),
+  registration_status TEXT CHECK (registration_status IN ('접수대기', '접수중', '접수마감', '추가접수')),
   registration_start_at TIMESTAMPTZ,                 -- 접수 시작 일시
   registration_end_at TIMESTAMPTZ,                   -- 접수 종료 일시
   registration_add_start_at TIMESTAMPTZ,             -- 추가 접수 시작 일시
   registration_add_end_at TIMESTAMPTZ,               -- 추가 접수 종료 일시
   registration_price JSONB,                          -- 접수 가격 정보(거리별 가격)
 
-  images JSONB,                                      -- 이미지 정보(대표이미지, 썸네일, 메달 이미지)
+  images JSONB,                                      -- 이미지 정보(대표이미지, 썸네일)
   location JSONB,                                    -- 위치 정보(국가, 도시, 장소, 위도, 경도)
   hosts JSONB,                                       -- 주최자 정보(전화번호, 이메일, 스폰서, 주최자, 협력업체, 기념품)
   sns JSONB,                                         -- sns 정보(인스타그램, 카카오톡, 유튜브, 블러그)

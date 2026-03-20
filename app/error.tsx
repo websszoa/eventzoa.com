@@ -46,7 +46,7 @@ export default function Error({ error, reset }: ErrorProps) {
         <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto px-4 sm:px-0">
           <Button
             onClick={reset}
-            variant="default"
+            variant="destructive"
             size="lg"
             className="w-full sm:w-auto"
           >

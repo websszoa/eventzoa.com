@@ -2,7 +2,7 @@
 
 import { LogIn } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useLogin } from "@/contexts/login-context";
+import { useLogin } from "@/contexts/context-login";
 
 export default function PageLogin() {
   const { openLogin } = useLogin();

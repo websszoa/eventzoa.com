@@ -1,18 +1,21 @@
 import {
   LucideIcon,
+  BellElectric,
+  Medal,
+  Dessert,
   Home,
   Newspaper,
-  Rat,
   Compass,
   Drama,
   User,
   Star,
   Hamburger,
   Gem,
-  Cable,
-  Gamepad2,
-  Helicopter,
   HandHeart,
+  Gamepad2,
+  Cable,
+  Helicopter,
+  Rat,
 } from "lucide-react";
 
 export interface MenuItem {
@@ -60,7 +63,14 @@ export const mobileMenuItems: MenuItem[] = [
 // 관리자 메뉴
 export const adminMenuItems: MenuItem[] = [
   { icon: Home, label: "대시보드", href: "/admin" },
-  { icon: Cable, label: "이벤트", href: "/admin/events" },
-  { icon: Gamepad2, label: "공지사항", href: "/admin/notice" },
-  { icon: Helicopter, label: "제보관리", href: "/admin/report" },
+  { icon: Gamepad2, label: "문의사항", href: "/admin/contact" },
+  { icon: Cable, label: "회원관리", href: "/admin/member" },
+  { icon: Helicopter, label: "이벤트", href: "/admin/event" },
+];
+
+// 관리자 사용자 메뉴
+export const adminUserMenuItems: MenuItem[] = [
+  { icon: BellElectric, label: "이벤트조아", href: "https://eventzoa.com" },
+  { icon: Dessert, label: "런조아", href: "https://runzoa.com" },
+  { icon: Medal, label: "이미지조아", href: "https://imagezoa.com" },
 ];

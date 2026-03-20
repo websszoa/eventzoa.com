@@ -1,7 +1,7 @@
 "use client";
 
 import { Heart } from "lucide-react";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/contexts/context-auth";
 import PageLogin from "@/components/page/page-login";
 import PageNoData from "@/components/page/page-no-data";
 
@@ -26,7 +26,7 @@ export default function PageFavorites() {
     <PageNoData
       icon={Heart}
       title="아직 저장된 즐겨찾기가 없습니다."
-      description="관심 있는 대회를 추가하면 이곳에서 빠르게 모아볼 수 있습니다."
+      description="관심 있는 이벤트를 추가해보세요!"
     />
   );
 }

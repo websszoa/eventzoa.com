@@ -4,9 +4,9 @@ import localFont from "next/font/local";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { LoginProvider } from "@/contexts/login-context";
-import { SheetProvider } from "@/contexts/sheet-context";
-import { AuthProvider } from "@/contexts/auth-context";
+import { LoginProvider } from "@/contexts/context-login";
+import { SheetProvider } from "@/contexts/context-sheet";
+import { AuthProvider } from "@/contexts/context-auth";
 import {
   APP_DESCRIPTION,
   APP_KEYWORDS,

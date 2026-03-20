@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
-import { useLogin } from "@/contexts/login-context";
-import { useSheet } from "@/contexts/sheet-context";
+import { useLogin } from "@/contexts/context-login";
+import { useSheet } from "@/contexts/context-sheet";
 import {
   SheetDescription,
   SheetHeader,

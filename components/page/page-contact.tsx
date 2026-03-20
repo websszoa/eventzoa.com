@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createClient } from "@/lib/supabase/client";
-import { useLogin } from "@/contexts/login-context";
+import { useLogin } from "@/contexts/context-login";
 import { ContactFormValues } from "@/lib/types";
 import { contactSchema } from "@/lib/validations";
 import { toast } from "sonner";
@@ -184,12 +184,13 @@ export default function PageContact() {
                     render={({ field, fieldState }) => (
                       <Field data-invalid={fieldState.invalid}>
                         <FieldLabel htmlFor="user_email">
-                          이메일 (해당 메일로 답장이 전달됩니다.)
+                          해당 메일로 답장이 전달됩니다.{" "}
+                          <span className="star">*</span>
                         </FieldLabel>
                         <div
                           id="user_email"
                           aria-invalid={fieldState.invalid}
-                          className="font-anyvid flex min-h-10 w-full items-center rounded-md border border-input bg-muted/40 px-2.5 py-1 text-sm text-foreground"
+                          className="font-anyvid flex min-h-10 items-center justify-center text-center rounded border border-input border-red-100 text-red-500 bg-red-50 px-2.5 py-1 text-sm"
                         >
                           {field.value || "로그인된 이메일이 표시됩니다"}
                         </div>
@@ -213,7 +214,7 @@ export default function PageContact() {
                           id="message"
                           placeholder="문의 내용을 입력해주세요"
                           rows={10}
-                          className="h-55"
+                          className="h-50"
                           aria-invalid={fieldState.invalid}
                           disabled={!isLoggedIn}
                         />

@@ -4,7 +4,7 @@ import type { User } from "@supabase/supabase-js";
 import { basicMenuItems, guestMenuItems, userMenuItems } from "@/lib/menu";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { useSheet } from "@/contexts/sheet-context";
+import { useSheet } from "@/contexts/context-sheet";
 import { usePathname } from "next/navigation";
 import HeaderNavLink from "./header-nav-link";
 

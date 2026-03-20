@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { createClient } from "@/lib/supabase/client";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/contexts/context-auth";
 import type { Profile } from "@/lib/types";
 
 import PageLogin from "@/components/page/page-login";

@@ -28,6 +28,11 @@ npx shadcn@latest add input-otp
 npx shadcn@latest add table
 npx shadcn@latest add avatar
 npx shadcn@latest add field
+npx shadcn@latest add dropdown-menu
+npx shadcn@latest add select
+npx shadcn@latest add card
+npx shadcn@latest add popover
+npx shadcn@latest add tabs
 
 npm install resend    # 이메일 보내기
 ```
@@ -136,59 +141,6 @@ Soft Delete 방식을 사용한 안전한 회원 탈퇴 프로세스입니다.
      /auth/callback/route.ts에서
      is_deleted = TRUE 확인 후
      자동 로그아웃 및 /auth/deleted로 리다이렉트
-─────────────────────────────────────────────────────────────────
-```
-
----
-
-## 📧 신규 가입 관리자 알림 메일 과정
-
-Supabase Webhook + Nodemailer를 통해 신규 유저 가입 시 관리자에게 자동으로 이메일을 발송합니다.
-
-```
-─────────────────────────────────────────────────────────────────
-  1. 신규 유저 최초 로그인 (Google / Kakao OAuth)
-     /auth/callback/route.ts
-     → Supabase가 auth.users에 신규 유저 INSERT
-─────────────────────────────────────────────────────────────────
-                              ▼
-─────────────────────────────────────────────────────────────────
-  2. DB Trigger 자동 실행
-     supabase_function.sql
-     → auth.users INSERT 감지
-     → public.profiles 테이블에 신규 row INSERT
-     (handle_new_user 트리거)
-─────────────────────────────────────────────────────────────────
-                              ▼
-─────────────────────────────────────────────────────────────────
-  3. Supabase Database Webhook 발송
-     Supabase 대시보드 > Database > Webhooks
-     - 테이블: public.profiles
-     - 이벤트: INSERT
-     - URL: https://[DOMAIN]/api/webhook/new-user
-     - Secret: WEBHOOK_SECRET (환경변수)
-─────────────────────────────────────────────────────────────────
-                              ▼
-─────────────────────────────────────────────────────────────────
-  4. Next.js API Route 수신
-     /api/webhook/new-user/route.ts
-     - Authorization 헤더로 WEBHOOK_SECRET 검증
-     - 요청 body에서 신규 유저 정보 추출
-       (email, full_name, signup_provider, created_at)
-─────────────────────────────────────────────────────────────────
-                              ▼
-─────────────────────────────────────────────────────────────────
-  5. Nodemailer로 관리자 메일 발송
-     - SMTP: Gmail (App Password 사용)
-     - 발신: SMTP_USER (환경변수)
-     - 수신: ADMIN_EMAIL (환경변수)
-     - 내용: 신규 가입자 정보 (이름, 이메일, 가입 경로, 일시)
-─────────────────────────────────────────────────────────────────
-                              ▼
-─────────────────────────────────────────────────────────────────
-  6. 발송 완료
-     - 성공: 200 OK 반환
-     - 실패: 500 에러 반환 (Supabase Webhook 자동 재시도)
 ─────────────────────────────────────────────────────────────────
 ```
 

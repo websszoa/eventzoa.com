@@ -5,7 +5,7 @@ import PageFavorites from "@/components/page/page-favorites";
 export const metadata = {
   title: `${APP_NAME} 즐겨찾기 | ${APP_ENG_NAME} Favorites`,
   description:
-    "관심 있는 마라톤 대회를 한곳에서 편하게 확인하세요. 내가 찜한 대회를 빠르게 관리할 수 있습니다.",
+    "관심 있는 이벤트를 한곳에서 편하게 확인하세요. 내가 찜한 이벤트를 빠르게 관리할 수 있습니다.",
 };
 
 export default function FavoritesPage() {
@@ -14,7 +14,7 @@ export default function FavoritesPage() {
       <PageTitle
         subtitle="Favorites"
         title="즐겨찾기"
-        description="관심 있는 대회를 저장해두고 언제든지 빠르게 확인해보세요."
+        description="관심 있는 이벤트를 저장해두고 언제든지 빠르게 확인해보세요."
       />
       <PageFavorites />
     </>

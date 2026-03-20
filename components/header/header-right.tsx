@@ -2,8 +2,8 @@
 
 import { Candy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useSheet } from "@/contexts/sheet-context";
-import { useAuth } from "@/contexts/auth-context";
+import { useSheet } from "@/contexts/context-sheet";
+import { useAuth } from "@/contexts/context-auth";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 import HeaderInfo from "./header-info";
