@@ -12,6 +12,7 @@ import {
 
 import LoginButtonGoogle from "../auth/login-button-google";
 import LoginButtonKakao from "../auth/login-button-kakao";
+import LoginButtonNaver from "../auth/login-button-naver";
 
 interface DialogLoginProps {
   open: boolean;
@@ -58,6 +59,7 @@ export default function DialogLogin({ open, onOpenChange }: DialogLoginProps) {
         <div className="space-y-2">
           <LoginButtonGoogle />
           <LoginButtonKakao />
+          <LoginButtonNaver />
         </div>
       </DialogContent>
     </Dialog>
