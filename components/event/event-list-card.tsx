@@ -36,17 +36,17 @@ export default function EventListCard({ events }: { events: Event[] }) {
     <div className="event__list__card">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {events.map((event) => {
+          const coverImage = event.images?.cover?.[0];
+          const priceLabel = getPriceLabel(event.registration_price);
           const ddayInfo = getEventDdayInfo(
             event.event_start_at,
             event.event_end_at,
             event.id,
           );
-          const coverImage = event.images?.cover?.[0];
           const dateRange = formatDateRange(
             event.event_start_at,
             event.event_end_at,
           );
-          const priceLabel = getPriceLabel(event.registration_price);
 
           return (
             <Card
@@ -54,7 +54,7 @@ export default function EventListCard({ events }: { events: Event[] }) {
               className="flex h-full flex-col justify-between gap-2 border border-gray-200/80 bg-white/90 py-4 transition-all hover:-translate-y-0.5 hover:shadow-lg md:py-6"
             >
               <CardHeader className="px-4 md:px-6">
-                <CardTitle className="flex flex-col gap-2 text-lg font-semibold text-slate-900 md:text-2xl font-paperlogy">
+                <CardTitle className="flex flex-col gap-2 text-xl font-semibold text-slate-900 md:text-2xl font-paperlogy">
                   <Link
                     href={`/event/${event.slug}`}
                     className="min-w-0 flex-8 truncate text-left"
@@ -80,8 +80,9 @@ export default function EventListCard({ events }: { events: Event[] }) {
                     {coverImage ? (
                       <Image
                         src={coverImage}
-                        alt={event.name}
+                        alt={`${event.name} 행사 포스터`}
                         fill
+                        sizes="120px"
                         className="object-cover"
                       />
                     ) : (
@@ -231,13 +232,14 @@ export default function EventListCard({ events }: { events: Event[] }) {
                       href={`/event/${event.slug}`}
                       className="flex w-full min-w-0 items-center justify-center"
                     >
-                      <span className="block truncate group-hover:hidden">
+                      <span className="block truncate group-hover:hidden" aria-hidden="true">
                         벌써 {event.view_count}명이 봤어요! 🤹‍♂️
                       </span>
-                      <span className="hidden min-w-0 items-center gap-1 truncate group-hover:inline-flex">
+                      <span className="hidden min-w-0 items-center gap-1 truncate group-hover:inline-flex" aria-hidden="true">
                         <Eye className="h-4 w-4" />
                         자세히 보기
                       </span>
+                      <span className="sr-only">{event.name} 자세히 보기</span>
                     </Link>
                   </Button>
                 </div>

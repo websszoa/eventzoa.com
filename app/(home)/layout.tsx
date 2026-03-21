@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/footer";
 import Header from "@/components/header/header";
+import NavBottom from "@/components/nav/nav-bottom";
 
 export default function HomeLayout({
   children,
@@ -9,8 +10,9 @@ export default function HomeLayout({
   return (
     <>
       <Header />
-      <main className="main__container">{children}</main>
+      <main className="main__container pb-16">{children}</main>
       <Footer />
+      <NavBottom />
     </>
   );
 }

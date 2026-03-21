@@ -55,7 +55,7 @@ export default function EventNotice({
 
   return (
     <div className="event__notice">
-      <div className="my-4 rounded border border-gray-200/80 bg-slate-50/80 px-4 py-3 text-center text-sm text-muted-foreground font-anyvid">
+      <div aria-live="polite" aria-atomic="true" className="my-4 rounded border border-gray-200/80 bg-slate-50/80 px-4 py-3 text-center text-sm text-muted-foreground font-anyvid">
         <p>
           현재 <span className="text-red-500 font-semibold">{totalCount}</span>개의 이벤트가 있습니다.
           {filterText}

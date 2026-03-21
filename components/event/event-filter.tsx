@@ -1,7 +1,8 @@
 "use client";
 
-import { Settings } from "lucide-react";
+import { AtSign, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { APP_INSTAGRAM_URL, APP_THREADS_URL } from "@/lib/constants";
 import {
   Tooltip,
   TooltipContent,
@@ -71,6 +72,60 @@ export default function EventFilter({
           </TooltipTrigger>
           <TooltipContent>
             <p>{isFilterOpen ? "검색 필터 접기" : "검색 필터 열기"}</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="destructiveOutline"
+              className="w-10 h-10 rounded-full"
+              asChild
+            >
+              <a
+                href={APP_INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>인스타그램</p>
+          </TooltipContent>
+        </Tooltip>
+
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              variant="destructiveOutline"
+              className="w-10 h-10 rounded-full"
+              asChild
+            >
+              <a
+                href={APP_THREADS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AtSign className="h-4 w-4" />
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>스레드</p>
           </TooltipContent>
         </Tooltip>
       </div>

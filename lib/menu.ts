@@ -16,6 +16,12 @@ import {
   Cable,
   Helicopter,
   Rat,
+  Panda,
+  Tractor,
+  PocketKnife,
+  Castle,
+  Cake,
+  Goal,
 } from "lucide-react";
 
 export interface MenuItem {
@@ -35,7 +41,8 @@ export const basicMenuItems: MenuItem[] = [
 
 // 로그인 안 했을 때
 export const guestMenuItems: MenuItem[] = [
-  { icon: User, label: "내 정보", href: "/profile" },
+  { icon: Cake, label: "소개", href: "/about" },
+  { icon: Goal, label: "내 정보", href: "/profile" },
   { icon: Star, label: "즐겨찾기", href: "/favorites" },
 ];
 
@@ -54,10 +61,10 @@ export const footerMenuItems: MenuItem[] = [
 
 // 모바일 메뉴
 export const mobileMenuItems: MenuItem[] = [
-  { icon: Home, label: "홈", href: "/" },
-  { icon: Newspaper, label: "공지사항", href: "/notice" },
-  { icon: Rat, label: "문의하기", href: "/contact" },
-  { icon: Compass, label: "더보기", href: "#more" },
+  { icon: Castle, label: "홈", href: "/" },
+  { icon: Tractor, label: "공지사항", href: "/notice" },
+  { icon: Panda, label: "즐겨찾기", href: "/favorites" },
+  { icon: PocketKnife, label: "더보기", href: "#more" },
 ];
 
 // 관리자 메뉴

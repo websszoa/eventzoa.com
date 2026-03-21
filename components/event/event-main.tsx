@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { getEventStatus } from "@/lib/utils";
 import type {
   AreaFilter,
@@ -43,60 +43,60 @@ export default function EventMain({ events }: { events: Event[] }) {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // 필터 버튼 렌더링용 연도/지역 목록 추출
-  const years = Array.from(
-    new Set(events.map((e) => e.year).filter(Boolean)),
-  ).sort((a, b) => b - a);
+  const years = useMemo(
+    () =>
+      Array.from(new Set(events.map((e) => e.year).filter(Boolean))).sort(
+        (a, b) => b - a,
+      ),
+    [events],
+  );
 
-  const areas = Array.from(
-    new Set(
-      events
-        .map((e) => e.region?.trim())
-        .filter((r): r is string => Boolean(r)),
-    ),
+  const areas = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          events
+            .map((e) => e.region?.trim())
+            .filter((r): r is string => Boolean(r)),
+        ),
+      ),
+    [events],
   );
 
   // 필터 적용 (국가 → 연도 → 월 → 지역 → 진행상태 → 지난이벤트 → 검색어 순)
-  const filteredEvents = events
-    .filter((event) => {
-      if (countryFilter === "all") return true;
-      const isDomestic = event.country?.trim() === "한국";
-      if (countryFilter === "domestic") return isDomestic;
-      return !isDomestic;
-    })
-    .filter((event) => {
-      if (yearFilter === "all") return true;
-      return event.year === yearFilter;
-    })
-    .filter((event) => {
-      if (monthFilter === "all") return true;
-      return event.month === monthFilter;
-    })
-    .filter((event) => {
-      if (areaFilter === null) return true;
-      return event.region?.trim() === areaFilter;
-    })
-    .filter((event) => {
-      if (!mounted || statusFilter === "all") return true;
-      return (
-        getEventStatus(event.event_start_at, event.event_end_at) ===
-        statusFilter
-      );
-    })
-    .filter((event) => {
-      if (!mounted || pastFilter === "include") return true;
-      return (
-        getEventStatus(event.event_start_at, event.event_end_at) !== "ended"
-      );
-    })
-    .filter((event) => {
-      if (!searchQuery.trim()) return true;
-      const q = searchQuery.trim().toLowerCase();
-      return (
-        event.name?.toLowerCase().includes(q) ||
-        event.region?.toLowerCase().includes(q) ||
-        event.location?.place?.toLowerCase().includes(q)
-      );
+  const filteredEvents = useMemo(() => {
+    return events.filter((event) => {
+      if (countryFilter !== "all") {
+        const isDomestic = event.country?.trim() === "한국";
+        if (countryFilter === "domestic" && !isDomestic) return false;
+        if (countryFilter === "international" && isDomestic) return false;
+      }
+      if (yearFilter !== "all" && event.year !== yearFilter) return false;
+      if (monthFilter !== "all" && event.month !== monthFilter) return false;
+      if (areaFilter !== null && event.region?.trim() !== areaFilter) return false;
+      if (mounted) {
+        const status = getEventStatus(event.event_start_at, event.event_end_at);
+        if (statusFilter !== "all" && status !== statusFilter) return false;
+        if (pastFilter === "exclude" && status === "ended") return false;
+      }
+      if (searchQuery.trim()) {
+        const q = searchQuery.trim().toLowerCase();
+        if (
+          !event.name?.toLowerCase().includes(q) &&
+          !event.region?.toLowerCase().includes(q) &&
+          !event.location?.place?.toLowerCase().includes(q)
+        )
+          return false;
+      }
+      return true;
     });
+  }, [events, countryFilter, yearFilter, monthFilter, areaFilter, statusFilter, pastFilter, searchQuery, mounted]);
+
+  const handleFilterToggle = useCallback(() => setIsFilterOpen((prev) => !prev), []);
+  const handleSearchSubmit = useCallback(
+    () => setSearchQuery(searchInput.trim().slice(0, 100)),
+    [searchInput],
+  );
 
   return (
     <>
@@ -106,7 +106,7 @@ export default function EventMain({ events }: { events: Event[] }) {
       {/* 필터 */}
       <EventFilter
         isFilterOpen={isFilterOpen}
-        onFilterToggle={() => setIsFilterOpen((prev) => !prev)}
+        onFilterToggle={handleFilterToggle}
         countryFilter={countryFilter}
         yearFilter={yearFilter}
         monthFilter={monthFilter}
@@ -139,7 +139,7 @@ export default function EventMain({ events }: { events: Event[] }) {
       <EventSearchBar
         searchInput={searchInput}
         onSearchInputChange={setSearchInput}
-        onSearchSubmit={() => setSearchQuery(searchInput)}
+        onSearchSubmit={handleSearchSubmit}
         viewMode={viewMode}
         onViewModeChange={setViewMode}
       />

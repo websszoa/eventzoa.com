@@ -9,7 +9,7 @@ export default function FooterCopyright() {
         <div className="flex items-center gap-2 text-xs">
           <span>Made with</span>
           <Heart className="h-4 w-4" />
-          <span>for Eventzoa</span>
+          <span>for Event</span>
         </div>
       </div>
     </div>

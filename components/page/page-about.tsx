@@ -7,9 +7,9 @@ import { Hamburger } from "lucide-react";
 
 export default function PageAbout() {
   return (
-    <div className="space-y-4">
+    <>
       {/* 상단 소개 */}
-      <div className="rounded-2xl font-anyvid border border-dashed border-gray-200 p-4 md:p-8">
+      <div className="rounded-2xl font-anyvid border border-dashed border-gray-200 p-4 md:p-6">
         <section className="grid grid-cols-1 items-center gap-6 md:grid-cols-2 md:gap-8">
           <div className="relative w-full overflow-hidden rounded-xl border border-gray-100 bg-white">
             <Image
@@ -55,6 +55,6 @@ export default function PageAbout() {
           </div>
         </section>
       </div>
-    </div>
+    </>
   );
 }

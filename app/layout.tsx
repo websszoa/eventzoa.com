@@ -130,6 +130,17 @@ export default function RootLayout({
       <body
         className={`${anyvid.variable} ${nanumSquare.variable} ${paperlogy.variable}`}
       >
+        <div id="splash" role="status" aria-label="로딩 중" aria-live="polite">
+          <img
+            src="/icons/favicon.svg"
+            alt=""
+            width={72}
+            height={78}
+            className="splash__logo"
+          />
+          <span className="splash__name font-paperlogy">{APP_NAME}</span>
+          <span className="splash__slogan font-anyvid">{APP_SLOGAN}</span>
+        </div>
         <AuthProvider>
           <LoginProvider>
             <SheetProvider>

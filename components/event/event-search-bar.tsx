@@ -39,9 +39,12 @@ export default function EventSearchBar({
         >
           <div className="flex w-full items-center gap-2">
             <Input
+              id="event-search"
+              aria-label="이벤트 검색"
               placeholder="이벤트명 검색"
               className="h-10 w-full"
               value={searchInput}
+              maxLength={100}
               onChange={(e) => onSearchInputChange(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
