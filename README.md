@@ -207,3 +207,11 @@ sql/
 8. sql/supabase_event_alerts.sql
 9. sql/supabase_function.sql
 ```
+
+---
+
+## 기타 등록 사항
+
+### Google Search Console 등록
+
+- DNS 레코드를 통해 도메인 소유권 확인

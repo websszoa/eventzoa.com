@@ -57,6 +57,8 @@ export const userMenuItems: MenuItem[] = [
 export const footerMenuItems: MenuItem[] = [
   { icon: HandHeart, label: "소개", href: "/about" },
   { icon: Hamburger, label: "문의사항", href: "/contact" },
+  { icon: Compass, label: "이용약관", href: "/terms" },
+  { icon: Drama, label: "개인정보취급방침", href: "/privacy" },
 ];
 
 // 모바일 메뉴
