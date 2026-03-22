@@ -24,6 +24,10 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "websszoa.github.io",
       },
+      {
+        protocol: "https",
+        hostname: "phinf.pstatic.net",
+      },
     ],
   },
 };

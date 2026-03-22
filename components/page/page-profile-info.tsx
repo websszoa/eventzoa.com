@@ -93,6 +93,16 @@ export default function PageProfileInfo({ profile: initialProfile }: PageProfile
         </>
       );
     }
+    if (provider === "naver") {
+      return (
+        <>
+          <span className="inline-flex h-[18px] w-[18px] items-center justify-center rounded bg-[#03C75A] text-[10px] font-bold text-white">
+            N
+          </span>
+          (네이버로 가입)
+        </>
+      );
+    }
     return null;
   }
 

@@ -151,6 +151,9 @@ export default function AdminMember({ members }: { members: Profile[] }) {
                     {member.signup_provider === "kakao" && (
                       <Badge variant="outline">카카오</Badge>
                     )}
+                    {member.signup_provider === "naver" && (
+                      <Badge variant="outline">네이버</Badge>
+                    )}
                     {member.signup_provider === "email" && (
                       <Badge variant="outline">이메일</Badge>
                     )}

@@ -170,6 +170,11 @@
     @apply text-muted-foreground leading-6 text-sm list-disc list-inside ml-2;
   }
 
+  /* Detail Page */
+  .detail__container {
+    @apply border-t border-gray-300/20;
+  }
+
   /* etc */
   .star {
     @apply text-red-500 ml-[-6px];
