@@ -301,3 +301,7 @@ https://www.eventzoa.com/auth/callback
 ### 네이버 맵 API 등록
 
 - https://auth.ncloud.com/ 회원가입 및 로그인
+
+### 🔐 구글 캘린더 API 등록
+
+-- console.cloud.google.com 접속

@@ -131,7 +131,7 @@ export default function DetailMap({
                     rel="noopener noreferrer"
                   >
                     <Image
-                      src="/map/navermap.webp"
+                      src="/map/naver-map.webp"
                       alt="네이버 지도"
                       width={25}
                       height={25}
@@ -170,7 +170,7 @@ export default function DetailMap({
                   className="flex w-12 flex-col items-center justify-center gap-1 text-center transition-opacity hover:opacity-75"
                 >
                   <Image
-                    src="/map/googlemaps.webp"
+                    src="/map/google-maps.webp"
                     alt="Google Maps"
                     width={28}
                     height={28}

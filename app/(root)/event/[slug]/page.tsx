@@ -74,6 +74,9 @@ export default async function EventDetailPage({ params }: PageProps) {
 
   if (!event) return notFound();
 
+  // 조회수 증가
+  await supabase.rpc("increment_view_count", { p_event_id: event.id });
+
   return (
     <div className="detail__container border-t border-gray-300/20">
       {/* 헤더 */}

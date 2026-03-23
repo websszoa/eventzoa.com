@@ -16,6 +16,7 @@ import {
   Calendar,
   CircleDollarSign,
   Eye,
+  EyeIcon,
   Fan,
   MapPin,
   NotebookTabs,
@@ -150,7 +151,7 @@ export default function EventListCard({ events }: { events: Event[] }) {
 
                   <EventBtnLike eventId={event.id} />
 
-                  <EventBtnAlarm eventId={event.id} />
+                  <EventBtnAlarm eventId={event.id} event={event} />
 
                   <EventBtnComment eventId={event.id} />
 
@@ -164,10 +165,19 @@ export default function EventListCard({ events }: { events: Event[] }) {
                       className="flex w-full min-w-0 items-center justify-center"
                     >
                       <span
-                        className="block truncate group-hover:hidden"
+                        className="hidden truncate group-hover:hidden md:block"
                         aria-hidden="true"
                       >
-                        벌써 {event.view_count}명이 봤어요! 🤹‍♂️
+                        {event.view_count > 0
+                          ? `벌써 ${event.view_count}명이 봤어요! 🤹‍♂️`
+                          : "아직 아무도 안봤어요! 🙈"}
+                      </span>
+                      <span
+                        className="block truncate group-hover:hidden md:hidden flex items-center gap-1"
+                        aria-hidden="true"
+                      >
+                        <EyeIcon />
+                        VIEW
                       </span>
                       <span
                         className="hidden min-w-0 items-center gap-1 truncate group-hover:inline-flex"

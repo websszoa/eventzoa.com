@@ -3,10 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { LoginProvider } from "@/contexts/context-login";
-import { SheetProvider } from "@/contexts/context-sheet";
-import { AuthProvider } from "@/contexts/context-auth";
+import Providers from "@/components/providers/index";
 import {
   APP_DESCRIPTION,
   APP_KEYWORDS,
@@ -141,25 +138,21 @@ export default function RootLayout({
           <span className="splash__name font-paperlogy">{APP_NAME}</span>
           <span className="splash__slogan font-anyvid">{APP_SLOGAN}</span>
         </div>
-        <AuthProvider>
-          <LoginProvider>
-            <SheetProvider>
-              <Toaster
-                position="top-center"
-                toastOptions={{
-                  classNames: {
-                    title: "font-anyvid",
-                    description: "font-anyvid",
-                  },
-                }}
-              />
-              <Suspense fallback={null}>
-                <AuthToast />
-              </Suspense>
-              <TooltipProvider>{children}</TooltipProvider>
-            </SheetProvider>
-          </LoginProvider>
-        </AuthProvider>
+        <Providers>
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              classNames: {
+                title: "font-anyvid",
+                description: "font-anyvid",
+              },
+            }}
+          />
+          <Suspense fallback={null}>
+            <AuthToast />
+          </Suspense>
+          {children}
+        </Providers>
       </body>
     </html>
   );

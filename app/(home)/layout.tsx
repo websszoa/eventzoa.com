@@ -10,7 +10,7 @@ export default function HomeLayout({
   return (
     <>
       <Header />
-      <main className="main__container pb-16">{children}</main>
+      <main className="main__container">{children}</main>
       <Footer />
       <NavBottom />
     </>
