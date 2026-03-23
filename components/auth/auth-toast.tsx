@@ -12,6 +12,14 @@ export default function AuthToast() {
   useEffect(() => {
     const error = searchParams.get("error");
     const welcome = searchParams.get("welcome");
+    const calendar = searchParams.get("calendar");
+
+    if (calendar === "success") {
+      toast.success("구글 캘린더에 일정이 추가되었습니다.");
+    }
+    if (calendar === "error") {
+      toast.error("캘린더 추가에 실패했습니다. 다시 시도해주세요.");
+    }
 
     // 로그인/이메일 인증 성공
     if (welcome === "true") {
@@ -29,10 +37,11 @@ export default function AuthToast() {
     }
 
     // 표시한 뒤 URL에서 제거
-    if (welcome || error) {
+    if (welcome || error || calendar) {
       const newParams = new URLSearchParams(searchParams.toString());
       newParams.delete("welcome");
       newParams.delete("error");
+      newParams.delete("calendar");
       const newUrl = newParams.toString()
         ? `${pathname}?${newParams.toString()}`
         : pathname;
