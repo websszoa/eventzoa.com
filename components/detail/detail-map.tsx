@@ -28,6 +28,12 @@ export default function DetailMap({
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const [isMobileDevice, setIsMobileDevice] = useState(false);
+
+  useEffect(() => {
+    const ua = navigator.userAgent;
+    setIsMobileDevice(/iPhone|iPad|iPod|Android/i.test(ua));
+  }, []);
 
   const lat = event.location?.lat;
   const lng = event.location?.lng;
@@ -149,7 +155,9 @@ export default function DetailMap({
           <div className="relative">
             <div ref={mapRef} className="w-full h-[320px] bg-gray-100" />
             <div className="absolute top-3 left-3 bg-white rounded-xl shadow-md px-3 py-2 flex flex-col gap-2">
-              <span className="text-[11px] font-anyvid font-semibold text-gray-500 text-center">길찾기</span>
+              <span className="text-[12px] font-anyvid font-semibold text-gray-500 text-center">
+                길찾기
+              </span>
               <div className="flex items-center gap-2">
                 <a
                   href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`}
@@ -157,18 +165,36 @@ export default function DetailMap({
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity"
                 >
-                  <Image src="/map/googlemaps.webp" alt="Google Maps" width={28} height={28} className="rounded" />
-                  <span className="text-[10px] font-anyvid text-gray-500 leading-none">구글</span>
+                  <Image
+                    src="/map/googlemaps.webp"
+                    alt="Google Maps"
+                    width={28}
+                    height={28}
+                    className="rounded"
+                  />
+                  <span className="text-[12px] font-anyvid text-gray-500 leading-none">
+                    구글
+                  </span>
                 </a>
-                <a
-                  href={`https://tmap.co.kr/tmap2/mobile/route.jsp?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(event.location?.place || "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity"
-                >
-                  <Image src="/map/tmap.webp" alt="T맵" width={28} height={28} className="rounded" />
-                  <span className="text-[10px] font-anyvid text-gray-500 leading-none">티맵</span>
-                </a>
+                {isMobileDevice && (
+                  <a
+                    href={`https://tmap.co.kr/tmap2/mobile/route.jsp?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(event.location?.place || "")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity"
+                  >
+                    <Image
+                      src="/map/tmap.webp"
+                      alt="T맵"
+                      width={28}
+                      height={28}
+                      className="rounded"
+                    />
+                    <span className="text-[12px] font-anyvid text-gray-500 leading-none">
+                      티맵
+                    </span>
+                  </a>
+                )}
               </div>
             </div>
           </div>
