@@ -31,18 +31,17 @@ export async function GET(req: NextRequest) {
     return NextResponse.redirect(`${siteUrl}/?calendar=error`);
   }
 
-  // 2. 이벤트 캘린더 추가
+  // 2. 토큰 쿠키 먼저 저장 (55분) — 캘린더 추가 성공 여부와 무관하게 저장
+  const isProduction = process.env.NODE_ENV === "production";
+
+  // 3. 이벤트 캘린더 추가
   const result = await addToCalendarDirect(tokenData.access_token, eventId);
 
-  if (!result) {
-    return NextResponse.redirect(`${siteUrl}/?calendar=error`);
-  }
-
-  // 3. 토큰 쿠키 저장 (55분)
-  const res = NextResponse.redirect(`${siteUrl}/?calendar=success`);
+  const redirectUrl = result ? `${siteUrl}/?calendar=success` : `${siteUrl}/?calendar=error`;
+  const res = NextResponse.redirect(redirectUrl);
   res.cookies.set(COOKIE_NAME, tokenData.access_token, {
     httpOnly: true,
-    secure: true,
+    secure: isProduction,
     sameSite: "lax",
     maxAge: 60 * 55,
     path: "/",
