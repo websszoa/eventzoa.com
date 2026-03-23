@@ -109,7 +109,6 @@ export function getNaverCalendarAuthorizeUrl(redirectUri: string, state: string)
     client_id: clientId,
     redirect_uri: redirectUri,
     state,
-    scope: "calendar",
   });
   return `https://nid.naver.com/oauth2.0/authorize?${params.toString()}`;
 }
