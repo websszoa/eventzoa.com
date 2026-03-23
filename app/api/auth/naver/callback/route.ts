@@ -86,7 +86,7 @@ export async function GET(request: NextRequest) {
   } else {
     // 기존 유저 확인 - 이메일로 조회 (admin REST API 직접 호출)
     const findRes = await fetch(
-      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users?filter=email%3Deq.${encodeURIComponent(email)}`,
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users?filter=${encodeURIComponent(email)}`,
       {
         headers: {
           apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,

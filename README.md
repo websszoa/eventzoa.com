@@ -158,6 +158,92 @@ NAVER_CLIENT_SECRET=...
 
 ---
 
+## 📅 네이버 캘린더 추가 과정
+
+네이버 OAuth를 통해 이벤트 일정을 사용자의 네이버 캘린더에 추가하는 프로세스입니다.
+한 번 인증하면 토큰을 쿠키에 저장해 1시간 동안 재인증 없이 바로 추가할 수 있습니다.
+
+```
+─────────────────────────────────────────────────────────────────
+  1. 네이버 캘린더에 추가하기 버튼 클릭
+     dialog-alarm.tsx
+     → /api/auth/naver-calendar?eventId=... 로 요청
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  2. 캐시된 토큰 확인
+     /api/auth/naver-calendar/route.ts
+     - naver_cal_token 쿠키가 있으면 → 3번(API 호출)으로 바로 이동
+     - 쿠키가 없거나 만료되었으면 → 네이버 OAuth 페이지로 리다이렉트
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  3. 네이버 OAuth 인증 페이지 (토큰 없을 때)
+     https://nid.naver.com/oauth2.0/authorize
+     - scope: calendar, state: eventId
+     - 사용자가 네이버 계정 로그인 및 권한 승인
+     - 콜백 URL로 code, state(eventId) 파라미터 전달
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  4. 콜백 처리 - 토큰 교환
+     /auth/naver-calendar-callback/route.ts
+     - code → 네이버 access_token 교환
+       GET https://nid.naver.com/oauth2.0/token
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  5. 이벤트 정보 조회
+     - state(eventId)로 Supabase events 테이블 조회
+     - name, event_start_at, event_end_at, location 수신
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  6. 네이버 캘린더 API 호출
+     POST https://openapi.naver.com/calendar/createSchedule.json
+     - RFC 5545 iCalendar 형식으로 일정 데이터 구성
+       (lib/naver-calendar.ts - createNaverEventIcalString)
+     - calendarId: defaultCalendarId
+─────────────────────────────────────────────────────────────────
+                              ▼
+─────────────────────────────────────────────────────────────────
+  7. 완료 처리
+     - access_token을 naver_cal_token 쿠키에 저장 (유효시간 1시간)
+     - /event/{slug}?naver_calendar=success 로 리다이렉트
+     - 에러 시: /?naver_calendar=error&reason=... 로 리다이렉트
+─────────────────────────────────────────────────────────────────
+```
+
+### 필요한 파일
+
+```text
+app/
+├── api/auth/naver-calendar/route.ts     # 토큰 캐시 확인 + OAuth 리다이렉트
+└── auth/naver-calendar-callback/route.ts # 토큰 교환 + 캘린더 API 호출
+lib/
+└── naver-calendar.ts                    # iCal 문자열 생성 + OAuth URL 생성
+components/dialog/
+└── dialog-alarm.tsx                     # 네이버 캘린더 추가 버튼
+```
+
+### 환경변수
+
+```
+NAVER_CLIENT_ID=...       # 네이버 로그인과 동일한 키 사용
+NAVER_CLIENT_SECRET=...
+```
+
+### 네이버 개발자센터 설정
+
+- 앱 설정 → API 설정 → **캘린더** 서비스 추가
+- Callback URL 등록:
+  ```
+  https://eventzoa.com/auth/naver-calendar-callback
+  http://localhost:3000/auth/naver-calendar-callback
+  ```
+
+---
+
 ## 🗑️ 회원 탈퇴 과정
 
 Soft Delete 방식을 사용한 안전한 회원 탈퇴 프로세스입니다.

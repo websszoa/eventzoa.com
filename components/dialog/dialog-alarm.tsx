@@ -100,6 +100,26 @@ export default function DialogAlarm({
           </Button>
           <Button
             variant="outline"
+            className="w-full font-anyvid gap-2 border-[#03C75A] text-[#03C75A] bg-[#03C75A] text-white"
+            disabled={!eventId}
+            onClick={() => {
+              if (eventId) {
+                window.location.href = `/api/auth/naver-calendar?eventId=${eventId}`;
+              }
+            }}
+          >
+            <Image
+              src="/map/naver-calendar.webp"
+              alt=""
+              width={18}
+              height={18}
+              className="rounded"
+              aria-hidden="true"
+            />
+            네이버 캘린더에 추가하기
+          </Button>
+          <Button
+            variant="outline"
             className="w-full font-anyvid"
             onClick={() => onOpenChange(false)}
           >
