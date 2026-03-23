@@ -90,7 +90,7 @@ export async function GET(request: NextRequest) {
     calendarRes = await fetch(NAVER_CALENDAR_API_URL, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
         Authorization: `Bearer ${accessToken}`,
       },
       body: new URLSearchParams({ calendarId: "defaultCalendarId", scheduleIcalString }).toString(),
@@ -100,8 +100,9 @@ export async function GET(request: NextRequest) {
   }
 
   if (!calendarRes.ok) {
-    console.error("네이버 캘린더 추가 실패:", await calendarRes.text());
-    return makeError("api");
+    const errBody = await calendarRes.text();
+    console.error(`네이버 캘린더 추가 실패 [${calendarRes.status}]:`, errBody);
+    return makeError(`api_${calendarRes.status}`);
   }
 
   // 4. 성공: 토큰 쿠키 저장 후 이벤트 페이지로 리다이렉트
