@@ -14,11 +14,20 @@ const REGISTRATION_STATUS_VARIANT: Record<
 };
 
 export default function DetailRegistration({ event }: { event: Event }) {
-  const { registration_status, registration_start_at, registration_end_at,
-    registration_add_start_at, registration_add_end_at, registration_price } = event;
+  const {
+    registration_status,
+    registration_start_at,
+    registration_end_at,
+    registration_add_start_at,
+    registration_add_end_at,
+    registration_price,
+  } = event;
 
   const regPeriod = formatDateRange(registration_start_at, registration_end_at);
-  const addPeriod = formatDateRange(registration_add_start_at, registration_add_end_at);
+  const addPeriod = formatDateRange(
+    registration_add_start_at,
+    registration_add_end_at,
+  );
   const hasPrices = registration_price && registration_price.length > 0;
 
   return (
@@ -32,8 +41,14 @@ export default function DetailRegistration({ event }: { event: Event }) {
         {/* 접수 상태 */}
         {registration_status && (
           <div className="flex items-center gap-3">
-            <span className="w-20 shrink-0 text-muted-foreground">접수 상태</span>
-            <Badge variant={REGISTRATION_STATUS_VARIANT[registration_status] ?? "outline"}>
+            <span className="w-20 shrink-0 text-muted-foreground">
+              접수 상태
+            </span>
+            <Badge
+              variant={
+                REGISTRATION_STATUS_VARIANT[registration_status] ?? "outline"
+              }
+            >
               {registration_status}
             </Badge>
           </div>
@@ -42,16 +57,24 @@ export default function DetailRegistration({ event }: { event: Event }) {
         {/* 접수 기간 */}
         {regPeriod !== "-" && (
           <div className="flex items-start gap-3">
-            <span className="w-20 shrink-0 text-muted-foreground">접수 기간</span>
-            <span className="flex-1 text-slate-800 break-keep">{regPeriod}</span>
+            <span className="w-20 shrink-0 text-muted-foreground">
+              접수 기간
+            </span>
+            <span className="flex-1 text-slate-800 break-keep">
+              {regPeriod}
+            </span>
           </div>
         )}
 
         {/* 추가 접수 기간 */}
         {addPeriod !== "-" && (
           <div className="flex items-start gap-3">
-            <span className="w-20 shrink-0 text-muted-foreground">추가 접수</span>
-            <span className="flex-1 text-slate-800 break-keep">{addPeriod}</span>
+            <span className="w-20 shrink-0 text-muted-foreground">
+              추가 접수
+            </span>
+            <span className="flex-1 text-slate-800 break-keep">
+              {addPeriod}
+            </span>
           </div>
         )}
 
@@ -66,16 +89,27 @@ export default function DetailRegistration({ event }: { event: Event }) {
               <table className="w-full text-xs">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-200">
-                    <th className="px-3 py-2 text-left font-medium text-muted-foreground">구분</th>
-                    <th className="px-3 py-2 text-right font-medium text-muted-foreground">금액</th>
+                    <th className="px-3 py-2 text-left font-medium text-muted-foreground">
+                      구분
+                    </th>
+                    <th className="px-3 py-2 text-right font-medium text-muted-foreground">
+                      금액
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {registration_price.map((item, i) => (
-                    <tr key={i} className="border-b border-gray-100 last:border-0">
-                      <td className="px-3 py-2 text-slate-700">{item.distance}</td>
+                    <tr
+                      key={i}
+                      className="border-b border-gray-100 last:border-0"
+                    >
+                      <td className="px-3 py-2 text-slate-700">
+                        {item.distance}
+                      </td>
                       <td className="px-3 py-2 text-right text-slate-800 font-medium">
-                        {item.price ? `${item.price.toLocaleString()}원` : "무료"}
+                        {item.price
+                          ? `${item.price.toLocaleString()}원`
+                          : "무료"}
                       </td>
                     </tr>
                   ))}
@@ -86,7 +120,7 @@ export default function DetailRegistration({ event }: { event: Event }) {
         )}
 
         {!registration_status && regPeriod === "-" && !hasPrices && (
-          <p className="text-muted-foreground text-xs">접수 정보가 없습니다.</p>
+          <p className="text-muted-foreground">접수정보가 없습니다.</p>
         )}
       </div>
     </div>

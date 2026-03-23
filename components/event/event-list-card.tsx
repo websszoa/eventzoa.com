@@ -26,6 +26,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { APP_SITE_IMAGE_URL } from "@/lib/constants";
 
 export default function EventListCard({ events }: { events: Event[] }) {
   if (events.length === 0) {
@@ -36,7 +37,9 @@ export default function EventListCard({ events }: { events: Event[] }) {
     <div className="event__list__card">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {events.map((event) => {
-          const coverImage = event.images?.cover?.[0];
+          const coverImage = event.images?.cover?.[0]
+            ? `${APP_SITE_IMAGE_URL}${event.images.cover[0]}`
+            : null;
           const priceLabel = getPriceLabel(event.registration_price);
           const ddayInfo = getEventDdayInfo(
             event.event_start_at,

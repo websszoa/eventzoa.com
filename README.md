@@ -297,3 +297,7 @@ http://localhost:3000/**
 https://eventzoa.com/auth/callback
 https://www.eventzoa.com/auth/callback
 ```
+
+### 네이버 맵 API 등록
+
+- https://auth.ncloud.com/ 회원가입 및 로그인

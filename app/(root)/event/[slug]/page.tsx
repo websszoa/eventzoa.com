@@ -14,6 +14,8 @@ import DetailInfo from "@/components/detail/detail-info";
 import DetailGallery from "@/components/detail/detail-gallery";
 import DetailRegistration from "@/components/detail/detail-registration";
 import DetailSns from "@/components/detail/detail-sns";
+import DetailMap from "@/components/detail/detail-map";
+import DetailComment from "@/components/detail/detail-comment";
 import DetailNotice from "@/components/detail/detail-notice";
 
 interface PageProps {
@@ -98,7 +100,17 @@ export default async function EventDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Row 3: 주의사항(전체폭) */}
+        {/* Row 3:  네이버지도(2칸) + 댓글(1칸) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2">
+            <DetailMap event={event} clientId={process.env.NAVER_MAP_CLIENT_ID} />
+          </div>
+          <div className="lg:col-span-1">
+            <DetailComment eventId={event.id} />
+          </div>
+        </div>
+
+        {/* Row 4: 주의사항(전체폭) */}
         <DetailNotice event={event} />
       </div>
     </div>

@@ -1,5 +1,5 @@
 import type { Event } from "@/lib/types";
-import { formatDateRange, getEventDuration } from "@/lib/utils";
+import { formatDateRange, getEventDuration, getPriceLabel } from "@/lib/utils";
 import {
   Calendar,
   MapPin,
@@ -10,11 +10,13 @@ import {
   Building2,
   Phone,
   Mail,
+  CircleDollarSign,
 } from "lucide-react";
 
 export default function DetailInfo({ event }: { event: Event }) {
   const dateRange = formatDateRange(event.event_start_at, event.event_end_at);
   const duration = getEventDuration(event.event_start_at, event.event_end_at);
+  const priceLabel = getPriceLabel(event.registration_price);
 
   const rows = [
     {
@@ -44,6 +46,11 @@ export default function DetailInfo({ event }: { event: Event }) {
       icon: <PartyPopper className="h-4 w-4 text-rose-500 shrink-0" />,
       label: "프로그램",
       value: event.event_program,
+    },
+    {
+      icon: <CircleDollarSign className="h-4 w-4 text-green-500 shrink-0" />,
+      label: "참가비",
+      value: priceLabel,
     },
     {
       icon: <Building2 className="h-4 w-4 text-indigo-400 shrink-0" />,

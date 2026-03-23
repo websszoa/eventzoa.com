@@ -13,19 +13,19 @@ export default function DetailNotice({ event }: DetailNoticeProps) {
     <div className="detail__notice md:border border-gray-200 rounded-lg mb-8 md:mb-4 p-0 md:p-5 font-anyvid">
       <h3 className="flex items-center gap-2 font-paperlogy font-semibold text-lg">
         <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0" />
-        마라톤 주의사항
+        주의사항
       </h3>
       <div className="mt-2 space-y-3 text-sm text-slate-700">
         {hasSite && (
           <p className="flex flex-wrap items-center gap-1 rounded px-4 py-3 bg-gray-50">
-            <span>자세한 일정·코스·규정은</span>
+            <span>자세한 일정·규정은</span>
             <a
               href={event.event_site!}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-brand font-medium hover:underline underline-offset-4"
             >
-              공식 대회 사이트
+              공식 사이트
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
             <span>에서 확인해 주세요.</span>
