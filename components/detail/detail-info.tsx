@@ -75,24 +75,28 @@ export default function DetailInfo({ event }: { event: Event }) {
   ].filter(({ value }) => Boolean(value));
 
   return (
-    <div className="detail__info h-full border border-gray-200 rounded-2xl p-5">
-      <h3 className="flex items-center gap-2 font-paperlogy font-semibold text-lg mb-4">
-        <Clock className="w-5 h-5 text-brand shrink-0" />
-        이벤트 정보
-      </h3>
+    <div className="detail__info detail__box">
+      <div className="detail__header">
+        <Clock />
+        <h3> 이벤트 정보</h3>
+      </div>
 
-      <ul className="space-y-3 font-anyvid text-sm">
-        {rows.map(({ icon, label, value, extra }) => (
-          <li key={label} className="flex items-start gap-3">
-            <span className="mt-0.5">{icon}</span>
-            <span className="w-16 shrink-0 text-muted-foreground">{label}</span>
-            <span className="flex-1 text-slate-800 break-keep">
-              {value}
-              {extra}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <div className="p-4 md:p-6">
+        <ul className="space-y-3 font-anyvid text-sm">
+          {rows.map(({ icon, label, value, extra }) => (
+            <li key={label} className="flex items-start gap-3">
+              <span className="mt-0.5">{icon}</span>
+              <span className="w-16 shrink-0 text-muted-foreground">
+                {label}
+              </span>
+              <span className="flex-1 text-slate-800 break-keep">
+                {value}
+                {extra}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

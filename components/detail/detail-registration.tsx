@@ -1,4 +1,4 @@
-import { ClipboardList, CircleDollarSign } from "lucide-react";
+import { ClipboardList, CircleDollarSign, Crown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import type { Event } from "@/lib/types";
 import { formatDateRange } from "@/lib/utils";
@@ -31,11 +31,11 @@ export default function DetailRegistration({ event }: { event: Event }) {
   const hasPrices = registration_price && registration_price.length > 0;
 
   return (
-    <div className="detail__registration h-full border border-gray-200 rounded-2xl p-5">
-      <h3 className="flex items-center gap-2 font-paperlogy font-semibold text-lg mb-4">
-        <ClipboardList className="w-5 h-5 text-brand shrink-0" />
-        접수 정보
-      </h3>
+    <div className="detail__registration detail__box">
+      <div className="detail__header">
+        <ClipboardList />
+        <h3>접수 정보</h3>
+      </div>
 
       <div className="space-y-4 font-anyvid text-sm">
         {/* 접수 상태 */}
@@ -89,10 +89,10 @@ export default function DetailRegistration({ event }: { event: Event }) {
               <table className="w-full text-xs">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-200">
-                    <th className="px-3 py-2 text-left font-medium text-muted-foreground">
+                    <th scope="col" className="px-3 py-2 text-left font-medium text-muted-foreground">
                       구분
                     </th>
-                    <th className="px-3 py-2 text-right font-medium text-muted-foreground">
+                    <th scope="col" className="px-3 py-2 text-right font-medium text-muted-foreground">
                       금액
                     </th>
                   </tr>
@@ -100,7 +100,7 @@ export default function DetailRegistration({ event }: { event: Event }) {
                 <tbody>
                   {registration_price.map((item, i) => (
                     <tr
-                      key={i}
+                      key={`${item.distance}-${i}`}
                       className="border-b border-gray-100 last:border-0"
                     >
                       <td className="px-3 py-2 text-slate-700">
@@ -120,7 +120,12 @@ export default function DetailRegistration({ event }: { event: Event }) {
         )}
 
         {!registration_status && regPeriod === "-" && !hasPrices && (
-          <p className="text-muted-foreground">접수정보가 없습니다.</p>
+          <div className="text-center text-gray-500 text-sm font-nanumNeo border border-dashed rounded m-4">
+            <div className="p-4 md:p-6">
+              <Crown className="w-7 h-7 text-brand/20 mx-auto mb-2" />
+              <p>접수 정보가 없습니다.</p>
+            </div>
+          </div>
         )}
       </div>
     </div>

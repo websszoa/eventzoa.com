@@ -3,30 +3,26 @@ import Link from "next/link";
 import type { Event } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { APP_SITE_IMAGE_URL } from "@/lib/constants";
+import EventBtnAlarm from "@/components/event/event-btn-alarm";
+import EventBtnComment from "@/components/event/event-btn-comment";
+import EventBtnFavorite from "@/components/event/event-btn-favorite";
+import EventBtnLike from "@/components/event/event-btn-like";
+import EventBtnShare from "@/components/event/event-btn-share";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatDateRange, getEventDdayInfo, getPriceLabel } from "@/lib/utils";
 import {
-  Bell,
-  Bookmark,
   Building2,
   Calendar,
   CircleDollarSign,
   Eye,
   Fan,
-  Heart,
   MapPin,
-  MessageSquareMore,
   NotebookTabs,
   PartyPopper,
-  Share2,
 } from "lucide-react";
+
 import EventNoData from "./event-no-data";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { APP_SITE_IMAGE_URL } from "@/lib/constants";
 
 export default function EventListCard({ events }: { events: Event[] }) {
   if (events.length === 0) {
@@ -87,6 +83,8 @@ export default function EventListCard({ events }: { events: Event[] }) {
                         fill
                         sizes="120px"
                         className="object-cover"
+                        loading="eager"
+                        priority
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center text-gray-400">
@@ -141,90 +139,20 @@ export default function EventListCard({ events }: { events: Event[] }) {
                   </div>
                 </div>
                 <div className="flex w-full flex-wrap items-center gap-1">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        aria-label="공유하기"
-                        className="h-10 w-10 shrink-0 border-slate-200 text-slate-600 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"
-                      >
-                        <Share2 className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="font-nanumNeo">공유하기</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <EventBtnShare
+                    eventId={event.id}
+                    slug={event.slug}
+                    name={event.name}
+                    description={event.description}
+                  />
 
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        aria-label="즐겨찾기"
-                        className="h-10 w-10 shrink-0 border-slate-200 text-slate-600 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"
-                      >
-                        <Bookmark className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="font-nanumNeo">즐겨찾기</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <EventBtnFavorite eventId={event.id} />
 
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        aria-label="좋아요"
-                        className="h-10 w-10 shrink-0 border-slate-200 text-slate-600 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"
-                      >
-                        <Heart className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="font-nanumNeo">좋아요</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <EventBtnLike eventId={event.id} />
 
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        className="h-10 w-10 shrink-0 border-slate-200 text-slate-600 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"
-                        aria-label="알림 설정"
-                      >
-                        <Bell className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="font-nanumNeo">알림 설정</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <EventBtnAlarm eventId={event.id} />
 
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="outline"
-                        size="icon"
-                        className="h-10 w-10 shrink-0 border-slate-200 text-slate-600 transition-colors hover:border-red-200 hover:bg-red-50 hover:text-red-600"
-                        aria-label="댓글"
-                      >
-                        <MessageSquareMore className="h-4 w-4" />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="font-nanumNeo">댓글</p>
-                    </TooltipContent>
-                  </Tooltip>
+                  <EventBtnComment eventId={event.id} />
 
                   <Button
                     variant="outline"
@@ -235,10 +163,16 @@ export default function EventListCard({ events }: { events: Event[] }) {
                       href={`/event/${event.slug}`}
                       className="flex w-full min-w-0 items-center justify-center"
                     >
-                      <span className="block truncate group-hover:hidden" aria-hidden="true">
+                      <span
+                        className="block truncate group-hover:hidden"
+                        aria-hidden="true"
+                      >
                         벌써 {event.view_count}명이 봤어요! 🤹‍♂️
                       </span>
-                      <span className="hidden min-w-0 items-center gap-1 truncate group-hover:inline-flex" aria-hidden="true">
+                      <span
+                        className="hidden min-w-0 items-center gap-1 truncate group-hover:inline-flex"
+                        aria-hidden="true"
+                      >
                         <Eye className="h-4 w-4" />
                         자세히 보기
                       </span>

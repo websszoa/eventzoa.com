@@ -2,11 +2,16 @@
 -- 공유 테이블 생성
 -- ============================================
 CREATE TABLE IF NOT EXISTS public.event_shares (
-  id          UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id     UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
+  user_id UUID NOT NULL REFERENCES auth.users(id) ON DELETE CASCADE,
   event_id UUID NOT NULL REFERENCES public.events(id) ON DELETE CASCADE,
   created_at  TIMESTAMPTZ DEFAULT NOW() NOT NULL
 );
+
+ALTER TABLE public.event_shares
+  DROP CONSTRAINT IF EXISTS event_shares_pkey;
+
+ALTER TABLE public.event_shares
+  ADD CONSTRAINT event_shares_pkey PRIMARY KEY (user_id, event_id);
 
 -- ============================================
 -- 공유 인덱스
@@ -66,18 +71,33 @@ FOR EACH ROW EXECUTE FUNCTION public.fn_trg_event_shares_insert();
 -- RPC: 공유 추가
 -- ============================================
 CREATE OR REPLACE FUNCTION public.add_share(p_event_id UUID)
-RETURNS VOID
+RETURNS boolean
 LANGUAGE plpgsql
 SECURITY DEFINER
 SET search_path = public
 AS $$
+DECLARE
+  v_exists boolean;
 BEGIN
   IF auth.uid() IS NULL THEN
     RAISE EXCEPTION '로그인이 필요합니다.';
   END IF;
 
+  SELECT EXISTS (
+    SELECT 1
+    FROM public.event_shares
+    WHERE user_id = auth.uid()
+      AND event_id = p_event_id
+  ) INTO v_exists;
+
+  IF v_exists THEN
+    RETURN FALSE;
+  END IF;
+
   INSERT INTO public.event_shares (user_id, event_id)
   VALUES (auth.uid(), p_event_id);
+
+  RETURN TRUE;
 END;
 $$;
 

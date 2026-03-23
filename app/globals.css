@@ -174,6 +174,18 @@
   .detail__container {
     @apply border-t border-gray-300/20;
   }
+  .detail__box {
+    @apply h-full border border-gray-200 rounded-2xl overflow-hidden;
+  }
+  .detail__header {
+    @apply flex items-center gap-2 border-b border-gray-100 px-4 md:px-6 py-3 md:py-4;
+  }
+  .detail__header > svg {
+    @apply w-5 h-5 text-brand shrink-0;
+  }
+  .detail__header > h3 {
+    @apply font-paperlogy font-semibold text-lg;
+  }
 
   /* etc */
   .star {

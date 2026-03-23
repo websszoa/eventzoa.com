@@ -44,45 +44,49 @@ export default function DetailMap({
   const initMap = () => {
     if (!mapRef.current || !window.naver?.maps || !lat || !lng) return;
 
-    if (mapInstanceRef.current) {
-      mapInstanceRef.current.destroy();
-      mapInstanceRef.current = null;
-    }
+    try {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.destroy();
+        mapInstanceRef.current = null;
+      }
 
-    const center = new window.naver.maps.LatLng(lat, lng);
+      const center = new window.naver.maps.LatLng(lat, lng);
 
-    const map = new window.naver.maps.Map(mapRef.current, {
-      center,
-      zoom: 15,
-    });
+      const map = new window.naver.maps.Map(mapRef.current, {
+        center,
+        zoom: 15,
+      });
 
-    mapInstanceRef.current = map;
+      mapInstanceRef.current = map;
 
-    new window.naver.maps.Marker({
-      position: center,
-      map,
-      title: place,
-      icon: {
-        content: `
-          <div style="position:relative;width:44px;height:54px;">
-            <div style="
-              position:absolute;width:40px;height:40px;
-              background:white;border:3px solid #0048ef;
-              border-radius:50% 50% 50% 0;transform:rotate(-45deg);
-              box-shadow:0 2px 8px rgba(0,0,0,0.25);
-              display:flex;align-items:center;justify-content:center;
-            ">
-              <img
-                src="/icons/icon192.png"
-                style="width:22px;height:22px;transform:rotate(45deg);border-radius:50%;object-fit:cover;"
-                alt="marker"
-              />
+      new window.naver.maps.Marker({
+        position: center,
+        map,
+        title: place,
+        icon: {
+          content: `
+            <div style="position:relative;width:44px;height:54px;">
+              <div style="
+                position:absolute;width:40px;height:40px;
+                background:white;border:3px solid #0048ef;
+                border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+                box-shadow:0 2px 8px rgba(0,0,0,0.25);
+                display:flex;align-items:center;justify-content:center;
+              ">
+                <img
+                  src="/icons/icon192.png"
+                  style="width:22px;height:22px;transform:rotate(45deg);border-radius:50%;object-fit:cover;"
+                  alt="marker"
+                />
+              </div>
             </div>
-          </div>
-        `,
-        anchor: new window.naver.maps.Point(20, 54),
-      },
-    });
+          `,
+          anchor: new window.naver.maps.Point(20, 54),
+        },
+      });
+    } catch (e) {
+      console.error("네이버 지도 초기화 오류:", e);
+    }
   };
 
   useEffect(() => {
@@ -101,11 +105,11 @@ export default function DetailMap({
   }, [mapLoaded, lat, lng]);
 
   return (
-    <div className="detail__map h-full border border-gray-200 rounded-2xl overflow-hidden">
+    <div className="detail__map detail__box">
       {/* 헤더 */}
-      <div className="h-[60px] flex items-center gap-2 px-5 py-4 border-b border-gray-100">
-        <MapPin className="w-5 h-5 text-brand shrink-0" />
-        <h3 className="font-paperlogy font-semibold text-lg">행사 위치</h3>
+      <div className="detail__header">
+        <MapPin />
+        <h3>행사 위치</h3>
         {place && (
           <span className="hidden md:block text-sm text-muted-foreground font-anyvid truncate">
             {place}
@@ -154,16 +158,16 @@ export default function DetailMap({
           />
           <div className="relative">
             <div ref={mapRef} className="w-full h-[320px] bg-gray-100" />
-            <div className="absolute top-3 left-3 bg-white rounded-xl shadow-md px-3 py-2 flex flex-col gap-2">
-              <span className="text-[12px] font-anyvid font-semibold text-gray-500 text-center">
+            <div className="absolute top-3 left-3 flex flex-col items-center gap-2 rounded-xl bg-white px-3 py-2 shadow-md">
+              <span className="text-[12px] font-anyvid text-gray-700 text-center">
                 길찾기
               </span>
-              <div className="flex items-center gap-2">
+              <div className="flex items-start justify-center gap-3">
                 <a
                   href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity"
+                  className="flex w-12 flex-col items-center justify-center gap-1 text-center transition-opacity hover:opacity-75"
                 >
                   <Image
                     src="/map/googlemaps.webp"
@@ -181,7 +185,7 @@ export default function DetailMap({
                     href={`https://tmap.co.kr/tmap2/mobile/route.jsp?goalx=${lng}&goaly=${lat}&goalname=${encodeURIComponent(event.location?.place || "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex flex-col items-center gap-1 hover:opacity-75 transition-opacity"
+                    className="flex w-12 flex-col items-center justify-center gap-1 text-center transition-opacity hover:opacity-75"
                   >
                     <Image
                       src="/map/tmap.webp"

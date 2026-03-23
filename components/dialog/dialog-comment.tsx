@@ -1,13 +1,21 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
-import { TentTree, Send } from "lucide-react";
+import { useState } from "react";
+import { APP_ENG_NAME } from "@/lib/constants";
+import { toast } from "sonner";
+import { TentTree } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { useAuth } from "@/contexts/context-auth";
 import { useLogin } from "@/contexts/context-login";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Field,
+  FieldLabel,
+  FieldDescription,
+  FieldError,
+} from "@/components/ui/field";
 import {
   Dialog,
   DialogContent,
@@ -15,8 +23,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-import { APP_ENG_NAME, APP_NAME } from "@/lib/constants";
-import { toast } from "sonner";
 
 function getFaceImage(userId: string | null) {
   if (!userId) return `/face/face01.png`;
@@ -33,6 +39,8 @@ interface DialogCommentProps {
   onSuccess?: () => void;
 }
 
+const supabase = createClient();
+
 export default function DialogComment({
   eventId,
   open,
@@ -43,7 +51,6 @@ export default function DialogComment({
   const { openLogin } = useLogin();
   const [content, setContent] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const supabase = createClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -82,46 +89,55 @@ export default function DialogComment({
             </DialogTitle>
           </div>
           <DialogDescription className="text-sm text-center font-anyvid break-keep">
-            {APP_NAME}의 이벤트에 대한 리뷰를 남겨주세요.
+            이벤트에 대한 리뷰를 남겨주세요.
           </DialogDescription>
         </DialogHeader>
 
         {user ? (
           <form onSubmit={handleSubmit} className="space-y-3">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground font-anyvid border border-gray-100 rounded-lg px-3 py-2 bg-gray-50">
-              <Image
-                src={getFaceImage(user.id)}
-                alt=""
-                width={28}
-                height={28}
-                className="rounded-full shrink-0"
+            <Field>
+              <FieldLabel>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground font-anyvid border border-gray-100 rounded-lg px-3 py-2 bg-gray-50 w-full">
+                  <Image
+                    src={getFaceImage(user.id)}
+                    alt={`${user.user_metadata?.full_name ?? user.email ?? "사용자"} 프로필`}
+                    width={28}
+                    height={28}
+                    className="rounded-full shrink-0"
+                  />
+                  <span className="truncate font-normal">
+                    {user.user_metadata?.full_name ?? user.email}
+                  </span>
+                </div>
+              </FieldLabel>
+              <Textarea
+                id="comment"
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="댓글을 입력하세요 (최대 200자)"
+                aria-label="댓글 내용 입력"
+                maxLength={200}
+                rows={5}
+                className="resize-none font-anyvid text-sm"
               />
-              <span className="truncate">
-                {user.user_metadata?.full_name ?? user.email}
-              </span>
-            </div>
-            <Textarea
-              value={content}
-              onChange={(e) => setContent(e.target.value)}
-              placeholder="댓글을 입력하세요 (최대 200자)"
-              maxLength={200}
-              rows={5}
-              className="resize-none font-anyvid text-sm"
-            />
-            <div className="flex items-center justify-between">
-              <span className="text-xs text-muted-foreground font-anyvid">
-                {content.length}/200
-              </span>
-              <Button
-                type="submit"
-                variant="destructive"
-                size="sm"
-                disabled={!content.trim() || isSubmitting}
-                className="gap-1.5 font-anyvid"
-              >
-                등록
-              </Button>
-            </div>
+              <FieldDescription className="flex items-center justify-between">
+                <span className="text-xs text-muted-foreground font-anyvid">
+                  {content.length}/200
+                </span>
+                <Button
+                  type="submit"
+                  variant="destructive"
+                  size="sm"
+                  disabled={!content.trim() || isSubmitting}
+                  className="gap-1.5 font-anyvid"
+                >
+                  등록
+                </Button>
+              </FieldDescription>
+              {content.length >= 200 && (
+                <FieldError>최대 200자까지 입력할 수 있습니다.</FieldError>
+              )}
+            </Field>
           </form>
         ) : (
           <div className="space-y-2">

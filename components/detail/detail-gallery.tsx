@@ -13,7 +13,7 @@ export default function DetailGallery({ event }: { event: Event }) {
       {coverImages.length > 0 ? (
         <div className="flex flex-col gap-0 p-4">
           {coverImages.map((src, i) => (
-            <div key={i} className="relative w-full bg-gray-100">
+            <div key={src} className="relative w-full bg-gray-100">
               <Image
                 src={src}
                 alt={`${event.name} 이미지 ${i + 1}`}
@@ -27,8 +27,12 @@ export default function DetailGallery({ event }: { event: Event }) {
           ))}
         </div>
       ) : (
-        <div className="flex h-full items-center justify-center bg-gray-50 text-gray-300">
-          <Fan className="h-12 w-12 animate-spin" style={{ animationDuration: "3s" }} />
+        <div className="flex h-full min-h-[100px] items-center justify-center bg-gray-50 text-gray-300">
+          <Fan
+            className="h-12 w-12 animate-spin"
+            style={{ animationDuration: "3s" }}
+            aria-hidden="true"
+          />
         </div>
       )}
     </div>
