@@ -136,7 +136,9 @@ export default function RootLayout({
             className="splash__logo"
           />
           <span className="splash__name font-paperlogy">{APP_NAME}</span>
-          <span className="splash__slogan font-anyvid">{APP_SLOGAN}</span>
+          <span className="splash__slogan font-anyvid text-muted-foreground">
+            {APP_SLOGAN}
+          </span>
         </div>
         <Providers>
           <Toaster

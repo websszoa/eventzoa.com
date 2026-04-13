@@ -6,7 +6,7 @@ import {
 
 export default function EventTitle() {
   return (
-    <div className="marathon__title">
+    <div className="event__title">
       <div className="text-center border-t border-gray-300/40 py-8">
         <span className="text-sm font-semibold uppercase tracking-[0.35em] text-brand">
           {APP_ENG_NAME}
