@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Suspense } from "react";
 import { Toaster } from "sonner";
-import Providers from "@/components/providers/index";
 import {
   APP_DESCRIPTION,
   APP_KEYWORDS,
@@ -12,6 +12,7 @@ import {
   APP_SLOGAN,
 } from "@/lib/constants";
 
+import Providers from "@/components/providers/index";
 import AuthToast from "@/components/auth/auth-toast";
 
 const anyvid = localFont({
@@ -156,6 +157,7 @@ export default function RootLayout({
           {children}
         </Providers>
       </body>
+      <GoogleAnalytics gaId="G-CKHY83R75N" />
     </html>
   );
 }
