@@ -93,7 +93,7 @@ export default async function EventDetailPage({ params }: PageProps) {
           </div>
         </div>
 
-        {/* Row 2: 접수 정보(1칸) + 관련 링크(2칸) */}
+        {/* Row 2: 가격 정보(1칸) + 관련 링크(2칸) */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="lg:col-span-1">
             <DetailRegistration event={event} />

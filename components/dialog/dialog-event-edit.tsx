@@ -64,9 +64,6 @@ const defaultValues: EventAddFormValues = {
   imagesDetail: [{ src: "" }],
   hostsOrganizer: "",
   hostsManage: "",
-  hostsSponsor: "",
-  hostsPartner: "",
-  hostsSouvenir: "",
   hostsPhone: "",
   hostsEmail: "",
   snsKakao: "",
@@ -113,9 +110,6 @@ function mapEventToFormValues(event: EventItem): EventAddFormValues {
       : [{ src: "" }],
     hostsOrganizer: event.hosts?.organizer ?? "",
     hostsManage: event.hosts?.manage ?? "",
-    hostsSponsor: event.hosts?.sponsor ?? "",
-    hostsPartner: event.hosts?.partner ?? "",
-    hostsSouvenir: event.hosts?.souvenir ?? "",
     hostsPhone: event.hosts?.phone ?? "",
     hostsEmail: event.hosts?.email ?? "",
     snsKakao: event.sns?.kakao ?? "",
@@ -211,9 +205,6 @@ export default function DialogEventEdit({
           hosts: {
             organizer: data.hostsOrganizer?.trim() || null,
             manage: data.hostsManage?.trim() || null,
-            sponsor: data.hostsSponsor?.trim() || null,
-            partner: data.hostsPartner?.trim() || null,
-            souvenir: data.hostsSouvenir?.trim() || null,
             phone: data.hostsPhone?.trim() || null,
             email: data.hostsEmail?.trim() || null,
           },
@@ -511,7 +502,17 @@ export default function DialogEventEdit({
                       <FieldContent>
                         <Select
                           value={field.value}
-                          onValueChange={field.onChange}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+
+                            if (value === "유료" && priceFields.fields.length === 0) {
+                              priceFields.append({ distance: "", price: "" });
+                            }
+
+                            if (value === "무료" && priceFields.fields.length > 0) {
+                              priceFields.replace([]);
+                            }
+                          }}
                           disabled={isPending}
                         >
                           <SelectTrigger id={field.name} className="w-full">
@@ -528,47 +529,49 @@ export default function DialogEventEdit({
                 />
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <Controller
-                  control={control}
-                  name="registrationStartAt"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        접수 시작 일시
-                      </FieldLabel>
-                      <FieldContent>
-                        <DateTimePicker
-                          value={field.value}
-                          onChange={field.onChange}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
+              {watchedStatus && (
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Controller
+                    control={control}
+                    name="registrationStartAt"
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor={field.name}>
+                          접수 시작 일시
+                        </FieldLabel>
+                        <FieldContent>
+                          <DateTimePicker
+                            value={field.value}
+                            onChange={field.onChange}
+                            aria-invalid={fieldState.invalid}
+                            disabled={isPending}
+                          />
+                        </FieldContent>
+                      </Field>
+                    )}
+                  />
 
-                <Controller
-                  control={control}
-                  name="registrationEndAt"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        접수 마감 일시
-                      </FieldLabel>
-                      <FieldContent>
-                        <DateTimePicker
-                          value={field.value}
-                          onChange={field.onChange}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-              </div>
+                  <Controller
+                    control={control}
+                    name="registrationEndAt"
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor={field.name}>
+                          접수 마감 일시
+                        </FieldLabel>
+                        <FieldContent>
+                          <DateTimePicker
+                            value={field.value}
+                            onChange={field.onChange}
+                            aria-invalid={fieldState.invalid}
+                            disabled={isPending}
+                          />
+                        </FieldContent>
+                      </Field>
+                    )}
+                  />
+                </div>
+              )}
 
               {watchedStatus === "추가접수" && (
                 <div className="grid gap-4 md:grid-cols-2">
@@ -616,7 +619,7 @@ export default function DialogEventEdit({
 
               {watchedFee === "유료" && (
                 <Field>
-                  <FieldLabel>접수 가격</FieldLabel>
+                  <FieldLabel>입장료</FieldLabel>
                   <FieldContent>
                     <div className="space-y-2">
                       {priceFields.fields.map((item, index) => {
@@ -929,65 +932,6 @@ export default function DialogEventEdit({
                           aria-invalid={fieldState.invalid}
                           disabled={isPending}
                           placeholder="예: 주관사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-              </div>
-
-              <div className="grid gap-4">
-                <Controller
-                  control={control}
-                  name="hostsSponsor"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>스폰서</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 후원사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-
-                <Controller
-                  control={control}
-                  name="hostsPartner"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>협력업체</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 협력사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-
-                <Controller
-                  control={control}
-                  name="hostsSouvenir"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>기념품</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 티셔츠, 에코백"
                           {...field}
                         />
                       </FieldContent>

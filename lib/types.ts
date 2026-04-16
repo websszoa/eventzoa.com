@@ -78,9 +78,6 @@ export type EventLocation = {
 export type EventHosts = {
   organizer?: string | null;
   manage?: string | null;
-  sponsor?: string | null;
-  partner?: string | null;
-  souvenir?: string | null;
   phone?: string | null;
   email?: string | null;
 };

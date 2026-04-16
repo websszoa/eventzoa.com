@@ -1,95 +1,112 @@
 "use client";
 
 import { useState } from "react";
-import { format, parse, isValid } from "date-fns";
+import { format, isValid } from "date-fns";
 import { ko } from "date-fns/locale";
 import { CalendarIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
-/*
- * datetime-local 형식("2026-04-03T10:00")의 문자열을 value로 받아
- * 날짜(Calendar) + 시간(Input)을 조합해 동일 형식으로 onChange에 전달합니다.
- */
-interface DateTimePickerProps {
+type DateTimePickerProps = {
+  id?: string;
   value?: string;
   onChange?: (value: string) => void;
   disabled?: boolean;
-  placeholder?: string;
   "aria-invalid"?: boolean;
-}
+  className?: string;
+};
 
 export function DateTimePicker({
-  value = "",
+  id,
+  value,
   onChange,
-  disabled = false,
-  placeholder = "날짜 선택",
+  disabled,
   "aria-invalid": ariaInvalid,
+  className,
 }: DateTimePickerProps) {
   const [open, setOpen] = useState(false);
 
-  // value에서 날짜/시간 파싱
-  const dateStr = value.slice(0, 10); // "2026-04-03"
-  const timeStr = value.slice(11, 16) || "00:00"; // "10:00"
+  // value는 "YYYY-MM-DDTHH:mm" 또는 ISO 문자열
+  const parsed = value ? new Date(value) : undefined;
+  const date = parsed && isValid(parsed) ? parsed : undefined;
 
-  const selectedDate =
-    dateStr && isValid(new Date(dateStr)) ? new Date(dateStr) : undefined;
+  const timeString = date ? format(date, "HH:mm") : "00:00";
 
-  const handleDateSelect = (date: Date | undefined) => {
-    if (!date) return;
-    const newDate = format(date, "yyyy-MM-dd");
-    onChange?.(`${newDate}T${timeStr}`);
+  const handleDateSelect = (selected: Date | undefined) => {
+    if (!selected) return;
+    const [h, m] = timeString.split(":").map(Number);
+    const next = new Date(selected);
+    next.setHours(h, m, 0, 0);
+    onChange?.(format(next, "yyyy-MM-dd'T'HH:mm"));
   };
 
   const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newTime = e.target.value;
-    if (dateStr) {
-      onChange?.(`${dateStr}T${newTime}`);
-    }
+    const t = e.target.value;
+    if (!t) return;
+    const [h, m] = t.split(":").map(Number);
+    const base = date ? new Date(date) : new Date();
+    base.setHours(h, m, 0, 0);
+    onChange?.(format(base, "yyyy-MM-dd'T'HH:mm"));
   };
 
-  const displayValue = selectedDate
-    ? `${format(selectedDate, "yyyy년 M월 d일", { locale: ko })} ${timeStr}`
-    : "";
-
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover
+      open={open}
+      onOpenChange={disabled ? undefined : setOpen}
+      modal={false}
+    >
       <PopoverTrigger asChild>
         <Button
           type="button"
           variant="outline"
+          id={id}
           disabled={disabled}
           aria-invalid={ariaInvalid}
           className={cn(
-            "w-full justify-start text-left font-anyvid font-normal",
-            !displayValue && "text-muted-foreground",
+            "w-full justify-start text-left font-anyvid font-normal h-10",
+            !date && "text-muted-foreground",
+            className,
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4 shrink-0" />
-          {displayValue || placeholder}
+          {date
+            ? format(date, "yyyy년 M월 d일(EEE) HH:mm", { locale: ko })
+            : "날짜 선택"}
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent
+        className="w-auto p-0"
+        align="start"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <Calendar
           mode="single"
-          selected={selectedDate}
+          selected={date}
           onSelect={handleDateSelect}
           locale={ko}
-          initialFocus
+          captionLayout="dropdown"
+          startMonth={new Date(2020, 0)}
+          endMonth={new Date(2030, 11)}
         />
-        <div className="border-t p-3">
-          <Input
+        {/* 시간 선택 */}
+        <div className="font-anyvid flex items-center gap-2 border-t px-4 py-3">
+          <CalendarIcon className="h-4 w-4 text-muted-foreground" />
+          <input
             type="time"
-            value={timeStr}
+            value={timeString}
             onChange={handleTimeChange}
-            className="font-anyvid text-muted-foreground"
+            disabled={disabled}
+            className={cn(
+              "flex-1 rounded border border-input bg-transparent px-2 py-1 text-sm",
+              "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring",
+              "disabled:cursor-not-allowed disabled:opacity-50",
+            )}
           />
         </div>
       </PopoverContent>

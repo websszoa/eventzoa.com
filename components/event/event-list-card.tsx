@@ -10,7 +10,7 @@ import EventBtnFavorite from "@/components/event/event-btn-favorite";
 import EventBtnLike from "@/components/event/event-btn-like";
 import EventBtnShare from "@/components/event/event-btn-share";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { formatDateRange, getEventDdayInfo, getPriceLabel } from "@/lib/utils";
+import { formatDateRange, getEventDdayInfo } from "@/lib/utils";
 import {
   Building2,
   Calendar,
@@ -37,7 +37,7 @@ export default function EventListCard({ events }: { events: Event[] }) {
           const coverImage = event.images?.cover?.[0]
             ? `${APP_SITE_IMAGE_URL}${event.images.cover[0]}`
             : null;
-          const priceLabel = getPriceLabel(event.registration_price);
+          const priceLabel = getCardPriceLabel(event.registration_price);
           const ddayInfo = getEventDdayInfo(
             event.event_start_at,
             event.event_end_at,
@@ -105,14 +105,10 @@ export default function EventListCard({ events }: { events: Event[] }) {
                         {event.region}, {event.location?.place ?? "-"}
                       </span>
                     </div>
-                    {priceLabel !== "-" && (
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CircleDollarSign className="h-4 w-4 shrink-0 text-green-500" />
-                        <span className="truncate font-anyvid">
-                          {priceLabel}
-                        </span>
-                      </div>
-                    )}
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <CircleDollarSign className="h-4 w-4 shrink-0 text-green-500" />
+                      <span className="truncate font-anyvid">{priceLabel}</span>
+                    </div>
                     {event.hosts?.organizer && (
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         <Building2 className="h-4 w-4 shrink-0 text-indigo-500" />
@@ -197,4 +193,23 @@ export default function EventListCard({ events }: { events: Event[] }) {
       </div>
     </div>
   );
+}
+
+function getCardPriceLabel(
+  price: { distance: string; price: number | null }[] | null | undefined,
+): string {
+  if (!price || price.length === 0) return "무료";
+
+  const numericPrices = price
+    .map((item) => item.price)
+    .filter((value): value is number => value != null && value > 0);
+
+  if (numericPrices.length === 0) return "무료";
+
+  const min = Math.min(...numericPrices);
+  const max = Math.max(...numericPrices);
+
+  if (min === max) return `${min.toLocaleString()}원`;
+
+  return `${min.toLocaleString()}원 ~ ${max.toLocaleString()}원`;
 }

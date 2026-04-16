@@ -1,0 +1,42 @@
+{
+  "year": 2026,
+  "month": 5,
+  "country": "한국",
+  "region": "경기",
+  "name": "2026 포천 가든페스타",
+  "slug": "2026-pocheon-garden-festa",
+  "description": "포천에서 개최되는 정원 문화 축제로, 다양한 정원 전시와 프로그램을 통해 자연과 정원 문화를 체험할 수 있는 행사입니다.",
+
+  "event_start_at": "2026-05-01T00:00:00+09:00",
+  "event_end_at": "2026-06-15T23:59:59+09:00",
+  "event_scale": null,
+  "event_type": "축제",
+  "event_site": "https://www.pocheon-gardenfesta.kr/",
+  "event_program": "정원 전시 및 관련 프로그램 운영",
+
+  "registration_status": null,
+  "registration_start_at": null,
+  "registration_end_at": null,
+  "registration_price": null,
+
+  "images": {
+    "cover": ["2026-pocheon-garden-festa.jpg"],
+    "detail": []
+  },
+  "location": {
+    "lat": "38.008380",
+    "lng": "127.067478",
+    "place": "한탄강생태경관단지",
+    "region": "경기",
+    "country": "한국"
+  },
+  "hosts": {
+    "email": null,
+    "phone": null,
+    "organizer": "포천시"
+  },
+  "sns": {
+    "youtube": null,
+    "instagram": null
+  }
+}

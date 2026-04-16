@@ -69,9 +69,6 @@ const defaultValues: EventAddFormValues = {
   imagesDetail: [{ src: "" }],
   hostsOrganizer: "",
   hostsManage: "",
-  hostsSponsor: "",
-  hostsPartner: "",
-  hostsSouvenir: "",
   hostsPhone: "",
   hostsEmail: "",
   snsKakao: "",
@@ -102,7 +99,7 @@ export default function DialogEventAdd({
   const watchedStatus = watch("registrationStatus");
   const watchedFee = watch("registrationFee");
 
-  // 접수 가격
+  // 입장료
   const priceFields = useFieldArray({ control, name: "registrationPrice" });
   // 커버 이미지
   const coverFields = useFieldArray({ control, name: "imagesCover" });
@@ -139,7 +136,7 @@ export default function DialogEventAdd({
             lat: data.lat ? Number(data.lat) : null,
             lng: data.lng ? Number(data.lng) : null,
           },
-          registration_status: data.registrationStatus ?? null,
+          registration_status: data.registrationStatus || null,
           registration_start_at: toIsoString(data.registrationStartAt),
           registration_end_at: toIsoString(data.registrationEndAt),
           registration_add_start_at: toIsoString(data.registrationAddStartAt),
@@ -157,9 +154,6 @@ export default function DialogEventAdd({
           hosts: {
             organizer: data.hostsOrganizer?.trim() || null,
             manage: data.hostsManage?.trim() || null,
-            sponsor: data.hostsSponsor?.trim() || null,
-            partner: data.hostsPartner?.trim() || null,
-            souvenir: data.hostsSouvenir?.trim() || null,
             phone: data.hostsPhone?.trim() || null,
             email: data.hostsEmail?.trim() || null,
           },
@@ -281,6 +275,7 @@ export default function DialogEventAdd({
                       </FieldLabel>
                       <FieldContent>
                         <DateTimePicker
+                          id={field.name}
                           value={field.value}
                           onChange={field.onChange}
                           aria-invalid={fieldState.invalid}
@@ -302,6 +297,7 @@ export default function DialogEventAdd({
                       </FieldLabel>
                       <FieldContent>
                         <DateTimePicker
+                          id={field.name}
                           value={field.value}
                           onChange={field.onChange}
                           aria-invalid={fieldState.invalid}
@@ -434,7 +430,17 @@ export default function DialogEventAdd({
                       <FieldContent>
                         <Select
                           value={field.value}
-                          onValueChange={field.onChange}
+                          onValueChange={(value) => {
+                            field.onChange(value);
+
+                            if (value === "유료" && priceFields.fields.length === 0) {
+                              priceFields.append({ distance: "", price: "" });
+                            }
+
+                            if (value === "무료" && priceFields.fields.length > 0) {
+                              priceFields.replace([]);
+                            }
+                          }}
                           disabled={isPending}
                         >
                           <SelectTrigger id={field.name} className="w-full">
@@ -451,47 +457,49 @@ export default function DialogEventAdd({
                 />
               </div>
 
-              <div className="grid gap-4 md:grid-cols-2">
-                <Controller
-                  control={control}
-                  name="registrationStartAt"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        접수 시작 일시
-                      </FieldLabel>
-                      <FieldContent>
-                        <DateTimePicker
-                          value={field.value}
-                          onChange={field.onChange}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
+              {watchedStatus && (
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Controller
+                    control={control}
+                    name="registrationStartAt"
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor={field.name}>
+                          접수 시작 일시
+                        </FieldLabel>
+                        <FieldContent>
+                          <DateTimePicker
+                            value={field.value}
+                            onChange={field.onChange}
+                            aria-invalid={fieldState.invalid}
+                            disabled={isPending}
+                          />
+                        </FieldContent>
+                      </Field>
+                    )}
+                  />
 
-                <Controller
-                  control={control}
-                  name="registrationEndAt"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>
-                        접수 마감 일시
-                      </FieldLabel>
-                      <FieldContent>
-                        <DateTimePicker
-                          value={field.value}
-                          onChange={field.onChange}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-              </div>
+                  <Controller
+                    control={control}
+                    name="registrationEndAt"
+                    render={({ field, fieldState }) => (
+                      <Field data-invalid={fieldState.invalid}>
+                        <FieldLabel htmlFor={field.name}>
+                          접수 마감 일시
+                        </FieldLabel>
+                        <FieldContent>
+                          <DateTimePicker
+                            value={field.value}
+                            onChange={field.onChange}
+                            aria-invalid={fieldState.invalid}
+                            disabled={isPending}
+                          />
+                        </FieldContent>
+                      </Field>
+                    )}
+                  />
+                </div>
+              )}
 
               {/* 추가접수 선택 시 추가 일정 */}
               {watchedStatus === "추가접수" && (
@@ -538,10 +546,10 @@ export default function DialogEventAdd({
                 </div>
               )}
 
-              {/* 접수 가격 - 유료일 때만 표시 */}
+              {/* 입장료 - 유료일 때만 표시 */}
               {watchedFee === "유료" && (
                 <Field>
-                  <FieldLabel>접수 가격</FieldLabel>
+                  <FieldLabel>입장료</FieldLabel>
                   <FieldContent>
                     <div className="space-y-2">
                       {priceFields.fields.map((item, index) => {
@@ -859,65 +867,6 @@ export default function DialogEventAdd({
                           aria-invalid={fieldState.invalid}
                           disabled={isPending}
                           placeholder="예: 주관사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-              </div>
-
-              <div className="grid gap-4">
-                <Controller
-                  control={control}
-                  name="hostsSponsor"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>스폰서</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 후원사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-
-                <Controller
-                  control={control}
-                  name="hostsPartner"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>협력업체</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 협력사명"
-                          {...field}
-                        />
-                      </FieldContent>
-                    </Field>
-                  )}
-                />
-
-                <Controller
-                  control={control}
-                  name="hostsSouvenir"
-                  render={({ field, fieldState }) => (
-                    <Field data-invalid={fieldState.invalid}>
-                      <FieldLabel htmlFor={field.name}>기념품</FieldLabel>
-                      <FieldContent>
-                        <Input
-                          id={field.name}
-                          aria-invalid={fieldState.invalid}
-                          disabled={isPending}
-                          placeholder="예: 티셔츠, 에코백"
                           {...field}
                         />
                       </FieldContent>

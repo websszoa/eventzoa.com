@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Eye, Trophy } from "lucide-react";
 import { formatDateRange, getEventProgressStatus } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -31,7 +32,7 @@ export default function AdminEventTable({
             <TableHead>지역</TableHead>
             <TableHead>이벤트명</TableHead>
             <TableHead className="w-[100px] text-center">상태</TableHead>
-            <TableHead className="w-[240px]">기간</TableHead>
+            <TableHead>기간</TableHead>
             <TableHead className="w-[80px] text-center">관리</TableHead>
           </TableRow>
         </TableHeader>
@@ -59,7 +60,13 @@ export default function AdminEventTable({
                 <TableCell>{event.event_type || "-"}</TableCell>
                 <TableCell>{event.region || "-"}</TableCell>
                 <TableCell className="font-medium text-foreground">
-                  {event.name}
+                  <Link
+                    href={`/event/${event.slug}`}
+                    target="_blank"
+                    className="hover:underline underline-offset-4"
+                  >
+                    {event.name}
+                  </Link>
                 </TableCell>
                 <TableCell className="text-center">
                   {getEventProgressStatus(

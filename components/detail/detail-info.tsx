@@ -1,5 +1,5 @@
 import type { Event } from "@/lib/types";
-import { formatDateRange, getEventDuration, getPriceLabel } from "@/lib/utils";
+import { formatDateRange, getEventDuration } from "@/lib/utils";
 import {
   Calendar,
   MapPin,
@@ -16,9 +16,14 @@ import {
 export default function DetailInfo({ event }: { event: Event }) {
   const dateRange = formatDateRange(event.event_start_at, event.event_end_at);
   const duration = getEventDuration(event.event_start_at, event.event_end_at);
-  const priceLabel = getPriceLabel(event.registration_price);
+  const priceLabel = getDetailPriceLabel(event.registration_price);
 
   const rows = [
+    {
+      icon: <Tag className="h-4 w-4 text-indigo-500 shrink-0" />,
+      label: "유형",
+      value: event.event_type,
+    },
     {
       icon: <Calendar className="h-4 w-4 text-blue-500 shrink-0" />,
       label: "행사 기간",
@@ -31,9 +36,9 @@ export default function DetailInfo({ event }: { event: Event }) {
       value: [event.region, event.location?.place].filter(Boolean).join(" · "),
     },
     {
-      icon: <Tag className="h-4 w-4 text-indigo-500 shrink-0" />,
-      label: "유형",
-      value: event.event_type,
+      icon: <CircleDollarSign className="h-4 w-4 text-green-500 shrink-0" />,
+      label: "입장료",
+      value: priceLabel,
     },
     {
       icon: <Users className="h-4 w-4 text-green-500 shrink-0" />,
@@ -46,11 +51,6 @@ export default function DetailInfo({ event }: { event: Event }) {
       icon: <PartyPopper className="h-4 w-4 text-rose-500 shrink-0" />,
       label: "프로그램",
       value: event.event_program,
-    },
-    {
-      icon: <CircleDollarSign className="h-4 w-4 text-green-500 shrink-0" />,
-      label: "참가비",
-      value: priceLabel,
     },
     {
       icon: <Building2 className="h-4 w-4 text-indigo-400 shrink-0" />,
@@ -99,4 +99,23 @@ export default function DetailInfo({ event }: { event: Event }) {
       </div>
     </div>
   );
+}
+
+function getDetailPriceLabel(
+  price: { distance: string; price: number | null }[] | null | undefined,
+): string {
+  if (!price || price.length === 0) return "무료";
+
+  const numericPrices = price
+    .map((item) => item.price)
+    .filter((value): value is number => value != null && value > 0);
+
+  if (numericPrices.length === 0) return "무료";
+
+  const min = Math.min(...numericPrices);
+  const max = Math.max(...numericPrices);
+
+  if (min === max) return `${min.toLocaleString()}원`;
+
+  return `${min.toLocaleString()}원 ~ ${max.toLocaleString()}원`;
 }
