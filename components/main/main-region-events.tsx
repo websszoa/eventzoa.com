@@ -22,7 +22,7 @@ const regions = [
     name: "서울",
     description: "도심 속 전시와 공연",
     eventCount: 128,
-    href: "#region-seoul",
+    href: "/festivals",
     icon: Building2,
     theme: "from-blue-700 via-blue-600 to-cyan-400",
     size: "md:col-span-2 md:row-span-2",
@@ -32,7 +32,7 @@ const regions = [
     name: "부산",
     description: "바다와 함께하는 축제",
     eventCount: 76,
-    href: "#region-busan",
+    href: "/festivals",
     icon: Waves,
     theme: "from-cyan-600 to-blue-400",
     size: "",
@@ -42,7 +42,7 @@ const regions = [
     name: "제주",
     description: "자연 속 특별한 체험",
     eventCount: 54,
-    href: "#region-jeju",
+    href: "/festivals",
     icon: Palmtree,
     theme: "from-emerald-600 to-teal-400",
     size: "",
@@ -52,7 +52,7 @@ const regions = [
     name: "경기",
     description: "가족과 즐기는 주말",
     eventCount: 96,
-    href: "#region-gyeonggi",
+    href: "/festivals",
     icon: MapPin,
     theme: "from-violet-600 to-indigo-400",
     size: "",
@@ -62,7 +62,7 @@ const regions = [
     name: "강원",
     description: "산과 계절이 만든 여행",
     eventCount: 43,
-    href: "#region-gangwon",
+    href: "/festivals",
     icon: Mountain,
     theme: "from-lime-600 to-emerald-400",
     size: "",
@@ -72,7 +72,7 @@ const regions = [
     name: "전라",
     description: "맛과 멋이 가득한 고장",
     eventCount: 61,
-    href: "#region-jeolla",
+    href: "/festivals",
     icon: Ship,
     theme: "from-orange-600 to-amber-400",
     size: "md:col-span-2 lg:col-span-1",
@@ -82,7 +82,7 @@ const regions = [
     name: "충청",
     description: "여유롭게 만나는 역사와 문화",
     eventCount: 48,
-    href: "#region-chungcheong",
+    href: "/festivals",
     icon: Landmark,
     theme: "from-rose-600 to-pink-400",
     size: "",
@@ -92,7 +92,7 @@ const regions = [
     name: "경상",
     description: "전통과 활기가 만나는 축제",
     eventCount: 83,
-    href: "#region-gyeongsang",
+    href: "/festivals",
     icon: Castle,
     theme: "from-red-600 to-orange-400",
     size: "",
@@ -102,7 +102,7 @@ const regions = [
     name: "인천",
     description: "공항과 바다를 잇는 즐거움",
     eventCount: 39,
-    href: "#region-incheon",
+    href: "/festivals",
     icon: Plane,
     theme: "from-sky-600 to-indigo-400",
     size: "",
@@ -118,7 +118,7 @@ export default function MainRegionEvents() {
           <div>
             <Badge
               variant="secondary"
-              className="mb-4 h-auto gap-1.5 rounded-full bg-white px-3 py-1.5 font-bold text-blue-700 shadow-sm ring-1 ring-slate-200"
+              className="mb-4 h-auto gap-1.5 rounded-full bg-white px-3 py-1.5 font-bold text-blue-700 ring-1 ring-slate-200"
             >
               <Map className="size-3.5" aria-hidden="true" />
               지역별로 둘러보기
@@ -135,7 +135,7 @@ export default function MainRegionEvents() {
           <Button
             variant="outline"
             nativeButton={false}
-            render={<Link href="#all-regions" />}
+            render={<Link href="/festivals" />}
             className="self-start rounded-full border-slate-200 bg-white px-5 font-bold text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:self-auto"
           >
             모든 지역 보기
@@ -150,7 +150,7 @@ export default function MainRegionEvents() {
             return (
               <Card
                 key={region.name}
-                className={`group relative gap-0 overflow-hidden rounded-3xl border-0 bg-linear-to-br py-0 text-white shadow-sm ring-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${region.theme} ${region.size}`}
+                className={`group relative gap-0 overflow-hidden rounded-3xl border-0 bg-linear-to-br py-0 text-white ring-0 transition-all duration-300 hover:-translate-y-1 ${region.theme} ${region.size}`}
               >
                 <div
                   className="absolute -top-12 -right-10 size-40 rounded-full border-26 border-white/10 transition-transform duration-500 group-hover:scale-110"

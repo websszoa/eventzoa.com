@@ -19,7 +19,7 @@ export const footerMenu = [
     title: "서비스",
     links: [
       { label: "축제 찾기", href: "/festivals" },
-      { label: "지역별 보기", href: "#performances" },
+      { label: "지역별 보기", href: "/#performances" },
       { label: "축제 캘린더", href: "/calendar" },
       { label: "축제 지도", href: "/map" },
     ],

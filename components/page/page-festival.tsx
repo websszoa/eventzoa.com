@@ -155,7 +155,7 @@ export default function PageFestival({
                     onChange={(event) => setKeyword(event.target.value)}
                     placeholder="축제명, 지역, 장소 검색"
                     aria-label="축제 검색어"
-                    className="h-11! rounded-xl bg-white pr-4 pl-11 shadow-none"
+                    className="h-11! rounded-xl bg-white pr-4 pl-11"
                   />
                 </div>
 

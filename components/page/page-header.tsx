@@ -6,15 +6,26 @@ import { siteMenu, supportMenu } from "@/lib/navigation";
 import { getTodayLabel } from "@/lib/utils";
 
 import PageHeaderSheet from "@/components/page/page-header-sheet";
+import events from "@/data/events/events_2026.json";
 
 export default function PageHeader() {
+  const today = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul",
+  }).format(new Date());
+  const activeEventCount = events.filter(
+    (event) =>
+      event.event.startDate <= today && event.event.endDate >= today,
+  ).length;
+
   return (
     <>
       <div className="border-b border-gray-100  text-slate-900">
         <div className="container flex h-9 items-center justify-between text-xs sm:text-xs">
           <p>
             {getTodayLabel()} · 오늘 전국에서 열리는 행사{" "}
-            <strong className="font-bold text-blue-600">386건</strong>
+            <strong className="font-bold text-blue-600">
+              {activeEventCount}건
+            </strong>
           </p>
           <nav
             className="hidden items-center gap-3 sm:flex"

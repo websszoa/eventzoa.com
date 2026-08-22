@@ -5,11 +5,13 @@ import PageFestival, {
 } from "@/components/page/page-festival";
 
 import events from "@/data/events/events_2026.json";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "전국 축제 찾기",
   description: "지역과 계절, 가격 조건으로 전국의 다양한 축제를 검색해보세요.",
-};
+  path: "/festivals",
+});
 
 function getSeason(month: number) {
   if (month >= 3 && month <= 5) return "봄";

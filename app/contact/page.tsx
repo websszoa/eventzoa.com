@@ -12,12 +12,13 @@ import {
 import ContactForm from "@/components/page/page-contact-form";
 import { APP_NAME } from "@/lib/constants";
 import { inquiryTypes, type InquiryType } from "@/lib/contact";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "문의하기",
   description: `${APP_NAME} 행사 등록, 정보 수정, 광고 및 서비스 이용 문의를 안내합니다.`,
-  alternates: { canonical: "/contact" },
-};
+  path: "/contact",
+});
 
 const inquiryCards = [
   { type: "general", icon: CircleHelp, title: "문의사항", description: "서비스 이용과 관련한 일반적인 내용을 문의해 주세요." },

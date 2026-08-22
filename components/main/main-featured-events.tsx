@@ -28,7 +28,7 @@ const featuredEvents = [
     date: "4.18 – 4.27",
     day: "18",
     month: "APR",
-    href: "#event-hangang",
+    href: "/festivals",
     theme: "from-blue-500 via-cyan-500 to-sky-300",
     accent: "bg-blue-600",
   },
@@ -42,7 +42,7 @@ const featuredEvents = [
     date: "5.03 – 5.05",
     day: "03",
     month: "MAY",
-    href: "#event-jazz",
+    href: "/festivals",
     theme: "from-indigo-600 via-violet-500 to-fuchsia-400",
     accent: "bg-violet-600",
   },
@@ -56,7 +56,7 @@ const featuredEvents = [
     date: "5.10 – 5.18",
     day: "10",
     month: "MAY",
-    href: "#event-jeju",
+    href: "/festivals",
     theme: "from-emerald-600 via-teal-500 to-lime-300",
     accent: "bg-emerald-600",
   },
@@ -98,7 +98,7 @@ export default function MainFeaturedEvents() {
           {featuredEvents.map((event) => (
             <Card
               key={event.title}
-              className="group gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-950/10"
+              className="group gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1"
             >
               <div
                 className={`relative h-60 overflow-hidden bg-linear-to-br ${event.theme}`}
@@ -114,7 +114,7 @@ export default function MainFeaturedEvents() {
                 <Badge className="absolute top-5 left-5 h-auto rounded-full border border-white/20 bg-slate-950/20 px-3 py-1.5 font-bold text-white backdrop-blur-sm hover:bg-slate-950/20">
                   {event.category}
                 </Badge>
-                <div className="absolute right-5 bottom-5 flex size-20 flex-col items-center justify-center rounded-2xl bg-white text-slate-950 shadow-xl">
+                <div className="absolute right-5 bottom-5 flex size-20 flex-col items-center justify-center rounded-2xl bg-white text-slate-950 ring-1 ring-slate-200">
                   <span className="text-[11px] font-nanum font-black tracking-widest text-blue-600">
                     {event.month}
                   </span>

@@ -6,12 +6,13 @@ import PageCalendar, {
 import PageTitle from "@/components/page/page-title";
 import events from "@/data/events/events_2026.json";
 import { APP_NAME } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "축제 캘린더",
   description: `${APP_NAME}에서 전국 축제 일정을 월별·날짜별로 확인하세요.`,
-  alternates: { canonical: "/calendar" },
-};
+  path: "/calendar",
+});
 
 export default function CalendarPage() {
   const festivals: CalendarFestival[] = events.map((event) => ({

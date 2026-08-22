@@ -3,7 +3,7 @@ export const APP_ENG_NAME = "EventZoa";
 export const APP_SLOGAN = "전국 축제를 한눈에, 즐거움을 모으다!";
 export const APP_COPYRIGHT = "© 2026 Eventzoa. All rights reserved.";
 
-export const APP_SITE_URL = "https://eventzoa.com";
+export const APP_SITE_URL = "https://www.eventzoa.com";
 export const APP_EMAIL = "contact@eventzoa.com";
 export const APP_INSTAGRAM_URL = "https://www.instagram.com/eventzoa_official";
 export const APP_GITHUB_URL = "https://github.com/websszoa/eventzoa.com";

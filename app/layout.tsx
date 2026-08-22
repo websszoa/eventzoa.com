@@ -5,12 +5,15 @@ import PageFooter from "@/components/page/page-footer";
 import PageHeader from "@/components/page/page-header";
 import {
   APP_DESCRIPTION,
+  APP_EMAIL,
   APP_ENG_NAME,
+  APP_INSTAGRAM_URL,
   APP_KEYWORDS,
   APP_NAME,
   APP_SHORT_DESCRIPTION,
   APP_SITE_URL,
   APP_SLOGAN,
+  APP_THREADS_URL,
 } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -105,12 +108,35 @@ export const viewport: Viewport = {
 
 const websiteSchema = {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: APP_NAME,
-  alternateName: APP_ENG_NAME,
-  url: APP_SITE_URL,
-  description: APP_DESCRIPTION,
-  inLanguage: "ko-KR",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${APP_SITE_URL}/#organization`,
+      name: APP_NAME,
+      alternateName: APP_ENG_NAME,
+      url: APP_SITE_URL,
+      logo: `${APP_SITE_URL}/icons/icon512.png`,
+      email: APP_EMAIL,
+      sameAs: [APP_INSTAGRAM_URL, APP_THREADS_URL],
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: APP_EMAIL,
+        url: `${APP_SITE_URL}/contact`,
+        availableLanguage: "Korean",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${APP_SITE_URL}/#website`,
+      name: APP_NAME,
+      alternateName: APP_ENG_NAME,
+      url: APP_SITE_URL,
+      description: APP_DESCRIPTION,
+      inLanguage: "ko-KR",
+      publisher: { "@id": `${APP_SITE_URL}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -4,12 +4,13 @@ import PageMap, { type MapFestival } from "@/components/page/page-map";
 import PageTitle from "@/components/page/page-title";
 import events from "@/data/events/events_2026.json";
 import { APP_NAME } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: "전국 축제 지도",
   description: `${APP_NAME}에서 전국 축제의 위치와 일정을 지도로 확인하세요.`,
-  alternates: { canonical: "/map" },
-};
+  path: "/map",
+});
 
 export default function MapPage() {
   const festivals: MapFestival[] = events.flatMap((event) => {

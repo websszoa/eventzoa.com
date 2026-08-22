@@ -50,7 +50,7 @@ export default function MainHero() {
           <form
             action="/festivals"
             role="search"
-            className="mt-8 flex max-w-xl items-center gap-2 overflow-hidden rounded-full border border-white/15 bg-white p-2 shadow-2xl shadow-blue-950/30"
+            className="mt-8 flex max-w-xl items-center gap-2 overflow-hidden rounded-full border border-white/15 bg-white p-2"
           >
             <Search
               className="ml-3 size-5 shrink-0 text-slate-400"
@@ -64,7 +64,7 @@ export default function MainHero() {
               name="keyword"
               type="search"
               placeholder="지역, 축제, 행사명을 검색해 보세요"
-              className="min-w-0 flex-1 rounded-full border-0 bg-transparent px-1 py-2 text-sm text-slate-900 shadow-none placeholder:text-slate-400 focus-visible:border-transparent focus-visible:ring-0 sm:text-base"
+              className="min-w-0 flex-1 rounded-full border-0 bg-transparent px-1 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus-visible:border-transparent focus-visible:ring-0 sm:text-base"
             />
             <Button
               type="submit"
@@ -103,7 +103,7 @@ export default function MainHero() {
             className="absolute -top-8 -right-6 size-36 rounded-full bg-blue-500/30 blur-3xl"
             aria-hidden="true"
           />
-          <Card className="relative gap-0 overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 py-3 shadow-2xl shadow-black/25 ring-0 backdrop-blur-xl sm:p-4 sm:py-4">
+          <Card className="relative gap-0 overflow-hidden rounded-[2rem] border border-white/15 bg-white/10 p-3 py-3 ring-0 backdrop-blur-xl sm:p-4 sm:py-4">
             <div className="relative min-h-97.5 overflow-hidden rounded-[1.5rem] bg-linear-to-br from-blue-500 via-blue-600 to-indigo-800 p-6 sm:min-h-110 sm:p-8">
               <div
                 className="absolute -top-20 -right-16 size-64 rounded-full border-42 border-white/10"
@@ -125,12 +125,12 @@ export default function MainHero() {
                     어디로 갈까요?
                   </h2>
                 </div>
-                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-blue-600 shadow-lg">
+                <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white text-blue-600 ring-1 ring-blue-100">
                   <Ticket className="size-6" aria-hidden="true" />
                 </div>
               </div>
 
-              <Card className="absolute inset-x-5 bottom-5 gap-0 rounded-2xl border border-white/20 bg-[#071b3b]/75 py-5 text-white shadow-xl ring-0 backdrop-blur-md sm:inset-x-7 sm:bottom-7">
+              <Card className="absolute inset-x-5 bottom-5 gap-0 rounded-2xl border border-white/20 bg-[#071b3b]/75 py-5 text-white ring-0 backdrop-blur-md sm:inset-x-7 sm:bottom-7">
                 <CardContent className="gap-0 px-5">
                   <div className="flex items-center justify-between gap-4">
                     <div>
@@ -170,7 +170,7 @@ export default function MainHero() {
             </div>
           </Card>
 
-          <Card className="absolute -bottom-5 -left-4 hidden flex-row items-center gap-3 rounded-2xl border border-white/15 bg-white p-4 py-4 text-slate-900 shadow-xl ring-0 sm:flex">
+          <Card className="absolute -bottom-5 -left-4 hidden flex-row items-center gap-3 rounded-2xl border border-white/15 bg-white p-4 py-4 text-slate-900 ring-0 sm:flex">
             <div className="grid size-10 place-items-center rounded-xl bg-blue-50 text-blue-600">
               <Sparkles className="size-5" aria-hidden="true" />
             </div>

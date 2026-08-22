@@ -75,3 +75,24 @@ npx shadcn@latest add popover
 npx shadcn@latest add tabs
 npx shadcn@latest add field
 ```
+
+## Vercel 배포 설정
+
+Vercel 프로젝트의 Settings → Environment Variables에 다음 값을 설정합니다.
+
+- `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID`: 네이버 Dynamic Map 공개 클라이언트 ID
+- `SUPABASE_URL`: 문의 테이블이 있는 Supabase 프로젝트 URL
+- `SUPABASE_SERVICE_ROLE_KEY`: 문의 저장용 서버 전용 키
+
+`SUPABASE_SERVICE_ROLE_KEY`는 `NEXT_PUBLIC_` 접두사를 붙이지 않으며 클라이언트
+코드에 노출하지 않습니다. 네이버 클라우드 콘솔의 Web Service URL에는 운영
+도메인 `https://www.eventzoa.com`과 필요한 Vercel Preview 도메인을 등록합니다.
+
+## 배포 후 검색 노출 점검
+
+1. Vercel에서 `www.eventzoa.com`을 Production 도메인으로 연결합니다.
+2. `eventzoa.com`은 `www.eventzoa.com`으로 영구 리디렉션합니다.
+3. `/robots.txt`, `/sitemap.xml`, `/llms.txt`가 200 응답인지 확인합니다.
+4. Google Search Console과 네이버 서치어드바이저에 사이트 소유권을 등록합니다.
+5. `https://www.eventzoa.com/sitemap.xml`을 두 검색도구에 제출합니다.
+6. 대표 축제 상세 URL을 Google 리치 결과 테스트로 검사합니다.

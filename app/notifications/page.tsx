@@ -4,8 +4,9 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { Badge } from "@/components/ui/badge";
 import NotificationToc from "@/components/page/page-notification-toc";
-import { APP_NAME } from "@/lib/constants";
+import { APP_NAME, APP_SITE_URL } from "@/lib/constants";
 import { createHeadingId, extractMdxHeadings } from "@/lib/mdx";
+import { createPageMetadata } from "@/lib/seo";
 import {
   ArrowLeft,
   ArrowRight,
@@ -25,11 +26,36 @@ import {
   type NotificationCategory,
 } from "@/lib/notifications";
 
-export const metadata: Metadata = {
-  title: "알림",
-  description: `${APP_NAME} 축제소식, 공지사항, 서비스 업데이트와 뉴스레터를 확인하세요.`,
-  alternates: { canonical: "/notifications" },
+type NotificationsPageProps = {
+  searchParams: Promise<{ category?: string; post?: string }>;
 };
+
+export async function generateMetadata({
+  searchParams,
+}: NotificationsPageProps): Promise<Metadata> {
+  const params = await searchParams;
+  const posts = await getNotificationPosts();
+  const post = params.post
+    ? posts.find((item) => item.slug === params.post)
+    : undefined;
+
+  if (!post) {
+    return createPageMetadata({
+      title: "알림",
+      description: `${APP_NAME} 축제소식, 공지사항, 서비스 업데이트와 뉴스레터를 확인하세요.`,
+      path: "/notifications",
+    });
+  }
+
+  const path = `/notifications?category=${post.category}&post=${post.slug}`;
+  return createPageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path,
+    type: "article",
+    publishedTime: `${post.publishedAt}T00:00:00+09:00`,
+  });
+}
 
 const categoryCards = [
   {
@@ -60,9 +86,7 @@ const categoryCards = [
 
 export default async function NotificationsPage({
   searchParams,
-}: {
-  searchParams: Promise<{ category?: string; post?: string }>;
-}) {
+}: NotificationsPageProps) {
   const params = await searchParams;
   const category: NotificationCategory = notificationCategories.includes(
     params.category as NotificationCategory,
@@ -83,6 +107,27 @@ export default async function NotificationsPage({
       })
     : null;
   const headings = selectedPost ? extractMdxHeadings(selectedPost.source) : [];
+  const articleSchema = selectedPost
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: selectedPost.title,
+        description: selectedPost.excerpt,
+        datePublished: selectedPost.publishedAt,
+        dateModified: selectedPost.publishedAt,
+        inLanguage: "ko-KR",
+        mainEntityOfPage: `${APP_SITE_URL}/notifications?category=${selectedPost.category}&post=${selectedPost.slug}`,
+        author: { "@type": "Organization", name: APP_NAME },
+        publisher: {
+          "@type": "Organization",
+          name: APP_NAME,
+          logo: {
+            "@type": "ImageObject",
+            url: `${APP_SITE_URL}/icons/icon512.png`,
+          },
+        },
+      }
+    : null;
 
   return (
     <>
@@ -221,6 +266,14 @@ export default async function NotificationsPage({
           </main>
         </div>
       </section>
+      {articleSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(articleSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
     </>
   );
 }

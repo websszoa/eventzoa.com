@@ -23,7 +23,8 @@ import {
 } from "lucide-react";
 
 import events from "@/data/events/events_2026.json";
-import { APP_INSTAGRAM_URL } from "@/lib/constants";
+import { APP_INSTAGRAM_URL, APP_NAME, APP_SITE_URL } from "@/lib/constants";
+import { createPageMetadata } from "@/lib/seo";
 
 type FestivalPageProps = {
   params: Promise<{ slug: string }>;
@@ -81,19 +82,13 @@ export async function generateMetadata({
 
   if (!festival) return { title: "축제를 찾을 수 없습니다" };
 
-  return {
+  return createPageMetadata({
     title: festival.name,
     description: festival.description,
-    alternates: { canonical: `/festivals/${festival.slug}` },
-    openGraph: {
-      title: festival.name,
-      description: festival.description,
-      type: "article",
-      images: [
-        { url: `/event/cover/${festival.slug}.jpg`, alt: festival.name },
-      ],
-    },
-  };
+    path: `/festivals/${festival.slug}`,
+    type: "article",
+    image: `/event/cover/${festival.slug}.jpg`,
+  });
 }
 
 export default async function FestivalDetailPage({
@@ -172,23 +167,85 @@ export default async function FestivalDetailPage({
     },
   ];
 
+  const detailUrl = `${APP_SITE_URL}/festivals/${festival.slug}`;
   const eventSchema = {
     "@context": "https://schema.org",
-    "@type": "Festival",
+    "@graph": [
+      {
+    "@type": "Event",
+    "@id": `${detailUrl}/#event`,
     name: festival.name,
     description: festival.description,
-    image: `/event/cover/${festival.slug}.jpg`,
+    image: [`${APP_SITE_URL}/event/cover/${festival.slug}.jpg`],
     startDate: festival.event.startDate,
     endDate: festival.event.endDate,
-    eventStatus: "https://schema.org/EventScheduled",
+    eventStatus:
+      status === "종료"
+        ? "https://schema.org/EventCompleted"
+        : "https://schema.org/EventScheduled",
     eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
     location: {
       "@type": "Place",
       name: festival.location.venue,
-      address: festival.location.address,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: festival.location.address,
+        addressLocality: festival.location.area,
+        addressRegion: festival.location.region,
+        addressCountry: "KR",
+      },
+      ...(festival.location.latitude !== null &&
+      festival.location.longitude !== null
+        ? {
+            geo: {
+              "@type": "GeoCoordinates",
+              latitude: festival.location.latitude,
+              longitude: festival.location.longitude,
+            },
+          }
+        : {}),
     },
-    organizer: { "@type": "Organization", name: festival.hosts.organizer },
-    url: festival.event.site || undefined,
+    organizer: festival.hosts.organizer
+      ? { "@type": "Organization", name: festival.hosts.organizer }
+      : { "@type": "Organization", name: APP_NAME },
+    url: detailUrl,
+    sameAs: festival.event.site || undefined,
+    ...(festival.info.entrance.type === "무료"
+      ? {
+          offers: {
+            "@type": "Offer",
+            price: 0,
+            priceCurrency: "KRW",
+            availability: "https://schema.org/InStock",
+            url: festival.event.site || detailUrl,
+          },
+        }
+      : {}),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "홈",
+            item: APP_SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "축제 찾기",
+            item: `${APP_SITE_URL}/festivals`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: festival.name,
+            item: detailUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
@@ -326,7 +383,7 @@ export default async function FestivalDetailPage({
             </section>
 
             {priceEntries.length > 0 && (
-              <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:p-8">
+              <section className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 sm:p-8">
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-xs font-bold tracking-widest text-emerald-600 uppercase">
@@ -384,7 +441,7 @@ export default async function FestivalDetailPage({
                 />
               </a>
             </div>
-            <section className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
+            <section className="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
               <p className="text-xs font-bold tracking-widest text-blue-600 uppercase">
                 Location
               </p>
