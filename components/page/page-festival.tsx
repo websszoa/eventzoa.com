@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import PageTitle from "@/components/page/page-title";
 import { Badge } from "@/components/ui/badge";
@@ -331,10 +332,13 @@ export default function PageFestival({
               {filteredFestivals.length > 0 ? (
                 <div className="mt-7 grid gap-5 xl:grid-cols-2">
                   {filteredFestivals.map((festival) => (
-                    <Card
+                    <Link
                       key={festival.title}
-                      className="group gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all hover:-translate-y-1 hover:shadow-xl"
+                      href={`/festivals/${festival.slug}`}
+                      className="group block rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+                      aria-label={`${festival.title} 상세 보기`}
                     >
+                      <Card className="h-full gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all group-hover:-translate-y-1">
                       <CardContent className="min-w-0 gap-4 px-6 pt-4.5 pb-6">
                         <div className="min-w-0">
                           <h3
@@ -446,7 +450,8 @@ export default function PageFestival({
                           </div>
                         </div>
                       </CardContent>
-                    </Card>
+                      </Card>
+                    </Link>
                   ))}
                 </div>
               ) : (

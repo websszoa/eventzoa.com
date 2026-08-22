@@ -10,8 +10,8 @@ export const siteMenu = [
 ];
 
 export const supportMenu = [
-  { label: "광고문의", href: "#advertising" },
-  { label: "고객센터", href: "#support" },
+  { label: "광고문의", href: "/contact?type=advertising#inquiry-form" },
+  { label: "고객센터", href: "/contact?type=general#inquiry-form" },
 ];
 
 export const footerMenu = [
@@ -20,32 +20,36 @@ export const footerMenu = [
     links: [
       { label: "축제 찾기", href: "/festivals" },
       { label: "지역별 보기", href: "#performances" },
-      { label: "축제 캘린더", href: "#exhibitions" },
-      { label: "캘린더", href: "#calendar" },
+      { label: "축제 캘린더", href: "/calendar" },
+      { label: "축제 지도", href: "/map" },
     ],
   },
   {
-    title: "주최자",
+    title: "알림",
     links: [
-      { label: "행사 등록", href: "#register" },
-      { label: "주최자센터", href: "#organizer-center" },
-      { label: "광고·제휴 문의", href: "#advertising" },
+      { label: "축제소식", href: "/notifications?category=festival" },
+      { label: "공지사항", href: "/notifications?category=notice" },
+      { label: "업데이트", href: "/notifications?category=update" },
+      { label: "뉴스레터", href: "/notifications?category=newsletter" },
     ],
   },
   {
     title: "고객지원",
     links: [
-      { label: "공지사항", href: "#notices" },
-      { label: "자주 묻는 질문", href: "#faq" },
-      { label: "고객센터", href: "#support" },
+      { label: "문의사항", href: "/contact?type=general#inquiry-form" },
+      { label: "등록문의", href: "/contact?type=registration#inquiry-form" },
+      { label: "수정요청", href: "/contact?type=correction#inquiry-form" },
+      { label: "불편신고", href: "/contact?type=report#inquiry-form" },
+      { label: "광고문의", href: "/contact?type=advertising#inquiry-form" },
     ],
   },
   {
     title: "안내",
     links: [
-      { label: "이벤트조아 소개", href: "#about" },
-      { label: "이용약관", href: "#terms" },
-      { label: "개인정보처리방침", href: "#privacy" },
+      { label: "소개", href: "/about" },
+      { label: "이용약관", href: "/terms" },
+      { label: "개인정보처리방침", href: "/privacy" },
+      { label: "운영방침", href: "/policy" },
     ],
   },
 ];

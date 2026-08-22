@@ -96,7 +96,7 @@ export default function PageHeaderSheet() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm font-bold text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                  className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
                 >
                   <span className="flex items-center gap-3">
                     <Icon className="size-4" aria-hidden="true" />

@@ -10,7 +10,7 @@ import PageHeaderSheet from "@/components/page/page-header-sheet";
 export default function PageHeader() {
   return (
     <>
-      <div className="border-b border-gray-100 bg-gray-50 text-slate-900">
+      <div className="border-b border-gray-100  text-slate-900">
         <div className="container flex h-9 items-center justify-between text-xs sm:text-xs">
           <p>
             {getTodayLabel()} · 오늘 전국에서 열리는 행사{" "}
@@ -21,7 +21,7 @@ export default function PageHeader() {
             aria-label="고객 지원 메뉴"
           >
             {supportMenu.map((item, index) => (
-              <Fragment key={item.href}>
+              <Fragment key={`${item.label}-${item.href}`}>
                 {index === supportMenu.length - 1 && (
                   <span aria-hidden="true">·</span>
                 )}

@@ -61,7 +61,7 @@ export default function PageFooter() {
                     const isExternal = link.href.startsWith("http");
 
                     return (
-                      <li key={link.href}>
+                      <li key={`${link.label}-${link.href}`}>
                         <Link
                           href={link.href}
                           target={isExternal ? "_blank" : undefined}

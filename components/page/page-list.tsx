@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -186,7 +187,7 @@ export default function PageList({ events }: { events: EventListItem[] }) {
               {filteredEvents.map((event) => (
                 <article
                   key={event.slug}
-                  className="grid gap-4 border-b border-slate-200 p-4 last:border-b-0 sm:p-6 lg:grid-cols-[170px_minmax(0,1fr)_52px] lg:items-center lg:gap-8"
+                  className="group grid gap-4 border-b border-slate-200 p-4 transition-colors last:border-b-0 hover:bg-blue-50/40 sm:p-6 lg:grid-cols-[170px_minmax(0,1fr)_52px] lg:items-center lg:gap-8"
                 >
                   <div className="flex items-center gap-4 lg:block lg:border-r lg:border-slate-200 lg:py-4 lg:pr-8 lg:text-center">
                     <p className="font-cafe24 text-3xl font-bold tracking-tight text-slate-950">
@@ -203,7 +204,11 @@ export default function PageList({ events }: { events: EventListItem[] }) {
                     </Badge>
                   </div>
 
-                  <div className="min-w-0">
+                  <Link
+                    href={`/festivals/${event.slug}`}
+                    className="min-w-0 rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
+                    aria-label={`${event.title} 상세 보기`}
+                  >
                     <div className="flex flex-wrap gap-1.5">
                       <Badge
                         variant="outline"
@@ -260,7 +265,7 @@ export default function PageList({ events }: { events: EventListItem[] }) {
                         </span>
                       </p>
                     </div>
-                  </div>
+                  </Link>
 
                   {event.site ? (
                     <a
