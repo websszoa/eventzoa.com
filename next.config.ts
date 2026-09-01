@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "websszoa.github.io",
-        pathname: "/eventzoa.com/event/cover/**",
+        hostname: "cdn.jsdelivr.net",
+        pathname: "/gh/websszoa/eventzoa.com@main/public/event/cover/**",
       },
     ],
     localPatterns: [

@@ -5,7 +5,7 @@ export const APP_COPYRIGHT = "© 2026 Eventzoa. All rights reserved.";
 
 export const APP_SITE_URL = "https://www.eventzoa.com";
 export const APP_IMAGE_URL =
-  "https://websszoa.github.io/eventzoa.com/event/cover";
+  "https://cdn.jsdelivr.net/gh/websszoa/eventzoa.com@main/public/event/cover";
 export const APP_EMAIL = "contact@eventzoa.com";
 export const APP_INSTAGRAM_URL = "https://www.instagram.com/eventzoa_official";
 export const APP_GITHUB_URL = "https://github.com/websszoa/eventzoa.com";
