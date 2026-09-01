@@ -4,7 +4,7 @@ import { Resend } from "resend";
 
 const ADMIN_EMAIL = "webstoryboy@naver.com";
 const FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "이벤트조아 <onboarding@resend.dev>";
+  process.env.RESEND_FROM_EMAIL || "이벤트조아 <noreply@eventzoa.com>";
 
 export async function sendAdminEmail({
   subject,
@@ -33,7 +33,10 @@ export async function sendAdminEmail({
     });
 
     if (error) {
-      console.error("Failed to send admin email", error.name);
+      console.error("Failed to send admin email", {
+        name: error.name,
+        message: error.message,
+      });
       return false;
     }
 
@@ -41,7 +44,9 @@ export async function sendAdminEmail({
   } catch (error) {
     console.error(
       "Failed to send admin email",
-      error instanceof Error ? error.name : "UnknownError",
+      error instanceof Error
+        ? { name: error.name, message: error.message }
+        : "UnknownError",
     );
     return false;
   }

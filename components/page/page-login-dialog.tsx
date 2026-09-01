@@ -71,10 +71,13 @@ export default function PageLoginDialog({
       const callbackUrl =
         window.location.hostname === "localhost"
           ? `${window.location.origin}/auth/callback`
-          : "https://eventzoa.com/auth/callback";
+          : "https://www.eventzoa.com/auth/callback";
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "google",
-        options: { redirectTo: callbackUrl },
+        options: {
+          redirectTo: callbackUrl,
+          queryParams: { prompt: "select_account" },
+        },
       });
 
       if (error) throw error;

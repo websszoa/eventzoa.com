@@ -643,6 +643,7 @@ export default async function FestivalDetailPage({
                 alt={`${festival.name} 대표 이미지`}
                 width={960}
                 height={1280}
+                loading="eager"
                 sizes="(max-width: 1024px) 100vw, 340px"
                 className="h-auto w-full rounded-xl"
               />

@@ -1,12 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  CircleHelp,
-  Mail,
-  PenLine,
-  Pencil,
-  TriangleAlert,
-} from "lucide-react";
+import { Mail } from "lucide-react";
 
 import ContactForm from "@/components/page/page-contact-form";
 import { APP_NAME } from "@/lib/constants";
@@ -18,18 +11,6 @@ export const metadata: Metadata = createPageMetadata({
   description: `${APP_NAME} 행사 등록, 정보 수정 및 서비스 이용 문의를 안내합니다.`,
   path: "/contact",
 });
-
-const inquiryCards = [
-  { type: "general", icon: CircleHelp, title: "문의사항", description: "서비스 이용과 관련한 일반적인 내용을 문의해 주세요." },
-  { type: "registration", icon: PenLine, title: "등록문의", description: "새로운 축제나 행사의 등록을 요청해 주세요." },
-  { type: "correction", icon: Pencil, title: "수정요청", description: "일정, 장소 등 기존 행사 정보의 수정을 요청해 주세요." },
-  { type: "report", icon: TriangleAlert, title: "불편신고", description: "오류나 잘못된 링크 등 이용 중 불편을 알려주세요." },
-] satisfies Array<{
-  type: InquiryType;
-  icon: typeof PenLine;
-  title: string;
-  description: string;
-}>;
 
 export default async function ContactPage({
   searchParams,
@@ -59,45 +40,12 @@ export default async function ContactPage({
             <div className="mb-6">
               <p className="text-sm font-bold text-blue-600">고객지원</p>
               <h2 className="mt-2 font-cafe24 text-3xl font-bold text-slate-950">
-                어떤 도움이 필요하신가요?
+                문의 전 확인해 주세요
               </h2>
               <p className="mt-3 break-keep text-sm leading-6 text-slate-500">
-                필요한 항목을 선택하고 오른쪽에서 내용을 작성해 주세요.
+                정확한 내용을 남겨주시면 확인 후 더욱 빠르게 안내해 드릴 수 있습니다.
               </p>
             </div>
-            <nav
-              className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1"
-              aria-label="문의 유형"
-            >
-              {inquiryCards.map(({ type, icon: Icon, title, description }) => {
-                const isActive = initialType === type;
-
-                return (
-                  <Link
-                    key={type}
-                    href={`/contact?type=${type}#inquiry-form`}
-                    aria-current={isActive ? "page" : undefined}
-                    className={`group rounded-2xl border p-5 transition-all ${isActive ? "border-blue-300 bg-blue-50" : "border-slate-200 bg-white hover:border-blue-200 hover:bg-slate-50"}`}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div
-                        className={`grid size-10 shrink-0 place-items-center rounded-xl transition-colors ${isActive ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-600 group-hover:bg-white"}`}
-                      >
-                        <Icon className="size-5" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <h3 className="font-cafe24 text-xl font-bold text-slate-950">
-                          {title}
-                        </h3>
-                        <p className="mt-1 break-keep text-xs leading-5 text-slate-500">
-                          {description}
-                        </p>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </nav>
           </aside>
           <div className="min-w-0">
             <ContactForm key={initialType} initialType={initialType} />

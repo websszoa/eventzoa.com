@@ -10,7 +10,7 @@ type PageFestivalImageProps = {
   fill?: boolean;
   width?: number;
   height?: number;
-  priority?: boolean;
+  loading?: "eager" | "lazy";
   sizes?: string;
   className?: string;
 };
@@ -21,7 +21,7 @@ export default function PageFestivalImage({
   fill = false,
   width,
   height,
-  priority,
+  loading,
   sizes,
   className,
 }: PageFestivalImageProps) {
@@ -75,7 +75,7 @@ export default function PageFestivalImage({
         fill={fill || undefined}
         width={fill ? undefined : width}
         height={fill ? undefined : height}
-        priority={priority}
+        loading={loading}
         sizes={sizes}
         unoptimized
         className={`${className ?? ""} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"}`}
