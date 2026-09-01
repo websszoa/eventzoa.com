@@ -72,12 +72,12 @@ export default async function PageHeader() {
                 {index === supportMenu.length - 1 && (
                   <span aria-hidden="true">·</span>
                 )}
-                <a
+                <Link
                   className={`text-slate-900 hover:text-black ${index === 0 ? "mr-1" : ""}`}
                   href={item.href}
                 >
                   {item.label}
-                </a>
+                </Link>
               </Fragment>
             ))}
           </nav>
@@ -100,13 +100,13 @@ export default async function PageHeader() {
                 aria-label="주요 메뉴"
               >
                 {siteMenu.map((item) => (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     className="transition-colors hover:text-blue-600"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>

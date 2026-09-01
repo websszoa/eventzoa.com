@@ -98,7 +98,7 @@ export default function PageAdminMemberSettings({
         type="button"
         onClick={handleUpdate}
         disabled={isPending || isCurrentAdmin || isUnchanged}
-        className="h-11 w-full rounded-xl"
+        className="h-11 w-full"
       >
         {isPending ? (
           <LoaderCircle className="size-4 animate-spin" aria-hidden="true" />

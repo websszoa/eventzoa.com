@@ -67,3 +67,22 @@ export function newInquiryEmailTemplate({
       row("문의 내용", message),
   );
 }
+
+export function inquiryReplyEmailTemplate({
+  name,
+  inquirySubject,
+  reply,
+}: {
+  name: string;
+  inquirySubject: string;
+  reply: string;
+}) {
+  return layout(
+    "문의하신 내용에 답변드립니다",
+    "이벤트조아 고객지원 답변입니다.",
+    row("문의자", `${name}님`) +
+      row("문의 제목", inquirySubject) +
+      row("답변 내용", reply) +
+      `<p style="margin:8px 0 0;padding-top:20px;border-top:1px solid #e2e8f0;color:#64748b;font-size:12px;line-height:1.7">추가 문의가 있다면 이 메일에 답장해 주세요.</p>`,
+  );
+}

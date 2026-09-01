@@ -6,11 +6,13 @@ const ADMIN_EMAIL = "webstoryboy@naver.com";
 const FROM_EMAIL =
   process.env.RESEND_FROM_EMAIL || "이벤트조아 <noreply@eventzoa.com>";
 
-export async function sendAdminEmail({
+async function sendEmail({
+  to,
   subject,
   html,
   replyTo,
 }: {
+  to: string;
   subject: string;
   html: string;
   replyTo?: string;
@@ -26,7 +28,7 @@ export async function sendAdminEmail({
     const resend = new Resend(apiKey);
     const { error } = await resend.emails.send({
       from: FROM_EMAIL,
-      to: ADMIN_EMAIL,
+      to,
       subject,
       html,
       ...(replyTo ? { replyTo } : {}),
@@ -50,4 +52,33 @@ export async function sendAdminEmail({
     );
     return false;
   }
+}
+
+export async function sendAdminEmail({
+  subject,
+  html,
+  replyTo,
+}: {
+  subject: string;
+  html: string;
+  replyTo?: string;
+}) {
+  return sendEmail({ to: ADMIN_EMAIL, subject, html, replyTo });
+}
+
+export async function sendInquiryReplyEmail({
+  to,
+  subject,
+  html,
+}: {
+  to: string;
+  subject: string;
+  html: string;
+}) {
+  return sendEmail({
+    to,
+    subject,
+    html,
+    replyTo: ADMIN_EMAIL,
+  });
 }

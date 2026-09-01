@@ -1,26 +1,29 @@
+import { LoaderCircle, PartyPopper } from "lucide-react";
+
 export default function Loading() {
   return (
-    <section className="min-h-[70vh] bg-slate-50 px-4 py-16" aria-label="페이지를 불러오는 중" aria-live="polite">
-      <div className="container">
-        <div className="animate-pulse">
-          <div className="h-5 w-28 rounded-full bg-blue-100" />
-          <div className="mt-4 h-12 max-w-xl rounded-2xl bg-slate-200" />
-          <div className="mt-3 h-5 max-w-md rounded-lg bg-slate-200" />
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {Array.from({ length: 3 }, (_, index) => (
-              <div key={index} className="overflow-hidden rounded-3xl border border-slate-200 bg-white">
-                <div className="h-56 bg-slate-200" />
-                <div className="space-y-4 p-6">
-                  <div className="h-4 w-24 rounded bg-blue-100" />
-                  <div className="h-7 w-4/5 rounded-lg bg-slate-200" />
-                  <div className="h-4 w-full rounded bg-slate-100" />
-                  <div className="h-4 w-2/3 rounded bg-slate-100" />
-                </div>
-              </div>
-            ))}
-          </div>
+    <section
+      className="grid min-h-[40vh] place-items-center px-4 py-12"
+      aria-label="페이지를 불러오는 중"
+      aria-live="polite"
+      aria-busy="true"
+    >
+      <div className="flex flex-col items-center text-center" role="status">
+        <div className="relative grid size-14 place-items-center rounded-2xl bg-blue-50 ring-1 ring-blue-100">
+          <LoaderCircle
+            className="absolute size-11 animate-spin text-blue-200 motion-reduce:animate-none"
+            strokeWidth={1.25}
+            aria-hidden="true"
+          />
+          <PartyPopper
+            className="size-5 text-blue-600"
+            strokeWidth={1.75}
+            aria-hidden="true"
+          />
         </div>
-        <span className="sr-only">페이지를 불러오고 있습니다.</span>
+        <p className="mt-3 text-xs font-bold text-slate-500">
+          불러오는 중...
+        </p>
       </div>
     </section>
   );
