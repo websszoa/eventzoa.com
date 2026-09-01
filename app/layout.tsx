@@ -143,6 +143,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ko"
+      data-scroll-behavior="smooth"
       className={cn(
         "h-full antialiased",
         nanumSquareNeo.variable,

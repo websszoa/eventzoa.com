@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 import { APP_SITE_URL } from "@/lib/constants";
-import events from "@/data/events/events_2026.json";
+import { uniqueFestivals } from "@/lib/festival-data.server";
 import { getNotificationPosts } from "@/lib/notifications";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -21,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${APP_SITE_URL}${path}`,
     ...entry,
   }));
-  const festivalPages: MetadataRoute.Sitemap = events.map((event) => ({
+  const festivalPages: MetadataRoute.Sitemap = uniqueFestivals.map((event) => ({
     url: `${APP_SITE_URL}/festivals/${event.slug}`,
     changeFrequency: "weekly",
     priority: 0.8,

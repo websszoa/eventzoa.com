@@ -243,7 +243,7 @@ export default function PageMap({
     <section className="relative h-[calc(100svh-160px)] min-h-175 overflow-hidden border-y border-slate-200 bg-slate-100">
       <Script
         id="naver-maps-sdk"
-        src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}`}
+        src={`https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}&submodules=geocoder`}
         strategy="afterInteractive"
         onReady={initializeMap}
         onLoad={initializeMap}

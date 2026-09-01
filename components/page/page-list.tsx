@@ -40,6 +40,7 @@ export type EventListItem = {
   price: string;
   program: string;
   status: string;
+  hasSchedule: boolean;
   month: string;
   day: string;
   weekday: string;
@@ -191,17 +192,27 @@ export default function PageList({ events }: { events: EventListItem[] }) {
                 >
                   <div className="flex items-center gap-4 lg:block lg:border-r lg:border-slate-200 lg:py-4 lg:pr-8 lg:text-center">
                     <p className="font-cafe24 text-3xl font-bold tracking-tight text-slate-950">
-                      {event.month}.{event.day}
-                      <span className="ml-1.5 font-sans text-sm font-medium text-slate-500">
-                        {event.weekday}
-                      </span>
+                      {event.hasSchedule ? (
+                        <>
+                          {event.month}.{event.day}
+                          <span className="ml-1.5 font-sans text-sm font-medium text-slate-500">
+                            {event.weekday}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="font-sans text-base font-bold text-slate-500">
+                          일정 미정
+                        </span>
+                      )}
                     </p>
-                    <Badge
-                      variant="outline"
-                      className="mt-0 rounded-full border-red-300 px-3 text-sm font-medium text-red-500 lg:mt-3"
-                    >
-                      {event.dDay}
-                    </Badge>
+                    {event.dDay && (
+                      <Badge
+                        variant="outline"
+                        className="mt-0 rounded-full border-red-300 px-3 text-sm font-medium text-red-500 lg:mt-3"
+                      >
+                        {event.dDay}
+                      </Badge>
+                    )}
                   </div>
 
                   <Link

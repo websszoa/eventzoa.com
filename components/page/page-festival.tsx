@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import PageTitle from "@/components/page/page-title";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,29 +14,36 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
+  ArrowUpRight,
   CalendarCheck,
   CalendarDays,
   CarFront,
   CircleDollarSign,
-  Clock3,
   ListChecks,
   MapPin,
   RotateCcw,
   Search,
   SlidersHorizontal,
+  TicketCheck,
 } from "lucide-react";
+
+import PageFestivalImage from "@/components/page/page-festival-image";
+import PageTitle from "@/components/page/page-title";
 
 export type FestivalListItem = {
   slug: string;
   title: string;
   description: string;
   region: string;
+  type: string;
   season: string;
-  month: number;
+  month: number | null;
   status: string;
   price: string;
+  entrance: string;
+  registration: string;
   date: string;
-  startDate: string;
+  startDate: string | null;
   place: string;
   parking: string;
   program: string;
@@ -46,17 +51,19 @@ export type FestivalListItem = {
   site: string | null;
 };
 
-const seasons = ["전체 시기", "봄", "여름", "가을", "겨울"];
+const seasons = ["전체 시기", "봄", "여름", "가을", "겨울", "일정 미정"];
 const prices = ["전체 가격", "무료", "유료"];
-const statuses = ["전체", "개최 예정", "진행 중", "종료"];
+const statuses = ["전체", "개최 예정", "진행 중", "종료", "일정 미정"];
 const months = Array.from({ length: 12 }, (_, index) => index + 1);
 
 export default function PageFestival({
   festivals,
+  initialKeyword = "",
 }: {
   festivals: FestivalListItem[];
+  initialKeyword?: string;
 }) {
-  const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState(initialKeyword);
   const [region, setRegion] = useState("전체 지역");
   const [season, setSeason] = useState("전체 시기");
   const [price, setPrice] = useState("전체 가격");
@@ -109,6 +116,8 @@ export default function PageFestival({
       .sort((a, b) => {
         if (sort === "이름순") return a.title.localeCompare(b.title, "ko");
         if (sort === "지역순") return a.region.localeCompare(b.region, "ko");
+        if (!a.startDate) return b.startDate ? 1 : 0;
+        if (!b.startDate) return -1;
         return a.startDate.localeCompare(b.startDate);
       });
   }, [festivals, keyword, month, price, region, season, sort, status]);
@@ -333,123 +342,131 @@ export default function PageFestival({
                 <div className="mt-7 grid gap-5 xl:grid-cols-2">
                   {filteredFestivals.map((festival) => (
                     <Link
-                      key={festival.title}
+                      key={festival.slug}
                       href={`/festivals/${festival.slug}`}
                       className="group block rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-600"
                       aria-label={`${festival.title} 상세 보기`}
                     >
                       <Card className="h-full gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all group-hover:-translate-y-1">
-                      <CardContent className="min-w-0 gap-4 px-6 pt-4.5 pb-6">
-                        <div className="min-w-0">
-                          <h3
-                            className="truncate font-cafe24 text-3xl leading-tight font-bold text-slate-950"
-                            title={festival.title}
-                          >
-                            {festival.title}
-                          </h3>
-                          <div className="mt-3 flex flex-wrap gap-1">
-                            <Badge
-                              variant="outline"
-                              className="rounded-full border-blue-200 text-blue-600"
+                        <CardContent className="min-w-0 gap-4 px-6 pt-4.5 pb-6">
+                          <div className="min-w-0">
+                            <h3
+                              className="truncate font-cafe24 text-3xl leading-tight font-bold text-slate-950"
+                              title={festival.title}
                             >
-                              {festival.season} 축제
-                            </Badge>
-                            <Badge className="rounded-full bg-blue-600 text-white hover:bg-blue-600">
-                              {festival.status}
-                            </Badge>
-                            <Badge variant="outline" className="rounded-full">
-                              {festival.price}
-                            </Badge>
-                          </div>
-                        </div>
-
-                        <div className="grid gap-4 sm:grid-cols-[120px_1fr]">
-                          <div className="relative min-h-40 overflow-hidden rounded bg-slate-200">
-                            <Image
-                              src={festival.image}
-                              alt={`${festival.title} 대표 이미지`}
-                              fill
-                              sizes="(max-width: 640px) 100vw, 120px"
-                              className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
+                              {festival.title}
+                            </h3>
+                            <div className="mt-3 flex flex-wrap gap-1">
+                              <Badge
+                                variant="outline"
+                                className="rounded-full border-blue-200 text-blue-600"
+                              >
+                                {festival.type}
+                              </Badge>
+                              <Badge className="rounded-full bg-blue-600 text-white hover:bg-blue-600">
+                                {festival.status}
+                              </Badge>
+                              <Badge variant="outline" className="rounded-full">
+                                {festival.price}
+                              </Badge>
+                            </div>
                           </div>
 
-                          <div className="min-w-0 space-y-2 text-sm text-slate-600">
-                            <p className="flex min-w-0 items-start gap-2">
-                              <CalendarDays
-                                className="mt-0.5 size-4 shrink-0 text-blue-600"
-                                aria-hidden="true"
+                          <div className="grid gap-4 sm:grid-cols-[120px_1fr]">
+                            <div className="relative min-h-40 overflow-hidden rounded bg-slate-200">
+                              <PageFestivalImage
+                                src={festival.image}
+                                alt={`${festival.title} 대표 이미지`}
+                                fill
+                                sizes="(max-width: 640px) 100vw, 120px"
+                                className="object-cover"
                               />
-                              <span
-                                className="truncate"
-                                title={`일정 · ${festival.date}`}
-                              >
-                                일정 · {festival.date}
-                              </span>
-                            </p>
-                            <p className="flex min-w-0 items-start gap-2">
-                              <MapPin
-                                className="mt-0.5 size-4 shrink-0 text-pink-500"
+                              <div
+                                className="absolute inset-0 grid place-items-center bg-slate-950/45 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100 motion-reduce:transition-none"
                                 aria-hidden="true"
-                              />
-                              <span
-                                className="truncate"
-                                title={`장소 · ${festival.region}, ${festival.place}`}
                               >
-                                장소 · {festival.region}, {festival.place}
-                              </span>
-                            </p>
-                            <p className="flex min-w-0 items-start gap-2">
-                              <CircleDollarSign
-                                className="mt-0.5 size-4 shrink-0 text-emerald-500"
-                                aria-hidden="true"
-                              />
-                              <span
-                                className="truncate"
-                                title={`가격 · ${festival.price}`}
-                              >
-                                가격 · {festival.price}
-                              </span>
-                            </p>
-                            <p className="flex min-w-0 items-start gap-2">
-                              <Clock3
-                                className="mt-0.5 size-4 shrink-0 text-amber-500"
-                                aria-hidden="true"
-                              />
-                              <span
-                                className="truncate"
-                                title={`상태 · ${festival.status}`}
-                              >
-                                상태 · {festival.status}
-                              </span>
-                            </p>
-                            <p className="flex min-w-0 items-start gap-2">
-                              <CarFront
-                                className="mt-0.5 size-4 shrink-0 text-violet-500"
-                                aria-hidden="true"
-                              />
-                              <span
-                                className="truncate"
-                                title={`주차 · ${festival.parking}`}
-                              >
-                                주차 · {festival.parking}
-                              </span>
-                            </p>
-                            <p className="flex min-w-0 items-start gap-2">
-                              <ListChecks
-                                className="mt-0.5 size-4 shrink-0 text-cyan-600"
-                                aria-hidden="true"
-                              />
-                              <span
-                                className="truncate"
-                                title={`프로그램 · ${festival.program}`}
-                              >
-                                프로그램 · {festival.program}
-                              </span>
-                            </p>
+                                <span className="grid size-11 translate-y-2 place-items-center rounded-full border border-white/70 bg-white/95 text-blue-600 transition-transform duration-200 group-hover:translate-y-0 group-focus-visible:translate-y-0 motion-reduce:transform-none motion-reduce:transition-none">
+                                  <ArrowUpRight className="size-5" />
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="min-w-0 space-y-2 text-sm text-slate-600">
+                              <p className="flex min-w-0 items-start gap-2">
+                                <CalendarDays
+                                  className="mt-0.5 size-4 shrink-0 text-blue-600"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`일정 · ${festival.date}`}
+                                >
+                                  일정 · {festival.date}
+                                </span>
+                              </p>
+                              <p className="flex min-w-0 items-start gap-2">
+                                <MapPin
+                                  className="mt-0.5 size-4 shrink-0 text-pink-500"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`장소 · ${festival.region}, ${festival.place}`}
+                                >
+                                  장소 · {festival.region}, {festival.place}
+                                </span>
+                              </p>
+                              <p className="flex min-w-0 items-start gap-2">
+                                <CircleDollarSign
+                                  className="mt-0.5 size-4 shrink-0 text-emerald-500"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`가격 · ${festival.entrance}`}
+                                >
+                                  가격 · {festival.entrance}
+                                </span>
+                              </p>
+                              <p className="flex min-w-0 items-start gap-2">
+                                <TicketCheck
+                                  className="mt-0.5 size-4 shrink-0 text-amber-600"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`티켓 · ${festival.registration}`}
+                                >
+                                  티켓 · {festival.registration}
+                                </span>
+                              </p>
+                              <p className="flex min-w-0 items-start gap-2">
+                                <CarFront
+                                  className="mt-0.5 size-4 shrink-0 text-violet-500"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`주차 · ${festival.parking}`}
+                                >
+                                  주차 · {festival.parking}
+                                </span>
+                              </p>
+                              <p className="flex min-w-0 items-start gap-2">
+                                <ListChecks
+                                  className="mt-0.5 size-4 shrink-0 text-cyan-600"
+                                  aria-hidden="true"
+                                />
+                                <span
+                                  className="truncate"
+                                  title={`프로그램 · ${festival.program}`}
+                                >
+                                  프로그램 · {festival.program}
+                                </span>
+                              </p>
+                            </div>
                           </div>
-                        </div>
-                      </CardContent>
+                        </CardContent>
                       </Card>
                     </Link>
                   ))}

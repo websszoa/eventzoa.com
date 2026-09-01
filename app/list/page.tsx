@@ -2,6 +2,11 @@ import type { Metadata } from "next";
 
 import PageList, { type EventListItem } from "@/components/page/page-list";
 import events from "@/data/events/events_2026.json";
+import {
+  formatEventInfoValue,
+  getEventInfoType,
+  getEventSite,
+} from "@/lib/event-data";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -40,10 +45,10 @@ export default function ListPage() {
     timeZone: "Asia/Seoul",
   }).format(new Date());
   const eventList: EventListItem[] = events.map((event) => {
-    const [year, month, day] = event.event.startDate.split("-");
-    const price = [event.info.entrance.type, event.info.entrance.fee]
-      .filter(Boolean)
-      .join(" · ");
+    const { startDate, endDate } = event.event;
+    const schedule = startDate && endDate ? { startDate, endDate } : null;
+    const [year = "", month = "", day = ""] = schedule?.startDate.split("-") ?? [];
+    const price = formatEventInfoValue(event.info.entrance);
 
     return {
       slug: event.slug,
@@ -52,22 +57,23 @@ export default function ListPage() {
       type: event.info.type,
       region: event.location.region,
       place: event.location.venue,
-      season: getSeason(Number(month)),
-      priceType: event.info.entrance.type ?? "가격 확인",
+      season: schedule ? getSeason(Number(month)) : "일정 미정",
+      priceType: getEventInfoType(event.info.entrance) || "가격 확인",
       price: price || "가격 확인",
       program: event.info.program || "프로그램 확인",
-      status: getEventStatus(
-        event.event.startDate,
-        event.event.endDate,
-        today,
-      ),
+      status: schedule
+        ? getEventStatus(schedule.startDate, schedule.endDate, today)
+        : "일정 미정",
+      hasSchedule: Boolean(schedule),
       month,
       day,
-      weekday: new Intl.DateTimeFormat("ko-KR", { weekday: "short" }).format(
-        new Date(`${year}-${month}-${day}T00:00:00+09:00`),
-      ),
-      dDay: getDDay(event.event.startDate, today),
-      site: event.event.site,
+      weekday: schedule
+        ? new Intl.DateTimeFormat("ko-KR", { weekday: "short" }).format(
+            new Date(`${year}-${month}-${day}T00:00:00+09:00`),
+          )
+        : "",
+      dDay: schedule ? getDDay(schedule.startDate, today) : "",
+      site: getEventSite(event.info, event.event) || null,
     };
   });
 

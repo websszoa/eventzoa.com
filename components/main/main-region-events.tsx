@@ -16,12 +16,13 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { uniqueFestivals } from "@/lib/festival-data.server";
 
 const regions = [
   {
     name: "서울",
     description: "도심 속 전시와 공연",
-    eventCount: 128,
+    includedRegions: ["서울"],
     href: "/festivals",
     icon: Building2,
     theme: "from-blue-700 via-blue-600 to-cyan-400",
@@ -31,7 +32,7 @@ const regions = [
   {
     name: "부산",
     description: "바다와 함께하는 축제",
-    eventCount: 76,
+    includedRegions: ["부산"],
     href: "/festivals",
     icon: Waves,
     theme: "from-cyan-600 to-blue-400",
@@ -41,7 +42,7 @@ const regions = [
   {
     name: "제주",
     description: "자연 속 특별한 체험",
-    eventCount: 54,
+    includedRegions: ["제주"],
     href: "/festivals",
     icon: Palmtree,
     theme: "from-emerald-600 to-teal-400",
@@ -51,7 +52,7 @@ const regions = [
   {
     name: "경기",
     description: "가족과 즐기는 주말",
-    eventCount: 96,
+    includedRegions: ["경기"],
     href: "/festivals",
     icon: MapPin,
     theme: "from-violet-600 to-indigo-400",
@@ -61,7 +62,7 @@ const regions = [
   {
     name: "강원",
     description: "산과 계절이 만든 여행",
-    eventCount: 43,
+    includedRegions: ["강원"],
     href: "/festivals",
     icon: Mountain,
     theme: "from-lime-600 to-emerald-400",
@@ -71,7 +72,7 @@ const regions = [
   {
     name: "전라",
     description: "맛과 멋이 가득한 고장",
-    eventCount: 61,
+    includedRegions: ["전남", "전북", "광주"],
     href: "/festivals",
     icon: Ship,
     theme: "from-orange-600 to-amber-400",
@@ -81,7 +82,7 @@ const regions = [
   {
     name: "충청",
     description: "여유롭게 만나는 역사와 문화",
-    eventCount: 48,
+    includedRegions: ["충남", "충북", "대전", "세종"],
     href: "/festivals",
     icon: Landmark,
     theme: "from-rose-600 to-pink-400",
@@ -91,7 +92,7 @@ const regions = [
   {
     name: "경상",
     description: "전통과 활기가 만나는 축제",
-    eventCount: 83,
+    includedRegions: ["경남", "경북", "대구", "울산"],
     href: "/festivals",
     icon: Castle,
     theme: "from-red-600 to-orange-400",
@@ -101,7 +102,7 @@ const regions = [
   {
     name: "인천",
     description: "공항과 바다를 잇는 즐거움",
-    eventCount: 39,
+    includedRegions: ["인천"],
     href: "/festivals",
     icon: Plane,
     theme: "from-sky-600 to-indigo-400",
@@ -136,7 +137,7 @@ export default function MainRegionEvents() {
             variant="outline"
             nativeButton={false}
             render={<Link href="/festivals" />}
-            className="self-start rounded-full border-slate-200 bg-white px-5 font-bold text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:self-auto"
+            className="self-start rounded-full border-slate-200 bg-white px-5 text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:self-auto"
           >
             모든 지역 보기
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -146,6 +147,9 @@ export default function MainRegionEvents() {
         <div className="mt-10 grid auto-rows-52 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {regions.map((region) => {
             const Icon = region.icon;
+            const eventCount = uniqueFestivals.filter((festival) =>
+              region.includedRegions.includes(festival.location.region),
+            ).length;
 
             return (
               <Card
@@ -169,7 +173,7 @@ export default function MainRegionEvents() {
                       <Icon className="size-5" aria-hidden="true" />
                     </div>
                     <Badge className="h-auto rounded-full border border-white/15 bg-slate-950/15 px-2.5 py-1 text-white backdrop-blur-sm hover:bg-slate-950/15">
-                      행사 {region.eventCount}개
+                      행사 {eventCount}개
                     </Badge>
                   </div>
 

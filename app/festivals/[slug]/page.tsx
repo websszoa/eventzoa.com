@@ -1,52 +1,124 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { buttonVariants } from "@/components/ui/button";
 import PageFestivalHeroConfetti from "@/components/page/page-festival-hero-confetti";
+import PageFestivalImage from "@/components/page/page-festival-image";
+import PageFestivalLocationMap from "@/components/page/page-festival-location-map";
+import PageFestivalOrganizer from "@/components/page/page-festival-organizer";
 import {
-  ArrowLeft,
+  CalendarClock,
   CalendarDays,
   CarFront,
   CircleDollarSign,
   Clock3,
   ExternalLink,
+  Info,
   ListChecks,
   MapPin,
-  Navigation,
   Phone,
   Sparkles,
-  UserRound,
+  TicketCheck,
   type LucideIcon,
 } from "lucide-react";
 
-import events from "@/data/events/events_2026.json";
 import { APP_INSTAGRAM_URL, APP_NAME, APP_SITE_URL } from "@/lib/constants";
+import {
+  formatEventInfoValue,
+  getEventInfoType,
+  getEventSite,
+  getObjectProperty,
+} from "@/lib/event-data";
+import { getEventCoverPath } from "@/lib/event-image.server";
+import {
+  festivalSlugs,
+  getFestivalBySlug,
+} from "@/lib/festival-data.server";
 import { createPageMetadata } from "@/lib/seo";
 
 type FestivalPageProps = {
   params: Promise<{ slug: string }>;
 };
 
-function formatDate(date: string) {
-  return new Intl.DateTimeFormat("ko-KR", {
+function formatDate(date: string | null) {
+  if (!date) return "일정 미정";
+
+  const eventDate = new Date(`${date}T00:00:00+09:00`);
+  const formattedDate = new Intl.DateTimeFormat("ko-KR", {
     year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "Asia/Seoul",
+  }).format(eventDate);
+  const weekday = new Intl.DateTimeFormat("ko-KR", {
+    weekday: "short",
+    timeZone: "Asia/Seoul",
+  }).format(eventDate);
+
+  return `${formattedDate}(${weekday})`;
+}
+
+function formatScheduleLabel(label: string) {
+  if (/^\d{4}-\d{2}-\d{2}$/.test(label)) return formatDate(label);
+  return label;
+}
+
+function formatScheduleTime(value: string) {
+  const match = value.match(/^(\d{4}-\d{2}-\d{2}) (\d{2}:\d{2})$/);
+  if (!match) return value;
+
+  const [, date, time] = match;
+  const eventDate = new Date(`${date}T00:00:00+09:00`);
+  const formattedDate = new Intl.DateTimeFormat("ko-KR", {
     month: "long",
     day: "numeric",
     weekday: "short",
     timeZone: "Asia/Seoul",
-  }).format(new Date(`${date}T00:00:00+09:00`));
+  }).format(eventDate);
+
+  return `${formattedDate} ${time}`;
 }
 
-function formatTime(time: string | null) {
-  if (!time || time === "00:00")
-    return "운영 시간은 공식 사이트에서 확인해 주세요";
-  return time;
+function getScheduleRows(schedule: Record<string, unknown>) {
+  return Object.entries(schedule).flatMap(([time, program]) =>
+    Array.isArray(program)
+      ? program.map((item, index) => ({
+          key: `${time}-${index}`,
+          time,
+          program: item,
+        }))
+      : [{ key: time, time, program }],
+  );
 }
 
-function getStatus(startDate: string, endDate: string) {
+function formatTicketPrice(price: unknown) {
+  if (typeof price === "number") return `${price.toLocaleString("ko-KR")}원`;
+  return String(price);
+}
+
+function formatRegistrationPeriod(
+  startDate: string | null,
+  endDate: string | null,
+  startTime: string | null,
+  endTime: string | null,
+) {
+  const start = startDate
+    ? `${formatDate(startDate)}${startTime ? ` ${startTime}` : ""}부터`
+    : startTime
+      ? `${startTime}부터`
+      : "";
+  const end = endTime
+    ? `${endDate ? `${formatDate(endDate)} ` : ""}${endTime}까지`
+    : endDate
+      ? `${formatDate(endDate)} 선착순 마감`
+      : "선착순 마감";
+
+  return [start, end].filter(Boolean).join(" · ");
+}
+
+function getStatus(startDate: string | null, endDate: string | null) {
+  if (!startDate || !endDate) return "일정 미정";
+
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
@@ -55,7 +127,9 @@ function getStatus(startDate: string, endDate: string) {
   return "진행 중";
 }
 
-function getDDay(startDate: string) {
+function getDDay(startDate: string | null) {
+  if (!startDate) return "일정 미정";
+
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
@@ -71,14 +145,14 @@ function getDDay(startDate: string) {
 }
 
 export function generateStaticParams() {
-  return events.map((event) => ({ slug: event.slug }));
+  return festivalSlugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
   params,
 }: FestivalPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const festival = events.find((event) => event.slug === slug);
+  const festival = getFestivalBySlug(slug);
 
   if (!festival) return { title: "축제를 찾을 수 없습니다" };
 
@@ -95,24 +169,79 @@ export default async function FestivalDetailPage({
   params,
 }: FestivalPageProps) {
   const { slug } = await params;
-  const festival = events.find((event) => event.slug === slug);
+  const festival = getFestivalBySlug(slug);
 
   if (!festival) notFound();
 
-  const status = getStatus(festival.event.startDate, festival.event.endDate);
-  const dDay = getDDay(festival.event.startDate);
-  const date = `${formatDate(festival.event.startDate)} – ${formatDate(festival.event.endDate)}`;
-  const time =
-    festival.event.startTime === "00:00" && festival.event.endTime === "00:00"
-      ? formatTime(null)
-      : `${formatTime(festival.event.startTime)} – ${formatTime(festival.event.endTime)}`;
-  const parking = [festival.info.park.type, festival.info.park.fee]
-    .filter(Boolean)
+  const { startDate, endDate } = festival.event;
+  const status = getStatus(startDate, endDate);
+  const coverImage = getEventCoverPath(festival.slug);
+  const dDay = getDDay(startDate);
+  const date =
+    startDate && endDate
+      ? startDate === endDate
+        ? formatDate(startDate)
+        : `${formatDate(startDate)} – ${formatDate(endDate)}`
+      : "개최 기간 정보가 없습니다.";
+  const { startTime, endTime } = festival.event;
+  const time = startTime
+    ? endTime
+      ? `${startTime} – ${endTime}`
+      : `${startTime}부터`
+    : endTime
+      ? `${endTime}까지`
+      : "운영시간 정보가 없습니다.";
+  const entrance = formatEventInfoValue(festival.info.entrance);
+  const entranceType = getEventInfoType(festival.info.entrance);
+  const parking = formatEventInfoValue(festival.info.park);
+  const site = getEventSite(festival.info, festival.event);
+  const mapSearch =
+    festival.location.naver ||
+    festival.location.address ||
+    festival.location.venue;
+  const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(mapSearch)}`;
+  const kakaoMapUrl = `https://map.kakao.com/link/search/${encodeURIComponent(mapSearch)}`;
+  const contact = [
+    festival.hosts.manager,
+    festival.hosts.phone,
+    festival.hosts.email,
+  ]
+    .filter((value): value is string => Boolean(value))
+    .join("\n");
+  const place = [
+    festival.location.region,
+    festival.location.area,
+    festival.location.venue,
+  ]
+    .filter((value): value is string => Boolean(value))
     .join(" · ");
-  const mapUrl = `https://map.naver.com/p/search/${encodeURIComponent(festival.location.naver || festival.location.address || festival.location.venue)}`;
-  const priceEntries = festival.registration.price
-    ? Object.entries(festival.registration.price)
+  const schedule = getObjectProperty(festival.event, "schedule");
+  const groupedScheduleEntries = schedule
+    ? Object.entries(schedule).flatMap(([scheduleDate, programs]) =>
+        programs && typeof programs === "object"
+          ? [[scheduleDate, programs as Record<string, unknown>] as const]
+          : [],
+      )
     : [];
+  const scheduleEntries =
+    groupedScheduleEntries.length > 0
+      ? groupedScheduleEntries
+      : schedule && Object.keys(schedule).length > 0
+        ? ([[startDate || "프로그램 일정", schedule]] as const)
+        : [];
+  const registrationPrice = getObjectProperty(festival.registration, "price");
+  const ticketPriceEntries = registrationPrice
+    ? Object.entries(registrationPrice).filter(
+        ([, price]) => price !== null && price !== undefined && price !== "",
+      )
+    : [];
+  const registrationPeriod = formatRegistrationPeriod(
+    festival.registration.startDate,
+    festival.registration.endDate,
+    festival.registration.startTime,
+    festival.registration.endTime,
+  );
+  const registrationSite = festival.registration.site;
   const summaryItems: Array<{
     icon: LucideIcon;
     label: string;
@@ -137,31 +266,28 @@ export default async function FestivalDetailPage({
     {
       icon: MapPin,
       label: "장소",
-      value: `${festival.location.venue}\n${festival.location.address}`,
+      value: place || "장소 정보가 없습니다.",
       color: "text-pink-600",
       background: "bg-pink-50",
     },
     {
       icon: CircleDollarSign,
       label: "입장 안내",
-      value:
-        festival.info.entrance.fee ||
-        festival.info.entrance.type ||
-        "정보 확인",
+      value: entrance || "입장 안내 정보가 없습니다.",
       color: "text-emerald-600",
       background: "bg-emerald-50",
     },
     {
       icon: CarFront,
       label: "주차",
-      value: parking || "정보 확인",
+      value: parking || "주차 정보가 없습니다.",
       color: "text-violet-600",
       background: "bg-violet-50",
     },
     {
-      icon: UserRound,
-      label: "주최",
-      value: festival.hosts.organizer || "정보 확인",
+      icon: Phone,
+      label: "문의처",
+      value: contact || "문의처 정보가 없습니다.",
       color: "text-cyan-700",
       background: "bg-cyan-50",
     },
@@ -172,55 +298,55 @@ export default async function FestivalDetailPage({
     "@context": "https://schema.org",
     "@graph": [
       {
-    "@type": "Event",
-    "@id": `${detailUrl}/#event`,
-    name: festival.name,
-    description: festival.description,
-    image: [`${APP_SITE_URL}/event/cover/${festival.slug}.jpg`],
-    startDate: festival.event.startDate,
-    endDate: festival.event.endDate,
-    eventStatus:
-      status === "종료"
-        ? "https://schema.org/EventCompleted"
-        : "https://schema.org/EventScheduled",
-    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-    location: {
-      "@type": "Place",
-      name: festival.location.venue,
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: festival.location.address,
-        addressLocality: festival.location.area,
-        addressRegion: festival.location.region,
-        addressCountry: "KR",
-      },
-      ...(festival.location.latitude !== null &&
-      festival.location.longitude !== null
-        ? {
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: festival.location.latitude,
-              longitude: festival.location.longitude,
-            },
-          }
-        : {}),
-    },
-    organizer: festival.hosts.organizer
-      ? { "@type": "Organization", name: festival.hosts.organizer }
-      : { "@type": "Organization", name: APP_NAME },
-    url: detailUrl,
-    sameAs: festival.event.site || undefined,
-    ...(festival.info.entrance.type === "무료"
-      ? {
-          offers: {
-            "@type": "Offer",
-            price: 0,
-            priceCurrency: "KRW",
-            availability: "https://schema.org/InStock",
-            url: festival.event.site || detailUrl,
+        "@type": "Event",
+        "@id": `${detailUrl}/#event`,
+        name: festival.name,
+        description: festival.description,
+        image: [`${APP_SITE_URL}/event/cover/${festival.slug}.jpg`],
+        startDate,
+        endDate,
+        eventStatus:
+          status === "종료"
+            ? "https://schema.org/EventCompleted"
+            : "https://schema.org/EventScheduled",
+        eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+        location: {
+          "@type": "Place",
+          name: festival.location.venue,
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: festival.location.address,
+            addressLocality: festival.location.area,
+            addressRegion: festival.location.region,
+            addressCountry: "KR",
           },
-        }
-      : {}),
+          ...(festival.location.latitude !== null &&
+          festival.location.longitude !== null
+            ? {
+                geo: {
+                  "@type": "GeoCoordinates",
+                  latitude: festival.location.latitude,
+                  longitude: festival.location.longitude,
+                },
+              }
+            : {}),
+        },
+        organizer: festival.hosts.organizer
+          ? { "@type": "Organization", name: festival.hosts.organizer }
+          : { "@type": "Organization", name: APP_NAME },
+        url: detailUrl,
+        sameAs: site || undefined,
+        ...(entrance === "무료"
+          ? {
+              offers: {
+                "@type": "Offer",
+                price: 0,
+                priceCurrency: "KRW",
+                availability: "https://schema.org/InStock",
+                url: site || detailUrl,
+              },
+            }
+          : {}),
       },
       {
         "@type": "BreadcrumbList",
@@ -275,7 +401,7 @@ export default async function FestivalDetailPage({
               variant="outline"
               className="rounded-full border-blue-200 bg-white/70 px-3 text-blue-700"
             >
-              {festival.info.entrance.type}
+              {entranceType || "가격 확인"}
             </Badge>
           </div>
           <h1 className="festival-hero-reveal mt-2 break-keep font-cafe24 text-4xl leading-tight font-bold text-slate-950 [animation-delay:120ms] sm:text-5xl lg:text-6xl">
@@ -304,7 +430,7 @@ export default async function FestivalDetailPage({
       </section>
 
       <section className="bg-white py-10 sm:py-16">
-        <div className="container grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-10">
+        <div className="container grid items-start gap-7 lg:grid-cols-[minmax(0,1fr)_380px] lg:gap-10">
           <div className="space-y-7">
             <section className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
               <div className="flex flex-col gap-5 border-b border-slate-200 px-6 py-4 sm:flex-row sm:items-end sm:justify-between">
@@ -325,7 +451,7 @@ export default async function FestivalDetailPage({
                   ({ icon: Icon, label, value, color, background }, index) => (
                     <div
                       key={label}
-                      className={`flex min-h-32 gap-4 border-slate-100 p-6 sm:p-7 ${index % 2 === 0 ? "sm:border-r" : ""} ${index < summaryItems.length - 2 ? "border-b" : ""}`}
+                      className={`flex gap-4 border-slate-100 p-6 sm:p-7 ${index % 2 === 0 ? "sm:border-r" : ""} ${index < summaryItems.length - 2 ? "border-b" : ""}`}
                     >
                       <div
                         className={`grid size-11 shrink-0 place-items-center rounded-2xl ${background} ${color}`}
@@ -346,35 +472,140 @@ export default async function FestivalDetailPage({
               </dl>
             </section>
 
-            <section className="relative overflow-hidden rounded-3xl bg-slate-900 px-6 py-8 text-white sm:px-8 sm:py-10">
-              <div
-                className="absolute -right-16 -bottom-24 size-64 rounded-full bg-blue-500/20 blur-3xl"
-                aria-hidden="true"
-              />
-              <div className="relative">
-                <div className="flex items-center gap-3">
-                  <div className="grid size-11 place-items-center rounded-2xl bg-white/10 text-blue-300">
-                    <ListChecks className="size-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold tracking-widest text-blue-300 uppercase">
-                      Program
-                    </p>
-                    <h2 className="mt-1 font-cafe24 text-3xl font-bold">
-                      주요 프로그램
-                    </h2>
+            {ticketPriceEntries.length > 0 && (
+              <section className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
+                <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 px-6 py-4">
+                  <h2 className="flex items-center gap-2 font-cafe24 text-2xl font-bold text-slate-950">
+                    <TicketCheck
+                      className="size-5 text-amber-600"
+                      aria-hidden="true"
+                    />
+                    티켓 가격 정보
+                  </h2>
+                  {festival.registration.status && (
+                    <Badge className="h-7 w-fit shrink-0 rounded-full bg-blue-600 px-3 font-bold text-white hover:bg-blue-600">
+                      {festival.registration.status}
+                    </Badge>
+                  )}
+                </div>
+                <div>
+                  {registrationPeriod && (
+                    <dl className="flex gap-4 pt-6 px-6 sm:px-7">
+                      <div className="grid size-11 shrink-0 place-items-center rounded-2xl bg-blue-50 text-blue-600">
+                        <CalendarDays className="size-5" aria-hidden="true" />
+                      </div>
+                      <div className="min-w-0">
+                        <dt className="text-xs font-bold tracking-wide text-slate-400 uppercase">
+                          판매 기간
+                        </dt>
+                        <dd className="mt-2 break-keep text-[15px] leading-6 text-slate-800">
+                          {registrationPeriod}
+                        </dd>
+                        {registrationSite && (
+                          <dd className="mt-1">
+                            <a
+                              href={registrationSite}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 text-sm underline decoration-violet-200 underline-offset-4 hover:text-violet-500"
+                            >
+                              판매 사이트 바로가기
+                              <ExternalLink
+                                className="size-3.5"
+                                aria-hidden="true"
+                              />
+                            </a>
+                          </dd>
+                        )}
+                      </div>
+                    </dl>
+                  )}
+                  <div className="p-6 sm:p-7">
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <dl className="overflow-hidden rounded-3xl border border-slate-200 bg-white text-sm">
+                        {ticketPriceEntries.map(([name, price]) => (
+                          <div
+                            key={name}
+                            className="grid grid-cols-[max-content_1fr] border-b border-slate-200 last:border-b-0"
+                          >
+                            <dt className="max-w-64 border-r border-slate-200 px-4 py-3 text-slate-600">
+                              {name}
+                            </dt>
+                            <dd className="px-4 py-3 text-right tabular-nums text-slate-600">
+                              {formatTicketPrice(price)}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    </div>
                   </div>
                 </div>
-                <p className="mt-7 max-w-3xl break-keep text-base leading-8 text-slate-200">
+              </section>
+            )}
+
+            <section className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
+              <div className="flex flex-col gap-5 border-b border-slate-200 px-6 py-4 sm:flex-row sm:items-end sm:justify-between">
+                <h2 className="flex items-center gap-2 font-cafe24 text-2xl font-bold text-slate-950">
+                  <ListChecks
+                    className="size-5 text-blue-600"
+                    aria-hidden="true"
+                  />
+                  주요 프로그램
+                </h2>
+              </div>
+              <div className="px-6 py-6 sm:px-7 sm:py-7">
+                <p className="break-keep text-[15px] leading-7 text-slate-600">
                   {festival.info.program ||
                     "프로그램은 공식 사이트에서 확인해 주세요."}
                 </p>
+                {scheduleEntries.length > 0 && (
+                  <div className="mt-6 border-t border-slate-100 pt-6">
+                    <strong className="flex items-center gap-2 text-sm text-blue-600">
+                      <CalendarClock className="size-4" aria-hidden="true" />
+                      프로그램 일정
+                    </strong>
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      {scheduleEntries.map(([scheduleDate, schedule]) => {
+                        const rows = getScheduleRows(schedule);
+                        const hasDatesInRows = rows.some(({ time }) =>
+                          /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(time),
+                        );
+
+                        return (
+                          <div key={scheduleDate}>
+                            {scheduleEntries.length > 1 && (
+                              <h3 className="mb-3 font-bold text-slate-900">
+                                {formatScheduleLabel(scheduleDate)}
+                              </h3>
+                            )}
+                            <ul className="overflow-hidden rounded-3xl border border-slate-200 bg-white text-sm">
+                              {rows.map(({ key, time, program }) => (
+                                <li
+                                  key={key}
+                                  className={`grid border-b border-slate-200 last:border-b-0 ${hasDatesInRows ? "grid-cols-[9.5rem_1fr]" : "grid-cols-[5.5rem_1fr]"}`}
+                                >
+                                  <time className="border-r border-slate-200 px-4 py-3 text-center text-slate-700">
+                                    {formatScheduleTime(time)}
+                                  </time>
+                                  <span className="break-keep px-4 py-3 text-slate-600">
+                                    {String(program)}
+                                  </span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
                 {festival.info.memo && (
-                  <div className="mt-7 border-t border-white/10 pt-6">
-                    <strong className="text-sm text-blue-300">
+                  <div className="mt-6 border-t border-slate-100 pt-6">
+                    <strong className="flex items-center gap-2 text-sm font-anyvid text-amber-600">
+                      <Info className="size-4" aria-hidden="true" />
                       방문 전 참고사항
                     </strong>
-                    <p className="mt-2 break-keep text-sm leading-6 text-slate-300">
+                    <p className="mt-2 break-keep text-sm leading-6 text-slate-600">
                       {festival.info.memo}
                     </p>
                   </div>
@@ -382,45 +613,24 @@ export default async function FestivalDetailPage({
               </div>
             </section>
 
-            {priceEntries.length > 0 && (
-              <section className="rounded-3xl bg-white p-6 ring-1 ring-slate-200 sm:p-8">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-bold tracking-widest text-emerald-600 uppercase">
-                      Ticket
-                    </p>
-                    <h2 className="mt-1 font-cafe24 text-3xl font-bold text-slate-950">
-                      입장 요금
-                    </h2>
-                  </div>
-                  <CircleDollarSign
-                    className="size-7 text-emerald-500"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {priceEntries.map(([name, price]) => (
-                    <div
-                      key={name}
-                      className="flex items-center justify-between rounded-2xl bg-emerald-50/70 px-5 py-4 text-sm"
-                    >
-                      <span className="text-slate-600">{name}</span>
-                      <strong className="text-slate-950">{price}</strong>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
+            <PageFestivalLocationMap
+              title={festival.name}
+              address={festival.location.address}
+              latitude={festival.location.latitude}
+              longitude={festival.location.longitude}
+              clientId={process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}
+              naverMapUrl={naverMapUrl}
+              kakaoMapUrl={kakaoMapUrl}
+            />
           </div>
 
           <aside className="space-y-5 lg:sticky lg:top-28">
-            <div className="relative overflow-hidden rounded-3xl p-4 ring-1 ring-slate-200">
-              <Image
-                src={`/event/cover/${festival.slug}.jpg`}
+            <div className="relative overflow-hidden rounded-3xl p-5 ring-1 ring-slate-200">
+              <PageFestivalImage
+                src={coverImage}
                 alt={`${festival.name} 대표 이미지`}
                 width={960}
                 height={1280}
-                priority
                 sizes="(max-width: 1024px) 100vw, 340px"
                 className="h-auto w-full rounded-xl"
               />
@@ -441,76 +651,15 @@ export default async function FestivalDetailPage({
                 />
               </a>
             </div>
-            <section className="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
-              <p className="text-xs font-bold tracking-widest text-blue-600 uppercase">
-                Location
-              </p>
-              <h2 className="mt-1 font-cafe24 text-2xl font-bold text-slate-950">
-                방문 정보
-              </h2>
-              <p className="mt-4 break-keep text-sm leading-6 text-slate-600">
-                {festival.location.address}
-              </p>
-              <div className="mt-5 grid gap-2">
-                <a
-                  href={mapUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={cn(buttonVariants(), "h-12 rounded-xl")}
-                >
-                  <Navigation className="size-4" />
-                  지도에서 위치 보기
-                </a>
-                {festival.event.site && (
-                  <a
-                    href={festival.event.site}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={cn(
-                      buttonVariants({ variant: "outline" }),
-                      "h-12 rounded-xl",
-                    )}
-                  >
-                    공식 사이트
-                    <ExternalLink className="size-4" />
-                  </a>
-                )}
-              </div>
-            </section>
-            {(festival.hosts.phone || festival.hosts.manager) && (
-              <section className="rounded-3xl bg-blue-50 p-6 ring-1 ring-blue-100">
-                <p className="text-xs font-bold tracking-widest text-blue-600 uppercase">
-                  Contact
-                </p>
-                <h2 className="mt-1 font-cafe24 text-2xl font-bold text-slate-950">
-                  문의처
-                </h2>
-                {festival.hosts.manager && (
-                  <p className="mt-4 text-sm text-slate-600">
-                    {festival.hosts.manager}
-                  </p>
-                )}
-                {festival.hosts.phone && (
-                  <a
-                    href={`tel:${festival.hosts.phone}`}
-                    className="mt-3 flex items-center gap-2 font-bold text-blue-600 hover:underline"
-                  >
-                    <Phone className="size-4" />
-                    {festival.hosts.phone}
-                  </a>
-                )}
-              </section>
-            )}
-            <Link
-              href="/festivals"
-              className={cn(
-                buttonVariants({ variant: "ghost" }),
-                "w-full rounded-xl text-slate-600",
-              )}
-            >
-              <ArrowLeft className="size-4" />
-              축제 목록으로 돌아가기
-            </Link>
+            <PageFestivalOrganizer
+              organizer={festival.hosts.organizer}
+              manager={festival.hosts.manager}
+              sponsor={festival.hosts.sponsor}
+              phone={festival.hosts.phone}
+              email={festival.hosts.email}
+              instagram={festival.hosts.instagram}
+              site={site}
+            />
           </aside>
         </div>
       </section>

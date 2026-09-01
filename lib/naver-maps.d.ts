@@ -18,6 +18,17 @@ declare namespace naver.maps {
     addListener(target: Marker, eventName: "click", listener: () => void): void;
   };
 
+  const Service: {
+    Status: { OK: string };
+    geocode(
+      options: { query: string },
+      callback: (
+        status: string,
+        response: { v2: { addresses: Array<{ x: string; y: string }> } },
+      ) => void,
+    ): void;
+  };
+
   type MapOptions = {
     center: LatLng;
     zoom: number;
@@ -25,6 +36,7 @@ declare namespace naver.maps {
     zoomControl?: boolean;
     zoomControlOptions?: {
       position: number;
+      style?: number;
     };
   };
 
@@ -40,6 +52,11 @@ declare namespace naver.maps {
 
   const Position: {
     TOP_RIGHT: number;
+  };
+
+  const ZoomControlStyle: {
+    SMALL: number;
+    LARGE: number;
   };
 }
 

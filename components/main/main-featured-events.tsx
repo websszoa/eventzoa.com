@@ -1,6 +1,5 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   CalendarDays,
@@ -9,6 +8,8 @@ import {
   MapPin,
   PartyPopper,
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -16,53 +17,80 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { formatEventInfoValue, getEventInfoType } from "@/lib/event-data";
+import { getEventCoverPath } from "@/lib/event-image.server";
+import { uniqueFestivals, type FestivalData } from "@/lib/festival-data.server";
 
-const featuredEvents = [
-  {
-    category: "축제",
-    title: "한강 봄빛 축제",
-    description: "강변을 따라 펼쳐지는 음악과 푸드마켓, 야간 조명 축제",
-    location: "서울",
-    price: "무료",
-    schedule: "주말 11:00–21:00",
-    date: "4.18 – 4.27",
-    day: "18",
-    month: "APR",
-    href: "/festivals",
-    theme: "from-blue-500 via-cyan-500 to-sky-300",
-    accent: "bg-blue-600",
-  },
-  {
-    category: "공연",
-    title: "도심 재즈 피크닉",
-    description: "잔디 위에서 즐기는 라이브 재즈와 감성 가득한 주말",
-    location: "부산",
-    price: "25,000원",
-    schedule: "매일 14:00–20:00",
-    date: "5.03 – 5.05",
-    day: "03",
-    month: "MAY",
-    href: "/festivals",
-    theme: "from-indigo-600 via-violet-500 to-fuchsia-400",
-    accent: "bg-violet-600",
-  },
-  {
-    category: "체험",
-    title: "제주 초록 마켓",
-    description: "로컬 크리에이터와 함께하는 공예 체험과 자연 친화 마켓",
-    location: "제주",
-    price: "무료",
-    schedule: "주말 10:00–18:00",
-    date: "5.10 – 5.18",
-    day: "10",
-    month: "MAY",
-    href: "/festivals",
-    theme: "from-emerald-600 via-teal-500 to-lime-300",
-    accent: "bg-emerald-600",
-  },
+const accents = [
+  { background: "bg-blue-600", hover: "hover:bg-blue-700" },
+  { background: "bg-violet-600", hover: "hover:bg-violet-700" },
+  { background: "bg-emerald-600", hover: "hover:bg-emerald-700" },
 ];
 
+function formatDateRange(startDate: string, endDate: string) {
+  const format = (value: string) =>
+    `${Number(value.slice(5, 7))}.${value.slice(8, 10)}`;
+  return startDate === endDate
+    ? format(startDate)
+    : `${format(startDate)} – ${format(endDate)}`;
+}
+
+type ScheduledFestival = FestivalData & {
+  event: FestivalData["event"] & { startDate: string; endDate: string };
+};
+
+function hasSchedule(festival: FestivalData): festival is ScheduledFestival {
+  return Boolean(festival.event.startDate && festival.event.endDate);
+}
+
+function getFeaturedEvents() {
+  const today = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul",
+  }).format(new Date());
+  const scheduled = uniqueFestivals.filter(hasSchedule);
+  const upcoming = scheduled
+    .filter(({ event }) => event.endDate >= today)
+    .sort((a, b) => a.event.startDate.localeCompare(b.event.startDate));
+  const recent = scheduled
+    .filter(({ event }) => event.endDate < today)
+    .sort((a, b) => b.event.endDate.localeCompare(a.event.endDate));
+
+  return [...upcoming, ...recent].slice(0, 3).map((festival, index) => {
+    const { startDate, endDate, startTime, endTime } = festival.event;
+    const entrance = formatEventInfoValue(festival.info.entrance);
+
+    return {
+      category: festival.info.type || "축제",
+      title: festival.name,
+      description: festival.description,
+      location: [festival.location.region, festival.location.area]
+        .filter(Boolean)
+        .join(" "),
+      price: getEventInfoType(entrance) || "가격 확인",
+      schedule:
+        startTime && endTime
+          ? `${startTime}–${endTime}`
+          : startTime
+            ? `${startTime} 시작`
+            : null,
+      date: formatDateRange(startDate, endDate),
+      day: startDate.slice(8, 10),
+      month: new Intl.DateTimeFormat("en-US", {
+        month: "short",
+        timeZone: "Asia/Seoul",
+      })
+        .format(new Date(`${startDate}T00:00:00+09:00`))
+        .toUpperCase(),
+      href: `/festivals/${festival.slug}`,
+      image: getEventCoverPath(festival.slug),
+      accent: accents[index % accents.length],
+    };
+  });
+}
+
 export default function MainFeaturedEvents() {
+  const featuredEvents = getFeaturedEvents();
+
   return (
     <section id="festivals" className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="container">
@@ -82,12 +110,11 @@ export default function MainFeaturedEvents() {
               지금 가장 많은 관심을 받고 있는 전국의 행사들을 모았어요.
             </p>
           </div>
-
           <Button
             variant="outline"
             nativeButton={false}
             render={<Link href="/festivals" />}
-            className="self-start rounded-full border-slate-200 px-5 font-bold text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:self-auto"
+            className="self-start rounded-full border-slate-200 px-5 text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 sm:self-auto"
           >
             전체 행사 보기
             <ArrowRight className="size-4" aria-hidden="true" />
@@ -97,28 +124,30 @@ export default function MainFeaturedEvents() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredEvents.map((event) => (
             <Card
-              key={event.title}
+              key={event.href}
               className="group gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1"
             >
-              <div
-                className={`relative h-60 overflow-hidden bg-linear-to-br ${event.theme}`}
-              >
-                <div
-                  className="absolute -top-12 -right-10 size-44 rounded-full border-30 border-white/15"
-                  aria-hidden="true"
-                />
-                <div
-                  className="absolute -bottom-12 -left-6 size-36 rotate-12 rounded-4xl bg-white/10"
-                  aria-hidden="true"
-                />
-                <Badge className="absolute top-5 left-5 h-auto rounded-full border border-white/20 bg-slate-950/20 px-3 py-1.5 font-bold text-white backdrop-blur-sm hover:bg-slate-950/20">
+              <div className="relative h-60 overflow-hidden bg-slate-100">
+                {event.image ? (
+                  <Image
+                    src={event.image}
+                    alt={`${event.title} 행사 모습`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    className="object-cover object-[center_-80px]"
+                  />
+                ) : (
+                  <div className="absolute inset-0 bg-linear-to-br from-blue-500 via-cyan-500 to-sky-300" />
+                )}
+                <div className="absolute inset-0 bg-linear-to-t from-slate-950/35 via-transparent to-transparent" />
+                <Badge className="absolute top-5 left-5 h-auto rounded-full border border-white/20 bg-slate-950/35 px-3 py-1.5 font-bold text-white backdrop-blur-sm hover:bg-slate-950/35">
                   {event.category}
                 </Badge>
                 <div className="absolute right-5 bottom-5 flex size-20 flex-col items-center justify-center rounded-2xl bg-white text-slate-950 ring-1 ring-slate-200">
-                  <span className="text-[11px] font-nanum font-black tracking-widest text-blue-600">
+                  <span className="font-nanum text-[11px] font-black tracking-widest text-blue-600">
                     {event.month}
                   </span>
-                  <strong className="font-cafe24 font-black mb-1.5 text-4xl leading-none">
+                  <strong className="mb-1.5 font-cafe24 text-4xl leading-none font-black">
                     {event.day}
                   </strong>
                 </div>
@@ -129,13 +158,13 @@ export default function MainFeaturedEvents() {
                   <CalendarDays className="size-4" aria-hidden="true" />
                   {event.date}
                 </div>
-                <CardTitle className="font-cafe24 text-2xl font-bold tracking-tight text-slate-950">
+                <CardTitle className="line-clamp-2 font-cafe24 text-2xl font-bold tracking-tight text-slate-950">
                   {event.title}
                 </CardTitle>
               </CardHeader>
 
               <CardContent className="gap-3 px-6 pt-2 pb-5">
-                <p className="font-anyvid text-sm leading-6 text-slate-500 break-keep">
+                <p className="line-clamp-2 min-h-12 font-anyvid text-sm leading-6 text-slate-500 break-keep">
                   {event.description}
                 </p>
                 <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-slate-500">
@@ -156,16 +185,20 @@ export default function MainFeaturedEvents() {
                 </div>
               </CardContent>
 
-              <CardFooter className="justify-between border-t border-slate-100 px-6 pt-4! pb-4">
-                <span className="inline-flex items-center gap-1.5 text-xs text-slate-800">
-                  <Clock3 className="size-3.5" aria-hidden="true" />
-                  {event.schedule}
-                </span>
+              <CardFooter
+                className={`${event.schedule ? "justify-between" : "justify-end"} border-t border-slate-100 px-6 pt-4! pb-4`}
+              >
+                {event.schedule && (
+                  <span className="inline-flex items-center gap-1.5 text-xs text-slate-800">
+                    <Clock3 className="size-3.5" aria-hidden="true" />
+                    {event.schedule}
+                  </span>
+                )}
                 <Button
                   variant="ghost"
                   nativeButton={false}
                   render={<Link href={event.href} />}
-                  className={`rounded-full text-xs px-5 font-bold text-white hover:text-white ${event.accent}`}
+                  className={`rounded-full px-5 text-xs font-bold text-white hover:text-white ${event.accent.background} ${event.accent.hover}`}
                 >
                   자세히 보기
                   <ArrowRight className="size-3.5" aria-hidden="true" />

@@ -6,6 +6,7 @@ import PageCalendar, {
 import PageTitle from "@/components/page/page-title";
 import events from "@/data/events/events_2026.json";
 import { APP_NAME } from "@/lib/constants";
+import { getEventInfoType } from "@/lib/event-data";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
@@ -22,7 +23,7 @@ export default function CalendarPage() {
     endDate: event.event.endDate,
     region: event.location.region,
     venue: event.location.venue,
-    price: event.info.entrance.type ?? "가격 확인",
+    price: getEventInfoType(event.info.entrance) || "가격 확인",
   }));
 
   const today = new Intl.DateTimeFormat("en-CA", {

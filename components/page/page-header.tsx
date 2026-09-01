@@ -2,31 +2,39 @@ import { Fragment } from "react";
 import Link from "next/link";
 
 import { APP_NAME } from "@/lib/constants";
+import { uniqueFestivals } from "@/lib/festival-data.server";
 import { siteMenu, supportMenu } from "@/lib/navigation";
 import { getTodayLabel } from "@/lib/utils";
 
 import PageHeaderSheet from "@/components/page/page-header-sheet";
-import events from "@/data/events/events_2026.json";
 
 export default function PageHeader() {
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
-  const activeEventCount = events.filter(
-    (event) =>
-      event.event.startDate <= today && event.event.endDate >= today,
-  ).length;
+  const activeEvents = uniqueFestivals.filter(({ event }) => {
+    const { startDate, endDate } = event;
+    return Boolean(startDate && endDate && startDate <= today && endDate >= today);
+  });
+  const activeEventHref =
+    activeEvents.length === 1
+      ? `/festivals/${activeEvents[0].slug}`
+      : "/calendar";
 
   return (
     <>
       <div className="border-b border-gray-100  text-slate-900">
         <div className="container flex h-9 items-center justify-between text-xs sm:text-xs">
-          <p>
+          <Link
+            href={activeEventHref}
+            className="rounded-sm transition-colors hover:text-blue-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            aria-label={`오늘 전국에서 열리는 행사 ${activeEvents.length}건 보기`}
+          >
             {getTodayLabel()} · 오늘 전국에서 열리는 행사{" "}
             <strong className="font-bold text-blue-600">
-              {activeEventCount}건
+              {activeEvents.length}건
             </strong>
-          </p>
+          </Link>
           <nav
             className="hidden items-center gap-3 sm:flex"
             aria-label="고객 지원 메뉴"
