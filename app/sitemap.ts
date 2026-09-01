@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { APP_SITE_URL } from "@/lib/constants";
+import { APP_IMAGE_URL, APP_SITE_URL } from "@/lib/constants";
 import { uniqueFestivals } from "@/lib/festival-data.server";
 import { getNotificationPosts } from "@/lib/notifications";
 
@@ -25,7 +25,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${APP_SITE_URL}/festivals/${event.slug}`,
     changeFrequency: "weekly",
     priority: 0.8,
-    images: [`${APP_SITE_URL}/event/cover/${event.slug}.jpg`],
+    images: [`${APP_IMAGE_URL}/${event.slug}.webp`],
   }));
   const posts = await getNotificationPosts();
   const notificationPages: MetadataRoute.Sitemap = posts.map((post) => ({

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 import PageFooter from "@/components/page/page-footer";
 import PageHeader from "@/components/page/page-header";
@@ -7,6 +8,7 @@ import {
   APP_DESCRIPTION,
   APP_EMAIL,
   APP_ENG_NAME,
+  APP_GOOGLE_ANALYTICS_ID,
   APP_INSTAGRAM_URL,
   APP_KEYWORDS,
   APP_NAME,
@@ -163,6 +165,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
           }}
         />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${APP_GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${APP_GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );

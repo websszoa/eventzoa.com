@@ -4,10 +4,13 @@ export const APP_SLOGAN = "전국 축제를 한눈에, 즐거움을 모으다!";
 export const APP_COPYRIGHT = "© 2026 Eventzoa. All rights reserved.";
 
 export const APP_SITE_URL = "https://www.eventzoa.com";
+export const APP_IMAGE_URL =
+  "https://websszoa.github.io/eventzoa.com/event/cover";
 export const APP_EMAIL = "contact@eventzoa.com";
 export const APP_INSTAGRAM_URL = "https://www.instagram.com/eventzoa_official";
 export const APP_GITHUB_URL = "https://github.com/websszoa/eventzoa.com";
 export const APP_THREADS_URL = "https://www.threads.com/@eventzoa_official";
+export const APP_GOOGLE_ANALYTICS_ID = "G-0E8JRTKKQX";
 
 export const APP_DESCRIPTION =
   "전국 축제, 행사, 박람회, 공연 정보를 한곳에서 확인하세요. 이벤트조아는 지역별, 월별, 테마별로 다양한 이벤트 일정을 빠르게 탐색할 수 있는 통합 축제·행사 플랫폼입니다.";

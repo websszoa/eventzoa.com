@@ -16,15 +16,21 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function CalendarPage() {
-  const festivals: CalendarFestival[] = events.map((event) => ({
-    slug: event.slug,
-    title: event.name,
-    startDate: event.event.startDate,
-    endDate: event.event.endDate,
-    region: event.location.region,
-    venue: event.location.venue,
-    price: getEventInfoType(event.info.entrance) || "가격 확인",
-  }));
+  const festivals: CalendarFestival[] = events.flatMap((event) => {
+    const startDate = event.event.startDate;
+
+    if (!startDate) return [];
+
+    return [{
+      slug: event.slug,
+      title: event.name,
+      startDate,
+      endDate: event.event.endDate ?? startDate,
+      region: event.location.region,
+      venue: event.location.venue,
+      price: getEventInfoType(event.info.entrance) || "가격 확인",
+    }];
+  });
 
   const today = new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Seoul",

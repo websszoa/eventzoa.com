@@ -14,7 +14,10 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function MapPage() {
   const festivals: MapFestival[] = events.flatMap((event) => {
+    const startDate = event.event.startDate;
+
     if (
+      !startDate ||
       event.location.latitude === null ||
       event.location.longitude === null
     ) {
@@ -26,8 +29,8 @@ export default function MapPage() {
       title: event.name,
       region: event.location.region,
       venue: event.location.venue,
-      startDate: event.event.startDate,
-      endDate: event.event.endDate,
+      startDate,
+      endDate: event.event.endDate ?? startDate,
       latitude: event.location.latitude,
       longitude: event.location.longitude,
     }];

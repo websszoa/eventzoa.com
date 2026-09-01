@@ -3,7 +3,9 @@ import "server-only";
 import { existsSync, statSync } from "node:fs";
 import path from "node:path";
 
-const coverExtensions = ["jpg", "jpeg", "png", "webp", "avif"];
+import { APP_IMAGE_URL } from "@/lib/constants";
+
+const coverExtensions = ["webp", "avif", "jpg", "jpeg", "png"];
 
 export function getEventCoverPath(slug: string) {
   for (const extension of coverExtensions) {
@@ -12,7 +14,7 @@ export function getEventCoverPath(slug: string) {
 
     if (existsSync(filePath)) {
       const version = Math.trunc(statSync(filePath).mtimeMs);
-      return `${publicPath}?v=${version}`;
+      return `${APP_IMAGE_URL}/${slug}.${extension}?v=${version}`;
     }
   }
 

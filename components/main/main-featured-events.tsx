@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -10,6 +9,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import PageFestivalImage from "@/components/page/page-festival-image";
 import {
   Card,
   CardContent,
@@ -129,7 +129,7 @@ export default function MainFeaturedEvents() {
             >
               <div className="relative h-60 overflow-hidden bg-slate-100">
                 {event.image ? (
-                  <Image
+                  <PageFestivalImage
                     src={event.image}
                     alt={`${event.title} 행사 모습`}
                     fill

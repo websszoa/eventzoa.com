@@ -22,7 +22,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { APP_INSTAGRAM_URL, APP_NAME, APP_SITE_URL } from "@/lib/constants";
+import {
+  APP_IMAGE_URL,
+  APP_INSTAGRAM_URL,
+  APP_NAME,
+  APP_SITE_URL,
+} from "@/lib/constants";
 import {
   formatEventInfoValue,
   getEventInfoType,
@@ -161,7 +166,7 @@ export async function generateMetadata({
     description: festival.description,
     path: `/festivals/${festival.slug}`,
     type: "article",
-    image: `/event/cover/${festival.slug}.jpg`,
+    image: `${APP_IMAGE_URL}/${festival.slug}.webp`,
   });
 }
 
@@ -302,7 +307,7 @@ export default async function FestivalDetailPage({
         "@id": `${detailUrl}/#event`,
         name: festival.name,
         description: festival.description,
-        image: [`${APP_SITE_URL}/event/cover/${festival.slug}.jpg`],
+        image: [`${APP_IMAGE_URL}/${festival.slug}.webp`],
         startDate,
         endDate,
         eventStatus:
