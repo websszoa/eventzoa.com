@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
 
+import NaverAnalytics from "@/components/analytics/naver-analytics";
 import PageFooter from "@/components/page/page-footer";
 import PageHeader from "@/components/page/page-header";
 import {
@@ -177,6 +178,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             gtag('config', '${APP_GOOGLE_ANALYTICS_ID}');
           `}
         </Script>
+        <NaverAnalytics />
       </body>
     </html>
   );

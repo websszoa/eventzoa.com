@@ -11,6 +11,7 @@ export const APP_INSTAGRAM_URL = "https://www.instagram.com/eventzoa_official";
 export const APP_GITHUB_URL = "https://github.com/websszoa/eventzoa.com";
 export const APP_THREADS_URL = "https://www.threads.com/@eventzoa_official";
 export const APP_GOOGLE_ANALYTICS_ID = "G-0E8JRTKKQX";
+export const APP_NAVER_ANALYTICS_ID = "1c0c483748c58d0";
 
 export const APP_DESCRIPTION =
   "전국 축제, 행사, 박람회, 공연 정보를 한곳에서 확인하세요. 이벤트조아는 지역별, 월별, 테마별로 다양한 이벤트 일정을 빠르게 탐색할 수 있는 통합 축제·행사 플랫폼입니다.";
