@@ -12,7 +12,14 @@ const updateInquiryStatusSchema = z.object({
   status: z.enum(inquiryStatuses),
 });
 
+const deleteInquirySchema = z.number().int().positive();
+
 export type UpdateInquiryStatusResult = {
+  success: boolean;
+  message: string;
+};
+
+export type DeleteInquiryResult = {
   success: boolean;
   message: string;
 };
@@ -44,4 +51,36 @@ export async function updateInquiryStatus(
   revalidatePath(`/admin/inquiries/${parsed.data.id}`);
 
   return { success: true, message: "문의 상태를 변경했습니다." };
+}
+
+export async function deleteInquiry(id: number): Promise<DeleteInquiryResult> {
+  await requireAdmin();
+
+  const parsed = deleteInquirySchema.safeParse(id);
+
+  if (!parsed.success) {
+    return { success: false, message: "삭제할 문의를 다시 확인해 주세요." };
+  }
+
+  const supabase = createAdminClient();
+  const { data, error } = await supabase
+    .from("inquiries")
+    .delete()
+    .eq("id", parsed.data)
+    .select("id")
+    .maybeSingle();
+
+  if (error) {
+    console.error("Failed to delete inquiry", error.code);
+    return { success: false, message: "문의 삭제 중 문제가 발생했습니다." };
+  }
+
+  if (!data) {
+    return { success: false, message: "이미 삭제되었거나 존재하지 않는 문의입니다." };
+  }
+
+  revalidatePath("/admin/inquiries");
+  revalidatePath(`/admin/inquiries/${parsed.data}`);
+
+  return { success: true, message: "문의를 삭제했습니다." };
 }

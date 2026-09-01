@@ -1,7 +1,10 @@
 "use client";
 
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { CalendarDays, ChevronRight, Link2, Mail, UserRound } from "lucide-react";
 
+import AdminInquiryDeleteDialog from "@/components/dialog/admin-inquiry-delete-dialog";
 import PageAdminInquiryStatus from "@/components/page/page-admin-inquiry-status";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -59,10 +62,17 @@ function getSafeUrl(value: string | null) {
 }
 
 export default function AdminInquiryDialog({ inquiry }: { inquiry: AdminInquiryDialogData }) {
+  const router = useRouter();
+  const [open, setOpen] = useState(false);
   const relatedUrl = getSafeUrl(inquiry.related_url);
 
+  function handleDeleted() {
+    setOpen(false);
+    router.refresh();
+  }
+
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger render={<Button type="button" variant="ghost" className="group grid h-auto w-full gap-3 rounded-none border-0 px-5 py-5 text-left font-normal transition-colors hover:bg-blue-50/50 sm:grid-cols-[120px_minmax(0,1fr)_auto] sm:items-center sm:px-7" />}>
         <span className="flex items-center gap-2 sm:block">
           <Badge className={`rounded-full ${getStatusClassName(inquiry.status)}`}>
@@ -112,10 +122,17 @@ export default function AdminInquiryDialog({ inquiry }: { inquiry: AdminInquiryD
           </div>
           <div className="border-t border-slate-200 pt-6">
             <div className="rounded-2xl bg-slate-50 p-5 sm:p-6">
-            <p className="text-sm font-bold text-blue-600">처리 상태</p>
-            <p className="mt-1 mb-4 text-xs leading-5 text-slate-500">문의 내용 확인 후 처리 단계를 변경해 주세요.</p>
-            <PageAdminInquiryStatus inquiryId={inquiry.id} initialStatus={inquiry.status} />
+              <p className="text-sm font-bold text-blue-600">처리 상태</p>
+              <p className="mt-1 mb-4 text-xs leading-5 text-slate-500">문의 내용 확인 후 처리 단계를 변경해 주세요.</p>
+              <PageAdminInquiryStatus inquiryId={inquiry.id} initialStatus={inquiry.status} />
             </div>
+          </div>
+          <div className="flex justify-end border-t border-slate-200 pt-6">
+            <AdminInquiryDeleteDialog
+              inquiryId={inquiry.id}
+              subject={inquiry.subject}
+              onDeleted={handleDeleted}
+            />
           </div>
         </div>
       </DialogContent>
