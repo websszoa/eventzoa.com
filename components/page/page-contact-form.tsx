@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
-import { Controller, useForm } from "react-hook-form";
+import { LoaderCircle, Send } from "lucide-react";
+import { useState } from "react";
+import { Controller, useForm, useWatch } from "react-hook-form";
 
 import { submitInquiry, type ContactActionResult } from "@/app/contact/actions";
+import ContactSuccessDialog from "@/components/dialog/contact-success-dialog";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -22,7 +24,6 @@ import {
   type ContactFormValues,
   type InquiryType,
 } from "@/lib/contact";
-import { useState } from "react";
 
 function getDefaultValues(type: InquiryType): ContactFormValues {
   return {
@@ -39,6 +40,7 @@ function getDefaultValues(type: InquiryType): ContactFormValues {
 
 export default function ContactForm({ initialType }: { initialType: InquiryType }) {
   const [result, setResult] = useState<ContactActionResult | null>(null);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const defaultValues = getDefaultValues(initialType);
   const copy = inquiryFormCopy[initialType];
   const {
@@ -51,15 +53,23 @@ export default function ContactForm({ initialType }: { initialType: InquiryType 
     resolver: zodResolver(contactSchema),
     defaultValues,
   });
+  const messageLength =
+    useWatch({ control, name: "message", defaultValue: "" }).length;
 
   const onSubmit = handleSubmit(async (values) => {
     setResult(null);
     const response = await submitInquiry({ ...values, type: initialType });
+    if (response.success) {
+      reset(getDefaultValues(initialType));
+      setIsSuccessOpen(true);
+      return;
+    }
+
     setResult(response);
-    if (response.success) reset(getDefaultValues(initialType));
   });
 
   return (
+    <>
     <div id="inquiry-form" className="scroll-mt-28 rounded-3xl bg-white p-6 ring-1 ring-slate-200 sm:p-8 lg:p-10">
       <div className="border-b border-slate-100 pb-7">
         <p className="text-sm font-bold tracking-widest text-blue-600 uppercase">{copy.eyebrow}</p>
@@ -96,8 +106,8 @@ export default function ContactForm({ initialType }: { initialType: InquiryType 
 
           <Field data-invalid={!!errors.message}>
             <FieldLabel htmlFor="message">문의 내용 <Required /></FieldLabel>
-            <Textarea id="message" placeholder={copy.messagePlaceholder} aria-invalid={!!errors.message} className="min-h-44 resize-y rounded-xl px-4 py-3" {...register("message")} />
-            <div className="flex items-start justify-between gap-4"><FieldError errors={[errors.message]} /><span className="ml-auto text-xs text-slate-400">최대 3,000자</span></div>
+            <Textarea id="message" maxLength={3000} placeholder={copy.messagePlaceholder} aria-invalid={!!errors.message} className="min-h-44 resize-y rounded-xl px-4 py-3" {...register("message")} />
+            <div className="flex items-start justify-between gap-4"><FieldError errors={[errors.message]} /><span className={`ml-auto text-xs tabular-nums ${messageLength >= 3000 ? "font-bold text-red-500" : "text-slate-400"}`} aria-live="polite">{messageLength.toLocaleString("ko-KR")} / 3,000자</span></div>
           </Field>
 
           <Controller
@@ -117,8 +127,7 @@ export default function ContactForm({ initialType }: { initialType: InquiryType 
           <div className="hidden" aria-hidden="true"><label htmlFor="website">웹사이트</label><input id="website" tabIndex={-1} autoComplete="off" {...register("website")} /></div>
 
           {result && (
-            <div role="status" className={`flex items-start gap-3 rounded-2xl p-4 text-sm leading-6 ${result.success ? "bg-emerald-50 text-emerald-800" : "bg-red-50 text-red-700"}`}>
-              {result.success && <CheckCircle2 className="mt-0.5 size-5 shrink-0" aria-hidden="true" />}
+            <div role="alert" className="flex items-start gap-3 rounded-2xl bg-red-50 p-4 text-sm leading-6 text-red-700">
               <p>{result.message}</p>
             </div>
           )}
@@ -129,6 +138,11 @@ export default function ContactForm({ initialType }: { initialType: InquiryType 
         </FieldGroup>
       </form>
     </div>
+    <ContactSuccessDialog
+      open={isSuccessOpen}
+      onOpenChange={setIsSuccessOpen}
+    />
+    </>
   );
 }
 

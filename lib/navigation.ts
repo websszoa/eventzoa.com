@@ -1,4 +1,11 @@
-import { CalendarDays, MapPin, PartyPopper, Sparkles } from "lucide-react";
+import {
+  CalendarDays,
+  MapPin,
+  MessagesSquare,
+  PartyPopper,
+  Sparkles,
+  UsersRound,
+} from "lucide-react";
 
 import { APP_EMAIL, APP_INSTAGRAM_URL, APP_THREADS_URL } from "@/lib/constants";
 
@@ -10,8 +17,13 @@ export const siteMenu = [
 ];
 
 export const supportMenu = [
-  { label: "광고문의", href: "/contact?type=advertising#inquiry-form" },
-  { label: "고객센터", href: "/contact?type=general#inquiry-form" },
+  { label: "문의사항", href: "/contact?type=general#inquiry-form" },
+  { label: "등록문의", href: "/contact?type=registration#inquiry-form" },
+];
+
+export const adminMenu = [
+  { label: "회원 관리", href: "/admin/members", icon: UsersRound },
+  { label: "문의 관리", href: "/admin/inquiries", icon: MessagesSquare },
 ];
 
 export const footerMenu = [
@@ -40,7 +52,6 @@ export const footerMenu = [
       { label: "등록문의", href: "/contact?type=registration#inquiry-form" },
       { label: "수정요청", href: "/contact?type=correction#inquiry-form" },
       { label: "불편신고", href: "/contact?type=report#inquiry-form" },
-      { label: "광고문의", href: "/contact?type=advertising#inquiry-form" },
     ],
   },
   {

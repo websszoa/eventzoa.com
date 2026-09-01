@@ -5,10 +5,11 @@ import { APP_NAME } from "@/lib/constants";
 import { uniqueFestivals } from "@/lib/festival-data.server";
 import { siteMenu, supportMenu } from "@/lib/navigation";
 import { getTodayLabel } from "@/lib/utils";
+import { createClient } from "@/lib/supabase/server";
 
 import PageHeaderSheet from "@/components/page/page-header-sheet";
 
-export default function PageHeader() {
+export default async function PageHeader() {
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
@@ -20,6 +21,33 @@ export default function PageHeader() {
     activeEvents.length === 1
       ? `/festivals/${activeEvents[0].slug}`
       : "/calendar";
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  let member = null;
+
+  if (user) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("display_name, avatar_url, visit_count, role")
+      .eq("id", user.id)
+      .maybeSingle();
+    const metadata = user.user_metadata;
+
+    member = {
+      name:
+        profile?.display_name ||
+        metadata.full_name ||
+        metadata.name ||
+        user.email?.split("@")[0] ||
+        "회원",
+      avatarUrl:
+        profile?.avatar_url || metadata.avatar_url || metadata.picture || null,
+      visitCount: profile?.visit_count ?? 1,
+      role: profile?.role === "admin" ? ("admin" as const) : ("user" as const),
+    };
+  }
 
   return (
     <>
@@ -82,7 +110,7 @@ export default function PageHeader() {
                 ))}
               </nav>
             </div>
-            <PageHeaderSheet />
+            <PageHeaderSheet member={member} />
           </div>
         </div>
       </header>

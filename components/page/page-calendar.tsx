@@ -2,12 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import {
-  CalendarDays,
-  ChevronLeft,
-  ChevronRight,
-  MapPin,
-} from "lucide-react";
+import { CalendarDays, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 import {
   Select,
@@ -57,7 +52,10 @@ export default function PageCalendar({
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const regions = useMemo(
-    () => ["전체", ...Array.from(new Set(festivals.map((item) => item.region))).sort()],
+    () => [
+      "전체",
+      ...Array.from(new Set(festivals.map((item) => item.region))).sort(),
+    ],
     [festivals],
   );
   const filteredFestivals = useMemo(
@@ -88,7 +86,8 @@ export default function PageCalendar({
   const selectedFestivals = selectedDate
     ? filteredFestivals.filter(
         (festival) =>
-          festival.startDate <= selectedDate && festival.endDate >= selectedDate,
+          festival.startDate <= selectedDate &&
+          festival.endDate >= selectedDate,
       )
     : monthlyFestivals;
 
@@ -135,7 +134,7 @@ export default function PageCalendar({
         </div>
 
         <div className="mt-8 grid items-start gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
-          <div className="min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+          <div className="min-w-0 overflow-hidden rounded-t-3xl border border-slate-200 bg-white">
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-5 sm:px-7">
               <button
                 type="button"
@@ -146,10 +145,7 @@ export default function PageCalendar({
                 <ChevronLeft className="size-5" />
               </button>
               <div className="text-center">
-                <p className="text-xs font-bold tracking-widest text-blue-600 uppercase">
-                  Festival Calendar
-                </p>
-                <h3 className="mt-1 font-cafe24 text-3xl font-bold text-slate-950">
+                <h3 className="font-cafe24 text-3xl font-bold pb-2 text-slate-950">
                   {cursor.year}년 {cursor.month + 1}월
                 </h3>
               </div>
@@ -189,7 +185,8 @@ export default function PageCalendar({
                     const dateKey = toDateKey(cursor.year, cursor.month, day);
                     const dayFestivals = filteredFestivals.filter(
                       (festival) =>
-                        festival.startDate <= dateKey && festival.endDate >= dateKey,
+                        festival.startDate <= dateKey &&
+                        festival.endDate >= dateKey,
                     );
                     const isSelected = selectedDate === dateKey;
 
@@ -257,7 +254,9 @@ export default function PageCalendar({
                   >
                     <div className="flex items-center gap-2 text-xs font-bold text-blue-600">
                       <span>{festival.region}</span>
-                      <span aria-hidden="true" className="text-slate-300">·</span>
+                      <span aria-hidden="true" className="text-slate-300">
+                        ·
+                      </span>
                       <span className="text-slate-500">{festival.price}</span>
                     </div>
                     <h4 className="mt-2 break-keep font-cafe24 text-xl font-bold text-slate-950 transition-colors group-hover:text-blue-600">
@@ -267,15 +266,23 @@ export default function PageCalendar({
                       {formatRange(festival.startDate, festival.endDate)}
                     </p>
                     <p className="mt-1 flex items-start gap-1.5 text-xs leading-5 text-slate-500">
-                      <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+                      <MapPin
+                        className="mt-0.5 size-3.5 shrink-0"
+                        aria-hidden="true"
+                      />
                       <span>{festival.venue}</span>
                     </p>
                   </Link>
                 ))
               ) : (
                 <div className="py-14 text-center">
-                  <CalendarDays className="mx-auto size-8 text-slate-300" aria-hidden="true" />
-                  <p className="mt-3 text-sm text-slate-500">등록된 축제가 없습니다.</p>
+                  <CalendarDays
+                    className="mx-auto size-8 text-slate-300"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-3 text-sm text-slate-500">
+                    등록된 축제가 없습니다.
+                  </p>
                 </div>
               )}
             </div>

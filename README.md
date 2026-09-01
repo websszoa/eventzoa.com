@@ -81,11 +81,16 @@ npx shadcn@latest add field
 Vercel 프로젝트의 Settings → Environment Variables에 다음 값을 설정합니다.
 
 - `NEXT_PUBLIC_NAVER_MAP_CLIENT_ID`: 네이버 Dynamic Map 공개 클라이언트 ID
-- `SUPABASE_URL`: 문의 테이블이 있는 Supabase 프로젝트 URL
-- `SUPABASE_SERVICE_ROLE_KEY`: 문의 저장용 서버 전용 키
+- `SUPABASE_URL`: 문의 테이블이 있는 Supabase 프로젝트 URL. 생략하면
+  `NEXT_PUBLIC_SUPABASE_URL`을 사용합니다.
+- `SUPABASE_SECRET_KEY`: 문의 저장용 서버 전용 `sb_secret_...` 키
+- `SUPABASE_SERVICE_ROLE_KEY`: 기존 프로젝트에서 Secret key 대신 사용할 수 있는
+  레거시 서버 전용 키
+- `RESEND_API_KEY`: 회원가입 및 문의 접수 관리자 알림용 Resend API 키
+- `RESEND_FROM_EMAIL`: 선택 사항. Resend에서 인증한 발신 주소
 
-`SUPABASE_SERVICE_ROLE_KEY`는 `NEXT_PUBLIC_` 접두사를 붙이지 않으며 클라이언트
-코드에 노출하지 않습니다. 네이버 클라우드 콘솔의 Web Service URL에는 운영
+서버 전용 키에는 `NEXT_PUBLIC_` 접두사를 붙이지 않으며 클라이언트 코드에
+노출하지 않습니다. 두 서버 키 중 하나만 설정하면 됩니다. 네이버 클라우드 콘솔의 Web Service URL에는 운영
 도메인 `https://www.eventzoa.com`과 필요한 Vercel Preview 도메인을 등록합니다.
 
 ## 배포 후 검색 노출 점검

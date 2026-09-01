@@ -5,17 +5,31 @@ export const inquiryTypes = [
   "registration",
   "correction",
   "report",
-  "advertising",
 ] as const;
 
 export type InquiryType = (typeof inquiryTypes)[number];
+
+export const inquiryStatuses = [
+  "pending",
+  "in_progress",
+  "resolved",
+  "closed",
+] as const;
+
+export type InquiryStatus = (typeof inquiryStatuses)[number];
 
 export const inquiryTypeLabels: Record<InquiryType, string> = {
   general: "문의사항",
   registration: "등록문의",
   correction: "수정요청",
   report: "불편신고",
-  advertising: "광고문의",
+};
+
+export const inquiryStatusLabels: Record<InquiryStatus, string> = {
+  pending: "접수 대기",
+  in_progress: "처리 중",
+  resolved: "답변 완료",
+  closed: "종료",
 };
 
 export const inquiryFormCopy: Record<
@@ -60,14 +74,6 @@ export const inquiryFormCopy: Record<
     subjectPlaceholder: "어떤 불편이 있었는지 간단히 적어주세요",
     messagePlaceholder: "발생한 문제, 이용 환경과 재현 방법을 자세히 작성해 주세요.",
     submitLabel: "불편신고 접수하기",
-  },
-  advertising: {
-    eyebrow: "Advertising Inquiry",
-    title: "광고문의 작성",
-    description: "홍보할 행사나 브랜드, 희망 일정과 광고 목적을 알려주세요.",
-    subjectPlaceholder: "광고할 행사 또는 브랜드명을 입력해 주세요",
-    messagePlaceholder: "광고 목적, 희망 기간과 궁금한 내용을 작성해 주세요.",
-    submitLabel: "광고문의 보내기",
   },
 };
 

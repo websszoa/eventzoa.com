@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   CircleHelp,
   Mail,
-  Megaphone,
   PenLine,
   Pencil,
   TriangleAlert,
@@ -16,7 +15,7 @@ import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "문의하기",
-  description: `${APP_NAME} 행사 등록, 정보 수정, 광고 및 서비스 이용 문의를 안내합니다.`,
+  description: `${APP_NAME} 행사 등록, 정보 수정 및 서비스 이용 문의를 안내합니다.`,
   path: "/contact",
 });
 
@@ -25,7 +24,6 @@ const inquiryCards = [
   { type: "registration", icon: PenLine, title: "등록문의", description: "새로운 축제나 행사의 등록을 요청해 주세요." },
   { type: "correction", icon: Pencil, title: "수정요청", description: "일정, 장소 등 기존 행사 정보의 수정을 요청해 주세요." },
   { type: "report", icon: TriangleAlert, title: "불편신고", description: "오류나 잘못된 링크 등 이용 중 불편을 알려주세요." },
-  { type: "advertising", icon: Megaphone, title: "광고 문의", description: "축제와 브랜드를 알리기 위한 광고 상품을 문의해 주세요." },
 ] satisfies Array<{
   type: InquiryType;
   icon: typeof PenLine;
@@ -57,7 +55,7 @@ export default async function ContactPage({
       </section>
       <section className="bg-white py-12 sm:py-16">
         <div className="container grid items-start gap-8 lg:grid-cols-[320px_minmax(0,1fr)] lg:gap-10">
-          <aside className="lg:sticky lg:top-28">
+          <aside className="hidden lg:sticky lg:top-28 lg:block">
             <div className="mb-6">
               <p className="text-sm font-bold text-blue-600">고객지원</p>
               <h2 className="mt-2 font-cafe24 text-3xl font-bold text-slate-950">

@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
+import { APP_NAME } from "@/lib/constants";
+import { getEventInfoType } from "@/lib/event-data";
+import { createPageMetadata } from "@/lib/seo";
+
 import PageCalendar, {
   type CalendarFestival,
 } from "@/components/page/page-calendar";
 import PageTitle from "@/components/page/page-title";
 import events from "@/data/events/events_2026.json";
-import { APP_NAME } from "@/lib/constants";
-import { getEventInfoType } from "@/lib/event-data";
-import { createPageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
   title: "축제 캘린더",
@@ -21,15 +22,17 @@ export default function CalendarPage() {
 
     if (!startDate) return [];
 
-    return [{
-      slug: event.slug,
-      title: event.name,
-      startDate,
-      endDate: event.event.endDate ?? startDate,
-      region: event.location.region,
-      venue: event.location.venue,
-      price: getEventInfoType(event.info.entrance) || "가격 확인",
-    }];
+    return [
+      {
+        slug: event.slug,
+        title: event.name,
+        startDate,
+        endDate: event.event.endDate ?? startDate,
+        region: event.location.region,
+        venue: event.location.venue,
+        price: getEventInfoType(event.info.entrance) || "가격 확인",
+      },
+    ];
   });
 
   const today = new Intl.DateTimeFormat("en-CA", {

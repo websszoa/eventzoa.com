@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { connection } from "next/server";
 import { Badge } from "@/components/ui/badge";
 import PageFestivalHeroConfetti from "@/components/page/page-festival-hero-confetti";
 import PageFestivalImage from "@/components/page/page-festival-image";
@@ -173,6 +174,8 @@ export async function generateMetadata({
 export default async function FestivalDetailPage({
   params,
 }: FestivalPageProps) {
+  await connection();
+
   const { slug } = await params;
   const festival = getFestivalBySlug(slug);
 
@@ -394,7 +397,11 @@ export default async function FestivalDetailPage({
         <div className="container relative py-14 sm:py-18 lg:py-22">
           <div className="festival-hero-reveal flex flex-wrap gap-2">
             <Badge className="rounded-full bg-blue-600 px-3 text-white">
-              {status}
+              {status === "개최 예정"
+                ? dDay
+                : status === "진행 중"
+                  ? "진행중"
+                  : status}
             </Badge>
             <Badge
               variant="outline"

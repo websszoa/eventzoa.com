@@ -31,6 +31,24 @@ function getEventStatus(startDate: string, endDate: string, today: string) {
   return "진행 중";
 }
 
+function getEventStatusLabel(
+  startDate: string,
+  endDate: string,
+  today: string,
+) {
+  if (today > endDate) return "종료";
+  if (today >= startDate) return "진행중";
+
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  const difference = Math.round(
+    (Date.parse(`${startDate}T00:00:00+09:00`) -
+      Date.parse(`${today}T00:00:00+09:00`)) /
+      millisecondsPerDay,
+  );
+
+  return `D-${difference}`;
+}
+
 function formatDateRange(startDate: string, endDate: string) {
   const format = (date: string) => {
     const weekday = new Intl.DateTimeFormat("ko-KR", {
@@ -87,6 +105,9 @@ export default async function FestivalsPage({
       month,
       status: hasSchedule
         ? getEventStatus(startDate, endDate, today)
+        : "일정 미정",
+      statusLabel: hasSchedule
+        ? getEventStatusLabel(startDate, endDate, today)
         : "일정 미정",
       price: getEventInfoType(event.info.entrance) || "가격 확인",
       entrance: entranceSummary || "가격 확인",

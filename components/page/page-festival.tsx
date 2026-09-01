@@ -39,6 +39,7 @@ export type FestivalListItem = {
   season: string;
   month: number | null;
   status: string;
+  statusLabel: string;
   price: string;
   entrance: string;
   registration: string;
@@ -364,7 +365,7 @@ export default function PageFestival({
                                 {festival.type}
                               </Badge>
                               <Badge className="rounded-full bg-blue-600 text-white hover:bg-blue-600">
-                                {festival.status}
+                                {festival.statusLabel}
                               </Badge>
                               <Badge variant="outline" className="rounded-full">
                                 {festival.price}

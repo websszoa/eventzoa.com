@@ -205,14 +205,6 @@ export default function PageList({ events }: { events: EventListItem[] }) {
                         </span>
                       )}
                     </p>
-                    {event.dDay && (
-                      <Badge
-                        variant="outline"
-                        className="mt-0 rounded-full border-red-300 px-3 text-sm font-medium text-red-500 lg:mt-3"
-                      >
-                        {event.dDay}
-                      </Badge>
-                    )}
                   </div>
 
                   <Link
@@ -235,7 +227,11 @@ export default function PageList({ events }: { events: EventListItem[] }) {
                             : "rounded-full border-slate-400 text-slate-700"
                         }
                       >
-                        {event.status}
+                        {event.status === "개최 예정"
+                          ? event.dDay
+                          : event.status === "진행 중"
+                            ? "진행중"
+                            : event.status}
                       </Badge>
                     </div>
 

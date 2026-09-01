@@ -17,6 +17,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - React component names remain PascalCase even when their filenames use kebab-case.
 - Shared primitives in `components/ui/` follow the shadcn component names and do not need a `page-` or `main-` prefix.
 
+## UI components
+
+- Prefer existing shadcn components from `components/ui/` over native interactive elements or custom primitives when an appropriate component is available.
+- Before creating a new UI primitive, check `components/ui/` and compose the existing shadcn component whenever possible.
+- Use the shadcn `Button` component for buttons instead of native `<button>` elements in application components.
+
 ## Typography
 
 - Use `font-cafe24` for large display text and prominent headings such as page titles, section titles, card titles, and article headings.

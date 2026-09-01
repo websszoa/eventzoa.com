@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 
 import PageList, { type EventListItem } from "@/components/page/page-list";
 import events from "@/data/events/events_2026.json";
@@ -40,7 +41,9 @@ function getDDay(startDate: string, today: string) {
   return difference > 0 ? `D-${difference}` : `D+${Math.abs(difference)}`;
 }
 
-export default function ListPage() {
+export default async function ListPage() {
+  await connection();
+
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
