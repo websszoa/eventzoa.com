@@ -122,6 +122,40 @@ function formatRegistrationPeriod(
   return [start, end].filter(Boolean).join(" · ");
 }
 
+function getRegistrationStatus(
+  startDate: string | null,
+  endDate: string | null,
+  startTime: string | null,
+  endTime: string | null,
+) {
+  if (!startDate && !endDate) return null;
+
+  const now = new Date();
+  const currentDate = new Intl.DateTimeFormat("sv-SE", {
+    timeZone: "Asia/Seoul",
+  }).format(now);
+  const currentTime = new Intl.DateTimeFormat("en-GB", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+    timeZone: "Asia/Seoul",
+  }).format(now);
+  const currentDateTime = `${currentDate} ${currentTime}`;
+
+  if (
+    startDate &&
+    currentDateTime < `${startDate} ${startTime || "00:00"}`
+  ) {
+    return "판매대기";
+  }
+
+  if (endDate && currentDateTime > `${endDate} ${endTime || "23:59"}`) {
+    return "판매완료";
+  }
+
+  return "판매중";
+}
+
 function getStatus(startDate: string | null, endDate: string | null) {
   if (!startDate || !endDate) return "일정 미정";
 
@@ -250,6 +284,12 @@ export default async function FestivalDetailPage({
     festival.registration.endTime,
   );
   const registrationSite = festival.registration.site;
+  const registrationStatus = getRegistrationStatus(
+    festival.registration.startDate,
+    festival.registration.endDate,
+    festival.registration.startTime,
+    festival.registration.endTime,
+  );
   const summaryItems: Array<{
     icon: LucideIcon;
     label: string;
@@ -494,9 +534,17 @@ export default async function FestivalDetailPage({
                     />
                     티켓 가격 정보
                   </h2>
-                  {festival.registration.status && (
-                    <Badge className="h-7 w-fit shrink-0 rounded-full bg-blue-600 px-3 font-bold text-white hover:bg-blue-600">
-                      {festival.registration.status}
+                  {registrationStatus && (
+                    <Badge
+                      className={`h-7 w-fit shrink-0 rounded-full px-3 font-bold text-white ${
+                        registrationStatus === "판매중"
+                          ? "bg-blue-600 hover:bg-blue-600"
+                          : registrationStatus === "판매대기"
+                            ? "bg-amber-500 hover:bg-amber-500"
+                            : "bg-slate-500 hover:bg-slate-500"
+                      }`}
+                    >
+                      {registrationStatus}
                     </Badge>
                   )}
                 </div>

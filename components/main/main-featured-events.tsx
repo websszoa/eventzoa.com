@@ -122,7 +122,7 @@ export default function MainFeaturedEvents() {
         </div>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredEvents.map((event) => (
+          {featuredEvents.map((event, index) => (
             <Card
               key={event.href}
               className="group gap-0 overflow-hidden rounded-3xl border-0 bg-white py-0 ring-1 ring-slate-200 transition-all duration-300 hover:-translate-y-1"
@@ -133,6 +133,7 @@ export default function MainFeaturedEvents() {
                     src={event.image}
                     alt={`${event.title} 행사 모습`}
                     fill
+                    loading={index === 0 ? "eager" : "lazy"}
                     sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="object-cover object-[center_-80px]"
                   />

@@ -39,10 +39,12 @@ export default function PageCalendar({
   festivals,
   initialYear,
   initialMonth,
+  todayDate,
 }: {
   festivals: CalendarFestival[];
   initialYear: number;
   initialMonth: number;
+  todayDate: string;
 }) {
   const [cursor, setCursor] = useState({
     year: initialYear,
@@ -189,20 +191,29 @@ export default function PageCalendar({
                         festival.endDate >= dateKey,
                     );
                     const isSelected = selectedDate === dateKey;
+                    const isToday = todayDate === dateKey;
 
                     return (
                       <button
                         key={dateKey}
                         type="button"
                         onClick={() => setSelectedDate(dateKey)}
-                        className={`min-h-32 border-r border-b border-slate-100 p-2 text-left align-top transition-colors hover:bg-blue-50/60 ${isSelected ? "bg-blue-50 ring-2 ring-inset ring-blue-500" : "bg-white"}`}
+                        className={`min-h-32 border-r border-b border-slate-100 p-2 text-left align-top transition-colors hover:bg-blue-50/60 ${isSelected ? "bg-blue-50 ring-2 ring-inset ring-blue-500" : isToday ? "bg-blue-50/40 ring-1 ring-inset ring-blue-300" : "bg-white"}`}
                         aria-pressed={isSelected}
-                        aria-label={`${cursor.month + 1}월 ${day}일, 축제 ${dayFestivals.length}개`}
+                        aria-current={isToday ? "date" : undefined}
+                        aria-label={`${cursor.month + 1}월 ${day}일${isToday ? ", 오늘" : ""}, 축제 ${dayFestivals.length}개`}
                       >
-                        <span
-                          className={`grid size-8 place-items-center rounded-full text-sm font-bold ${isSelected ? "bg-blue-600 text-white" : index % 7 === 0 ? "text-red-500" : index % 7 === 6 ? "text-blue-600" : "text-slate-700"}`}
-                        >
-                          {day}
+                        <span className="flex items-center justify-between gap-2">
+                          <span
+                            className={`grid size-8 place-items-center rounded-full text-sm font-bold ${isSelected || isToday ? "bg-blue-600 text-white" : index % 7 === 0 ? "text-red-500" : index % 7 === 6 ? "text-blue-600" : "text-slate-700"}`}
+                          >
+                            {day}
+                          </span>
+                          {isToday && (
+                            <span className="pr-1 text-[10px] font-bold text-blue-600">
+                              오늘
+                            </span>
+                          )}
                         </span>
                         <span className="mt-2 block space-y-1">
                           {dayFestivals.slice(0, 2).map((festival) => (

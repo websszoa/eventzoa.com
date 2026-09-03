@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 
 import { APP_NAME } from "@/lib/constants";
 import { getEventInfoType } from "@/lib/event-data";
@@ -16,7 +17,9 @@ export const metadata: Metadata = createPageMetadata({
   path: "/calendar",
 });
 
-export default function CalendarPage() {
+export default async function CalendarPage() {
+  await connection();
+
   const festivals: CalendarFestival[] = events.flatMap((event) => {
     const startDate = event.event.startDate;
 
@@ -39,6 +42,7 @@ export default function CalendarPage() {
     timeZone: "Asia/Seoul",
     year: "numeric",
     month: "2-digit",
+    day: "2-digit",
   })
     .format(new Date())
     .split("-");
@@ -56,6 +60,7 @@ export default function CalendarPage() {
         festivals={festivals}
         initialYear={Number(today[0])}
         initialMonth={Number(today[1])}
+        todayDate={today.join("-")}
       />
     </>
   );
