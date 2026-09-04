@@ -3815,5 +3815,489 @@
       "email": null,
       "instagram": null
     }
+  },
+  {
+    "slug": "cheonan-bbangbbang-day-2026",
+    "name": "2026 빵빵데이 천안",
+    "description": "빵빵데이 천안은 '빵의 도시 천안'을 대표하는 베이커리 축제로, 지역의 다양한 동네 빵집과 제과·제빵업소를 한자리에서 만날 수 있는 먹거리 행사입니다. 천안의 대표빵과 쌀빵 등 다양한 베이커리를 맛보고 구매할 수 있는 빵마켓과 대표빵 전시회를 중심으로 천안만의 빵 문화를 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "천안종합운동장 주차장 이용 가능, 행사 기간 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://www.cheonan.go.kr/pangpangday.do",
+      "program": "천안 지역 제과·제빵업소 빵마켓, 대표빵 전시회, 지역 베이커리 판매 및 체험 프로그램",
+      "memo": "2026 빵빵데이 천안은 10월 17일부터 18일까지 천안종합운동장 일원에서 개최됩니다. 참가 제과·제빵업소는 대표빵과 쌀빵을 포함한 다양한 제품을 선보이며 행사 기간 제품을 10% 이상 할인 판매할 예정입니다. 현재 세부 프로그램과 공연, 체험별 정확한 운영시간은 최종 공개 전이므로 확인된 내용만 반영했습니다."
+    },
+    "event": {
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "천안시",
+      "venue": "천안종합운동장 일원",
+      "naver": "천안종합운동장",
+      "address": "충청남도 천안시 서북구 번영로 208",
+      "latitude": 36.8188163,
+      "longitude": 127.1151481
+    },
+    "hosts": {
+      "organizer": "천안시, 대한제과협회 천안시지부",
+      "manager": null,
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "daegu-tteokbokki-festival-2026",
+    "name": "제6회 떡볶이 페스티벌",
+    "description": "떡볶이 페스티벌은 대구 북구에서 열리는 대한민국 대표 떡볶이 특화 먹거리 축제입니다. 전국의 다양한 떡볶이 맛집과 식음업체가 참여해 개성 넘치는 떡볶이를 맛볼 수 있으며, 떡페 나이트와 K-떡볶이 콘테스트, 완떡 챌린지, 체험존 등 먹거리와 공연, 이벤트를 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "칠성동 임시주차장 운영 및 대구광역시 산격청사 셔틀버스 운행",
+      "site": "https://tteokbokkifestival.com/",
+      "program": "전국 떡볶이 맛집 및 먹거리존, 들떡들떡 무대 공연, 떡페 나이트, 빨간맛 럭키드로우, 완떡 챌린지, K-떡볶이 콘테스트, 뽀기랜드 체험존, 글로벌 라운지, 대구 맛볼지도 도장깨기 챌린지",
+      "memo": "2026년 제6회 떡볶이페스티벌은 '대한민국이 들떡인다! 떡볶이 먹고 들떡들떡!'을 내세워 진행됩니다. 전국의 떡볶이 맛집과 다양한 식음업체가 참여하며 공연, 체험, 이벤트를 함께 즐길 수 있습니다. 행사 기간 산격청사 셔틀버스가 13:00~21:00 운행될 예정입니다. 세부 공연별 정확한 시간표는 최종 프로그램 공개 후 확인하는 것이 좋습니다."
+    },
+    "event": {
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-25",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "대구",
+      "area": "북구",
+      "venue": "대구iM뱅크PARK 일원",
+      "naver": "대구iM뱅크PARK",
+      "address": "대구광역시 북구 고성로 191",
+      "latitude": 35.8820325,
+      "longitude": 128.5872781
+    },
+    "hosts": {
+      "organizer": "대구광역시 북구",
+      "manager": null,
+      "sponsor": null,
+      "phone": "053-665-2795",
+      "email": "tteokbokkifestival@naver.com",
+      "instagram": "tteokbokki_festival"
+    }
+  },
+  {
+    "slug": "hongseong-global-bbq-festival-2026",
+    "name": "2026 홍성글로벌 바비큐 페스티벌",
+    "description": "홍성글로벌바비큐페스티벌은 홍성의 대표 특산물인 홍성한우와 한돈을 중심으로 다양한 바비큐를 맛보고 즐기는 대규모 미식축제입니다. 테마파크 바비큐와 글로벌 바비큐, K-바비큐, 난로회 바비큐 등 다채로운 먹거리와 함께 공연, 체험, 지역 농특산물 판매 프로그램을 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "행사장 주변 교통통제가 예상되며 세부 주차장 및 셔틀버스 운영정보는 추후 공식 안내 확인 권장",
+      "site": "https://hongju.or.kr/home/content.do?menu_cd=000064",
+      "program": "테마파크 바비큐, 홍성 랜드마크 바비큐, 홍성 닭 바비큐, K-바비큐, 글로벌 바비큐, 난로회 바비큐, 유튜버 바비큐, 홍성 푸드존, 상설시장 구이존, 한우 숯불구이존, 힙합·EDM 공연, K-POP 공연, 지역 예술인 공연, 체험 프로그램, 홍성한우·한돈 및 농특산품 판매",
+      "memo": "홍성한우와 한돈 등 홍성의 우수한 축산물을 활용한 대한민국 대표 바비큐 미식축제입니다. 대형 바비큐 그릴과 다양한 조리방식을 활용한 바비큐 콘텐츠를 비롯해 먹거리, 공연, 체험, 농특산물 판매 프로그램이 함께 운영됩니다. 세부 공연 및 프로그램별 정확한 시간표는 최종 공식 프로그램 공개 후 반영하는 것이 좋습니다."
+    },
+    "event": {
+      "startDate": "2026-10-29",
+      "endDate": "2026-11-01",
+      "startTime": "10:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "홍성군",
+      "venue": "홍주읍성 일원",
+      "naver": "홍주읍성",
+      "address": "충청남도 홍성군 홍성읍 아문길 27",
+      "latitude": 36.5997001,
+      "longitude": 126.6611462
+    },
+    "hosts": {
+      "organizer": "홍성군",
+      "manager": "(재)홍주문화관광재단",
+      "sponsor": null,
+      "phone": "041-634-8705",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "hoengseong-hanwoo-festival-2026",
+    "name": "제22회 횡성한우축제",
+    "description": "횡성한우축제는 대한민국 대표 한우 브랜드인 횡성한우를 직접 맛보고 다양한 문화예술과 체험 프로그램을 함께 즐기는 횡성의 대표 먹거리축제입니다. 횡성한우 구이터와 판매장을 중심으로 지역 먹거리와 농특산물, 공연, 체험 프로그램이 펼쳐지며 가을밤에는 뮤직페스타와 대형 불꽃쇼도 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "축제장 주변 임시주차장 및 교통편은 공식 안내 확인 권장",
+      "site": "https://www.hshanu.or.kr/",
+      "program": "횡성한우구이터, 횡성한우판매장, 횡성 맛마당 푸드존, 횡성 로컬팜 마켓, 우(牛)아한 뮤직페스타, 우(牛)주 불꽃쇼, 문화예술 공연 및 체험 프로그램",
+      "memo": "2026년 제22회 횡성한우축제는 '맛있다, 머물다, 빛나다'를 슬로건으로 '머무르는 가을, 빛나는 맛의 도시 횡성!'을 주제로 개최됩니다. 먹거리·문화예술·체험 3개 테마의 14개 프로그램으로 구성되며 주간과 야간 프로그램을 연계한 체류형 축제로 운영됩니다. 횡성한우 구이터와 판매장 등 먹거리는 별도 유료입니다."
+    },
+    "event": {
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-11",
+      "startTime": "10:00",
+      "endTime": "21:00",
+      "schedule": {
+        "daily": {
+          "19:00": ["우(牛)아한 뮤직페스타"]
+        },
+        "2026-10-07": {
+          "21:00": ["우(牛)주 불꽃쇼"]
+        },
+        "2026-10-10": {
+          "21:00": ["우(牛)주 불꽃쇼"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "횡성군",
+      "venue": "횡성 섬강둔치 일원",
+      "naver": "횡성한우축제장",
+      "address": "강원특별자치도 횡성군 횡성읍 북천리 221",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "(재)횡성문화관광재단",
+      "manager": "(재)횡성문화관광재단",
+      "sponsor": null,
+      "phone": "033-808-8007",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "imsil-n-cheese-festival-2026",
+    "name": "2026 임실N치즈축제",
+    "description": "임실N치즈축제는 대한민국 최초의 치즈가 탄생한 임실에서 열리는 대표 문화관광축제입니다. 임실N치즈를 활용한 대형 체험과 치즈요리, 퍼레이드, 공연을 비롯해 드론라이트쇼와 야간경관까지 즐길 수 있으며, 2026년에는 임실치즈테마파크와 치즈마을을 넘어 임실읍까지 축제 공간을 확대해 더욱 풍성하게 펼쳐집니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "임실치즈테마파크 및 임실읍 일원 10개 주차장 운영, 총 3,255대 주차 가능. 행사장 만차 시 임실읍 주차장 이용 후 셔틀버스 탑승 권장",
+      "site": "https://www.imsilfestival.com/",
+      "program": "여는 치즈, 임실N치즈 세계 문화공연, 임실N버스킹, 어린이 치즈인형극, 국가대표 쌀피자 만들기, 임실N치즈 쭉쭉 늘~려 내 치즈, 임실N치즈 에끌로퍼레이드, 치즈요리 나눔행사, 임실N치즈 드론라이트쇼, 치즈의 밤 야간 퍼레이드, 야간경관조명, 치즈마을 체험, 키즈랜드, 치즈 릴레이경기",
+      "memo": "2026년 축제는 임실치즈테마파크, 임실치즈마을, 임실읍 일원에서 4일간 개최됩니다. 올해는 축제 범위를 임실읍까지 확대하고 개막행사도 읍내에서 진행하는 등 지역상권과 연계한 상생형 축제로 운영됩니다. 공식 홈페이지에는 10개 테마와 70개 프로그램이 안내되어 있으며, 세부 프로그램별 정확한 시간표는 최종 일정표를 기준으로 확인하는 것이 좋습니다."
+    },
+    "event": {
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "임실군",
+      "venue": "임실치즈테마파크·임실치즈마을·임실읍 일원",
+      "naver": "임실치즈테마파크",
+      "address": "전북특별자치도 임실군 성수면 도인2길 50",
+      "latitude": 35.6331019,
+      "longitude": 127.3012579
+    },
+    "hosts": {
+      "organizer": "임실N치즈축제제전위원회",
+      "manager": "임실N치즈축제제전위원회",
+      "sponsor": "문화체육관광부, 농림축산식품부, 한국관광공사, 전북특별자치도, 임실군",
+      "phone": "063-643-3900",
+      "email": null,
+      "instagram": "cheese.festival"
+    }
+  },
+  {
+    "slug": "jeonju-bibimbap-festival-2026",
+    "name": "2026 전주비빔밥축제",
+    "description": "전주비빔밥축제는 유네스코 음식창의도시 전주를 대표하는 미식축제로, 전주비빔밥과 한식을 중심으로 전주의 맛과 문화를 함께 즐길 수 있는 행사입니다. 2026년에는 덕진공원으로 무대를 옮겨 대형 비빔퍼포먼스와 비빔퍼레이드, 전국 팔도비빔밥, 어린이 비빔 체험, 맛클래스 등 시민과 관광객이 함께 참여하는 프로그램을 선보입니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "덕진공원 주변 주차공간이 제한적이므로 행사 기간 대중교통 이용 권장",
+      "site": "https://tour.jeonju.go.kr/",
+      "program": "대형 비빔퍼포먼스, 비빔퍼레이드, 전국 팔도비빔밥, 어린이 비빔 체험, 맛클래스, 전주마켓, 유네스코 창의도시존, 음식부스",
+      "memo": "2026년 전주비빔밥축제는 기존 대형시설 중심의 축제장에서 벗어나 덕진공원 일원에서 새롭게 개최됩니다. 덕진공원의 자연경관과 연화정 등 수변 공간을 활용해 전주의 자연·문화·미식을 함께 경험하는 시민 참여형 축제로 구성됩니다. 현재 세부 프로그램별 정확한 운영시간과 전체 시간표는 최종 발표 전이므로 schedule은 null로 처리했습니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "전주시",
+      "venue": "덕진공원 일원",
+      "naver": "전주 덕진공원",
+      "address": "전북특별자치도 전주시 덕진구 권삼득로 390-1",
+      "latitude": 35.8490949,
+      "longitude": 127.1234573
+    },
+    "hosts": {
+      "organizer": "전주시",
+      "manager": null,
+      "sponsor": null,
+      "phone": "063-281-2382",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gangneung-coffee-festival-2026",
+    "name": "제18회 강릉커피축제",
+    "description": "강릉커피축제는 대한민국 대표 커피도시 강릉에서 열리는 커피문화축제입니다. 2026년에는 'Coffeeful Gangneung'을 슬로건으로 강릉커피거리를 중심으로 주문진, 중앙시장, 오죽헌, 옥계 등 강릉 전역으로 축제 공간을 확대해 커피와 문화, 관광, 지역의 일상을 함께 즐길 수 있는 도시형 축제로 펼쳐집니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "일부 유료",
+      "park": "행사 기간 셔틀버스 운영 예정이며 세부 주차장 및 셔틀버스 노선은 추후 공식 안내 확인 권장",
+      "site": "https://www.coffeefestival.net/",
+      "program": "웰컴커피숍, 모바일 스탬프랠리, 영수증 이벤트, 별의별 강릉커피, 별의별 원두상점, 커피 관련 전시·판매 및 체험 프로그램",
+      "memo": "2026년 제18회 강릉커피축제는 'Coffeeful Gangneung(커피로 가득한 강릉)'을 슬로건으로 개최됩니다. 기존 강릉커피거리 중심에서 주문진, 중앙시장, 오죽헌, 옥계 등 강릉시 주요 거점까지 축제 공간을 확대하는 도시 전역 확산형 축제로 추진됩니다. 2026 강릉 ITS 세계총회와 연계해 외국인 관광객을 위한 다국어 안내와 셔틀버스 등 관광 편의도 강화할 예정입니다. 현재 2026년 전체 프로그램과 세부 시간표는 순차 공개 중이므로 확인된 프로그램만 반영했습니다."
+    },
+    "event": {
+      "startDate": "2026-10-21",
+      "endDate": "2026-10-25",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "강릉시",
+      "venue": "강릉커피거리 및 강릉시 일원",
+      "naver": "강릉커피거리",
+      "address": "강원특별자치도 강릉시 창해로14번길 20-1",
+      "latitude": 37.7725745,
+      "longitude": 128.9473334
+    },
+    "hosts": {
+      "organizer": "강릉시",
+      "manager": "강릉문화재단",
+      "sponsor": "문화체육관광부, 강원특별자치도",
+      "phone": "033-647-6802",
+      "email": "gncaf@naver.com",
+      "instagram": "gn.coffeefestival"
+    }
+  },
+  {
+    "slug": "anhoeng-jjinppang-festival-2026",
+    "name": "제18회 안흥찐빵축제",
+    "description": "안흥찐빵축제는 횡성의 대표 특산물인 안흥찐빵을 맛보고 다양한 공연과 체험을 함께 즐기는 지역 먹거리축제입니다. 2026년에는 안흥찐빵과 지역 설화인 도깨비를 결합한 '찐빵 & 도깨비 페스티벌'을 중심으로 찐빵 무료 시식과 판매, 도깨비 원정대, 레트로 공연, 체험과 게임 등 온 가족이 즐길 수 있는 프로그램이 펼쳐집니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "축제장 주변 주차장 이용 가능, 세부 주차 및 교통정보는 공식 안내 확인 권장",
+      "site": "https://www.hsg.go.kr/tour/contents.do?key=1372",
+      "program": "찐빵 & 도깨비 페스티벌, 개막식 및 축하공연, 토요일 토요일은 가수다, 찐빵 무료 시식 및 판매존, 도깨비 원정대, 안흥찐빵 히스토리 스탬프 투어, 도깨비가 내려준 오늘의 운세, 도깨비·찐빵 코스프레 이벤트, 찐빵 무게 맞추기, OX퀴즈, 팥 없는 찐빵 맞추기, 면민 노래자랑, 지역 농특산물 판매 및 먹거리존",
+      "memo": "2026년 제18회 안흥찐빵축제는 안흥찐빵의 고유한 맛과 지역 도깨비 설화를 결합한 축제로 개최됩니다. '찐빵 & 도깨비 페스티벌'은 올해 3회째를 맞으며, 2일차에는 90년대 가요를 중심으로 한 '토요일, 토요일은 가수다' 시즌3가 진행됩니다. 마지막 날에는 지역 주민과 관광객이 함께하는 면민 노래자랑이 열립니다. 세부 프로그램별 정확한 시간표는 최종 공식 일정 확인 후 반영하는 것이 좋습니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "20:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "횡성군",
+      "venue": "안흥찐빵모락모락마을 일원",
+      "naver": "안흥찐빵모락모락마을",
+      "address": "강원특별자치도 횡성군 안흥면 주천강로 1868",
+      "latitude": 37.4095689,
+      "longitude": 128.1555325
+    },
+    "hosts": {
+      "organizer": "안흥찐빵축제위원회",
+      "manager": "안흥찐빵축제위원회",
+      "sponsor": null,
+      "phone": "033-340-2746",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gumi-food-festival-2026",
+    "name": "2026 구미푸드페스티벌",
+    "description": "구미푸드페스티벌은 구미의 다양한 맛과 문화를 한자리에서 즐기는 대표 미식축제입니다. 송정맛길을 중심으로 100여 개 업체가 참여해 200여 종의 다양한 음식을 선보이며, 로컬맛집과 베이커리, 아시아 음식, 향토막걸리, 치맥 등 아홉 가지 먹거리존과 공연, 쿠킹클래스, 체험 프로그램을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료 (일부 유료)",
+      "park": "행사장이 광평천 제2~5 공영주차장에 조성되므로 행사 기간 주변 교통 및 임시주차장 이용정보는 공식 안내 확인 권장",
+      "site": "https://www.gumi.go.kr/",
+      "program": "개막 퍼포먼스, 초청가수 공연, 버스킹, 마술쇼, 풍선아트, 식품대전, 구미먹거리장터, 베이커리카페존, 아시아미식존, 로컬맛집존, 향토막걸리존, 구미당김치맥존, 어린이 먹거리존, 삼겹굽굽존, 가족 쿠킹클래스, 코스튬 콘테스트, 체험 프로그램, 먹빵대회, 푸드테크 체험",
+      "memo": "2026 구미푸드페스티벌은 '가을엔 구미(口味)가 땡긴데이~'를 슬로건으로 송정맛길 일원에서 개최됩니다. 약 1.5km의 행사장에 100여 개 업체가 참여해 200여 종의 음식을 선보이며, 낭만구미(볼거리), 맛난구미(먹거리), 꿀잼구미(놀거리)를 중심으로 구성됩니다. 먹거리 공간은 구미에서 만나는 아홉 가지 특별한 맛을 주제로 한 9味존으로 운영되며 푸드테크 기술을 직접 체험할 수 있는 콘텐츠도 마련됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "startTime": "12:00",
+      "endTime": "20:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경북",
+      "area": "구미시",
+      "venue": "송정맛길 일원",
+      "naver": "구미 송정맛길",
+      "address": "경상북도 구미시 송정동 505",
+      "latitude": 36.1161122,
+      "longitude": 128.3493107
+    },
+    "hosts": {
+      "organizer": "구미시",
+      "manager": null,
+      "sponsor": null,
+      "phone": "054-480-5593",
+      "email": null,
+      "instagram": "gumi_food_festival"
+    }
+  },
+  {
+    "slug": "wanju-wild-local-food-festival-2026",
+    "name": "제14회 완주 와일드앤로컬푸드축제",
+    "description": "완주 와일드&로컬푸드축제는 완주의 청정 자연 속에서 이색적인 야생 체험과 건강한 지역 먹거리를 함께 즐기는 대표 축제입니다. 2026년에는 불을 활용한 와일드 체험과 로컬푸드를 중심으로 시랑천 수상놀이, 자연친화 놀이터, 로컬밥상, 농특산물 장터, 공연 등 온 가족이 즐길 수 있는 다양한 프로그램이 펼쳐집니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": "고산자연휴양림 및 축제장 주변 주차·교통 운영정보는 공식 안내 확인 권장",
+      "site": "http://www.wanjufestival.kr/",
+      "program": "불타는 화덕구이, 로컬 부시크래프트, 감자삼굿, 불 주제 대형 이벤트, 시랑천 워터월드, 물고기잡기, 다슬기·우렁잡기, 수상놀이체험, 리틀 와푸족, 와일드놀이터, 볏짚미끄럼틀, 흙놀이, 트리 익스트림, 13개 읍면 로컬밥상, 농특산물 직거래 로컬장터, 미식관광 팝업레스토랑, 와푸 EDM MUSIC PARTY, 문화공연 및 현장 참여 이벤트",
+      "memo": "2026년 제14회 완주 와일드&로컬푸드축제는 '불 타오르는 거친 야생'을 콘셉트로 완주만의 와일드한 체험과 로컬푸드를 결합해 개최됩니다. 고산자연휴양림의 자연환경을 활용한 체험과 불을 주제로 한 대표 콘텐츠, 지역 주민들이 준비하는 로컬밥상과 농특산물 장터 등이 운영됩니다. 세부 프로그램별 시간표는 최종 공식 일정에 따라 추가 업데이트가 필요합니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "schedule": {
+        "2026-10-02": {
+          "10:30": ["어린이 그림그리기 대회"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "완주군",
+      "venue": "고산자연휴양림 일원",
+      "naver": "완주 고산자연휴양림",
+      "address": "전북특별자치도 완주군 고산면 고산휴양림로 89",
+      "latitude": 35.9622356,
+      "longitude": 127.2329044
+    },
+    "hosts": {
+      "organizer": "완주군",
+      "manager": "완주와일드&로컬푸드축제추진위원회",
+      "sponsor": null,
+      "phone": "063-290-3976~8",
+      "email": null,
+      "instagram": null
+    }
   }
 ]

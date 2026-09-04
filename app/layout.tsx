@@ -5,6 +5,7 @@ import Script from "next/script";
 import NaverAnalytics from "@/components/analytics/naver-analytics";
 import PageFooter from "@/components/page/page-footer";
 import PageHeader from "@/components/page/page-header";
+import { PageLoading } from "@/components/page/page-loading";
 import {
   APP_DESCRIPTION,
   APP_EMAIL,
@@ -155,6 +156,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        <noscript>
+          <style>{`.page-loading{display:none}`}</style>
+        </noscript>
+        <PageLoading />
         <PageHeader />
         <main id="main-content" className="flex-1">
           {children}

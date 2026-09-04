@@ -64,6 +64,79 @@
   }
 }
 
+/* loading */
+.page-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--background);
+  opacity: 1;
+  transition: opacity 300ms ease;
+}
+
+.page-loading--closing {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.loading {
+  position: relative;
+  z-index: 9998;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+
+  &::before {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border: 10px solid #fff;
+    border-radius: 50%;
+    animation: loader 1s -1s infinite ease;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0;
+    height: 0;
+  }
+
+  100% {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loading {
+    transition: none;
+  }
+
+  .loading::after {
+    animation: none;
+  }
+}
+
 .eventzoa-current-location {
   position: relative;
   width: 36px;
