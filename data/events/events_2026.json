@@ -172,11 +172,18 @@
       "memo": "2026년 개최 일정과 세부 프로그램은 아직 공식 발표되지 않았습니다. 공식 홈페이지에서 최신 정보를 확인해야 합니다."
     },
     "event": {
-      "startDate": null,
-      "endDate": null,
-      "startTime": null,
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "19:00",
       "endTime": null,
-      "schedule": null
+      "schedule": {
+        "2026-10-31": {
+          "19:00": [
+            "2026 여수밤바다 불꽃축제",
+            "해상 불꽃쇼 - 1부 해외 초청팀 + 2부 한국팀 공연"
+          ]
+        }
+      }
     },
     "registration": {
       "startDate": null,
@@ -191,11 +198,11 @@
       "country": "KR",
       "region": "전남",
       "area": "여수시",
-      "venue": "이순신광장 및 장군도 앞 해상 일원",
-      "naver": null,
-      "address": "전남 여수시 선어시장길 6",
-      "latitude": 34.739,
-      "longitude": 127.736
+      "venue": "여수세계박람회장 일원",
+      "naver": "여수세계박람회장",
+      "address": "전남광주통합특별시 여수시 박람회길 1 국제관",
+      "latitude": 34.7508298,
+      "longitude": 127.7469647
     },
     "hosts": {
       "organizer": "여수시",
@@ -1532,48 +1539,75 @@
   {
     "slug": "muju-firefly-festival-2026",
     "name": "제30회 무주반딧불축제",
-    "description": "무주반딧불축제는 청정 자연 속에서 살아가는 반딧불이를 직접 관찰하고 생태의 소중함을 경험할 수 있는 대한민국 대표 생태축제입니다. 반딧불이 신비탐사를 중심으로 생태체험, 별자리 관측, 공연, 퍼레이드, 낙화놀이와 드론·불꽃쇼 등 낮부터 밤까지 다양한 프로그램을 즐길 수 있습니다.",
+    "description": "무주반딧불축제는 청정 자연 속에서 천연기념물 반딧불이를 직접 만나며 생태와 환경의 소중함을 체험하는 대한민국 대표 생태축제입니다. 2026년 제30회를 맞아 반딧불이 신비탐사와 반디별소풍, 반디캠핑 등 자연체험부터 낙화놀이·드론·레이저·불꽃이 어우러지는 반디빛의향연, 글로벌 퍼레이드, 공연과 미디어아트까지 낮과 밤을 아우르는 다채로운 프로그램이 펼쳐집니다.",
     "info": {
-      "type": "자연생태축제",
-      "entrance": "축제장 무료, 일부 체험 프로그램 유료",
-      "park": "축제장 주변 주차장 이용 가능, 축제 기간 교통 혼잡이 예상되므로 셔틀버스 이용 권장",
+      "type": "생태·자연축제",
+      "entrance": "무료 (일부 체험 프로그램 유료)",
+      "park": "축제 기간 임시주차장 및 셔틀버스 운영. 카카오 T 셔틀은 9월 4일·5일·6일·11일·12일 운행",
       "site": "https://www.firefly.or.kr/",
-      "program": "반딧불이 신비탐사, 1박2일 생태탐험, 반디캠핑, 반디별소풍, 남대천 생명플러스, 반딧불이 주제관, 반디미디어아트영상관, 글로벌 퍼레이드, 반디빛의향연, 어린이 참여 공연, 반딧불이가요제, 반딧불 창작동요제, BANDI EDM PARTY, 전통문화 재현공연",
-      "memo": "제30회 무주반딧불축제는 '반디가 그린 빛(BANDI GREEN LIGHT)'을 슬로건으로 개최됩니다. 반딧불이와 자연환경을 활용한 생태 프로그램과 함께 낙화놀이, 레이저쇼, 경관분수, 드론 퍼포먼스, 불꽃놀이 등이 어우러지는 야간 프로그램도 운영됩니다."
+      "program": "반딧불이 신비탐사, 반딧불이와 함께하는 1박2일 생태탐험, 반디캠핑, 반디별소풍, 남대천 생명플러스, 도전! 태권골든벨, 반딧불이 주제관, 반디미디어아트영상관, 반디키즈월드, 글로벌 퍼레이드, 개막식 길놀이, 반디빛의향연, 반디 와인 낭만 버스킹, BANDI EDM PARTY, 반딧불이 가요제, 2026 반딧불 창작동요제, 태권도 퍼포먼스 공연, 전통문화 재현공연, 어린이 참여 공연",
+      "memo": "2026년 제30회 무주반딧불축제는 9월 4일부터 12일까지 9일간 무주군 일원에서 개최됩니다. 대표 프로그램인 반딧불이 신비탐사는 축제 종료 후인 9월 20일까지 총 15회 연장 운영되며 9월 14일과 15일은 운영하지 않습니다. 신비탐사는 1인 20,000원으로 인터넷 사전예약만 가능하며 참가자에게 무주사랑상품권 10,000원권을 지급합니다. 반디별소풍은 9월 4·5·11·12일 21:00~22:30에 운영되며 1인 10,000원입니다. 반디미디어아트영상관은 축제 기간 10:00~21:00 무료 운영됩니다. 남대천에서는 낙화놀이, 레이저쇼, 경관분수, 드론, 불꽃놀이가 어우러지는 반디빛의향연이 펼쳐집니다. 숙박 인센티브는 9월 3일부터 13일까지 참여 숙박업체 이용객과 축제 참여객을 대상으로 운영됩니다."
     },
     "event": {
       "startDate": "2026-09-04",
       "endDate": "2026-09-12",
-      "startTime": null,
-      "endTime": null,
+      "startTime": "10:00",
+      "endTime": "23:00",
       "schedule": {
         "2026-09-04": {
           "14:00": ["반딧불이와 함께하는 1박2일 생태탐험"],
           "17:00": ["글로벌 퍼레이드"],
           "17:30": ["식전 주제공연"],
-          "18:00": ["태권도 퍼포먼스 공연", "등봉시 소림사 특별 무예공연"],
+          "18:00": [
+            "태권도 퍼포먼스 공연",
+            "등봉시 소림사 특별 무예공연",
+            "야밤도주"
+          ],
           "18:30": ["30주년 특별전야제"],
           "18:40": ["반딧불이 신비탐사"],
           "19:10": ["축하공연"],
           "21:00": ["반디빛의향연", "반디별소풍"]
         },
         "2026-09-05": {
-          "10:00": ["산의실 솟대"],
           "13:00": ["반디 피에로 버스킹"],
           "14:00": ["반딧불이와 함께하는 1박2일 생태탐험"],
+          "15:00": ["반디 키즈 판타지", "도전! 태권골든벨"],
+          "16:00": ["남대천 생명플러스"],
+          "17:00": ["부남뱃소배묻이굿놀이"],
+          "17:30": ["반디 키즈 판타지"],
+          "18:00": [
+            "등봉시 소림사 특별 무예공연",
+            "무주군 학생·실버 태권도 시범단 시범공연",
+            "태권도 퍼포먼스 공연",
+            "야밤도주"
+          ],
           "18:40": ["반딧불이 신비탐사"],
+          "19:00": ["개막식 길놀이"],
+          "19:30": ["개막식"],
+          "20:00": ["반디 와인 낭만 버스킹"],
+          "20:20": ["축하공연"],
           "21:00": ["반디빛의향연", "반디별소풍"]
         },
         "2026-09-06": {
-          "11:00": ["농악보존회 농악"],
+          "13:00": ["반디 피에로 버스킹"],
+          "14:00": ["반딧불이와 함께하는 1박2일 생태탐험"],
+          "15:00": ["반디 키즈 판타지", "도전! 태권골든벨"],
+          "17:00": ["반디 가요무대"],
+          "17:30": ["반디 키즈 판타지"],
+          "18:00": ["태권도 퍼포먼스 공연"],
           "18:40": ["반딧불이 신비탐사"],
-          "19:00": ["제2회 반딧불이가요제 본선"]
+          "19:00": ["반딧불이가요제"],
+          "20:00": ["반디 와인 낭만 버스킹"],
+          "21:30": ["BANDI EDM PARTY"]
         },
         "2026-09-11": {
+          "15:00": ["2026 반딧불 창작동요제"],
+          "16:00": ["남대천 생명플러스"],
           "18:40": ["반딧불이 신비탐사"],
           "21:00": ["반디별소풍"]
         },
         "2026-09-12": {
+          "16:00": ["남대천 생명플러스"],
           "18:40": ["반딧불이 신비탐사"],
           "21:00": ["반디별소풍"]
         }
@@ -1587,24 +1621,27 @@
       "site": "https://www.firefly.or.kr/",
       "status": "접수중",
       "price": {
-        "반딧불이 주제관": 5000,
-        "반디별소풍": 10000
+        "반딧불이 신비탐사": 20000,
+        "반디별소풍": 10000,
+        "반디캠핑 2인가족": 350000,
+        "반디캠핑 3인가족": 400000,
+        "반디캠핑 4인가족": 450000
       }
     },
     "location": {
       "country": "KR",
       "region": "전북",
       "area": "무주군",
-      "venue": "무주 반디불 축제",
-      "naver": null,
-      "address": "전북특별자치도 무주군 무주읍 한풍루로 326-17 일원",
-      "latitude": 36.007,
-      "longitude": 127.661
+      "venue": "무주군 일원",
+      "naver": "무주반딧불축제",
+      "address": "전북특별자치도 무주군 무주읍 한풍루로 326-17",
+      "latitude": 36.0022942,
+      "longitude": 127.6625497
     },
     "hosts": {
       "organizer": "무주군",
       "manager": "(사)무주반딧불축제위원회",
-      "sponsor": "문화체육관광부·전북특별자치도",
+      "sponsor": null,
       "phone": "063-324-2440",
       "email": null,
       "instagram": null
@@ -4298,6 +4335,1319 @@
       "phone": "063-290-3976~8",
       "email": null,
       "instagram": null
+    }
+  },
+  {
+    "slug": "suwon-jazz-fringe-festa-2026",
+    "name": "2026 수원 재즈프린지 페스타",
+    "icon": "🎷",
+    "shortDescription": "행궁동 골목을 물들이는 낭만 재즈여행",
+    "description": "2026 수원 재즈프린지 페스타는 수원화성과 행궁동 골목을 무대로 펼쳐지는 도심형 재즈 축제입니다. 화성행궁 우화관 바깥마당을 중심으로 행궁동 일원 8개 무대에서 국내 재즈 아티스트 18팀의 공연이 이어지며, 메인 공연부터 스트릿 재즈와 마칭밴드, 신예 뮤지션을 발굴하는 라이징 스타 경연, 로컬마켓까지 고즈넉한 수원화성과 재즈의 낭만을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "음악·공연축제",
+      "entrance": "무료",
+      "park": "별도 주차시설 없음",
+      "site": "https://www.swcf.or.kr/?idx=3041&p=29_view",
+      "program": "메인 스테이지 재즈공연, 거점무대 공연, 스트릿 재즈, 마칭밴드 공연, 프린지 나이트 라이징 스타 경연, 로컬마켓",
+      "memo": "화성행궁 우화관 바깥마당을 메인 스테이지로 운영하며 화서문 앞, 행리단길, 미술관 로비, 장안문 일원 등 총 8개 무대에서 공연이 펼쳐집니다. 3일간 국내 재즈 아티스트 18팀이 참여하며 9월 6일에는 전국 공모를 통해 선발된 신예 재즈 뮤지션 4팀의 라이징 스타 경연이 진행됩니다. 최우수팀은 9월 18~19일 광교호수공원에서 열리는 2026 수원재즈페스티벌 무대에 오릅니다."
+    },
+    "event": {
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-06",
+      "startTime": "14:00",
+      "endTime": "21:00",
+      "schedule": {
+        "2026-09-04": {
+          "19:00": ["김수환 밴드", "윤덕현 밴드"]
+        },
+        "2026-09-05": {
+          "14:00": ["행궁동 일원 거점무대 재즈공연 시작"],
+          "19:00": ["ZIP4", "김순영 재즈탭밴드", "BMK 재즈밴드"]
+        },
+        "2026-09-06": {
+          "14:00": ["행궁동 일원 거점무대 재즈공연 시작"],
+          "18:00": ["프린지 나이트 라이징 스타 경연"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "수원시",
+      "venue": "행궁동 일원",
+      "naver": "화성행궁 우화관",
+      "address": "경기도 수원시 팔달구 신풍로 15",
+      "latitude": 37.2829673,
+      "longitude": 127.0138432
+    },
+    "hosts": {
+      "organizer": "수원특례시",
+      "manager": "수원문화재단",
+      "sponsor": null,
+      "phone": "031-5191-3508",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "chemistreet-gangnam-festival-2026",
+    "name": "2026 케미스트릿 강남역 페스티벌",
+    "description": "2026 케미스트릿 강남역 페스티벌은 강남역 일대의 상점과 문화 콘텐츠를 연결해 K-맛과 K-멋을 함께 즐기는 도심형 로컬상권 축제입니다. 음악과 웰니스, 브랜드 팝업, K-컬처 체험부터 30곳 이상의 상점이 참여하는 야장과 라이브 쿠킹쇼까지 펼쳐지며, 낮에는 문화와 체험을 즐기고 밤에는 공연과 먹거리를 만나는 강남역만의 특별한 축제 분위기를 경험할 수 있습니다.",
+    "info": {
+      "type": "문화·공연축제",
+      "entrance": "무료",
+      "park": "축제 기간 일부 도로 차량 통제, 대중교통 이용 권장",
+      "site": "https://korean.visitkorea.or.kr/kfes/detail/fstvlDetail.do?fstvlCntntsId=31f087fe-7d4f-4882-9864-bf74e2b0fc93",
+      "program": "MIDNIGHT SHOWKASE, LIFE SHOWKASE, CHEMI SHOWKASE, TASTE SHOWKASE, EDM 릴레이 공연, 요가 클래스, 모닝 러닝, 커피 레이브, 세계문화 체험, 힐링 피크닉, 여행하는 서재, 브랜드 팝업, K-드레스 쇼, 푸드위크 라이브 쿠킹쇼, 야장, 버스킹, 시민 참여 노래방, 상권 쿠폰 및 현장 이벤트",
+      "memo": "서울시 로컬브랜드 상권 육성사업의 일환으로 열리는 축제로 2026년에는 'SHOWKASE'를 콘셉트로 진행됩니다. 교보문고, 당근, 데카트론, 로그짐&PT, 스파오, 올댓뷰티아카데미, 웰니스하우스서울, 준오헤어 등 다양한 브랜드가 팝업에 참여하며, 상권 내 30곳 이상의 점포가 캠핑형·레트로형 야장을 운영합니다. K-드레스 쇼와 조서형 셰프가 참여하는 라이브 쿠킹쇼, 피프티피프티·소코도모·키라스·DJ 레이든 등이 참여하는 공연도 예정되어 있습니다. 9월 6일 00:00부터 9월 7일 04:00까지 서초대로75길·77길과 강남대로61길·65길 일대의 차량 통제가 예정되어 있습니다."
+    },
+    "event": {
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-06",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-09-05": {
+          "19:00": [
+            "MIDNIGHT SHOWKASE - DJ SUVIN, ELLIA, GIO, KEY:NA 릴레이 EDM 공연"
+          ]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "서초구",
+      "venue": "강남역 케미스트릿 상권 일대",
+      "naver": null,
+      "address": "서울특별시 서초구 서초대로77길 17",
+      "latitude": 37.4995536,
+      "longitude": 127.0257524
+    },
+    "hosts": {
+      "organizer": "서울특별시 서초구",
+      "manager": "서초일자리주식회사",
+      "sponsor": null,
+      "phone": "02-2178-9182",
+      "email": null,
+      "instagram": "chemistreet_seocho"
+    }
+  },
+  {
+    "slug": "jamsugyo-ddooddoo-festival-2026-fall",
+    "name": "2026 차 없는 잠수교 뚜벅뚜벅축제",
+    "description": "차 없는 잠수교 뚜벅뚜벅축제는 자동차가 사라진 잠수교를 자유롭게 걸으며 한강의 풍경과 문화·공연·먹거리·체험을 함께 즐기는 서울 대표 한강축제입니다. 2026년 가을에는 8주간 매주 일요일 잠수교와 반포한강공원 일원에서 열리며, 달빛 식당과 상점, 놀이터, 공방 등 상설 프로그램과 워터워즈, 가을 운동회, 한가위 한마당, 미식로드 등 매주 새로운 특별 프로그램을 만날 수 있습니다.",
+    "info": {
+      "type": "문화·공연축제",
+      "entrance": "무료 (일부 먹거리 및 체험 프로그램 유료)",
+      "park": "잠수교 차량 통제 및 행사장 혼잡으로 대중교통 이용 권장",
+      "site": "https://www.festa-ddooddoo.com/",
+      "program": "달빛 놀이터, 달빛 식당, 달빛 상점, 달빛 쉼터, 달빛 공방, 달빛 갤러리, 뚜뚜낙타봉 캔버스, 잠수교 워터워즈, 뚜뚜게더 X 서울 동아리 ON, 잠수교 가을 운동회, 달빛 한가위 한마당, 잠수교 미식로드, 달빛 잠수교, 잠수교 리프레쉬 데이, 구석구석 라이브, 서로장터, 무소음 DJ파티",
+      "memo": "2026년 하반기 차 없는 잠수교 뚜벅뚜벅축제는 9월 6일부터 10월 25일까지 8주간 매주 일요일 진행됩니다. 가을 시즌은 야간경제 활성화를 위해 14:00~22:00까지 운영되며, 잠수교와 반포한강공원에서 한강의 낮과 야경을 함께 즐길 수 있습니다. 2027년 하반기 잠수교 전면 보행화를 앞두고 기존 '차 없는 잠수교' 형태로 진행되는 마지막 시즌입니다. 특별 프로그램은 매주 달라지며 일부 프로그램은 사전 또는 현장 접수가 필요합니다."
+    },
+    "event": {
+      "startDate": "2026-09-06",
+      "endDate": "2026-10-25",
+      "startTime": "14:00",
+      "endTime": "22:00",
+      "schedule": {
+        "2026-09-06": {
+          "14:00": ["잠수교 워터워즈"]
+        },
+        "2026-09-13": {
+          "14:00": ["뚜뚜게더 X 서울 동아리 ON"]
+        },
+        "2026-09-20": {
+          "14:00": ["잠수교 가을 운동회"]
+        },
+        "2026-09-27": {
+          "14:00": ["달빛 한가위 한마당"]
+        },
+        "2026-10-04": {
+          "14:00": ["잠수교 미식로드"]
+        },
+        "2026-10-11": {
+          "14:00": ["달빛 잠수교"]
+        },
+        "2026-10-18": {
+          "14:00": ["잠수교 리프레쉬 데이"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://www.festa-ddooddoo.com/",
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "서초구",
+      "venue": "잠수교 및 반포한강공원 일원",
+      "naver": "반포한강공원",
+      "address": "서울특별시 서초구 반포동 잠수교",
+      "latitude": 37.5077215,
+      "longitude": 126.9927291
+    },
+    "hosts": {
+      "organizer": "서울특별시 미래한강본부",
+      "manager": null,
+      "sponsor": null,
+      "phone": "02-6401-9717",
+      "email": null,
+      "instagram": "ddooddoo_festa"
+    }
+  },
+  {
+    "slug": "gangnam-festival-2026",
+    "name": "제15회 강남페스티벌",
+    "description": "2026 강남페스티벌은 압구정로와 도산대로를 중심으로 강남 곳곳을 거대한 무대로 만드는 글로벌 K-컬처 축제입니다. 올해 처음 선보이는 약 2km 규모의 그랜드 퍼레이드를 시작으로 패밀리 콘서트와 K-POP 콘서트, EDM 파티, 패션·뷰티페스타, 비어·푸드페스타가 펼쳐집니다. 마루공원과 봉은사 등에서도 국악과 마라톤, 사찰음악회가 이어져 강남의 문화와 패션, 음악, 미식을 한자리에서 즐길 수 있습니다.",
+    "info": {
+      "type": "문화·공연축제",
+      "entrance": "무료",
+      "park": "축제 기간 압구정로·도산대로 일대 교통통제 예정, 대중교통 이용 권장",
+      "site": "https://visitgangnam.net/festival",
+      "program": "그랜드 퍼레이드, 패밀리 콘서트, EDM 파티, K-POP 콘서트, 패션·뷰티페스타, 비어·푸드페스타, KBS 국악한마당, 강남국제평화마라톤, 봉은사 사찰음악회",
+      "memo": "2026년 제15회 강남페스티벌은 압구정로와 도산대로를 중심으로 강남구 전역에서 개최됩니다. 올해 처음 선보이는 그랜드 퍼레이드는 압구정로데오 갤러리아에서 도산공원사거리까지 이어지며 G·A·N·G·N·A·M 일곱 글자를 주제로 구성됩니다. 도산대로에서는 패밀리 콘서트, K-POP 콘서트, EDM 파티와 패션·뷰티·미식을 결합한 K-컬처 콘텐츠가 진행됩니다. 마루공원에서는 KBS 국악한마당, 봉은사로 일대에서는 강남국제평화마라톤, 봉은사에서는 사찰음악회가 연계 행사로 열립니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-05",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-10-03": {
+          "16:00": ["그랜드 퍼레이드"],
+          "19:00": ["패밀리 콘서트"],
+          "21:30": ["EDM 파티"]
+        },
+        "2026-10-04": {
+          "16:30": ["DJ 아스터 축하공연"],
+          "18:00": ["글로벌 K-POP 댄스 우승팀 식전공연"],
+          "19:00": ["K-POP 콘서트"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "강남구",
+      "venue": "압구정로·도산대로 및 강남구 일원",
+      "naver": "도산공원",
+      "address": "서울특별시 강남구 도산대로 320",
+      "latitude": 37.5239547,
+      "longitude": 127.0355213
+    },
+    "hosts": {
+      "organizer": "강남구",
+      "manager": "강남문화재단",
+      "sponsor": null,
+      "phone": "02-3423-5543",
+      "email": null,
+      "instagram": "heygangnam_festival"
+    }
+  },
+  {
+    "slug": "changgyeonggung-night-banquet-2026-fall",
+    "name": "2026 창경궁 야연",
+    "description": "창경궁 야연은 효명세자가 아버지 순조에게 올렸던 궁중 연향을 현대적으로 재해석한 특별한 야간 궁궐 프로그램입니다. 참가자가 조선시대 문무백관 또는 외명부가 되어 전통 궁중 복식을 입고 연회의 주인공으로 참여하며, 가족과 함께 궁중 병과와 전통공연, 효를 주제로 한 체험과 사진 촬영을 즐길 수 있습니다.",
+    "info": {
+      "type": "전통·역사문화행사",
+      "entrance": "유료 체험 / 현장 공연 관람 일부 무료",
+      "park": "창경궁 주차 공간이 협소해 대중교통 이용 권장",
+      "site": "https://www.kh.or.kr/",
+      "program": "궁중 연향 재현, 궁중 복식 체험, 메이크업, 궁중 병과 체험, 효(孝) 체험, 가족사진 촬영, 전통공연 관람, 부모님께 편지 쓰기, 포토존",
+      "memo": "2026년 하반기 창경궁 야연은 9월 24일부터 10월 4일까지 창경궁 문정전 일원에서 진행되며 9월 28일 월요일은 창경궁 휴무일로 운영하지 않습니다. 효명세자가 아버지 순조를 위해 마련했던 궁중 연향에서 착안한 가족 친화형 야간 프로그램입니다. 유료 체험객은 문무백관 또는 외명부의 궁중 복식을 입고 연회의 주인공으로 참여하며, 동반 가족도 궁중 병과와 공연, 효 체험, 가족사진 촬영 등을 함께 즐길 수 있습니다. 일반 현장 관람객도 한정된 좌석에서 궁중 연향을 무료로 관람하고 일부 체험과 포토존을 이용할 수 있습니다."
+    },
+    "event": {
+      "startDate": "2026-09-24",
+      "endDate": "2026-10-04",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "종로구",
+      "venue": "창경궁 문정전 일원",
+      "naver": "창경궁",
+      "address": "서울특별시 종로구 창경궁로 185",
+      "latitude": 37.5778168,
+      "longitude": 126.9967056
+    },
+    "hosts": {
+      "organizer": "국가유산청 궁능유적본부",
+      "manager": "국가유산진흥원",
+      "sponsor": null,
+      "phone": "1522-2295",
+      "email": null,
+      "instagram": "goongin_official"
+    }
+  },
+  {
+    "slug": "deoksugung-seokjojeon-at-night-2026-fall",
+    "name": "2026 덕수궁 밤의 석조전",
+    "description": "덕수궁 밤의 석조전은 평소 야간에는 만나기 어려운 석조전 내부를 전문 해설과 함께 둘러보며 대한제국 황실의 이야기를 경험하는 특별한 궁궐 야간 프로그램입니다. 석조전 테라스에서 고종이 즐겼던 가배와 디저트를 맛보고 클래식 연주를 감상하며, 접견실에서는 대한제국을 배경으로 한 창작 뮤지컬까지 즐길 수 있습니다.",
+    "info": {
+      "type": "전통·역사문화행사",
+      "entrance": "유료 (1인 35,000원)",
+      "park": "덕수궁 내 주차장 없음, 대중교통 이용 권장",
+      "site": "https://www.kh.or.kr/cont/view/all/month/menu/363?idx=110623",
+      "program": "석조전 야간 탐방, 대한제국역사관 해설, 테라스 카페 체험, 가배 및 디저트 체험, 클래식 연주, 접견실 창작 뮤지컬, 인생궁컷 기념사진 촬영",
+      "memo": "2026년 하반기 덕수궁 밤의 석조전은 9월 9일부터 10월 18일까지 매주 수요일부터 일요일까지 운영됩니다. 하루 3회 진행되며 1회차 18:00~19:40, 2회차 18:40~20:20, 3회차 19:15~20:55로 회차당 약 100분입니다. 전문 해설사와 석조전 내부를 관람한 뒤 2층 테라스에서 고종이 즐겼던 가배와 디저트를 맛보고, 접견실에서 대한제국 황실의 이야기를 담은 창작 뮤지컬을 관람합니다. 개화기 소품과 석조전 야경을 배경으로 사진을 남기는 인생궁컷 프로그램도 운영됩니다. 참가비는 1인 35,000원이며 우선 예매권 추첨 후 잔여석 일반예매 방식으로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-09",
+      "endDate": "2026-10-18",
+      "startTime": "18:00",
+      "endTime": "20:55",
+      "schedule": {
+        "daily": {
+          "18:00": ["밤의 석조전 1회차"],
+          "18:40": ["밤의 석조전 2회차"],
+          "19:15": ["밤의 석조전 3회차"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": "2026-08-19",
+      "endDate": "2026-08-25",
+      "startTime": "14:00",
+      "endTime": "23:59",
+      "site": "https://www.ticketlink.co.kr/product/64835",
+      "status": "잔여석 일반예매",
+      "price": {
+        "밤의 석조전": 35000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "중구",
+      "venue": "덕수궁 석조전 일원",
+      "naver": "덕수궁 석조전",
+      "address": "서울특별시 중구 세종대로 99",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "국가유산청 궁능유적본부",
+      "manager": "국가유산진흥원",
+      "sponsor": null,
+      "phone": "1522-2295",
+      "email": null,
+      "instagram": "k.heritage.agency"
+    }
+  },
+  {
+    "slug": "hwaseong-songsan-grape-festival-2026",
+    "name": "제12회 화성송산포도축제",
+    "description": "화성송산포도축제는 화성의 대표 농특산물인 송산포도의 달콤한 맛과 농촌의 매력을 함께 즐기는 가을 먹거리축제입니다. 2026년에는 새롭게 문을 연 화성에코팜테마파크에서 포도밟기와 포도따기, 황금 포도를 찾아라 등 다양한 체험이 펼쳐지며, 포도 생애주기 전시와 지역 농특산물 판매, 거리공연, 송산포도가요제, 석양 음악회까지 온 가족이 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료 (먹거리 및 일부 체험 유료)",
+      "park": null,
+      "site": "https://www.hscity.go.kr/",
+      "program": "포도밟기, 포도따기 체험, 황금 포도를 찾아라, 포도 생애주기 전시관, 청년농업인 포도갈수 시음·홍보, 얼음속 코리요 구출하기, 화성송산포도 판매행사, 지역 농특산물 홍보·판매, 화성송산포도가요제, 거리공연, 문화공연, 석양 음악회",
+      "memo": "2026년 제12회 화성송산포도축제는 '한 송이의 여정, 화성송산포도 팜투페스타!'를 주제로 개최됩니다. 지난해까지 궁평항에서 진행했던 대표 프로그램 포도밟기는 올해부터 화성에코팜테마파크 중앙 잔디광장에서 진행됩니다. 포도의 생육 과정과 다양한 품종을 살펴보는 포도 생애주기 전시관과 가족 방문객을 위한 물놀이터, 그늘막, 무더위 쉼터도 운영됩니다. 전망대에서는 궁평항 석양을 배경으로 현악 4중주와 지역 와이너리 와인을 함께 즐기는 프로그램이 마련됩니다. 동탄호수공원에서는 축제 기간 화성송산포도 직거래 판촉행사가 별도로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-06",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-09-05": {
+          "15:30": ["제12회 화성송산포도축제 공식 개막행사"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "화성시",
+      "venue": "화성에코팜테마파크 일원",
+      "naver": "화성에코팜테마파크",
+      "address": "경기도 화성시 만세구 서신면 영종로안길 24",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "화성송산포도축제 추진위원회",
+      "manager": "화성송산포도축제 추진위원회",
+      "sponsor": "화성특례시",
+      "phone": "031-5189-3887",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "cheonan-bbangbbang-day-2026",
+    "name": "2026 빵빵데이 천안",
+    "description": "2026 빵빵데이 천안은 대한민국 대표 빵의 도시 천안에서 열리는 지역 먹거리축제입니다. 천안의 다양한 동네빵집이 참여해 개성 넘치는 빵과 대표빵, 쌀을 활용한 빵을 선보이며 빵마켓과 대표빵 전시 등 다채로운 콘텐츠를 즐길 수 있습니다. 천안의 빵 문화를 한자리에서 맛보고 즐길 수 있는 가을 미식축제입니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.cheonan.go.kr/pangpangday.do",
+      "program": "빵마켓, 천안 대표빵 전시회, 지역 제과점 빵 판매, 쌀빵 및 대표빵 판매",
+      "memo": "2026년 본축제는 10월 17일부터 18일까지 천안종합운동장 일원에서 개최됩니다. 참여 제과점은 대표빵과 쌀빵을 포함한 다양한 제품을 선보이며 축제 기간 할인 판매도 진행할 예정입니다."
+    },
+    "event": {
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "천안시",
+      "venue": "천안종합운동장 일원",
+      "naver": "천안종합운동장",
+      "address": "충청남도 천안시 서북구 번영로 208",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "천안시",
+      "manager": "대한제과협회 천안시지부",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "wonju-mandu-festival-2026",
+    "name": "2026 원주만두축제",
+    "description": "2026 원주만두축제는 원주 중앙동 전통시장과 원주천, 문화의거리 일원에서 열리는 원주의 대표 먹거리축제입니다. 다양한 원주 만두를 맛보는 먹거리 부스를 중심으로 전통시장 연계 프로그램과 공연, 체험, 시민 참여 프로그램이 펼쳐집니다. 올해는 정지선 셰프의 특별 라이브 쿠킹쇼도 예정돼 있어 더욱 다채로운 만두의 매력을 즐길 수 있습니다.",
+    "info": {
+      "type": "음식·특산물축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://mandufestival.co.kr/",
+      "program": "원주만두 먹거리 부스, 칼만두·만둣국 부스, 전통시장 연계 프로그램, 공연·체험 프로그램, 시민 참여 프로그램, 정지선 셰프 특별 라이브 쿠킹쇼",
+      "memo": "2026년 슬로건은 '시장에서 한 판, 즐거울 만두!'입니다. 올해는 축제장을 새롭게 구성하고 중앙동 전통시장과 원주천, 문화의거리 등 원도심 상권과의 연계를 강화합니다. 음식판매부스 공식 운영시간은 11:00~21:00입니다."
+    },
+    "event": {
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-25",
+      "startTime": "11:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "원주시",
+      "venue": "중앙동 전통시장 일원",
+      "naver": "원주만두축제",
+      "address": "강원특별자치도 원주시 중앙시장길 2",
+      "latitude": 37.3500727,
+      "longitude": 127.9487756
+    },
+    "hosts": {
+      "organizer": "원주시",
+      "manager": "원주문화재단",
+      "sponsor": null,
+      "phone": "033-760-9861",
+      "email": null,
+      "instagram": "wonjumandufestival"
+    }
+  },
+  {
+    "slug": "namwon-heungbu-festival-2026",
+    "name": "제34회 흥부제",
+    "description": "제34회 흥부제는 고전소설 흥부전의 배경이 된 남원에서 흥부의 나눔과 우애 정신을 현대적으로 즐기는 전통문화축제입니다. 광한루원과 남원 원도심을 무대로 흥부 이야기를 활용한 공연과 체험, 전통문화 프로그램 등이 펼쳐지며 가족과 함께 흥부전의 재미와 남원의 가을 정취를 함께 만날 수 있습니다.",
+    "info": {
+      "type": "전통문화축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://heungbu.org/",
+      "program": "흥부전을 주제로 한 공연, 전통문화 프로그램, 체험 프로그램, 원도심 연계 프로그램",
+      "memo": "제34회 흥부제의 주제는 '善공成공 : 선의와 선행으로 도전하여 성공을 이루다'입니다. 광한루원 일원과 남원 원도심을 연계해 개최되며 세부 프로그램별 운영시간은 공식 일정에 따라 확인이 필요합니다."
+    },
+    "event": {
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "남원시",
+      "venue": "광한루원 일원 및 원도심",
+      "naver": "남원 광한루원",
+      "address": "전북특별자치도 남원시 요천로 1447 광한루",
+      "latitude": 35.4032843,
+      "longitude": 127.3795144
+    },
+    "hosts": {
+      "organizer": "남원시",
+      "manager": "흥부제추진위원회",
+      "sponsor": null,
+      "phone": "063-620-6183",
+      "email": "heungbu@nj.go.kr",
+      "instagram": null
+    }
+  },
+  {
+    "slug": "yeonggwang-bulgapsan-sangsahwa-festival-2026",
+    "name": "제26회 영광불갑산상사화축제",
+    "description": "제26회 영광불갑산상사화축제는 천년고찰 불갑사와 불갑산을 붉게 물들이는 상사화를 만나는 영광의 대표 가을꽃축제입니다. 수백만 송이의 상사화가 만들어내는 아름다운 꽃길을 따라 가을 정취를 즐길 수 있으며, 문화공연과 전시·체험, 캐릭터 이벤트와 야간경관 등 낮부터 밤까지 다채로운 볼거리를 함께 만날 수 있습니다.",
+    "info": {
+      "type": "꽃·자연축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.xn--vf4bnbz98ad4f37l.com/",
+      "program": "상사화 자연관람, 상사화 꽃길, 문화공연, 전시·체험 프로그램, 상사화 야간경관, 캐릭터 '상사호' 이벤트",
+      "memo": "불갑산 일대에 펼쳐진 수백만 송이 상사화 군락을 중심으로 낮에는 상사화 꽃길과 자연경관을 감상하고, 밤에는 조명을 활용한 상사화 야간경관을 즐길 수 있습니다."
+    },
+    "event": {
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-27",
+      "startTime": "10:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전남",
+      "area": "영광군",
+      "venue": "불갑사 관광지구 일원",
+      "naver": "영광불갑산상사화축제",
+      "address": "전남광주통합특별시 영광군 불갑면 불갑사로 450",
+      "latitude": 35.2006865,
+      "longitude": 126.5497019
+    },
+    "hosts": {
+      "organizer": "영광불갑산상사화축제 추진위원회",
+      "manager": "영광불갑산상사화축제 집행위원회",
+      "sponsor": null,
+      "phone": "061-350-5269",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "canberra-floriade-2026",
+    "name": "2026 호주 캔버라 플로리아드",
+    "description": "2026 캔버라 플로리아드는 호주의 봄을 대표하는 대규모 꽃축제로, 캔버라 커먼웰스 파크를 100만 송이가 넘는 형형색색의 꽃으로 물들입니다. 올해는 'Feast of Flowers'를 주제로 꽃과 자연, 음식, 커뮤니티가 어우러진 정원 전시와 공연, 푸드·와인 프로그램, 마켓, 가족 체험 등이 펼쳐지며 호주의 화려한 봄 풍경을 만끽할 수 있습니다.",
+    "info": {
+      "type": "꽃·자연축제",
+      "entrance": "무료",
+      "park": "행사장 주변 주차공간이 제한적이며 무료 Floriade 셔틀버스 이용 권장",
+      "site": "https://floriadeaustralia.com/",
+      "program": "100만 송이 이상의 봄꽃 정원 전시, 가든 투어, 푸드·와인 워크숍, 쿠킹 데모, 라이브 음악, 문화공연, 마켓, 가족 체험, NightFest, Dogs' Day Out",
+      "memo": "2026년 테마는 'Feast of Flowers'입니다. 일반 Floriade는 무료로 운영되며 NightFest는 별도 티켓이 필요한 야간 특별행사입니다. 축제 종료 다음 날인 10월 12일에는 Great Big Bulb Dig가 별도 행사로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-10-11",
+      "startTime": "09:30",
+      "endTime": "17:30",
+      "schedule": {
+        "2026-09-12": {
+          "09:30": ["2026 Floriade 개막"]
+        },
+        "2026-10-01": {
+          "18:00": ["NightFest - Tim Finn"]
+        },
+        "2026-10-02": {
+          "18:00": ["NightFest - Busby Marou + Christine Anu"]
+        },
+        "2026-10-03": {
+          "18:00": ["NightFest - Pacific Avenue"]
+        },
+        "2026-10-04": {
+          "18:00": ["NightFest - The Temper Trap"]
+        },
+        "2026-10-11": {
+          "09:30": ["Dogs' Day Out", "Floriade 마지막 날"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://floriadeaustralia.com/",
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "AU",
+      "region": "Australian Capital Territory",
+      "area": "Canberra",
+      "venue": "Commonwealth Park",
+      "naver": "Commonwealth Park Canberra",
+      "address": "Commonwealth Park, Canberra ACT, Australia",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "ACT Government",
+      "manager": "Events ACT",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "pyeongtaek-lake-water-light-festival-2026",
+    "name": "2026 평택호 물빛축제",
+    "description": "2026 평택호 물빛축제는 아름다운 평택호의 자연경관을 배경으로 물과 빛을 주제로 펼쳐지는 평택의 대표 가을축제입니다. 지역 주민과 예술인이 참여하는 공연부터 다양한 체험 프로그램과 푸드트럭, 초청가수와 함께하는 물빛콘서트까지 즐길 수 있으며, 축제의 마지막에는 평택호 밤하늘을 화려하게 수놓는 불꽃놀이가 펼쳐집니다.",
+    "info": {
+      "type": "불꽃·빛축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.pccf.or.kr/festival/festivalView.do?evntSn=2606180001",
+      "program": "주민자치 및 지역예술인 공연, 물빛콘서트, 초청가수 축하공연, 불꽃놀이, 지역작가 체험 프로그램, 체험부스, 푸드트럭 및 휴게공간",
+      "memo": "평택호의 자연경관을 배경으로 '물'과 '빛'을 주제로 진행되는 축제입니다. 낮에는 주민자치·지역예술인 공연과 체험 프로그램을 즐기고, 저녁에는 초청가수와 함께하는 물빛콘서트와 불꽃놀이가 펼쳐집니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-12",
+      "startTime": "11:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "평택시",
+      "venue": "평택호 관광단지 일원(한국소리터·모래톱공원)",
+      "naver": "평택호 관광단지",
+      "address": "경기도 평택시 현덕면 평택호길 159",
+      "latitude": 36.9233214,
+      "longitude": 126.9266876
+    },
+    "hosts": {
+      "organizer": "평택시",
+      "manager": "평택호 물빛축제 추진위원회, 평택시문화재단, 평택예총",
+      "sponsor": null,
+      "phone": "031-669-0964",
+      "email": null,
+      "instagram": "pccf_2020"
+    }
+  },
+  {
+    "slug": "ulsan-fireworks-festival-2026",
+    "name": "2026 울산불꽃축제",
+    "description": "2026 울산불꽃축제는 울산 북구 강동몽돌해변의 밤바다를 배경으로 화려한 불꽃과 드론라이트쇼를 즐길 수 있는 대규모 야간축제입니다. 탁 트인 동해와 몽돌해변을 무대로 다양한 공연과 함께 불꽃쇼가 펼쳐지며, 빛나는 드론 퍼포먼스와 불꽃이 어우러져 울산의 가을밤을 화려하게 수놓을 예정입니다.",
+    "info": {
+      "type": "불꽃·빛축제",
+      "entrance": null,
+      "park": "근처 공영주차장 무료 이용 가능, 바닷가 옆 주차 공간 있음",
+      "site": null,
+      "program": "불꽃쇼, 드론라이트쇼, 무대공연 및 시민 참여 프로그램",
+      "memo": "최근 행사 운영 및 드론라이트쇼 용역 공고 기준 2026년 10월 2일 강동몽돌해변 일원에서 개최 예정입니다. 초기 불꽃쇼 용역 공고에는 10월 10일로 안내됐으나 이후 7~8월 행사 운영 공고와 8월 26일 드론라이트쇼 재공고에서 10월 2일로 변경되어 최신 일정을 적용했습니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-02",
+      "startTime": "19:30",
+      "endTime": "21:40",
+      "schedule": {
+        "2026-10-02": {
+          "19:30": ["식전 축하공연"],
+          "20:15": ["개막식"],
+          "20:30": ["드론라이트쇼", "멀티미디어 불꽃쇼"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "울산",
+      "area": "북구",
+      "venue": "강동몽돌해변 일원",
+      "naver": "강동몽돌해변",
+      "address": "울산광역시 북구 산하3로 17",
+      "latitude": 35.6305681,
+      "longitude": 129.4405782
+    },
+    "hosts": {
+      "organizer": "경상일보",
+      "manager": "경상일보",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": "ulsaninfo"
+    }
+  },
+  {
+    "slug": "sokcho-seorak-cultural-festival-2026",
+    "name": "제61회 설악문화제",
+    "description": "제61회 설악문화제는 1966년 제1회 설악제에서 시작된 속초의 대표 지역문화축제입니다. 설악산을 중심으로 이어져 온 속초의 역사와 문화, 시민들의 이야기를 공연과 퍼레이드, 전통문화, 참여 프로그램으로 만나볼 수 있습니다. 올해는 '설악, 함께 물들다'를 주제로 시민과 관광객이 함께 어우러져 속초의 가을을 즐기는 축제로 펼쳐집니다.",
+    "info": {
+      "type": "전통문화축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "http://sokchofestival.or.kr/srcf",
+      "program": "거리 퍼레이드, 설악문화예술공연, 시민 참여 프로그램, 명랑운동회, 한궁대회, 동아리 페스티벌, 지역문화 체험 프로그램",
+      "memo": "1966년 제1회 설악제에서 시작해 2026년 제61회를 맞는 속초 대표 지역문화축제입니다. 올해 주제는 '설악, 함께 물들다'로 지난 60년의 전통과 역사를 되돌아보고 시민과 관광객이 함께 참여하는 축제로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "21:30",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "속초시",
+      "venue": "속초 엑스포 잔디광장 및 설악로데오거리 일원",
+      "naver": "속초 엑스포 잔디광장",
+      "address": "강원특별자치도 속초시 엑스포로 72",
+      "latitude": 38.1906439,
+      "longitude": 128.5845218
+    },
+    "hosts": {
+      "organizer": "속초시",
+      "manager": "속초문화관광재단",
+      "sponsor": null,
+      "phone": "033-636-0670",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "seocheon-heritage-night-2026",
+    "name": "2026 서천 국가유산 야행",
+    "description": "2026 서천 국가유산 야행은 한산읍성과 한산오일장을 배경으로 펼쳐지는 서천의 대표 야간 문화축제입니다. '한산의(衣) 성주(城酒), 요란한 잠행'을 주제로 한산모시와 한산소곡주 등 지역의 대표 문화자원을 활용해 공연과 체험, 전시, 먹거리, 야간 산책이 어우러진 특별한 밤을 선보입니다.",
+    "info": {
+      "type": "국가유산·야간축제",
+      "entrance": null,
+      "park": "한산119안전센터 인근 주차장 이용",
+      "site": "https://seocheon-yahaeng.kr/",
+      "program": "서천 8야(夜) 프로그램 - 야경, 야로, 야사, 야화, 야설, 야시, 야식, 야숙 / 국가유산 야간관람, 공연, 체험, 전시, 먹거리, 야간산책",
+      "memo": "2026년 주제는 '한산의(衣) 성주(城酒), 요란한 잠행'입니다. 한산모시와 한산소곡주 등 서천 한산의 대표 문화자원과 국가유산을 활용한 8야(夜) 프로그램이 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-12",
+      "startTime": "18:00",
+      "endTime": "22:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "서천군",
+      "venue": "한산읍성 및 한산오일장 일원",
+      "naver": "한산읍성",
+      "address": "충청남도 서천군 한산면 충절로 1263-23",
+      "latitude": 36.081393,
+      "longitude": 126.798131
+    },
+    "hosts": {
+      "organizer": "서천군",
+      "manager": "서천문화관광재단",
+      "sponsor": "국가유산청",
+      "phone": "041-957-9030",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "ulju-drone-festival-2026",
+    "name": "2026 울주 드론페스티벌",
+    "description": "2026 울주 드론페스티벌은 울산 울주군 작천정 다목적 광장에서 열리는 드론 문화축제입니다. 드론 풍선 터트리기와 장애물 레이싱, 드론 농구 등 다양한 체험부터 AI 로봇과 첨단 드론기체 전시, 가수 공연까지 즐길 수 있습니다. 특히 1,300대의 드론이 음악과 함께 가을밤을 수놓는 대규모 드론라이트쇼가 축제의 하이라이트로 펼쳐집니다.",
+    "info": {
+      "type": "드론·과학축제",
+      "entrance": "무료",
+      "park": null,
+      "site": null,
+      "program": "드론 풍선 터트리기, 드론 장애물 레이싱, 드론 농구, AI바둑로봇, AI화가, 사족보행 로봇, 3D 프린팅, 디지털 타투, 울주 10경 크로마키 사진관, 드론기체 전시, 드론통합관제차량 전시, 가수 공연, 1,300대 드론라이트쇼, 로봇카페, 로봇솜사탕, 프리마켓",
+      "memo": "드론과 AI·로봇 기술을 직접 체험할 수 있는 울주군의 드론 문화축제입니다. 가수 채연, 이지훈, 슬리피와 지역예술공연팀 본때크루, 베어라운드엔터테인먼트의 공연이 예정되어 있으며, 1,300대 규모의 드론라이트쇼가 축제의 하이라이트로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "14:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "울산",
+      "area": "울주군",
+      "venue": "작천정 다목적 광장",
+      "naver": "작천정 다목적 광장",
+      "address": "울산광역시 울주군 삼남읍 수남벚꽃길 58-19",
+      "latitude": 35.5501357,
+      "longitude": 129.1089044
+    },
+    "hosts": {
+      "organizer": "울주군",
+      "manager": null,
+      "sponsor": null,
+      "phone": "052-204-1973",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gwacheon-youth-festival-2026",
+    "name": "제5회 과천청년축제 과:충전",
+    "description": "2026 제5회 과천청년축제 '과:충전'은 과천중앙공원에서 펼쳐지는 청년 문화축제입니다. '오늘 하루, 과하게 충전하는 날'을 콘셉트로 팝업스토어와 체험 이벤트, 플리마켓, 버스킹, 푸드트럭 등 다양한 즐길 거리가 마련됩니다. 저녁에는 선셋, 녹두, 질은, 이예준, 네이브로가 참여하는 낭만콘서트가 열려 청년들의 가을밤을 음악과 에너지로 채웁니다.",
+    "info": {
+      "type": "청년·문화축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "hhttps://www.gccity.go.kr/portal/bbs/view.do?bIdx=195079&ptIdx=111&mId=0301010000",
+      "program": "팝업스토어, 체험 이벤트, 플리마켓, 버스킹, 푸드트럭, 청년라운지, 낭만콘서트",
+      "artist": "선셋, 녹두, 질은, 이예준, 네이브로",
+      "memo": "2026년 제5회 과천청년축제의 축제명은 '과:충전'이며 슬로건은 '오늘 하루, 과하게 충전하는 날'입니다. 청년방전금지구역을 콘셉트로 다양한 청년 참여 프로그램이 진행되며, 아티스트 선셋, 녹두, 질은, 이예준, 네이브로가 공연에 참여합니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "13:00",
+      "endTime": "22:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "과천시",
+      "venue": "과천중앙공원",
+      "naver": "과천중앙공원",
+      "address": "경기도 과천시 도서관길 36 경기도교육청과천도서관",
+      "latitude": 37.4323292,
+      "longitude": 126.9966062
+    },
+    "hosts": {
+      "organizer": "과천시",
+      "manager": null,
+      "sponsor": null,
+      "phone": "02-2150-3926",
+      "email": null,
+      "instagram": "gwacheon_youthfestival"
+    }
+  },
+  {
+    "slug": "mato-art-festival-2026",
+    "name": "2026 마토예술제",
+    "description": "2026 마토예술제는 '마지막 주 토요일에 하는 예술제'라는 의미를 담은 평택 안정리의 대표 문화예술축제입니다. 10월 회차는 '브로드웨이 in 안정리'를 주제로 전문 뮤지컬 배우와 앙상블 공연, 미8군 군악대 관악 5중주, 지역 예술인 무대와 다양한 체험 프로그램을 선보입니다. 안정리예술인광장이 하루 동안 브로드웨이 감성의 특별한 문화예술 공간으로 변신합니다.",
+    "info": {
+      "type": "문화예술축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.pccf.or.kr/festival/festivalView.do?evntSn=2609040001&pageIndex=1&sw=&sc_tharAreaCd=&orderBy=deadline",
+      "program": "뮤지컬 배우 및 앙상블 주제공연, 미8군 군악대 관악 5중주 공연, 지역 예술인 공연, 브로드웨이 스타 오디션 스탬프 투어, 체험 프로그램, 레드카펫, 대형 포토존, AI네컷사진, 관람객 참여 이벤트, 안정리예술인광장 연계 전시·체험",
+      "artist": "전문 뮤지컬 배우 및 앙상블, 미8군 군악대 관악 5중주, 지역 예술인",
+      "memo": "2026년 마토예술제는 6월과 10월 두 차례 운영됩니다. 10월 회차는 '브로드웨이 in 안정리(Broadway in Anjeong-ri)'를 주제로 안정리예술인광장을 뮤지컬 무대로 연출하며, 공연과 체험, 포토존 등 다양한 참여형 문화예술 프로그램을 운영합니다."
+    },
+    "event": {
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "16:00",
+      "endTime": "20:00",
+      "schedule": {
+        "2026-10-31": {
+          "16:00": ["지역 예술인 공연"],
+          "16:30": ["할로윈 댄스"],
+          "17:00": ["마토 가요제"],
+          "17:30": ["미8군 군악대 공연"],
+          "18:00": ["미8군 군악대 공연"],
+          "18:30": ["뮤지컬 갈라쇼"],
+          "19:00": ["뮤지컬 배우 리나"],
+          "19:30": ["뮤지컬 배우 손효준"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "평택시",
+      "venue": "안정리예술인광장",
+      "naver": "안정리예술인광장",
+      "address": "경기도 평택시 팽성읍 안정쇼핑로 11",
+      "latitude": 36.9598351,
+      "longitude": 127.0444354
+    },
+    "hosts": {
+      "organizer": "평택시문화재단",
+      "manager": "평택시문화재단",
+      "sponsor": null,
+      "phone": "031-669-0974",
+      "email": null,
+      "instagram": "pccf_2020"
+    }
+  },
+  {
+    "slug": "gimcheon-hanbam-inno-festa-2026",
+    "name": "2026 한밤 INNO FESTA",
+    "description": "2026 한밤 INNO FESTA는 김천혁신도시 안산공원에서 열리는 가을 야외축제입니다. 낮에는 김천 지역 농산물 직거래 장터와 플리마켓, 푸드트럭, 다양한 체험 프로그램을 즐길 수 있으며 저녁에는 케이시, DJ 로빈, R.ef, 경서 등이 참여하는 라이브 콘서트가 펼쳐집니다. 먹거리와 체험, 음악을 한자리에서 즐길 수 있는 김천의 특별한 이틀입니다.",
+    "info": {
+      "type": "문화·공연축제",
+      "entrance": "무료",
+      "park": "행사장 주변 주차공간이 협소해 대중교통 이용 권장",
+      "site": "http://www.gc.go.kr/portal/bbs/view.do?bIdx=4533788&ptIdx=1807&mId=1202100000",
+      "program": "K-INNO 콘서트, 김천 한밤의 콘서트, 직거래 장터, 플리마켓, 푸드트럭, 한입존, 한잔존, 체험존, 이노빌리지, 이전 공공기관 홍보물품 이벤트",
+      "artist": "케이시, DJ 로빈, R.ef, 경서, 이전 공공기관 참가팀, 김천 지역 밴드 참가팀",
+      "memo": "9월 10일에는 K-INNO 콘서트, 9월 11일에는 김천 한밤의 콘서트가 진행됩니다. 직거래 장터와 식음행사는 12시부터, 체험 프로그램은 15시부터 운영되며 일부 체험은 유료 또는 선착순으로 진행될 수 있습니다."
+    },
+    "event": {
+      "startDate": "2026-09-10",
+      "endDate": "2026-09-11",
+      "startTime": "12:00",
+      "endTime": "21:00",
+      "schedule": {
+        "2026-09-10": {
+          "12:00": ["직거래 장터 및 식음행사"],
+          "15:00": ["체험존 운영"],
+          "17:00": ["이전 공공기관 홍보물품 선착순 배부"],
+          "18:30": ["K-INNO 콘서트 - 이전 공공기관 참가팀, 케이시, DJ 로빈"]
+        },
+        "2026-09-11": {
+          "12:00": ["직거래 장터 및 식음행사"],
+          "15:00": ["율곡동 참여공연 및 체험존"],
+          "17:00": ["이전 공공기관 홍보물품 선착순 배부"],
+          "18:30": ["김천 한밤의 콘서트 - 김천 지역 밴드 참가팀, R.ef, 경서"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경북",
+      "area": "김천시",
+      "venue": "김천혁신도시 안산공원 일원",
+      "naver": "김천 안산공원",
+      "address": "경상북도 김천시 율곡동 925",
+      "latitude": 36.1227688,
+      "longitude": 128.1846793
+    },
+    "hosts": {
+      "organizer": "김천시",
+      "manager": "김천시",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gimhae-dwitgogi-food-festa-2026",
+    "name": "2026 김해뒷고기 푸드페스타",
+    "description": "2026 김해뒷고기 푸드페스타는 김해를 대표하는 먹거리 '뒷고기'를 주제로 펼쳐지는 미식축제입니다. 김해 로컬 맛집의 뒷고기를 직접 구워 먹는 미식평상과 부산·경남 유명 맛집이 참여하는 푸드마켓, 오세득·레이먼킴 셰프의 특별 요리와 푸드토크쇼가 마련됩니다. 공연과 쿠킹클래스, 스탬프 투어까지 함께 즐길 수 있는 김해의 맛있는 가을축제입니다.",
+    "info": {
+      "type": "먹거리·미식축제",
+      "entrance": "무료",
+      "park": "연지공원 공영주차장 및 김해문화의전당 주차장 이용",
+      "site": null,
+      "program": "김해미식평상, 히든 푸드 마켓: 명가의 만찬, 글로벌 푸드트럭, 투 트랙 스테이지, 히든 레시피를 찾아라, 셰프 쿠킹쇼 및 푸드토크쇼, 뒷고기 명인전, 파머스 마켓, 뒷고기 피자 쿠킹클래스, 스탬프 투어",
+      "artist": "오세득, 레이먼킴",
+      "memo": "2026년에는 기존 김해국가유산야행 연계 프로그램에서 독립된 미식축제로 확대 개최됩니다. 'Hidden to Hero'를 콘셉트로 김해의 대표 먹거리인 뒷고기의 역사와 미식문화를 다양한 음식·공연·체험 콘텐츠로 선보입니다. 행사 기간 일부 도로의 차량 통행이 제한되고 5-1번, 8번, 14-1번, 58번, 59번 버스가 우회 운행합니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-13",
+      "startTime": "16:00",
+      "endTime": "22:00",
+      "schedule": {
+        "2026-09-12": {
+          "16:00": ["김해미식평상 1회차", "뒷고기 피자 쿠킹클래스 1회차"],
+          "17:00": ["뒷고기 피자 쿠킹클래스 2회차"],
+          "18:00": ["김해미식평상 2회차", "뒷고기 피자 쿠킹클래스 3회차"],
+          "19:00": ["뒷고기 피자 쿠킹클래스 4회차"],
+          "20:00": ["김해미식평상 3회차", "뒷고기 피자 쿠킹클래스 5회차"]
+        },
+        "2026-09-13": {
+          "16:00": ["김해미식평상 1회차", "뒷고기 피자 쿠킹클래스 1회차"],
+          "17:00": ["뒷고기 피자 쿠킹클래스 2회차"],
+          "18:00": ["김해미식평상 2회차", "뒷고기 피자 쿠킹클래스 3회차"],
+          "19:00": ["뒷고기 피자 쿠킹클래스 4회차"],
+          "20:00": ["김해미식평상 3회차", "뒷고기 피자 쿠킹클래스 5회차"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": "2026-09-01",
+      "endDate": "2026-09-10",
+      "startTime": null,
+      "endTime": "23:30",
+      "site": null,
+      "status": "접수중",
+      "price": {
+        "뒷고기 피자 쿠킹클래스": 20000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "경남",
+      "area": "김해시",
+      "venue": "김해문화의전당 야외 일원",
+      "naver": "김해문화의전당",
+      "address": "경상남도 김해시 김해대로 2060",
+      "latitude": 35.2437338,
+      "longitude": 128.869411
+    },
+    "hosts": {
+      "organizer": "김해시",
+      "manager": "김해문화관광재단 문화도시센터",
+      "sponsor": null,
+      "phone": "070-8824-0341",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gwacheon-performing-arts-festival-2026",
+    "name": "2026 과천공연예술축제",
+    "description": "2026 과천공연예술축제는 국내외 야외극과 거리극을 중심으로 펼쳐지는 과천의 대표 공연예술축제입니다. 1997년 세계마당극큰잔치에서 시작된 국내 최초의 거리극 축제로, 올해는 과천시민광장을 넘어 중앙로와 시계탑광장, 시민회관 등 도시 곳곳을 무대로 활용합니다. 해외·국내 초청공연과 거리 퍼레이드, 시민 참여 공연과 체험까지 다채롭게 즐길 수 있습니다.",
+    "info": {
+      "type": "공연예술축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.gcfest.or.kr/",
+      "program": "개막 프로그램, 폐막 프로그램, 해외공연, 국내 초청공연, 공식참가작, 길:놀이 果川(과천) - 기억의 행렬, 과천 집합쇼, 거리공연, 퍼레이드, 문화예술 체험, 서커스 체험, 지팝마켓, 플리마켓, 푸드존",
+      "artist": "10CM, 김장훈, 잠골버스, 권진아, YB, Close Act, 생동감크루, 창작중심 단디, 애니메이션크루, 타이니퍼펫, DJ 지팝이, 아트쿠도, MOEUN, 로고와 친구들, Gaku The Juggling Drummer, 버블드래곤, 아이모멘트, 벌룬시네마, 저글맨, 기억시옷, 과천시립여성합창단, 과천시립교향악단, 통영시 여성합창단, 한국경기소리보존회, 줄타기보존회",
+      "memo": "1997년 세계마당극큰잔치로 시작한 국내 최초의 거리극 축제입니다. 2026년에는 기존 과천시민광장 중심에서 중앙로, 시계탑광장, 과천시민회관 대·소극장 등으로 공연 공간을 확대합니다. 시민과 국내외 예술가가 함께하는 광장·거리 중심 공연예술축제로 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-20",
+      "startTime": "12:00",
+      "endTime": "22:00",
+      "schedule": {
+        "2026-09-18": {
+          "14:00": [
+            "체험프로그램 - 어린이날다",
+            "상상 플로팅 - 생활문화 체험 놀이터",
+            "못.떠.기 - 줄광대와 함께 떠나는 상상의 기억 여행",
+            "미술체험과 가족사진촬영 및 백일장 체험",
+            "세대공감, 사랑을 만들어 孝 - 마음을 전하는 사랑"
+          ],
+          "16:00": ["231쇼"],
+          "17:00": ["로고와 친구들", "MOEUN"],
+          "17:30": ["Gaku The Juggling Drummer", "231쇼"],
+          "18:00": ["MOEUN"],
+          "18:45": ["로고와 친구들"],
+          "19:00": ["오프닝 - 타이니퍼펫, DJ 지팝이, 아트쿠도"],
+          "19:30": ["Close Act"],
+          "20:00": ["개막프로그램"]
+        },
+        "2026-09-19": {
+          "12:00": [
+            "체험프로그램 - 어린이날다",
+            "상상 플로팅 - 생활문화 체험 놀이터",
+            "못.떠.기 - 줄광대와 함께 떠나는 상상의 기억 여행",
+            "과천예술 예술 나들이",
+            "세대공감, 사랑을 만들어 孝 - 마음을 전하는 사랑"
+          ],
+          "13:30": ["로고와 친구들", "버블드래곤"],
+          "14:00": [
+            "통영시 여성합창단",
+            "Close Act",
+            "과천시청소년동아리 공연"
+          ],
+          "14:30": ["아이모멘트"],
+          "14:45": ["로고와 친구들"],
+          "15:00": ["극과 극 장", "거리로 나온예술"],
+          "15:30": ["줄타기보존회"],
+          "15:45": ["로고와 친구들"],
+          "16:00": ["과천시립여성합창단", "버블드래곤"],
+          "16:30": ["Gaku The Juggling Drummer", "벌룬시네마", "분필로"],
+          "16:45": ["로고와 친구들"],
+          "17:00": ["극과 극 장", "Close Act"],
+          "17:30": ["Gaku The Juggling Drummer", "벌룬시네마"],
+          "18:00": ["과천시립교향악단"],
+          "18:30": ["길:놀이 果川(과천) - 기억의 행렬 퍼레이드"]
+        },
+        "2026-09-20": {
+          "12:00": [
+            "체험프로그램 - 어린이날다",
+            "상상 플로팅 - 생활문화 체험 놀이터",
+            "못.떠.기 - 줄광대와 함께 떠나는 상상의 기억 여행",
+            "과천예술 예술 나들이",
+            "세대공감, 사랑을 만들어 孝 - 마음을 전하는 사랑"
+          ],
+          "13:30": ["주식회사 도전단"],
+          "14:00": ["한국경기소리보존회", "Close Act"],
+          "14:30": ["주식회사 도전단"],
+          "14:45": ["로고와 친구들"],
+          "15:00": ["과천집합쇼", "저글맨"],
+          "15:30": ["최,고"],
+          "15:45": ["로고와 친구들"],
+          "16:00": ["기억시옷"],
+          "16:30": ["사기막골가족놀이", "과천시립여성합창단"],
+          "16:45": ["로고와 친구들"],
+          "17:00": [
+            "Gaku The Juggling Drummer",
+            "Close Act",
+            "주식회사 도전단"
+          ],
+          "17:45": ["로고와 친구들"],
+          "18:00": ["저글맨", "기억시옷"],
+          "18:30": ["Gaku The Juggling Drummer"],
+          "18:45": ["로고와 친구들"],
+          "19:00": ["과천시립교향악단"],
+          "20:00": ["폐막프로그램"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "과천시",
+      "venue": "과천시민광장 및 과천시 일원",
+      "naver": "과천시민광장",
+      "address": "경기도 과천시 관문로 64",
+      "latitude": 37.4273687,
+      "longitude": 126.9893038
+    },
+    "hosts": {
+      "organizer": "과천시",
+      "manager": "과천문화재단",
+      "sponsor": "세종네트웍스, 피네이션, 농협과천시지부, 이종호재단, 환경에너지솔루션, 삼안, 한국화학융합시험연구원",
+      "phone": "02-2009-9735",
+      "email": null,
+      "instagram": "gcfest_official"
+    }
+  },
+  {
+    "slug": "jeju-leisure-healing-festival-2026",
+    "name": "2026 제주레저힐링축제",
+    "description": "2026 제주레저힐링축제는 푸른 함덕해수욕장과 서우봉을 배경으로 레저스포츠와 웰니스 프로그램을 함께 즐기는 제주 대표 힐링축제입니다. 패들보드와 트레일런 등 다양한 레저 체험부터 모닝요가, 별자리 관측, 드로잉, 명상까지 마련되며, 타이거JK·윤미래와 너드커넥션의 공연, 워터파티와 불꽃쇼까지 낮과 밤을 가득 채웁니다.",
+    "info": {
+      "type": "레저·힐링축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://jejulhfestival.kr/",
+      "program": "수상·육상 레저스포츠 체험, 패들보드, 카약, 수상해먹, 생존수영, 뉴스포츠, 서우봉 트레일런, 미라클 모닝 요가, 맨발 해변 걷기, 서우봉 사일런트 명상, 별 헤는 밤, 드로잉 함덕, 워터워 EDM 파티, 함덕 마을탐험, 플리마켓·체험존, 개·폐막 기획공연, 로컬 아티스트 공연, 불꽃쇼",
+      "artist": "타이거 JK, 윤미래, 너드커넥션, 여울, 이라, 양하늘, 온드림, 설향, 우싸이드, DJ 스카이, 댄스팀",
+      "memo": "2026 제주레저힐링축제는 '즐기고, 쉬고, 채우는 우리들의 시간!'을 콘셉트로 진행됩니다. 1일차에는 타이거JK와 윤미래, 2일차에는 너드커넥션이 공연하며, 개막 퍼포먼스 '어기여차 멜덕 파티'와 폐막 프로그램, 불꽃쇼가 마련됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-13",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-09-12": {
+          "13:00": ["워터풀 스테이지 - 워터워 파티, DJ 공연"],
+          "14:00": ["로컬 아티스트 공연 - 이라"],
+          "15:00": ["로컬 아티스트 공연 - 양하늘"],
+          "18:00": ["오프닝 스테이지 - 열린 무대, 신유식, 함덕초 합창·타악"],
+          "19:00": ["붐업 스테이지·개막주제공연 - 여울"],
+          "20:00": ["개막 콘서트 ENERGY ON - 타이거 JK & 윤미래"],
+          "21:00": ["불꽃쇼"]
+        },
+        "2026-09-13": {
+          "13:00": ["워터풀 스테이지 - 워터워 파티, DJ 공연"],
+          "14:00": ["로컬 아티스트 공연 - 온드림"],
+          "15:00": ["로컬 아티스트 공연 - 설향"],
+          "19:00": [
+            "함덕중학교 - 함덕중 댄스, 함덕초 중창",
+            "DJ & 댄스 - 우싸이드, DJ 스카이, 댄스팀"
+          ],
+          "20:00": ["메인공연 - 너드커넥션", "불꽃쇼 - 메인공연 종료 후 진행"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "제주",
+      "area": "제주시",
+      "venue": "함덕해수욕장 및 서우봉 일원",
+      "naver": "함덕해수욕장",
+      "address": "제주특별자치도 제주시 조천읍 조함해안로 525",
+      "latitude": 33.5427261,
+      "longitude": 126.6690893
+    },
+    "hosts": {
+      "organizer": "제주시",
+      "manager": "제주시관광축제추진협의회",
+      "sponsor": null,
+      "phone": "064-728-2757",
+      "email": null,
+      "instagram": "jejulhfestival"
     }
   }
 ]

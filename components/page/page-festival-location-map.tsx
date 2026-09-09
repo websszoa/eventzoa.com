@@ -14,6 +14,7 @@ type PageFestivalLocationMapProps = {
   clientId?: string;
   naverMapUrl: string;
   kakaoMapUrl: string;
+  googleMapQuery?: string;
 };
 
 export default function PageFestivalLocationMap({
@@ -24,6 +25,7 @@ export default function PageFestivalLocationMap({
   clientId,
   naverMapUrl,
   kakaoMapUrl,
+  googleMapQuery,
 }: PageFestivalLocationMapProps) {
   const normalizedAddress = address?.trim() || null;
   const mapElementRef = useRef<HTMLDivElement>(null);
@@ -96,7 +98,7 @@ export default function PageFestivalLocationMap({
   }, [latitude, longitude, normalizedAddress, renderMap]);
 
   useEffect(() => {
-    if (!clientId || mapError || shouldLoadMap) return;
+    if (googleMapQuery || !clientId || mapError || shouldLoadMap) return;
 
     const mapElement = mapElementRef.current;
     if (!mapElement || typeof IntersectionObserver === "undefined") {
@@ -115,7 +117,7 @@ export default function PageFestivalLocationMap({
 
     observer.observe(mapElement);
     return () => observer.disconnect();
-  }, [clientId, mapError, shouldLoadMap]);
+  }, [googleMapQuery, clientId, mapError, shouldLoadMap]);
 
   return (
     <section className="overflow-hidden rounded-3xl bg-white ring-1 ring-slate-200">
@@ -125,34 +127,60 @@ export default function PageFestivalLocationMap({
           오시는 길
         </h2>
         <div className="flex flex-wrap gap-2">
-          <a
-            href={naverMapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "sm" }),
-              "rounded-xl border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
-            )}
-          >
-            네이버 지도
-            <ExternalLink className="size-3" aria-hidden="true" />
-          </a>
-          <a
-            href={kakaoMapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={cn(
-              buttonVariants({ variant: "outline", size: "sm" }),
-              "rounded-xl",
-            )}
-          >
-            카카오맵
-            <ExternalLink className="size-3" aria-hidden="true" />
-          </a>
+          {googleMapQuery ? (
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(googleMapQuery)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "sm" }),
+                "rounded-xl border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
+              )}
+            >
+              구글 지도
+              <ExternalLink className="size-3" aria-hidden="true" />
+            </a>
+          ) : (
+            <>
+                <a
+                  href={naverMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-xl border-slate-300 bg-white text-slate-700 hover:bg-slate-50",
+                  )}
+                >
+                  네이버 지도
+                  <ExternalLink className="size-3" aria-hidden="true" />
+                </a>
+                <a
+                  href={kakaoMapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                    "rounded-xl",
+                  )}
+                >
+                  카카오맵
+                  <ExternalLink className="size-3" aria-hidden="true" />
+                </a>
+            </>
+          )}
         </div>
       </div>
 
-      {!clientId || mapError ? (
+      {googleMapQuery ? (
+        <iframe
+          src={`https://www.google.com/maps?q=${encodeURIComponent(googleMapQuery)}&output=embed&hl=ko`}
+          title={`${title} 위치 구글 지도`}
+          className="h-80 w-full border-0 bg-slate-100 sm:h-96"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          allowFullScreen
+        />
+      ) : !clientId || mapError ? (
         <div className="grid min-h-80 place-items-center bg-slate-50 px-6 text-center">
           <div>
             <MapPin

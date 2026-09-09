@@ -34,6 +34,7 @@ import {
   getEventInfoType,
   getEventSite,
   getObjectProperty,
+  getStringProperty,
 } from "@/lib/event-data";
 import { getEventCoverPath } from "@/lib/event-image.server";
 import {
@@ -237,12 +238,23 @@ export default async function FestivalDetailPage({
   const entranceType = getEventInfoType(festival.info.entrance);
   const parking = formatEventInfoValue(festival.info.park);
   const site = getEventSite(festival.info, festival.event);
+  const artist = getStringProperty(festival.info, "artist");
   const mapSearch =
     festival.location.naver ||
     festival.location.address ||
     festival.location.venue;
   const naverMapUrl = `https://map.naver.com/p/search/${encodeURIComponent(mapSearch)}`;
   const kakaoMapUrl = `https://map.kakao.com/link/search/${encodeURIComponent(mapSearch)}`;
+  const country = festival.location.country?.trim().toUpperCase();
+  const googleMapQuery =
+    country && country !== "KR"
+      ? festival.location.latitude !== null && festival.location.longitude !== null
+        ? `${festival.location.latitude},${festival.location.longitude}`
+        : festival.location.address ||
+          [festival.location.venue, festival.location.area, country]
+            .filter(Boolean)
+            .join(", ")
+      : undefined;
   const contact = [
     festival.hosts.manager,
     festival.hosts.phone,
@@ -618,6 +630,17 @@ export default async function FestivalDetailPage({
                   {festival.info.program ||
                     "프로그램은 공식 사이트에서 확인해 주세요."}
                 </p>
+                {artist && (
+                  <div className="mt-6 border-t border-slate-100 pt-6">
+                    <strong className="flex items-center gap-2 text-sm text-blue-600">
+                      <Sparkles className="size-4" aria-hidden="true" />
+                      출연 아티스트
+                    </strong>
+                    <p className="mt-2 break-keep text-sm leading-6 text-slate-600">
+                      {artist}
+                    </p>
+                  </div>
+                )}
                 {scheduleEntries.length > 0 && (
                   <div className="mt-6 border-t border-slate-100 pt-6">
                     <strong className="flex items-center gap-2 text-sm text-blue-600">
@@ -681,6 +704,7 @@ export default async function FestivalDetailPage({
               clientId={process.env.NEXT_PUBLIC_NAVER_MAP_CLIENT_ID}
               naverMapUrl={naverMapUrl}
               kakaoMapUrl={kakaoMapUrl}
+              googleMapQuery={googleMapQuery}
             />
           </div>
 
