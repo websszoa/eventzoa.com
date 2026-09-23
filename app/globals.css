@@ -65,23 +65,6 @@
 }
 
 /* loading */
-.page-loading {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background);
-  opacity: 1;
-  transition: opacity 300ms ease;
-}
-
-.page-loading--closing {
-  pointer-events: none;
-  opacity: 0;
-}
-
 .loading {
   position: relative;
   z-index: 9998;
@@ -128,10 +111,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-loading {
-    transition: none;
-  }
-
   .loading::after {
     animation: none;
   }

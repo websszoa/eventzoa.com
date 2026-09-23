@@ -5,7 +5,6 @@ import Script from "next/script";
 import NaverAnalytics from "@/components/analytics/naver-analytics";
 import PageFooter from "@/components/page/page-footer";
 import PageHeader from "@/components/page/page-header";
-import { PageLoading } from "@/components/page/page-loading";
 import {
   APP_DESCRIPTION,
   APP_EMAIL,
@@ -27,7 +26,7 @@ const nanumSquareNeo = localFont({
   src: "../public/fonts/NanumSquareNeo-Variable.woff2",
   weight: "300 900",
   style: "normal",
-  display: "block",
+  display: "swap",
   variable: "--local-font-nanum",
 });
 
@@ -37,7 +36,7 @@ const cafe24ProSlim = localFont({
     { path: "../public/fonts/Cafe24PROSlimFit.woff2", weight: "400" },
     { path: "../public/fonts/Cafe24PROSlimMax.woff2", weight: "700" },
   ],
-  display: "block",
+  display: "swap",
   variable: "--local-font-cafe24",
 });
 
@@ -71,12 +70,25 @@ export const metadata: Metadata = {
     siteName: APP_NAME,
     title: `${APP_NAME} | ${APP_SLOGAN}`,
     description: APP_DESCRIPTION,
+    images: [
+      {
+        url: "/images/eventzoa-og.webp",
+        width: 1200,
+        height: 630,
+        alt: `${APP_NAME} - 대한민국 축제·행사 정보`,
+      },
+    ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: `${APP_NAME} | ${APP_SLOGAN}`,
     description: APP_SHORT_DESCRIPTION,
-    images: [{ url: "/icons/icon512.png", alt: `${APP_NAME} 로고` }],
+    images: [
+      {
+        url: "/images/eventzoa-og.webp",
+        alt: `${APP_NAME} - 대한민국 축제·행사 정보`,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -156,10 +168,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       )}
     >
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <noscript>
-          <style>{`.page-loading{display:none}`}</style>
-        </noscript>
-        <PageLoading />
         <PageHeader />
         <main id="main-content" className="flex-1">
           {children}

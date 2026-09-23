@@ -5649,5 +5649,1239 @@
       "email": null,
       "instagram": "jejulhfestival"
     }
+  },
+  {
+    "slug": "sejong-hangeul-festival-2026",
+    "name": "2026 세종한글축제",
+    "description": "2026 세종한글축제는 한글날 제정 100주년과 훈민정음 반포 580주년을 기념해 세종호수공원과 세종중앙공원 일원에서 열리는 대표 한글문화축제입니다. 한글을 예술과 놀이, 과학, 공연으로 새롭게 만나는 다채로운 프로그램과 한글런, 전시, 체험, 시민참여 행사가 펼쳐져 온 가족이 한글의 가치와 즐거움을 함께 경험할 수 있습니다.",
+    "info": {
+      "type": "문화축제",
+      "entrance": "무료",
+      "park": "세종호수공원·세종중앙공원 주변 주차시설 이용, 축제 기간 교통통제 및 세부 주차 안내는 공식 홈페이지 확인",
+      "site": "https://www.sjfestival.kr/",
+      "program": "2026 한글런, 한글놀이터, 한글정원, 한글 유랑단, 한글수호대, 한글 사냥꾼, 한글별 수호대, 장원급제 유교대회, 세종과 남준 특별기획전, 한글 국제 AI 영상 공모전, 세종과학집현전, 도심공원 승마체험, 세종 울트라 틴즈 댄스 본선, 세종 e스포츠 대회, 세종국제만화영상전, 한글점자 체험 등",
+      "artist": null,
+      "memo": "한글날 제정 100주년이자 훈민정음 반포 580주년을 맞아 열리는 2026 세종한글축제입니다. '한글날엔? 한글축제!'를 내세워 한글이 예술과 놀이, 축제가 되는 다양한 콘텐츠를 선보입니다. 프로그램은 세종호수공원과 세종중앙공원 등 여러 공간에서 동시에 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-11",
+      "startTime": "08:00",
+      "endTime": null,
+      "schedule": {
+        "2026-10-09": {
+          "08:00": ["2026 한글런"],
+          "10:00": [
+            "장원급제 유교대회 오 마이 갓 파티",
+            "한글, 피어나다",
+            "한글정원",
+            "한글 유랑단",
+            "한글여행자의 내 마음 책가방",
+            "한글수호대",
+            "한글 사냥꾼",
+            "한글별 수호대",
+            "이름모아",
+            "한글수비대",
+            "빛 그림 채집",
+            "별해원가",
+            "무지개행성 구조대작전",
+            "도심공원 승마체험",
+            "세종국제만화영상전",
+            "돌봄을 잇는 한글, 세종의 말로 함께 웃다",
+            "손끝으로 만나는 한글 점자 100주년",
+            "2026 한글문화특별기획전3 <세종과 남준>",
+            "2026 세종과학집현전"
+          ],
+          "11:00": ["다~쓰고 다시쓰고"]
+        },
+        "2026-10-10": {
+          "10:00": [
+            "장원급제 유교대회 오 마이 갓 파티",
+            "한글, 피어나다",
+            "한글정원",
+            "한글 유랑단",
+            "한글여행자의 내 마음 책가방",
+            "한글수호대",
+            "한글 사냥꾼",
+            "한글별 수호대",
+            "이름모아",
+            "한글수비대",
+            "빛 그림 채집",
+            "별해원가",
+            "무지개행성 구조대작전",
+            "도심공원 승마체험",
+            "세종국제만화영상전",
+            "돌봄을 잇는 한글, 세종의 말로 함께 웃다",
+            "손끝으로 만나는 한글 점자 100주년",
+            "2026 한글문화특별기획전3 <세종과 남준>",
+            "2026 세종과학집현전"
+          ],
+          "11:00": ["다~쓰고 다시쓰고"],
+          "16:00": ["2026 한글대전 <한글 국제 AI 영상 공모전>"]
+        },
+        "2026-10-11": {
+          "10:00": [
+            "한글, 피어나다",
+            "한글정원",
+            "한글 유랑단",
+            "한글여행자의 내 마음 책가방",
+            "한글수호대",
+            "한글 사냥꾼",
+            "한글별 수호대",
+            "이름모아",
+            "한글수비대",
+            "빛 그림 채집",
+            "별해원가",
+            "무지개행성 구조대작전",
+            "도심공원 승마체험",
+            "세종국제만화영상전",
+            "돌봄을 잇는 한글, 세종의 말로 함께 웃다",
+            "손끝으로 만나는 한글 점자 100주년",
+            "2026 한글문화특별기획전3 <세종과 남준>",
+            "2026 세종과학집현전"
+          ],
+          "11:00": ["다~쓰고 다시쓰고"],
+          "13:00": ["2026 세종 울트라 틴즈 댄스 본선"],
+          "16:00": ["2026 세종 e스포츠 대회"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://www.sjfestival.kr/",
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "세종",
+      "area": "세종시",
+      "venue": "세종호수공원 및 세종중앙공원 일원",
+      "naver": "세종호수공원",
+      "address": "세종특별자치시 다솜로 216",
+      "latitude": 36.4917742,
+      "longitude": 127.2717369
+    },
+    "hosts": {
+      "organizer": "세종특별자치시",
+      "manager": "세종시문화관광재단",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "festival-gwangmyeong-2026",
+    "name": "2026 페스티벌 광명",
+    "description": "2026 페스티벌 광명은 철산역 앞 도심 8차선 도로를 거대한 문화공간으로 바꾸는 광명의 대표 음악·거리축제입니다. '신나는 거리! BEAT 나는 광명'을 주제로 10CM, 김종서, 데이브레이크, 로맨틱펀치 등 다양한 아티스트의 라이브 공연과 시민퍼레이드, 버스킹, 랜덤플레이댄스, 거리 노래방, 체험과 마켓을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "문화·음악축제",
+      "entrance": "무료",
+      "park": "철산로 일대 교통통제가 진행되므로 대중교통 이용 권장",
+      "site": "http://festivalgm.or.kr/2026/",
+      "program": "GM라이브, 퍼레이드 광명, 시민의거리 기념행사, 시민퍼레이드, 거리 노래방, 랜덤플레이댄스, 버스킹 공연, 버블쇼, 키다리 삐에로, 석고마임, 광명9경 플레이존, 사회적경제존, 체험·마켓, 그린존, 나눔장터존",
+      "artist": "10CM, 데이브레이크, 잭킹콩, 아스라이, 아사달, 김종서, 로맨틱펀치, 불나방스타쏘세지클럽, 신현희 밴드, 칵투스, 루아멜",
+      "memo": "'신나는 거리! BEAT 나는 광명'을 주제로 철산역 앞 철산로 8차선 도로를 시민을 위한 거대한 축제 공간으로 조성합니다. GM라이브를 중심으로 음악공연과 거리 프로그램, 시민 참여형 콘텐츠가 함께 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-04",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-10-03": {
+          "13:00": ["거리 노래방"],
+          "13:30": ["시립전통예술단"],
+          "14:30": ["랜덤 플레이 댄스"],
+          "15:00": ["아사달"],
+          "15:30": ["청소년재단 1"],
+          "16:00": ["아스라이"],
+          "16:30": ["청소년재단 2"],
+          "17:00": ["잭킹콩"],
+          "17:30": ["청소년재단 3"],
+          "18:00": ["데이브레이크"],
+          "18:30": ["시립합창단"],
+          "19:00": ["퍼레이드 광명"],
+          "19:30": ["시민의 거리 기념 행사"],
+          "20:00": ["10CM"]
+        },
+        "2026-10-04": {
+          "13:30": ["거리 노래방"],
+          "14:30": ["거리 노래방"],
+          "15:00": ["칵투스"],
+          "15:30": ["랜덤 플레이 댄스"],
+          "16:00": ["루아멜"],
+          "16:30": ["마오밴드"],
+          "17:00": ["신현희"],
+          "17:30": ["라인댄스"],
+          "18:00": ["불나방스타쏘세지클럽"],
+          "19:00": ["로맨틱펀치"],
+          "20:00": ["김종서 밴드"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "광명시",
+      "venue": "철산역 앞 철산로 일원",
+      "naver": "철산역",
+      "address": "경기도 광명시 철산동 13",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "광명시",
+      "manager": "광명시, 광명문화재단, 광명시청소년재단",
+      "sponsor": null,
+      "phone": "02-2680-2787",
+      "email": null,
+      "instagram": "festivalgm_official"
+    }
+  },
+  {
+    "slug": "muchangpo-mystic-sea-road-festival-2026",
+    "name": "제26회 무창포 신비의 바닷길축제",
+    "description": "제26회 무창포 신비의 바닷길축제는 바닷물이 갈라지며 나타나는 약 1.5km의 신비로운 바닷길을 직접 걸어보는 보령 대표 해양축제입니다. 낮에는 맨손 대하잡기와 씨푸드 쿠킹클래스, 마당극 등 가족 체험을 즐기고, 밤에는 드론 1,000대가 펼치는 라이트쇼와 LED 횃불을 들고 바닷길을 걷는 특별한 장관을 만날 수 있습니다.",
+    "info": {
+      "type": "해양·체험축제",
+      "entrance": "무료 (일부 프로그램 유료)",
+      "park": null,
+      "site": "https://mudfestival.or.kr/festival/event/list?level=2&menuNo=86",
+      "program": "바닷길 LED 횃불체험, SEA-ROAD 멀티미디어 드론라이트쇼, 맨손물고기잡기체험(대하), 씨푸드 쿠킹클래스, 마당극 '무창포, 왕대하 낙찰이요~', 바닷길 피크닉 페스타, 씨푸드파티존, 동상퍼포먼스, 삐에로 아트풍선, 조개캔들 만들기, 조개화분 만들기, 해양생태놀이터, 특산물 판매",
+      "artist": null,
+      "memo": "축제의 하이라이트는 9월 12일 밤 진행되는 SEA-ROAD 멀티미디어 드론라이트쇼와 바닷길 LED 횃불체험입니다. 드론 1,000대가 무창포의 아기장수 설화와 신비의 바닷길을 표현하며, 드론쇼 종료 후 LED 횃불을 들고 실제 바닷길을 걷는 체험이 이어집니다. 맨손물고기잡기체험은 현장접수이며 체험비는 10,000원입니다."
+    },
+    "event": {
+      "startDate": "2026-09-11",
+      "endDate": "2026-09-13",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "schedule": {
+        "2026-09-11": {
+          "13:00": ["축제 프로그램 운영 시작"]
+        },
+        "2026-09-12": {
+          "10:00": ["축제 프로그램 운영 시작"],
+          "21:10": ["SEA-ROAD 멀티미디어 드론라이트쇼 - 드론 1,000대"],
+          "21:20": ["바닷길 LED 횃불체험"]
+        },
+        "2026-09-13": {
+          "10:00": ["축제 프로그램 운영 시작"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "맨손물고기잡기체험(대하)": 10000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "보령시",
+      "venue": "무창포해수욕장 및 무창포광장 일원",
+      "naver": "무창포해수욕장",
+      "address": "충남 보령시 웅천읍 열린바다1길 10",
+      "latitude": 36.2445775,
+      "longitude": 126.5365458
+    },
+    "hosts": {
+      "organizer": "보령시",
+      "manager": "보령축제관광재단",
+      "sponsor": null,
+      "phone": "041-930-0891",
+      "email": null,
+      "instagram": "boryeongfestival_official"
+    }
+  },
+  {
+    "slug": "oktoberfest-seoul-2026",
+    "name": "옥토버페스트 서울 2026",
+    "description": "옥토버페스트 서울 2026은 독일 뮌헨의 전통적인 옥토버페스트 문화를 서울에서 만나는 한독 문화교류 축제입니다. 문화비축기지에 대형 비어텐트와 비어가든이 마련되며, 파울라너를 비롯한 독일 정통 맥주와 바이에른 음식, 독일에서 방한한 전통 밴드의 라이브 공연을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "맥주·문화축제",
+      "entrance": "유료",
+      "park": "행사장 주변 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://www.oktoberfestseoul.kr/",
+      "program": "옥토버페스트 빅텐트, 비어가든, 독일 전통 바바리안 밴드 라이브 공연, 한국 뮤지션 공연, 독일·한국 음식 체험, 옥토버페스트 참여 맥주, FC 바이에른 뮌헨 스페셜 콜라보 부스 및 굿즈",
+      "artist": "독일 전통 바바리안 포크 뮤직 밴드 등",
+      "memo": "독일 뮌헨의 옥토버페스트 문화를 서울에서 경험하는 한독 문화교류 축제입니다. 약 4,500명 이상이 함께할 수 있는 대형 빅텐트가 운영되며 파울라너, 가펠, 슈나이더, 카이저돔, 벨텐부르거 등 다양한 독일 맥주를 만날 수 있습니다. 행사는 1부와 2부로 나누어 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-21",
+      "startTime": "12:00",
+      "endTime": "22:00",
+      "schedule": {
+        "daily": {
+          "12:00": ["1부 행사 시작"],
+          "16:30": ["1부 종료"],
+          "17:30": ["2부 행사 시작"],
+          "22:00": ["2부 종료"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": "2026-07-16",
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": "접수중",
+      "price": {
+        "월~목 입장권": 20000,
+        "금~일 입장권": 25000,
+        "프리미엄 테이블(4인)": 200000,
+        "프리미엄 플러스 테이블(4인)": 300000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "마포구",
+      "venue": "문화비축기지",
+      "naver": "문화비축기지",
+      "address": "서울특별시 마포구 증산로 87",
+      "latitude": 37.5703467,
+      "longitude": 126.8950314
+    },
+    "hosts": {
+      "organizer": "도이치옥토버페스트코리아",
+      "manager": "SGE",
+      "sponsor": "주한독일대사관",
+      "phone": "02-6952-7729",
+      "email": "info@oktoberfestkorea.kr",
+      "instagram": null
+    }
+  },
+  {
+    "slug": "pocheon-hantangang-garden-festa-2026",
+    "name": "2026 포천 한탄강 가을 가든페스타",
+    "description": "2026 포천 한탄강 가을 가든페스타는 유네스코 세계지질공원 한탄강의 광활한 자연 속에서 가을꽃과 정원을 함께 즐기는 포천 대표 생태·정원축제입니다. 계절꽃정원과 주제정원, 뽀로로와 친구들이 함께하는 가을 캠핑 포토존을 비롯해 리버마켓, 클래식 버스킹, 가족형 전기자전거 체험과 Y형 출렁다리까지 가을 나들이를 풍성하게 즐길 수 있습니다.",
+    "info": {
+      "type": "생태·정원축제",
+      "entrance": "유료",
+      "park": null,
+      "site": "https://www.pocheon-gardenfesta.kr/",
+      "program": "계절꽃정원, 주제정원, 뽀로로와 친구들 가을 캠핑 포토존, 가족형 전기자전거 체험, 리버마켓, 클래식 버스킹, 포천 농특산물 및 먹거리, Y형 출렁다리 연계 관람",
+      "artist": null,
+      "memo": "한탄강 생태경관단지의 가을꽃과 자연경관을 중심으로 운영되는 정원축제입니다. 뽀로로와 친구들이 함께하는 가을 캠핑 콘셉트 포토존과 지역 작가들의 주제정원, 가족형 전기자전거 체험 등이 마련됩니다. 9월 12~13일에는 포천 한우축제가 연계 개최됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-11-01",
+      "startTime": "09:00",
+      "endTime": "18:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "성인": 7000,
+        "청소년 및 어린이": 5000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "포천시",
+      "venue": "포천 한탄강 생태경관단지",
+      "naver": "한탄강 생태경관단지",
+      "address": "경기도 포천시 관인면 창동로 832",
+      "latitude": 38.0829308,
+      "longitude": 127.2085797
+    },
+    "hosts": {
+      "organizer": "포천시",
+      "manager": "포천시 농업재단",
+      "sponsor": null,
+      "phone": "031-538-3030",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "pocheon-hanwoo-festival-2026",
+    "name": "제14회 포천 한우축제",
+    "description": "제14회 포천 한우축제는 포천의 우수한 한우와 다양한 축산물을 한자리에서 맛보고 즐기는 지역 먹거리축제입니다. 한우 판매와 구이존을 중심으로 축산물 시식, 유제품 판매, 한우 고급육 경진대회 시상, 초대가수 공연이 펼쳐지며 승마체험과 포토존 등 가족이 함께 즐길 수 있는 프로그램도 마련됩니다.",
+    "info": {
+      "type": "먹거리축제",
+      "entrance": null,
+      "park": null,
+      "site": null,
+      "program": "기념식 및 식전행사, 한우 고급육 경진대회 시상, 한우 판매 및 구이존, 한우·한돈·낙농육우·산란계 홍보, 축산물 시식, 유제품 시식 및 판매, 초대가수 공연, 승마체험, 관상마 체험, 포토존, 말산업 홍보부스",
+      "artist": "허찬미, 서지오, 한강, 양파, 쏘근부부, 정진호",
+      "memo": "2026 포천 한탄강 가을 가든페스타 개막 주말과 함께 열리는 연계 축제입니다. 9월 12일에는 허찬미·서지오·한강, 9월 13일에는 양파·쏘근부부·정진호가 출연합니다. 승마체험은 신장 105cm 이상, 체중 75kg 이하 기준이 적용됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-12",
+      "endDate": "2026-09-13",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-09-12": {
+          "11:00": ["기념식"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "포천시",
+      "venue": "포천 한탄강 생태경관단지",
+      "naver": "한탄강 생태경관단지",
+      "address": "경기도 포천시 관인면 창동로 832",
+      "latitude": 38.0829308,
+      "longitude": 127.2085797
+    },
+    "hosts": {
+      "organizer": "포천시",
+      "manager": "전국한우협회 포천시지부",
+      "sponsor": "포천시의회, 포천시 축산단체협의회, 포천축산업협동조합, 포천문화관광재단",
+      "phone": "031-538-3863",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "seosan-haemieupseong-festival-2026",
+    "name": "제23회 서산해미읍성축제",
+    "description": "제23회 서산해미읍성축제는 축성 600년의 역사를 품은 해미읍성을 무대로 조선의 역사와 현대적인 문화예술을 함께 만나는 서산 대표 역사문화축제입니다. 전통복식과 조선시대 퍼포먼스, 클래식과 뮤지컬 공연, 드론쇼와 미디어아트가 어우러지며 낮부터 밤까지 과거와 현재가 공존하는 특별한 해미읍성을 경험할 수 있습니다.",
+    "info": {
+      "type": "역사문화축제",
+      "entrance": null,
+      "park": null,
+      "site": "http://haemifest.com",
+      "program": "개막퍼포먼스, 드론쇼, 미디어아트, 해미피크닉, 해미더클래식, 해미 뮤지컬갈라극장, 별빛 속 해미 경관전시, 해미해피데이, 전통복식 및 조선시대 역사체험, 버스킹 공연",
+      "artist": null,
+      "memo": "2026년 축제 주제는 '해미 유니버스(Haemi Universe) - 조선이라는 캔버스 위에 현대적 미학을 더하다'입니다. 축성 600년의 역사를 지닌 해미읍성을 야외복합문화공간으로 활용해 전통과 현대 문화예술, 미디어아트를 함께 선보입니다. 개막식은 10월 9일 19시에 진행됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-10-09": {
+          "19:00": ["개막식"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "서산시",
+      "venue": "서산 해미읍성 일원",
+      "naver": "서산해미읍성",
+      "address": "충청남도 서산시 해미면 남문2로 143 해미읍성",
+      "latitude": 36.7127876,
+      "longitude": 126.5485008
+    },
+    "hosts": {
+      "organizer": "서산시",
+      "manager": "서산문화재단",
+      "sponsor": "문화체육관광부, 한국관광공사, 충청남도, 충청남도의회, 서산시의회, 공군제20전투비행단, 서산경찰서, 서산소방서",
+      "phone": "041-660-2697",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "anyang-dance-festival-2026",
+    "name": "2026 안양춤축제",
+    "description": "2026 안양춤축제는 평촌중앙공원과 삼덕공원을 무대로 시민과 예술가가 함께 만드는 안양 대표 문화예술축제입니다. '춤으로 떠오르는 안양 - 걷고, 달리고, 춤추자!'를 슬로건으로 K-POP 공연과 댄스 경연, 시민공연은 물론 영화와 춤을 결합한 무비존, 가족 놀이와 체험까지 세대와 장르를 넘어 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "문화예술축제",
+      "entrance": "무료",
+      "park": "축제 기간 행사장 주변 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://www.aydf.kr/default/",
+      "program": "K-POP 공연, 댄스 공연, 청소년 댄스 경연, 안양시민가요제, 언제나청춘콘서트, 시민공연, 댄스존, 놀이존, 무비존, 영화 상영, 전시·체험·홍보부스, 플리마켓, 먹거리 한마당, 친선결연도시 장터, 폐막행사, 드론쇼",
+      "artist": "임창정, ARTMS, 홀리뱅, 바다, tripleS, 자두, idntt, 박혜신, 박세욱, 강진, 류지광, 춘자, 김승진, 클라씨, 김유선",
+      "memo": "2026년 슬로건은 '춤으로 떠오르는 안양 - 걷고, 달리고, 춤추자!'입니다. 평촌중앙공원에는 댄스존·놀이존·무비존 등이 운영되며 삼덕공원에서도 공연과 영화, 시민 참여 프로그램이 펼쳐집니다. 9월 20일 평촌중앙공원에서는 K-POP 콘서트와 폐막행사에 이어 드론쇼가 진행될 예정입니다."
+    },
+    "event": {
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-20",
+      "startTime": "12:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "안양시",
+      "venue": "평촌중앙공원 및 삼덕공원",
+      "naver": "안양춤축제",
+      "address": "경기도 안양시 동안구 관평로 149",
+      "latitude": 37.3901248,
+      "longitude": 126.9613447
+    },
+    "hosts": {
+      "organizer": "안양시, 안양춤축제추진위원회",
+      "manager": "안양문화예술재단",
+      "sponsor": null,
+      "phone": "031-687-0538",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "jangseong-hwangnyonggang-autumn-flower-festival-2026",
+    "name": "2026 장성 황룡강 가을꽃축제",
+    "description": "2026 장성 황룡강 가을꽃축제는 3.2km에 이르는 황룡강을 따라 코스모스와 백일홍 등 형형색색의 가을꽃과 정원을 만나는 장성 대표 가을축제입니다. 아름다운 꽃길과 테마정원을 거닐며 가을 풍경을 즐길 수 있고, 콘서트와 불꽃놀이, J-나이트 런 & Beer 페스타, 어린이 공연과 체험까지 온 가족이 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "생태·꽃축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://jangseonggala2026.kr/",
+      "program": "개막식, 개막 축하공연, 불꽃놀이, 안녕 가을 콘서트 The Voice, 2026 J-나이트 런 & Beer 페스타, 안녕 가을 콘서트 The Band, 어린이 공연, 거리예술가 공연, 토피어리 포토존, 분필아트 및 체험, 국화·야생화·분재 전시, 농특산물 판매, 3시간 머물장, 성장이장성이 인증샷 이벤트",
+      "artist": null,
+      "memo": "올해로 10회째를 맞는 장성군 대표 가을축제로 황룡강 약 3.2km 구간의 정원에서 다양한 가을꽃을 감상할 수 있습니다. 어린이 공연은 풍선·비눗방울·마술 등을 중심으로 하루 3회 운영될 예정이며, 석고마임과 미러맨 등 거리예술 프로그램도 마련됩니다. 세부 공연 시간과 초청가수는 최신 공식 시간표를 확인해야 합니다."
+    },
+    "event": {
+      "startDate": "2026-10-08",
+      "endDate": "2026-10-11",
+      "startTime": "10:00",
+      "endTime": "22:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전남광주",
+      "area": "장성군",
+      "venue": "장성 황룡강 일원",
+      "naver": "장성 황룡강 가을꽃축제",
+      "address": "전남광주통합특별시 장성군 장성읍 장재길 9",
+      "latitude": 35.3068063,
+      "longitude": 126.7780245
+    },
+    "hosts": {
+      "organizer": "장성군",
+      "manager": "장성군축제위원회",
+      "sponsor": null,
+      "phone": "061-390-7252",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "muju-national-heritage-night-2026",
+    "name": "2026 무주 국가유산 야행",
+    "description": "2026 무주 국가유산 야행은 무주의 대표 국가유산인 한풍루와 무주읍 원도심을 밤에 거닐며 지역의 역사와 문화를 만나는 야간 문화축제입니다. 아름다운 야간 경관을 배경으로 역사 이야기와 공연, 전시, 체험 등 다양한 프로그램을 즐기며 낮과는 또 다른 무주의 매력을 만나볼 수 있습니다.",
+    "info": {
+      "type": "역사문화축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://mujuculturenight.com/",
+      "program": "한풍루와 무주읍 국가유산을 활용한 야간경관, 역사 탐방, 공연, 전시, 체험 등 국가유산 야행 프로그램",
+      "artist": null,
+      "memo": "무주 한풍루와 무주읍 일원을 중심으로 펼쳐지는 야간 국가유산 축제입니다. 2026년 행사는 10월 3일부터 4일까지 이틀간 저녁 6시부터 10시까지 운영됩니다. 세부 프로그램과 개별 공연 시간은 공식 누리집의 최신 안내를 확인해야 합니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-04",
+      "startTime": "18:00",
+      "endTime": "22:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "무주군",
+      "venue": "무주 한풍루 및 무주읍 일원",
+      "naver": "무주 한풍루",
+      "address": "전북특별자치도 무주군 무주읍 당산리 1192",
+      "latitude": 36.0037646,
+      "longitude": 127.6624744
+    },
+    "hosts": {
+      "organizer": "무주군",
+      "manager": null,
+      "sponsor": null,
+      "phone": "063-320-2570",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "jinan-red-ginseng-festival-2026",
+    "name": "2026 진안홍삼축제",
+    "description": "2026 진안홍삼축제는 대한민국 유일의 홍삼특구 진안에서 열리는 대표 건강·먹거리축제입니다. 마이산의 아름다운 가을 풍경을 배경으로 홍삼명인교실과 홍삼 먹거리, 홍삼파워존, 야외족욕 등 다양한 체험을 즐길 수 있으며 공연과 퍼레이드, K-POP 댄스, 어린이 공연까지 온 가족이 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "먹거리축제",
+      "entrance": "무료 (일부 체험프로그램 유료)",
+      "park": "축제 기간 임시주차장 및 셔틀버스 운영",
+      "site": "https://www.jinan.go.kr/festival/",
+      "program": "홍삼명인교실, 홍삼웰니스타임&산골愛홍삼한상, 홍삼깍두기 담그GO 나누GO, 마을에서 놀자, 홍삼in떡볶이, 홍삼파워존, 홍삼에너지충전 스탬프투어, 홍삼명인 증삼 시연, 홍삼 달고나 만들기, 야외족욕체험, 캐치! 티니핑 싱어롱쇼, 대동퍼레이드, 신바람 건강체조&마이산 건강걷기, 홍삼가족공연, 홍삼에너지 랜덤 플레이댄스&K-POP 댄스공연, 홍삼서커스공연, 레드에너지페스타, 홍삼바비큐",
+      "artist": null,
+      "memo": "대한민국 유일의 홍삼특구 진안에서 열리는 축제로 진안군수가 품질을 인증한 홍삼제품을 만나볼 수 있습니다. 대표 프로그램과 공연, 홍삼 체험 외에도 홍삼빛 낙화놀이 전야행사, 트레저헌터 in 진안 등 연계 프로그램이 마련됩니다. 축제 기간 임시주차장과 셔틀버스가 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-09-18",
+      "endDate": "2026-09-20",
+      "startTime": "10:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "진안군",
+      "venue": "마이산 북부 일원",
+      "naver": "진안홍삼축제",
+      "address": "전북특별자치도 진안군 진안읍 마이산로 160",
+      "latitude": 35.7731727,
+      "longitude": 127.4161888
+    },
+    "hosts": {
+      "organizer": "진안군",
+      "manager": "진안홍삼축제추진위원회",
+      "sponsor": "문화체육관광부, 전북특별자치도",
+      "phone": "063-430-2392",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "yecheon-samgangnaru-jumak-festival-2026",
+    "name": "2026 예천 삼강나루 주막축제",
+    "description": "2026 예천 삼강나루 주막축제는 낙동강과 내성천, 금천 세 물길이 만나는 삼강문화단지에서 옛 나루터와 주막의 정취를 즐기는 예천 대표 전통문화축제입니다. 낙동강 1,300리 마지막 주막인 삼강주막을 배경으로 전통놀이와 공연, 체험, 먹거리를 즐기며 추석 연휴 가족과 함께 옛 주막의 낭만을 느껴볼 수 있습니다.",
+    "info": {
+      "type": "전통문화축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://yctf.kr/2026samgang",
+      "program": "삼강주막과 나루터의 역사·문화를 활용한 전통문화 프로그램, 공연, 체험, 전통놀이, 먹거리 프로그램",
+      "artist": null,
+      "memo": "낙동강, 내성천, 금천 세 강이 만나는 삼강과 옛 나루터, 낙동강 1,300리 마지막 주막인 삼강주막의 이야기를 활용한 축제입니다. 2026년에는 추석 연휴인 9월 25일부터 27일까지 3일간 열리며, 세부 공연과 체험 프로그램별 시간표는 공식 최신 안내를 확인해야 합니다."
+    },
+    "event": {
+      "startDate": "2026-09-25",
+      "endDate": "2026-09-27",
+      "startTime": "11:00",
+      "endTime": "18:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경북",
+      "area": "예천군",
+      "venue": "예천 삼강문화단지 및 삼강주막 일원",
+      "naver": "예천 삼강주막",
+      "address": "경상북도 예천군 풍양면 삼강리길 89-9",
+      "latitude": 36.5589593,
+      "longitude": 128.3020742
+    },
+    "hosts": {
+      "organizer": "예천군",
+      "manager": "예천문화관광재단",
+      "sponsor": null,
+      "phone": "054-650-6802",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "incheon-jajangmyeon-festival-2026",
+    "name": "2026 인천 짜장면축제",
+    "description": "2026 인천 짜장면축제는 한국 짜장면의 시작점인 인천 차이나타운을 중심으로 짜장면의 역사와 다양한 면 요리를 함께 즐기는 미식문화축제입니다. 짜장로드와 수타면 경연대회, 중식 셰프 라이브 쿠킹쇼, DIY 짜장면을 비롯해 사자춤·용춤 퍼레이드와 공연, 어린이 체험까지 온 가족이 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "먹거리축제",
+      "entrance": "무료",
+      "park": "축제장 주변 교통 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://itour.incheon.go.kr/ssst/ssst/detail.do?cotId=ITD25092616174791248",
+      "program": "인천 짜장로드, 황금면발 수타 명인전, 시민 수타면 왕을 찾아라, DIY 짜장면, 사자춤·용춤 퍼레이드, 중식 셰프 라이브 쿠킹쇼, 뮤지컬 셰프 난타공연, 축하공연, 요기조기 음악회, 인천음악창작소 공연, 화교 학생 예술공연, 인천상회 팝업스토어, 캔들라이트 야간 콘텐츠, 짜장 골든타임 챌린지, 짜장면 면발 길이 맞추기, 데시벨 챌린지, 어린이 상상 놀이터, 짜장면 기록관, 학술 세미나, 스탬프 투어",
+      "artist": null,
+      "memo": "인천 차이나타운과 항미단길, 상상플랫폼까지 축제 공간을 넓혀 진행하는 짜장면 미식문화축제입니다. 짜장로드에서는 짜장면을 비롯한 다양한 면 요리를 만나볼 수 있으며, 짜장면 기록관에서는 인천 짜장면의 100년 역사를 소개합니다. 기념품과 시식은 준비된 수량에 따라 조기 소진될 수 있습니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-04",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "인천",
+      "area": "제물포구",
+      "venue": "인천 차이나타운·항미단길·상상플랫폼 일원",
+      "naver": "인천 차이나타운",
+      "address": "인천광역시 제물포구 차이나타운로44번길 28-12",
+      "latitude": 37.4774817,
+      "longitude": 126.6184344
+    },
+    "hosts": {
+      "organizer": "인천광역시",
+      "manager": "인천관광공사",
+      "sponsor": null,
+      "phone": "032-441-5959",
+      "email": null,
+      "instagram": "jajangmyeon_festival"
+    }
+  },
+  {
+    "slug": "yeongcheon-bohyeonsan-starlight-festival-2026",
+    "name": "제23회 영천 보현산 별빛축제",
+    "description": "2026 영천 보현산 별빛축제는 별이 아름답기로 유명한 영천 보현산에서 천문과 우주의 신비를 직접 경험하는 대표 천문과학축제입니다. 올해는 '기울어진 행성, 새로운 시선 - 천왕성'을 주제로 천체관측과 우주·천문과학 체험, 공연과 전시 등 다양한 프로그램을 통해 아이부터 어른까지 밤하늘과 우주를 특별하게 만나볼 수 있습니다.",
+    "info": {
+      "type": "천문과학축제",
+      "entrance": null,
+      "park": "축제 기간 행사장 주변 주차 혼잡이 예상되며 세부 주차 및 교통 안내는 공식 홈페이지 확인",
+      "site": "http://영천보현산별빛축제.com",
+      "program": "천체관측, 천문·우주과학 체험, 천문과학 전시, 별자리 체험, 별빛 프로그램, 문화공연, 보현산천문과학관 연계 프로그램",
+      "artist": null,
+      "memo": "2026년 축제 주제는 '기울어진 행성, 새로운 시선 - 천왕성'입니다. 보현산은 별을 관측하기 좋은 지역으로, 정상에는 한국천문연구원 보현산천문대와 1.8m 광학망원경이 있습니다. 2026년 세부 프로그램별 운영시간과 사전예약 대상 프로그램은 공식 홈페이지의 최신 안내를 확인해야 합니다."
+    },
+    "event": {
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경북",
+      "area": "영천시",
+      "venue": "보현산천문과학관 일원",
+      "naver": "보현산천문과학관",
+      "address": null,
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "영천시",
+      "manager": "영천보현산별빛축제위원회",
+      "sponsor": null,
+      "phone": "054-330-6702",
+      "email": null,
+      "instagram": "ycstar2004"
+    }
+  },
+  {
+    "slug": "ansan-pet-festival-2026",
+    "name": "2026 안산 펫페스티벌 with 첨벙하개",
+    "description": "2026 안산 펫페스티벌 with 첨벙하개는 새롭게 단장한 안산호수공원 반려견놀이터에서 반려견과 보호자가 함께 즐기는 시민 참여형 반려문화축제입니다. 시원한 반려견 물놀이부터 패션쇼와 기다려 대회, 토크콘서트, 건강·행동 상담, 다양한 만들기 체험까지 마련돼 올바른 반려문화를 배우며 특별한 하루를 즐길 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": "무료 (일부 재료비 별도)",
+      "park": "안산호수공원 제3공영주차장 이용, 행사 당일 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://2026ansanpet.com/",
+      "program": "반려견놀이터 오픈 세리머니, 반려견 워터존, 김재우 토크콘서트, 수의사·훈련사 토크콘서트, 반려견 패션쇼, 반려견 기다려 대회, 반려견 운동회, OX 퀴즈쇼, 위생미용 체험, 아로마 스프레이·키링·터그 만들기, 반려견 프로필 촬영, 동물 매개치료 체험, 건강검진·행동교정 상담, 반려동물 심폐소생술 교육, 유기동물 입양·동물등록 안내, 플리마켓",
+      "artist": "김재우",
+      "memo": "안산호수공원 반려견 전용 놀이터 개장을 기념해 열린 시민 참여형 반려문화축제입니다. 워터존은 12:00~16:00 현장 접수로 운영되며 회차별 40명 선착순입니다. 반려견 패션쇼와 기다려 대회는 각각 사전 신청 선착순 15팀으로 운영됩니다. 모든 반려견은 2m 이내 목줄 또는 이동장을 사용해야 합니다."
+    },
+    "event": {
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-05",
+      "startTime": "10:00",
+      "endTime": "18:00",
+      "schedule": {
+        "2026-09-05": {
+          "10:00": ["행사 개장", "반려견놀이터 오픈 세리머니"],
+          "10:30": ["김재우와 함께하는 토크콘서트"],
+          "11:00": ["반려견 패션쇼 및 시상"],
+          "12:00": ["수의사 토크콘서트", "반려견 워터존 오픈"],
+          "13:00": ["MC OX 퀴즈쇼 및 시상"],
+          "16:00": ["반려견 기다려 대회 및 시상"],
+          "17:00": ["이상민 교수와 함께하는 반려견 Q&A 토크콘서트"],
+          "18:00": ["행사 종료"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://2026ansanpet.com/",
+      "status": "행사 종료",
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "안산시",
+      "venue": "안산호수공원 반려견놀이터",
+      "naver": "안산호수공원 제3주차장",
+      "address": "경기도 안산시 상록구 광덕대로 24",
+      "latitude": 37.2995959,
+      "longitude": 126.8294472
+    },
+    "hosts": {
+      "organizer": "안산시",
+      "manager": "띵독",
+      "sponsor": "대상펫라이프",
+      "phone": "070-4580-7113",
+      "email": "work@think-dog.co.kr",
+      "instagram": null
+    }
+  },
+  {
+    "slug": "busan-with-pet-star-2026",
+    "name": "2026 위드펫스타",
+    "description": "2026 위드펫스타는 부산 화명생태공원의 가을 자연 속에서 반려동물과 보호자가 함께 즐기는 반려문화축제입니다. '댕냥이와 가을 펫크닉'을 콘셉트로 댕댕런과 댕댕워크, 1박 2일 가을 캠핑을 비롯해 반려동물 고민상담, 건강상담, 운동회, 미용체험, 음악공연과 프리마켓까지 다양한 프로그램을 즐길 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": "무료",
+      "park": "화명생태공원 P4주차장 이용",
+      "site": "https://blog.naver.com/busanani1335/224396255454",
+      "program": "댕냥이와 가을 펫크닉, 1박 2일 가을 캠핑, 댕댕런, 댕댕워크, 댕댕&냥냥 고민상담소, 가을 펫 음악회, 재즈밴드 공연, 자랑할개 나의 펫스타, 댕냥 살롱, 댕냥세컷, 가을 멍랑운동회, 반려동물 건강상담, 반려동물 응급처치 체험, 반려동물 프리마켓, 부산 반려동물 사진 공모전 수상작 전시",
+      "artist": "강형욱, 김명철",
+      "memo": "제2회 동물보호의 날을 기념해 열리는 반려문화축제로 슬로건은 '같이하는 발걸음, 가치 있는 동물사랑'입니다. 올해 메인 콘셉트는 '댕냥이와 가을 펫크닉'이며 1박 2일 가을 캠핑, 댕댕런, 댕댕워크 등 인기 프로그램은 사전신청으로 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://blog.naver.com/busanani1335/224396255454",
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "부산",
+      "area": "북구",
+      "venue": "화명생태공원 잔디광장",
+      "naver": "화명생태공원 P4주차장",
+      "address": "부산광역시 북구 덕천동 600",
+      "latitude": 35.2226109,
+      "longitude": 129.0040039
+    },
+    "hosts": {
+      "organizer": "부산광역시",
+      "manager": "부산광역시 반려동물과",
+      "sponsor": null,
+      "phone": "051-531-3744",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gangneung-pet-culture-festival-2026",
+    "name": "제4회 강릉시 반려동물 문화축제",
+    "description": "제4회 강릉시 반려동물 문화축제는 반려인과 비반려인이 함께 어울리며 사람과 동물이 공존하는 성숙한 반려문화를 만들어가는 강릉의 대표 반려동물 행사입니다. 동계올림픽 개최도시 강릉의 이미지를 접목한 '올림펫'을 테마로 국가대표 독스포츠 공연부터 반려동물 운동회, 어질리티, 콘서트와 다양한 참여 프로그램을 즐길 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": null,
+      "park": null,
+      "site": null,
+      "program": "독스포츠 국가대표팀 어질리티·프리스비 도그쇼, IGP 훈련견 퍼포먼스, 펫캐스트라 콘서트, 훈련사 토크 콘서트, 반려동물 운동회, 아마추어 어질리티, 펫티켓 OX 퀴즈, 펫로깅 인증, 반려동물 사진전",
+      "artist": null,
+      "memo": "2026년 축제 테마는 '올림펫'입니다. 동계올림픽 개최도시 강릉의 역동적인 이미지와 반려동물 문화를 결합해 사람과 동물이 함께 뛰고 즐기며 교감하는 축제로 구성됐습니다. 반려인뿐 아니라 비반려인과 가족 단위 방문객도 함께 참여할 수 있는 행사입니다."
+    },
+    "event": {
+      "startDate": "2026-09-13",
+      "endDate": "2026-09-13",
+      "startTime": "10:00",
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "강릉시",
+      "venue": "강릉종합운동장 야외공연장",
+      "naver": "강릉종합운동장 야외공연장",
+      "address": "강원특별자치도 강릉시 죽헌길 132",
+      "latitude": 37.7779392,
+      "longitude": 128.8795417
+    },
+    "hosts": {
+      "organizer": "강릉시",
+      "manager": "강릉시 축산과",
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "hongcheon-pet-culture-festival-2026",
+    "name": "2026 홍천 FCI 국제 도그쇼 & 홍천군 반려동물 문화축제",
+    "description": "2026 홍천 FCI 국제 도그쇼 & 홍천군 반려동물 문화축제는 국제 도그쇼의 전문성과 반려가족이 함께 즐기는 체험형 축제를 결합한 홍천의 대표 반려동물 행사입니다. 국내외 다양한 견종을 만나는 국제 도그쇼부터 어질리티 대회, 반려견 올림픽, 어린이 독스포츠와 미용·상담·만들기 체험까지 반려견과 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://www.hongcheon.go.kr/www/selectEminwonNewsView.do?key=283&news_epct_no=21270",
+      "program": "2026 홍천 FCI 국제 도그쇼, 2026 홍천 KKF 챔피언십 도그쇼, 2026 강원 FCI 국제 도그쇼, 2026 강원 FCI A2O 챔피언십 도그쇼, KKF 아마추어 어질리티 경기대회, KKF 내셔널 어질리티 평가전, 반려견 올림픽, 어린이 독스포츠 체험, 반려견 무료 위생미용, 해충 방지제 만들기, 견생네컷, 터그 장난감 만들기, 재활 교육·상담, 유기견 입양 홍보, 농촌체험, 지역 먹거리 및 농특산물",
+      "artist": null,
+      "memo": "2024년 첫 개최 이후 올해로 3회째 열리는 행사입니다. 이틀 동안 총 4개의 도그쇼가 개최되며 총 680두 규모의 출진이 계획되어 있습니다. 슬로베니아, 말레이시아, 미국, 대한민국 등 국내외 심사위원이 참여합니다."
+    },
+    "event": {
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-20",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-09-19": {
+          "13:20": ["개회식"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "홍천군",
+      "venue": "홍천읍 생활체육공원",
+      "naver": "홍천읍 생활체육공원",
+      "address": "강원특별자치도 홍천군 홍천읍 열산골길 20",
+      "latitude": 37.6790388,
+      "longitude": 127.8710972
+    },
+    "hosts": {
+      "organizer": "홍천군",
+      "manager": "한국애견연맹",
+      "sponsor": null,
+      "phone": "033-430-2740",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "chuncheon-companion-animal-festival-2026",
+    "name": "2026 춘천 반려동물 페스티벌",
+    "description": "2026 춘천 반려동물 페스티벌은 춘천 애니메이션박물관 일원에서 반려동물과 함께 즐기는 대규모 반려문화축제입니다. 반려견 걷기대회와 독스포츠 챔피언십, 도그요가, 펫림픽을 비롯해 반려동물 산업박람회와 훈련 토크콘서트, 견종 소개 등 다양한 체험과 볼거리를 만날 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://www.cccaf.co.kr/",
+      "program": "봄내발자국國 기념식, 춘천 반려동물 산업박람회, 독스포츠 챔피언십, 반려견 걷기대회, 도그요가, 발자국 골든벨, 스카이하운즈 유명선수 초청세미나, 독스포츠 입문 프로그램, 봄내 펫림픽 3종경기, 펫크리에이션, 우리개 똑똑하개 토크콘서트, 우리를 알려줄개 견종백과, 춘천 반려동물 AI 숏폼 공모전 및 시상식",
+      "artist": "안드레아 모리셋",
+      "memo": "반려견 걷기대회는 10월 10일과 11일 일자별 300팀을 대상으로 사전신청으로 운영됩니다. 도그요가는 30팀, 발자국 골든벨은 50팀, 독스포츠 입문 어질리티는 일자별 10팀이 참여할 수 있습니다. 봄내 펫림픽은 기다려, 이리와, 탐지견 3종 경기로 진행되며 사전 또는 현장 신청이 가능합니다."
+    },
+    "event": {
+      "startDate": "2026-10-09",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://www.cccaf.co.kr/",
+      "status": "접수중",
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "강원",
+      "area": "춘천시",
+      "venue": "춘천 애니메이션박물관 일원",
+      "naver": "춘천 애니메이션박물관",
+      "address": "강원특별자치도 춘천시 서면 박사로 854",
+      "latitude": null,
+      "longitude": null
+    },
+    "hosts": {
+      "organizer": "춘천시",
+      "manager": null,
+      "sponsor": null,
+      "phone": "070-4103-4711",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "seoul-petlympic-2026",
+    "name": "2026 서울펫림픽",
+    "description": "2026 서울펫림픽은 반려견과 보호자가 함께 뛰고 걷고 도전하며 교감하는 서울의 반려동물 스포츠 축제입니다. 기다려, 이리와, 꼬깔 S자 통과, 15m 팀 달리기 등 초보 반려견도 참여할 수 있는 경기부터 어질리티, 프리스비, 도그댄스, 플라이볼과 약 4km 도그트레일까지 다양한 프로그램을 즐길 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": "축제 관람 무료, 펫림픽 경기 참가 종목별 40,000원",
+      "park": "월드컵공원 주차장 이용 가능, 행사 당일 혼잡 예상으로 대중교통 이용 권장",
+      "site": "https://petlympic.imweb.me",
+      "program": "STAY CLASSIC(기다려), RECALL SPRINT(이리와), SLALOM(꼬깔 S자 통과하기), TEAM SPRINT(15m 팀 달리기), 도그트레일, 어질리티 대회, 프리스비, 도그댄스, 플라이볼, 시민 참여형 기부런, 반려견 기초교육, 페이스페인팅, 키링 만들기, 반려견 건강상담, 반려견 응급 심폐소생술 및 응급처치 교육, 서울시티투어버스 특별 운행",
+      "artist": null,
+      "memo": "올해로 2회를 맞는 반려동물 스포츠 축제입니다. 펫림픽 4개 종목은 중·소형견과 대형견 2개 체급으로 운영하며 종목당 선착순 100명, 총 400명을 모집합니다. 참가자에게 공식 기념 티셔츠, ID카드, 와펜, 물통, 배변봉투 등 굿즈 패키지가 제공됩니다. 도그트레일은 평화의공원 약 4km 순환코스에서 진행되며 총 400명을 모집합니다. 9월 29일부터 10월 22일까지 반려견과 함께 이용하는 서울시티투어버스 특별 프로그램도 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-25",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": "2026-09-14",
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": "https://petlympic.imweb.me",
+      "status": "접수중",
+      "price": {
+        "펫림픽 경기": 40000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "마포구",
+      "venue": "월드컵공원 평화광장",
+      "naver": "월드컵공원 평화광장",
+      "address": "서울특별시 마포구 월드컵로 251",
+      "latitude": 37.5659053,
+      "longitude": 126.8964648
+    },
+    "hosts": {
+      "organizer": "서울특별시",
+      "manager": "한국어질리티연합",
+      "sponsor": null,
+      "phone": "0502-1949-0514",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "iksan-meongryong-dado-day-2026",
+    "name": "2026 멍룡 다도 DAY 숲멍, 차멍",
+    "description": "2026 멍룡 다도 DAY 「숲멍, 차茶멍」은 반려견과 함께 익산의 숲을 걸으며 차와 허브를 즐기는 특별한 반려동물 체험 프로그램입니다. 맞춤형 허브 블렌딩과 반려견용 입욕 솔트 만들기, 숲해설사와 함께하는 치유 산책, 여유로운 티타임까지 자연 속에서 반려견과 교감하며 편안한 하루를 보낼 수 있습니다.",
+    "info": {
+      "type": "반려동물체험",
+      "entrance": "1인 5,000원",
+      "park": null,
+      "site": "https://www.welfarehello.com/community/hometownNews/2026-%EB%A9%8D%EB%A3%A1-%EB%8B%A4%EB%8F%84-DAY-%EC%88%B2%EB%A9%8D-%EC%B0%A8%EB%A9%8D-%EC%B0%B8%EA%B0%80%EC%9E%90-%EB%AA%A8%EC%A7%91--b3eea011-cf07-44c5-ae15-fa51a038734d",
+      "program": "마이펫 허브 블렌딩, 반려견용 허브 입욕 솔트 만들기, 반려견과 함께하는 티타임, 숲해설사와 함께하는 반려견 동반 치유 산책, SNS 기념사진 인증 이벤트",
+      "artist": null,
+      "memo": "반려동물 친화관광도시 '펫프렌드 익산' 프로그램입니다. 반려동물 동반 관광객을 대상으로 1회차와 2회차 각각 30명을 모집합니다. 신청서 작성 후 참가비를 입금해야 최종 신청이 완료되며, 프로그램 내용과 운영 순서는 현장 상황에 따라 변경될 수 있습니다."
+    },
+    "event": {
+      "startDate": "2026-09-19",
+      "endDate": "2026-09-19",
+      "startTime": "10:00",
+      "endTime": "16:00",
+      "schedule": {
+        "2026-09-19": {
+          "10:00": ["1회차 숲멍, 차茶멍"],
+          "14:00": ["2회차 숲멍, 차茶멍"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": "접수중",
+      "price": {
+        "참가비": 5000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "익산시",
+      "venue": "익산 산림문화체험관",
+      "naver": "익산 산림문화체험관",
+      "address": "전북특별자치도 익산시 웅포면 녹차마을길 83-36",
+      "latitude": 36.0586303,
+      "longitude": 126.8894695
+    },
+    "hosts": {
+      "organizer": "익산시",
+      "manager": null,
+      "sponsor": null,
+      "phone": "063-918-9988, 063-859-5824",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "seoul-animal-happiness-festa-2026",
+    "name": "2026 서울동물행복페스타",
+    "description": "2026 서울 동물행복페스타는 반려동물과 사람이 함께 행복하게 살아가는 문화를 만들어가는 서울의 대표 동물보호·복지 축제입니다. 반려견과 한강변 약 4km를 걷는 동물행복런을 비롯해 설채현 수의사의 펫톡 라이브, 유기견 자랑대회와 입양제, 행동·건강상담 등 다양한 프로그램을 만날 수 있습니다.",
+    "info": {
+      "type": "반려동물축제",
+      "entrance": "축제 관람 무료, 동물행복런 참가비 10,000원",
+      "park": "여의도한강공원 주변 혼잡이 예상되어 대중교통 이용 권장",
+      "site": "https://www.animalhappy.kr/",
+      "program": "동물행복런, 설채현의 펫톡 라이브, 견생2회차 자랑대회, 핌키 레드카펫 입양제, 동물보호 PLAY존, 유혹의 옐로우카펫, 유기동물 입양 캠페인, 반려문화 OX 퀴즈, 럭키드로우, 동행 피트니스, 반려동물 행동·건강상담, 반려인능력시험 실기체험·시험, 포토존, SNS 인증 이벤트",
+      "artist": "설채현",
+      "memo": "올해로 3회째 개최되는 서울 동물행복페스타입니다. 동물행복런은 반려견과 보호자가 여의도한강공원 약 4km를 함께 걷는 프로그램으로 500팀을 모집합니다. 견생2회차 자랑대회는 유기·학대 경험 후 새로운 가족을 만난 반려견을 대상으로 총 80팀을 모집하며, 핌키 레드카펫 입양제에는 임시보호 중인 유기견과 가족 최대 200팀이 참여할 예정입니다."
+    },
+    "event": {
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "startTime": null,
+      "endTime": null,
+      "schedule": {
+        "2026-10-17": {
+          "10:30": ["동물행복런"],
+          "13:00": ["설채현의 펫톡 라이브"],
+          "15:00": ["견생2회차 자랑대회"]
+        },
+        "2026-10-18": {
+          "10:30": ["핌키 레드카펫 입양제"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": "2026-09-02",
+      "endDate": "2026-10-16",
+      "startTime": "11:00",
+      "endTime": null,
+      "site": "https://www.animalhappy.kr/programs/animal-happiness-run",
+      "status": "접수마감",
+      "price": {
+        "동물행복런": 10000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "서울",
+      "area": "영등포구",
+      "venue": "여의도한강공원 물빛무대 앞 광장",
+      "naver": "여의도한강공원 물빛무대",
+      "address": "서울특별시 영등포구 여의도동 84-1",
+      "latitude": 37.5328871,
+      "longitude": 126.9291202
+    },
+    "hosts": {
+      "organizer": "서울특별시, 한국일보",
+      "manager": null,
+      "sponsor": null,
+      "phone": "02-724-2798",
+      "email": null,
+      "instagram": null
+    }
   }
 ]

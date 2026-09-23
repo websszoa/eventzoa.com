@@ -16,7 +16,7 @@ export function createPageMetadata({
   description,
   path,
   type = "website",
-  image = "/opengraph-image",
+  image = "/images/eventzoa-og.webp",
   publishedTime,
 }: PageMetadataOptions): Metadata {
   return {
