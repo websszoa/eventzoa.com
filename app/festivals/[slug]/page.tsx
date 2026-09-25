@@ -233,7 +233,7 @@ export default async function FestivalDetailPage({
       : `${startTime}부터`
     : endTime
       ? `${endTime}까지`
-      : "운영시간 정보가 없습니다.";
+      : "-";
   const entrance = formatEventInfoValue(festival.info.entrance);
   const entranceType = getEventInfoType(festival.info.entrance);
   const parking = formatEventInfoValue(festival.info.park);
@@ -333,14 +333,14 @@ export default async function FestivalDetailPage({
     {
       icon: CircleDollarSign,
       label: "입장 안내",
-      value: entrance || "입장 안내 정보가 없습니다.",
+      value: entrance || "-",
       color: "text-emerald-600",
       background: "bg-emerald-50",
     },
     {
       icon: CarFront,
       label: "주차",
-      value: parking || "주차 정보가 없습니다.",
+      value: parking || "-",
       color: "text-violet-600",
       background: "bg-violet-50",
     },

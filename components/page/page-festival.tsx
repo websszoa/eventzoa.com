@@ -64,6 +64,7 @@ export default function PageFestival({
   festivals: FestivalListItem[];
   initialKeyword?: string;
 }) {
+  const [keywordInput, setKeywordInput] = useState(initialKeyword);
   const [keyword, setKeyword] = useState(initialKeyword);
   const [region, setRegion] = useState("전체 지역");
   const [season, setSeason] = useState("전체 시기");
@@ -124,6 +125,7 @@ export default function PageFestival({
   }, [festivals, keyword, month, price, region, season, sort, status]);
 
   function resetFilters() {
+    setKeywordInput("");
     setKeyword("");
     setRegion("전체 지역");
     setSeason("전체 시기");
@@ -131,6 +133,11 @@ export default function PageFestival({
     setStatus("전체");
     setMonth(null);
     setSort("빠른 개최순");
+  }
+
+  function submitSearch(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setKeyword(keywordInput.trim());
   }
 
   return (
@@ -154,15 +161,19 @@ export default function PageFestival({
                 원하는 조건을 선택해 주세요
               </div>
 
-              <div className="grid gap-3 lg:grid-cols-[1fr_180px_180px_180px_auto]">
+              <form
+                role="search"
+                onSubmit={submitSearch}
+                className="grid gap-3 lg:grid-cols-[1fr_180px_180px_180px_auto_auto]"
+              >
                 <div className="relative">
                   <Search
                     className="absolute top-1/2 left-4 z-10 size-4 -translate-y-1/2 text-slate-400"
                     aria-hidden="true"
                   />
                   <Input
-                    value={keyword}
-                    onChange={(event) => setKeyword(event.target.value)}
+                    value={keywordInput}
+                    onChange={(event) => setKeywordInput(event.target.value)}
                     placeholder="축제명, 지역, 장소 검색"
                     aria-label="축제 검색어"
                     className="h-11! rounded-xl bg-white pr-4 pl-11"
@@ -217,6 +228,11 @@ export default function PageFestival({
                   </SelectContent>
                 </Select>
 
+                <Button type="submit" size="lg" className="h-11! rounded-xl px-5">
+                  <Search className="size-4" aria-hidden="true" />
+                  검색
+                </Button>
+
                 <Button
                   type="button"
                   variant="outline"
@@ -227,7 +243,7 @@ export default function PageFestival({
                   <RotateCcw className="size-4" aria-hidden="true" />
                   초기화
                 </Button>
-              </div>
+              </form>
             </CardContent>
           </Card>
 

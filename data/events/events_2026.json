@@ -6883,5 +6883,199 @@
       "email": null,
       "instagram": null
     }
+  },
+  {
+    "slug": "iksan-ten-million-chrysanthemum-festival-2026",
+    "name": "제23회 익산 천만송이 국화축제",
+    "description": "제23회 익산 천만송이 국화축제는 천만 송이 국화가 익산의 가을을 화려하게 물들이는 대표 꽃축제입니다. 중앙체육공원과 신흥공원 일원에서 대형 국화 조형물과 테마정원, 국화분재 작품을 감상하고 다양한 공연과 체험, 먹거리와 지역 농특산물까지 함께 즐길 수 있어 가을 나들이 명소로 손꼽힙니다.",
+    "info": {
+      "type": "꽃축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://www.iksan.go.kr/gukhwa",
+      "program": "대형 국화 조형물 및 국화작품 전시, 국화 테마정원, 국화분재 작품전시 및 경진대회, 문화예술공연, 체험프로그램, 이벤트, 먹거리관, 판매관, 지역 농특산물 판매",
+      "artist": null,
+      "memo": "2026년 제23회 축제는 중앙체육공원과 신흥공원 일원에서 10일간 개최됩니다. 국화분재연구회원들이 제작한 국화분재 작품 약 200점도 축제장에서 선보일 예정입니다. 2026년 세부 공연과 체험 프로그램 및 운영시간은 공식 홈페이지의 최종 프로그램 발표에 따라 업데이트가 필요합니다."
+    },
+    "event": {
+      "startDate": "2026-10-23",
+      "endDate": "2026-11-01",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "익산시",
+      "venue": "익산 중앙체육공원 및 신흥공원 일원",
+      "naver": "익산 중앙체육공원",
+      "address": "전북특별자치도 익산시 하나로 322",
+      "latitude": 35.9498873,
+      "longitude": 126.9859961
+    },
+    "hosts": {
+      "organizer": "익산시",
+      "manager": "익산시 농업기술센터",
+      "sponsor": null,
+      "phone": "063-859-4977, 063-859-4334",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "chungju-chestnut-festival-2026",
+    "name": "제23회 충주 알밤축제",
+    "description": "제23회 충주 알밤축제는 충주의 대표 임산물인 알밤을 직접 수확하고 맛보며 가을의 풍요로움을 즐기는 가족 체험형 축제입니다. 밤나무밭에서 직접 알밤을 줍는 체험을 비롯해 충주 알밤과 지역 임산물 직판장, 군밤과 밤떡, 밤막걸리, 밤 디저트 등 다양한 먹거리와 가족 참여 프로그램을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "지역특산물축제",
+      "entrance": "축제 관람 무료, 알밤줍기 체험 1가족 20,000원",
+      "park": null,
+      "site": "https://www.facebook.com/GoodChungjuTour/posts/%EC%B6%A9%EC%A3%BC%EC%97%AC%ED%96%89-%EC%B6%A9%EC%A3%BC%EC%B6%95%EC%A0%9C-%EC%B6%A9%EC%A3%BC%EC%95%8C%EB%B0%A4%EC%B6%95%EC%A0%9C%EA%B0%80%EC%9D%84-%ED%95%98%EB%A9%B4-%EC%97%AD%EC%8B%9C-%EC%95%8C%EB%B0%A4%EC%A0%9C23%ED%9A%8C-%EC%B6%A9%EC%A3%BC-%EC%95%8C%EB%B0%A4%EC%B6%95%EC%A0%9C%EA%B0%80-%EB%8F%8C%EC%95%84%EC%98%B5%EB%8B%88%EB%8B%A4%EC%95%8C%EB%B0%A4%EC%A4%8D%EA%B8%B0-%EC%B2%B4%ED%97%98%EB%B6%80%ED%84%B0%EC%B6%A9%EC%A3%BC%EB%B0%A4%EC%9E%84%EC%82%B0%EB%AC%BC-%EC%A7%81%ED%8C%90-%EB%A8%B9%EA%B1%B0%EB%A6%AC-%EC%9E%A5%ED%84%B0%EC%95%8C%EB%B0%A4-%EB%AC%B4%EA%B2%8C-%EB%A7%9E%EC%B6%94%EA%B8%B0/1541441201358910/",
+      "program": "알밤줍기 체험, 충주 알밤·임산물 직판장, 먹거리 장터, 알밤 무게 맞추기, 밤탑 쌓기, 매직 풍선쇼, 마술 공연, 군밤·밤막걸리·밤떡 판매, 밤 마들렌·밤 쿠키 등 청년임업인 디저트 판매",
+      "artist": null,
+      "memo": "알밤줍기 체험은 소태면 오량리 산5 일원에서 진행됩니다. 1가족 4인 기준 참가비는 20,000원이며 직접 수확한 알밤 4kg을 가져갈 수 있습니다. 선착순 500가족을 대상으로 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-03",
+      "endDate": "2026-10-03",
+      "startTime": "10:00",
+      "endTime": "15:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "알밤줍기 체험": 20000
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "충북",
+      "area": "충주시",
+      "venue": "소태초등학교 일원",
+      "naver": "충주 소태초등학교",
+      "address": "충청북도 충주시 소태면 쟁골2길 1",
+      "latitude": 37.111074,
+      "longitude": 127.846713
+    },
+    "hosts": {
+      "organizer": "충주시",
+      "manager": null,
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "jinan-maisan-autumn-flower-festival-2026",
+    "name": "2026 진안고원 마이산 가을꽃 축제",
+    "description": "2026 진안고원 마이산 가을꽃 축제는 아름다운 가을꽃이 만개한 진안고원에서 꽃과 공연, 체험, 지역 먹거리를 함께 즐기는 가을 축제입니다. 형형색색의 가을꽃을 배경으로 빠망과 기념사진을 남기고 지역예술공연과 다양한 게임·체험을 즐기며 진안의 농특산물과 먹거리까지 만나볼 수 있습니다.",
+    "info": {
+      "type": "꽃축제",
+      "entrance": null,
+      "park": null,
+      "site": "https://www.jinan.go.kr/board/view.jinan?boardId=BBS_0000026&dataSid=216100&menuCd=DOM_000000107001001000&paging=ok&startPage=1",
+      "program": "가을꽃 전시, 빠망과 인생사진 한컷, 지역예술공연, 게임 및 체험 프로그램, 농특산물 판매, 먹거리 및 간식 판매",
+      "artist": null,
+      "memo": "가을꽃이 피어나는 진안고원에서 진행되는 가을꽃 축제입니다. 행사장에서는 꽃 관람과 함께 빠망 포토 프로그램, 지역예술공연, 게임과 체험, 농특산물 판매 및 먹거리 부스 등이 운영됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-05",
+      "startTime": "11:00",
+      "endTime": "17:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "진안군",
+      "venue": "진안군농업기술센터 야외행사장",
+      "naver": "진안군농업기술센터",
+      "address": "전북특별자치도 진안군 진안읍 진무로 702-30",
+      "latitude": 35.7619638,
+      "longitude": 127.4371036
+    },
+    "hosts": {
+      "organizer": "진안군",
+      "manager": "진안군농업기술센터 농촌지원과",
+      "sponsor": null,
+      "phone": "063-430-8613",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "gimje-horizon-festival-2026",
+    "name": "제28회 김제지평선축제",
+    "description": "제28회 김제지평선축제는 대한민국 최대 곡창지대인 김제의 드넓은 평야와 벽골제를 배경으로 농경문화를 체험하는 대표 가을축제입니다. 황금빛 지평선을 바라보며 벼 수확과 전통 농경문화를 경험하고, 쌍룡놀이와 횃불 퍼레이드, 공연, 체험, 먹거리 등 김제만의 다채로운 프로그램을 즐길 수 있습니다.",
+    "info": {
+      "type": "문화관광축제",
+      "entrance": "무료",
+      "park": "축제장 주변 임시주차장 및 셔틀버스 운영 예정",
+      "site": "https://www.gimje.go.kr/festival/index.gimje",
+      "program": "벽골제 쌍룡놀이, 지평선 횃불 퍼레이드, 농경문화 체험, 벼 수확 체험, 전통놀이, 지평선 쿠킹클래스, 지역 농특산물 판매, 먹거리 프로그램, 문화예술공연, 야간 경관 프로그램",
+      "artist": null,
+      "memo": "2026년 제28회 김제지평선축제는 벽골제 일원에서 5일간 개최됩니다. 김제의 농경문화와 황금빛 지평선을 중심으로 전통 농경체험, 공연, 퍼레이드, 야간 프로그램 등이 운영될 예정입니다. 세부 프로그램별 시간과 공연 출연진은 공식 최종 일정에 따라 업데이트가 필요합니다."
+    },
+    "event": {
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-11",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": null
+    },
+    "location": {
+      "country": "KR",
+      "region": "전북",
+      "area": "김제시",
+      "venue": "김제 벽골제 일원",
+      "naver": "김제 벽골제",
+      "address": "전북특별자치도 김제시 부량면 벽골제로 442",
+      "latitude": 35.7553583,
+      "longitude": 126.8535126
+    },
+    "hosts": {
+      "organizer": "김제시",
+      "manager": "김제지평선축제제전위원회",
+      "sponsor": null,
+      "phone": "063-540-3031",
+      "email": null,
+      "instagram": null
+    }
   }
 ]
