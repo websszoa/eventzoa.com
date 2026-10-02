@@ -11,7 +11,10 @@ export {
   notificationCategoryLabels,
   type NotificationCategory,
 } from "@/lib/notifications-shared";
-import { notificationCategories } from "@/lib/notifications-shared";
+import {
+  notificationCategories,
+  type NotificationCategory,
+} from "@/lib/notifications-shared";
 
 const frontmatterSchema = z.object({
   title: z.string().min(1),
@@ -19,6 +22,8 @@ const frontmatterSchema = z.object({
   excerpt: z.string().min(1),
   publishedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
   featured: z.boolean().optional().default(false),
+  image: z.string().startsWith("/").optional(),
+  keywords: z.array(z.string().min(1)).optional().default([]),
 });
 
 export type NotificationPost = z.infer<typeof frontmatterSchema> & {
@@ -26,6 +31,20 @@ export type NotificationPost = z.infer<typeof frontmatterSchema> & {
   readingTime: string;
   source: string;
 };
+
+export function getNotificationCategoryPath(category: NotificationCategory) {
+  if (category === "festival") return "/blog";
+  if (category === "newsletter") return "/newsletter";
+  return `/notifications?category=${category}`;
+}
+
+export function getNotificationPostPath(post: NotificationPost) {
+  const categoryPath = getNotificationCategoryPath(post.category);
+  if (post.category === "festival" || post.category === "newsletter") {
+    return `${categoryPath}/${post.slug}`;
+  }
+  return `${categoryPath}&post=${post.slug}`;
+}
 
 const notificationsDirectory = path.join(
   process.cwd(),

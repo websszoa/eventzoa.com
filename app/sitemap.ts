@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { APP_IMAGE_URL, APP_SITE_URL } from "@/lib/constants";
 import { uniqueFestivals } from "@/lib/festival-data.server";
-import { getNotificationPosts } from "@/lib/notifications";
+import { getNotificationPostPath, getNotificationPosts } from "@/lib/notifications";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages = [
@@ -12,6 +12,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/calendar", changeFrequency: "daily" as const, priority: 0.8 },
     { path: "/map", changeFrequency: "weekly" as const, priority: 0.7 },
     { path: "/notifications", changeFrequency: "weekly" as const, priority: 0.7 },
+    { path: "/blog", changeFrequency: "weekly" as const, priority: 0.8 },
+    { path: "/newsletter", changeFrequency: "weekly" as const, priority: 0.7 },
     { path: "/about", changeFrequency: "monthly" as const, priority: 0.5 },
     { path: "/contact", changeFrequency: "monthly" as const, priority: 0.4 },
     { path: "/terms", changeFrequency: "yearly" as const, priority: 0.2 },
@@ -29,10 +31,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
   const posts = await getNotificationPosts();
   const notificationPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${APP_SITE_URL}/notifications?category=${post.category}&post=${post.slug}`,
+    url: `${APP_SITE_URL}${getNotificationPostPath(post)}`,
     lastModified: post.publishedAt,
     changeFrequency: "monthly",
     priority: 0.6,
+    ...(post.image ? { images: [`${APP_SITE_URL}${post.image}`] } : {}),
   }));
 
   return [...staticPages, ...festivalPages, ...notificationPages];

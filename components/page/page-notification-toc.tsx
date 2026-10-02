@@ -22,9 +22,11 @@ const categoryDetails = {
 export default function NotificationToc({
   category,
   headings,
+  backHref,
 }: {
   category: NotificationCategory;
   headings: Array<{ id: string; title: string }>;
+  backHref?: string;
 }) {
   const [activeHeading, setActiveHeading] = useState(headings[0]?.id ?? "");
   const { icon: Icon, description } = categoryDetails[category];
@@ -70,7 +72,7 @@ export default function NotificationToc({
         </h2>
       </div>
       <Link
-        href={`/notifications?category=${category}`}
+        href={backHref ?? `/notifications?category=${category}`}
         className="block rounded-2xl border border-blue-300 bg-blue-50 p-5"
       >
         <div className="flex items-start gap-4">
@@ -96,19 +98,20 @@ export default function NotificationToc({
           <ol className="mt-5 border-l border-slate-200 py-0.5">
             {headings.map((heading) => {
               const isActive = activeHeading === heading.id;
+              const shortTitle = heading.title.split(/[:：]/, 1)[0].trim();
               return (
                 <li
                   key={heading.id}
-                  className={`relative before:absolute before:top-0 before:-left-px before:h-full before:w-0.75 before:bg-blue-500 before:transition-opacity ${isActive ? "before:opacity-100" : "before:opacity-0"}`}
+                  className={`relative min-w-0 before:absolute before:top-0 before:-left-px before:h-full before:w-0.75 before:bg-blue-500 before:transition-opacity ${isActive ? "before:opacity-100" : "before:opacity-0"}`}
                 >
                   <a
                     href={`#${heading.id}`}
                     title={heading.title}
                     aria-current={isActive ? "location" : undefined}
                     onClick={() => setActiveHeading(heading.id)}
-                    className={`block break-keep py-1.5 pl-4 text-sm leading-6 transition-colors hover:text-blue-600 ${isActive ? "font-bold text-blue-600" : "text-slate-500"}`}
+                    className={`block truncate py-1.5 pl-4 text-sm leading-6 transition-colors hover:text-blue-600 ${isActive ? "font-bold text-blue-600" : "text-slate-500"}`}
                   >
-                    {heading.title}
+                    {shortTitle}
                   </a>
                 </li>
               );

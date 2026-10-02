@@ -39,10 +39,10 @@ export const footerMenu = [
   {
     title: "알림",
     links: [
-      { label: "축제소식", href: "/notifications?category=festival" },
+      { label: "블로그", href: "/blog" },
       { label: "공지사항", href: "/notifications?category=notice" },
       { label: "업데이트", href: "/notifications?category=update" },
-      { label: "뉴스레터", href: "/notifications?category=newsletter" },
+      { label: "뉴스레터", href: "/newsletter" },
     ],
   },
   {

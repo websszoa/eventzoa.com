@@ -9,6 +9,7 @@ type PageMetadataOptions = {
   type?: "website" | "article";
   image?: string;
   publishedTime?: string;
+  keywords?: string[];
 };
 
 export function createPageMetadata({
@@ -18,10 +19,12 @@ export function createPageMetadata({
   type = "website",
   image = "/images/eventzoa-og.webp",
   publishedTime,
+  keywords,
 }: PageMetadataOptions): Metadata {
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: path },
     openGraph: {
       type,

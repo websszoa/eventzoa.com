@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   images: {
     remotePatterns: [
       {
@@ -15,6 +16,10 @@ const nextConfig: NextConfig = {
       },
       {
         pathname: "/icons/**",
+        search: "",
+      },
+      {
+        pathname: "/images/**",
         search: "",
       },
     ],
