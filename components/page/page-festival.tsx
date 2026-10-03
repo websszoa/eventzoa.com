@@ -29,6 +29,7 @@ import {
 
 import PageFestivalImage from "@/components/page/page-festival-image";
 import PageTitle from "@/components/page/page-title";
+import { normalizeSearchText } from "@/lib/search";
 
 export type FestivalListItem = {
   slug: string;
@@ -83,21 +84,21 @@ export default function PageFestival({
   );
 
   const filteredFestivals = useMemo(() => {
-    const normalizedKeyword = keyword.trim().toLowerCase();
+    const normalizedKeyword = normalizeSearchText(keyword);
 
     return festivals
       .filter((festival) => {
-        const matchesKeyword =
-          normalizedKeyword.length === 0 ||
+        const searchableText = normalizeSearchText(
           [
             festival.title,
             festival.description,
             festival.region,
             festival.place,
-          ]
-            .join(" ")
-            .toLowerCase()
-            .includes(normalizedKeyword);
+          ].join(" "),
+        );
+        const matchesKeyword =
+          normalizedKeyword.length === 0 ||
+          searchableText.includes(normalizedKeyword);
         const matchesRegion =
           region === "전체 지역" || festival.region === region;
         const matchesSeason =

@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { normalizeSearchText } from "@/lib/search";
 
 export type MapFestival = {
   slug: string;
@@ -108,13 +109,13 @@ export default function PageMap({
     [festivals],
   );
   const filteredFestivals = useMemo(() => {
-    const query = keyword.trim().toLocaleLowerCase("ko-KR");
+    const query = normalizeSearchText(keyword);
     const filtered = festivals.filter(
       (festival) =>
         (region === "전체" || festival.region === region) &&
         (!query ||
-          festival.title.toLocaleLowerCase("ko-KR").includes(query) ||
-          festival.venue.toLocaleLowerCase("ko-KR").includes(query)),
+          normalizeSearchText(festival.title).includes(query) ||
+          normalizeSearchText(festival.venue).includes(query)),
     );
 
     if (!currentLocation) return filtered;

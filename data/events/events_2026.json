@@ -8187,5 +8187,212 @@
       "email": null,
       "instagram": null
     }
+  },
+  {
+    "slug": "yesan-market-samguk-festival-2026",
+    "name": "제10회 예산장터 삼국축제",
+    "description": "제10회 예산장터 삼국축제는 예산을 대표하는 국밥·국수·국화를 한자리에서 즐기는 가을 먹거리축제입니다. 올해는 삼국축제 10년과 예산시장 100년을 기념해 ‘끝나지 않는 이야기’를 주제로 열리며, 예산의 풍성한 먹거리와 국화 전시, 지역 농특산물, 공연, 체험 프로그램을 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "미식·전통시장·문화축제",
+      "entrance": "무료 (먹거리 등 개별 구매)",
+      "park": null,
+      "site": "https://blog.naver.com/samgukfestival",
+      "program": "삼국 버킷리스트, 삼cook 페스타, 새참극장, 삼국의 색, 예산춤꾼 페스티벌, 국화 전시, 국화분재 전시, 포토존, 지역 먹거리 및 농특산물 판매",
+      "artist": null,
+      "memo": "2026년은 예산장터 삼국축제 10년과 예산시장 100년을 함께 기념하는 해입니다. ‘끝나지 않는 이야기’를 주제로 ‘예산장터! 우리들의 이야기는 계속된다’라는 슬로건과 함께 진행됩니다. 국밥·국수·국화를 중심으로 예산의 먹거리와 문화를 선보이며, 올해 국화 전시에는 약 2만 점의 국화와 약 200점의 국화분재, 10주년 기념 신규 조형물 등이 마련될 예정입니다."
+    },
+    "event": {
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-25",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "축제 입장": "무료",
+        "먹거리": "현장 개별 구매"
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "충남",
+      "area": "예산군 예산읍",
+      "venue": "예산상설시장 일원",
+      "naver": "예산상설시장",
+      "address": "충청남도 예산군 예산읍 예산시장길 2",
+      "latitude": 36.6770061,
+      "longitude": 126.8496565
+    },
+    "hosts": {
+      "organizer": "예산군",
+      "manager": "예산군개발위원회",
+      "sponsor": null,
+      "phone": "041-339-7316~8",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "yeoncheon-korean-ginseng-festival-2026",
+    "name": "제8회 연천 고려인삼축제",
+    "description": "제8회 연천 고려인삼축제는 6년근 인삼 재배의 최적지로 알려진 연천에서 지역 고려인삼의 우수성을 알리는 농특산물 축제입니다. 연천에서 생산된 인삼과 다양한 가공품을 생산 농가와 소비자가 직접 만나는 직거래장터를 중심으로 인삼 경매, 먹거리장터, 주민 참여 체험과 공연까지 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "농특산물·미식축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.yeoncheon.go.kr/tour/contents.do?key=4949",
+      "program": "연천 고려인삼 직거래장터, 인삼 가공품 판매, 연천 농특산물 판매, 먹거리장터, 인삼 경매, 고려인삼 OX 퀴즈, 룰렛 이벤트, 1인 줄다리기, 팔씨름, 훌라후프 대회, 운동화 과녁 맞히기, 주민 장기자랑, 지역 예술단 공연, 초대가수 축하공연",
+      "artist": null,
+      "memo": "‘자연이 빚은 건강한 힘, 연천인삼’을 내세운 제8회 축제입니다. 북위 38도에 위치한 연천은 기후와 토질 등 인삼 생육환경이 뛰어난 6년근 인삼 생산지로 알려져 있습니다. 군남면·장남면·전곡읍·백학면·미산면·왕징면 등의 생산 농가와 인삼 관련 단체가 참여해 고려인삼과 가공품을 판매합니다."
+    },
+    "event": {
+      "startDate": "2026-10-02",
+      "endDate": "2026-10-04",
+      "startTime": "10:00",
+      "endTime": "17:00",
+      "schedule": {
+        "2026-10-03": {
+          "14:00": ["개막식"]
+        }
+      }
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "축제 입장": "무료",
+        "인삼 및 농특산물": "현장 개별 구매",
+        "먹거리": "현장 개별 구매"
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "연천군 연천읍",
+      "venue": "연천역 앞 광장 일원",
+      "naver": "연천역",
+      "address": "경기도 연천군 연천읍 연천로 273-7",
+      "latitude": 38.1011007,
+      "longitude": 127.0751805
+    },
+    "hosts": {
+      "organizer": "연천군인삼연구회",
+      "manager": "연천군인삼연구회",
+      "sponsor": "연천군, 개성인삼농협",
+      "phone": "031-839-2314",
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "ansan-festa-2026",
+    "name": "안산페스타 2026",
+    "description": "안산페스타 2026은 안산을 대표하는 다양한 축제와 행사를 한자리에서 만나는 가을 통합축제입니다. 김홍도축제를 중심으로 음식문화, 평생학습, 도시농업, 장애인복지, 주민자치, 전통씨름까지 총 7개 행사가 연계되며 공연과 체험, 먹거리, 플리마켓 등 다양한 콘텐츠를 함께 즐길 수 있습니다.",
+    "info": {
+      "type": "문화·예술·지역통합축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.ansan.go.kr/www/common/cntnts/selectContents.do?cntnts_id=www01757",
+      "program": "제7회 김홍도축제, 안산시장배 단원김홍도 씨름대회, 평생학습한마당, 안산음식문화제, 장애인복지박람회, 도시농업어울림한마당, 주민자치 with 마을공동체 박람회, 개막식, 폐막식, 공연, 체험 프로그램, 플리마켓, 푸드트럭",
+      "artist": null,
+      "memo": "‘하나로 모인 즐거움, 커지는 지역경제!’를 슬로건으로 열리는 안산의 대표 가을 통합축제입니다. 2024년 시작해 2026년 3회째를 맞으며, 올해는 김홍도축제를 비롯한 총 7개 축제·행사를 연계해 관람객이 한 공간에서 다양한 문화·예술·먹거리·체험 콘텐츠를 즐길 수 있도록 구성됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-25",
+      "startTime": null,
+      "endTime": null,
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "축제 입장": "무료"
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "경기",
+      "area": "안산시 단원구",
+      "venue": "화랑유원지 및 안산문화예술의전당 일원",
+      "naver": "안산 화랑유원지",
+      "address": "경기도 안산시 단원구 동산로 270",
+      "latitude": 37.326744,
+      "longitude": 126.8124387
+    },
+    "hosts": {
+      "organizer": "안산시",
+      "manager": null,
+      "sponsor": null,
+      "phone": null,
+      "email": null,
+      "instagram": null
+    }
+  },
+  {
+    "slug": "naju-yeongsangang-festival-2026",
+    "name": "2026 나주영산강축제",
+    "description": "2026 나주영산강축제는 드넓은 영산강과 아름다운 영산강정원을 배경으로 펼쳐지는 나주의 대표 가을축제입니다. 낮에는 가족 체험과 나주의 역사·문화·미식을 즐기고, 밤에는 드론라이트쇼와 불꽃쇼, 워터쇼, 공연과 야간경관이 이어져 영산강의 매력을 낮부터 밤까지 다채롭게 만날 수 있습니다.",
+    "info": {
+      "type": "문화·관광·가족축제",
+      "entrance": "무료",
+      "park": null,
+      "site": "https://www.naju.go.kr/tour/festival/river",
+      "program": "개막식, 드론라이트쇼&불꽃쇼, 개막축하공연, 뮤지컬 드라마틱쇼, 영산강 리버웨이브 워터쇼, 문라이트 심포니, 폐막식&불꽃쇼, 영산강 주제관, 보드게임 나들이, 키자니아 in 나주, 영산강 미식관, 나주농업페스타, 영산강 가족정원 페스티벌, 티니핑 싱어롱쇼, 핑크퐁 싱어롱쇼, 푸드 오케스트라, 나주목사 행차 행렬, 천연염색 패션쇼, 행운복권 이벤트",
+      "artist": null,
+      "memo": "영산강정원을 중심으로 공연·체험·미식·야간경관을 함께 즐기는 나주의 대표 가을축제입니다. 개막공연 ‘왕후, 장화’, 영산강 별빛 소원배 띄우기, 가족 마술 콘서트, 벌룬·버블·매직쇼 등도 마련되며 가족 단위 체험 콘텐츠가 강화됩니다."
+    },
+    "event": {
+      "startDate": "2026-10-07",
+      "endDate": "2026-10-11",
+      "startTime": "11:00",
+      "endTime": "21:00",
+      "schedule": null
+    },
+    "registration": {
+      "startDate": null,
+      "endDate": null,
+      "startTime": null,
+      "endTime": null,
+      "site": null,
+      "status": null,
+      "price": {
+        "축제 입장": "무료"
+      }
+    },
+    "location": {
+      "country": "KR",
+      "region": "전남",
+      "area": "나주시 영산동",
+      "venue": "영산강정원",
+      "naver": "나주 영산강정원",
+      "address": "전라남도 나주시 영산동 757-1",
+      "latitude": 35.0010864,
+      "longitude": 126.7223385
+    },
+    "hosts": {
+      "organizer": "나주시",
+      "manager": "나주영산강축제추진위원회",
+      "sponsor": null,
+      "phone": "061-339-8594",
+      "email": null,
+      "instagram": null
+    }
   }
 ]

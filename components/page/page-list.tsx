@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 import PageTitle from "@/components/page/page-title";
+import { normalizeSearchText } from "@/lib/search";
 
 const seasons = ["전체 시기", "봄", "여름", "가을", "겨울"];
 const prices = ["전체 가격", "무료", "유료"];
@@ -62,15 +63,15 @@ export default function PageList({ events }: { events: EventListItem[] }) {
     [events],
   );
   const filteredEvents = useMemo(() => {
-    const normalizedKeyword = keyword.trim().toLowerCase();
+    const normalizedKeyword = normalizeSearchText(keyword);
 
     return events.filter((event) => {
+      const searchableText = normalizeSearchText(
+        [event.title, event.description, event.region, event.place].join(" "),
+      );
       const matchesKeyword =
         normalizedKeyword.length === 0 ||
-        [event.title, event.description, event.region, event.place]
-          .join(" ")
-          .toLowerCase()
-          .includes(normalizedKeyword);
+        searchableText.includes(normalizedKeyword);
       const matchesRegion = region === "전체 지역" || event.region === region;
       const matchesSeason = season === "전체 시기" || event.season === season;
       const matchesPrice = price === "전체 가격" || event.priceType === price;
