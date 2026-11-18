@@ -1,0 +1,31 @@
+# EventZoa (이벤트조아)
+
+> 대한민국 전국 축제와 행사 정보를 날짜, 지역, 지도, 캘린더 기준으로 탐색할 수 있는 한국어 정보 서비스입니다.
+
+Canonical site: https://www.eventzoa.com
+Language: ko-KR
+
+## Core pages
+
+- /festivals: 전국 축제 검색과 필터
+- /list: 전국 축제 목록
+- /calendar: 날짜별 축제 캘린더
+- /map: 위치 기반 전국 축제 지도
+- /notifications: 축제 소식, 공지사항, 뉴스레터
+- /about: 서비스 소개와 정보 운영 원칙
+- /contact: 행사 등록, 정보 수정, 오류 신고 문의
+
+## Festival detail pages
+
+Festival detail URLs use `/festivals/{slug}`. Each page provides the festival name, description, dates, operating hours, venue, address, admission information, parking, programs, organizer, contact information, map link, and official website when available.
+
+## Content policy
+
+- Festival information is organized from publicly available and organizer-provided information.
+- Visitors should confirm time-sensitive details on the linked official festival website before visiting.
+- Corrections can be requested through `/contact?type=correction`.
+
+## Crawling
+
+- Sitemap: /sitemap.xml
+- Robots: /robots.txt
