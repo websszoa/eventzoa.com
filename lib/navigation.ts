@@ -8,6 +8,7 @@ import {
   Mail,
   MapIcon,
   MapPin,
+  MailCheck,
   MapPinned,
   Megaphone,
   MessagesSquare,
@@ -53,6 +54,7 @@ export const supportMenu = [
 export const adminMenu = [
   { label: "회원 관리", href: "/admin/members", icon: UsersRound },
   { label: "문의 관리", href: "/admin/inquiries", icon: MessagesSquare },
+  { label: "구독 관리", href: "/admin/newsletters", icon: MailCheck },
 ];
 
 export const socialLinks = [

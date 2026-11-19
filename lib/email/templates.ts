@@ -86,3 +86,50 @@ export function inquiryReplyEmailTemplate({
       `<p style="margin:8px 0 0;padding-top:20px;border-top:1px solid #e2e8f0;color:#64748b;font-size:12px;line-height:1.7">추가 문의가 있다면 이 메일에 답장해 주세요.</p>`,
   );
 }
+
+export function newNewsletterSubscriberEmailTemplate({
+  email,
+  age,
+  acquisitionSource,
+  contentPreference,
+  subscriptionSource,
+  subscribedAt,
+}: {
+  email: string;
+  age: string;
+  acquisitionSource: string;
+  contentPreference: string;
+  subscriptionSource: string;
+  subscribedAt: string;
+}) {
+  return layout(
+    "새로운 뉴스레터 구독자가 생겼어요",
+    "이벤트조아 뉴스레터 구독 알림입니다.",
+    row("이메일", email) +
+      row("나이대", age) +
+      row("알게 된 경로", acquisitionSource) +
+      (contentPreference ? row("받고 싶은 정보", contentPreference) : "") +
+      row("신청 위치", subscriptionSource) +
+      row("구독 일시", subscribedAt),
+  );
+}
+
+export function newsletterWelcomeEmailTemplate({
+  email,
+  subscribedAt,
+  siteUrl,
+}: {
+  email: string;
+  subscribedAt: string;
+  siteUrl: string;
+}) {
+  return layout(
+    "뉴스레터 구독이 완료됐어요!",
+    "설레는 축제 소식을 정성껏 모아 보내드릴게요.",
+    `<p style="margin:0 0 24px;color:#334155;font-size:14px;line-height:1.8">새로운 축제 일정, 개최 임박 소식, 계절별 추천 축제를 필요한 만큼 가볍게 전해드립니다.</p>` +
+      row("이메일", email) +
+      row("구독 일시", subscribedAt) +
+      `<div style="margin:28px 0 8px;text-align:center"><a href="${escapeHtml(siteUrl)}" style="display:inline-block;padding:12px 24px;border-radius:9999px;background:#2563eb;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none">이벤트조아 둘러보기</a></div>` +
+      `<p style="margin:20px 0 0;padding-top:20px;border-top:1px solid #e2e8f0;color:#64748b;font-size:12px;line-height:1.7">뉴스레터 구독 신청을 완료하여 발송된 메일입니다. 구독을 취소하려면 이 메일에 답장해 주세요.</p>`,
+  );
+}

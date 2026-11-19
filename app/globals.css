@@ -182,7 +182,9 @@
   opacity: 0;
   pointer-events: none;
   transform: translate(-50%, 4px);
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition:
+    opacity 150ms ease,
+    transform 150ms ease;
 }
 
 .eventzoa-festival-marker-tooltip::after {
@@ -250,6 +252,19 @@
   }
 }
 
+@keyframes main-theme-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.main-theme-marquee {
+  animation: main-theme-marquee 40s linear infinite;
+}
+
 .festival-hero-orb-one {
   animation: festival-hero-float-one 8s ease-in-out infinite;
 }
@@ -269,11 +284,104 @@
   animation: festival-hero-reveal 650ms ease-out forwards;
 }
 
+/* 뉴스레터 구독 완료: 편지 도착 애니메이션 */
+@keyframes newsletter-success-mail {
+  0% {
+    opacity: 0;
+    transform: translate(-38px, 16px) rotate(-10deg) scale(0.72);
+  }
+  38% {
+    opacity: 1;
+    transform: translate(4px, -5px) rotate(3deg) scale(1.04);
+  }
+  55% {
+    transform: translate(0, 1px) rotate(-1deg) scale(0.98);
+  }
+  72%,
+  100% {
+    opacity: 1;
+    transform: translate(0) rotate(0) scale(1);
+  }
+}
+
+@keyframes newsletter-success-twinkle {
+  0%,
+  30% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-20deg);
+  }
+  48% {
+    opacity: 1;
+    transform: scale(1.15) rotate(8deg);
+  }
+  68%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes newsletter-success-cloud {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(7px);
+  }
+}
+
+.newsletter-success-mail {
+  animation: newsletter-success-mail 2.8s cubic-bezier(0.22, 1, 0.36, 1)
+    infinite;
+}
+
+.newsletter-success-spark {
+  animation: newsletter-success-twinkle 2.8s ease-out infinite;
+}
+
+.newsletter-success-spark--two {
+  animation-delay: 0.14s;
+}
+
+.newsletter-success-cloud {
+  animation: newsletter-success-cloud 3.4s ease-in-out infinite;
+}
+
+.newsletter-success-cloud::before,
+.newsletter-success-cloud::after {
+  position: absolute;
+  bottom: 0;
+  border-radius: 9999px;
+  background: inherit;
+  content: "";
+}
+
+.newsletter-success-cloud::before {
+  left: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.newsletter-success-cloud::after {
+  right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.newsletter-success-cloud--right {
+  animation-delay: -1.1s;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .festival-hero-orb-one,
   .festival-hero-orb-two,
   .festival-confetti,
-  .festival-hero-reveal {
+  .festival-hero-reveal,
+  .main-theme-marquee,
+  .newsletter-success-mail,
+  .newsletter-success-spark,
+  .newsletter-success-cloud {
     animation: none;
   }
 

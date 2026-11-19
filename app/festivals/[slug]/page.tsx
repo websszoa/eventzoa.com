@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { connection } from "next/server";
 import { Badge } from "@/components/ui/badge";
 import PageFestivalHeroConfetti from "@/components/page/page-festival-hero-confetti";
 import PageFestivalImage from "@/components/page/page-festival-image";
 import PageFestivalLocationMap from "@/components/page/page-festival-location-map";
 import PageFestivalOrganizer from "@/components/page/page-festival-organizer";
+import PageRelatedFestivals from "@/components/page/page-related-festivals";
 import {
   CalendarClock,
   CalendarDays,
@@ -23,11 +23,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import {
-  APP_INSTAGRAM_URL,
-  APP_NAME,
-  APP_SITE_URL,
-} from "@/lib/constants";
+import { APP_INSTAGRAM_URL, APP_SITE_URL } from "@/lib/constants";
 import {
   formatEventInfoValue,
   getEventInfoType,
@@ -36,10 +32,7 @@ import {
   getStringProperty,
 } from "@/lib/event-data";
 import { getEventCoverPath } from "@/lib/event-image.server";
-import {
-  festivalSlugs,
-  getFestivalBySlug,
-} from "@/lib/festival-data.server";
+import { festivalSlugs, getFestivalBySlug } from "@/lib/festival-data.server";
 import { createPageMetadata } from "@/lib/seo";
 
 type FestivalPageProps = {
@@ -142,10 +135,7 @@ function getRegistrationStatus(
   }).format(now);
   const currentDateTime = `${currentDate} ${currentTime}`;
 
-  if (
-    startDate &&
-    currentDateTime < `${startDate} ${startTime || "00:00"}`
-  ) {
+  if (startDate && currentDateTime < `${startDate} ${startTime || "00:00"}`) {
     return "판매대기";
   }
 
@@ -184,6 +174,9 @@ function getDDay(startDate: string | null) {
   return difference > 0 ? `D-${difference}` : `D+${Math.abs(difference)}`;
 }
 
+// 빌드 때 만든 주소만 허용한다. 없는 주소는 200 빈 페이지 대신 진짜 404를 돌려준다.
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return festivalSlugs.map((slug) => ({ slug }));
 }
@@ -196,9 +189,21 @@ export async function generateMetadata({
 
   if (!festival) return { title: "축제를 찾을 수 없습니다" };
 
+  // 검색어와 맞도록 제목에 '일정·장소·주차'를, 설명 앞에 날짜·장소를 넣는다.
+  const { startDate, endDate } = festival.event;
+  const date =
+    startDate && endDate && startDate !== endDate
+      ? `${formatDate(startDate)} – ${formatDate(endDate)}`
+      : formatDate(startDate);
+  const summary = [date, festival.location.venue].filter(Boolean).join(" · ");
+  const description = `${summary}. ${festival.description}`;
+
   return createPageMetadata({
-    title: festival.name,
-    description: festival.description,
+    title: `${festival.name} 일정·장소·주차 정보`,
+    description:
+      description.length > 155
+        ? `${description.slice(0, 154).trimEnd()}…`
+        : description,
     path: `/festivals/${festival.slug}`,
     type: "article",
     // 커버 이미지는 webp 외에 jpg/png도 있으므로 실제 파일 경로를 사용한다.
@@ -209,8 +214,6 @@ export async function generateMetadata({
 export default async function FestivalDetailPage({
   params,
 }: FestivalPageProps) {
-  await connection();
-
   const { slug } = await params;
   const festival = getFestivalBySlug(slug);
 
@@ -248,7 +251,8 @@ export default async function FestivalDetailPage({
   const country = festival.location.country?.trim().toUpperCase();
   const googleMapQuery =
     country && country !== "KR"
-      ? festival.location.latitude !== null && festival.location.longitude !== null
+      ? festival.location.latitude !== null &&
+        festival.location.longitude !== null
         ? `${festival.location.latitude},${festival.location.longitude}`
         : festival.location.address ||
           [festival.location.venue, festival.location.area, country]
@@ -354,10 +358,9 @@ export default async function FestivalDetailPage({
   ];
 
   const detailUrl = `${APP_SITE_URL}/festivals/${festival.slug}`;
-  const eventSchema = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
+  // 일정이 없으면 Event 구조화 데이터가 무효가 되므로 넣지 않는다.
+  const eventNode = startDate
+    ? {
         "@type": "Event",
         "@id": `${detailUrl}/#event`,
         name: festival.name,
@@ -389,9 +392,18 @@ export default async function FestivalDetailPage({
               }
             : {}),
         },
-        organizer: festival.hosts.organizer
-          ? { "@type": "Organization", name: festival.hosts.organizer }
-          : { "@type": "Organization", name: APP_NAME },
+        // 주최 정보가 없을 때 이벤트조아를 주최자로 넣으면 사실과 달라지므로 생략한다.
+        ...(festival.hosts.organizer
+          ? {
+              organizer: {
+                "@type": "Organization",
+                name: festival.hosts.organizer,
+              },
+            }
+          : {}),
+        ...(artist
+          ? { performer: { "@type": "PerformingGroup", name: artist } }
+          : {}),
         url: detailUrl,
         sameAs: site || undefined,
         ...(entrance === "무료"
@@ -405,7 +417,12 @@ export default async function FestivalDetailPage({
               },
             }
           : {}),
-      },
+      }
+    : null;
+  const eventSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      ...(eventNode ? [eventNode] : []),
       {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -746,6 +763,7 @@ export default async function FestivalDetailPage({
           </aside>
         </div>
       </section>
+      <PageRelatedFestivals festival={festival} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, CircleHelp, Inbox, ListChecks } from "lucide-react";
 
 import AdminInquiryDialog, { type AdminInquiryDialogData } from "@/components/dialog/admin-inquiry-dialog";
+import PageAdminNav from "@/components/page/page-admin-nav";
 import { requireAdmin } from "@/lib/admin";
 import {
   inquiryTypeLabels,
@@ -63,6 +64,7 @@ export default async function AdminInquiriesPage({
             <p className="mt-3 text-sm leading-6 text-slate-500">
               접수된 문의를 확인하고 처리 상태를 관리합니다.
             </p>
+            <PageAdminNav activeHref="/admin/inquiries" />
           </div>
         </div>
 

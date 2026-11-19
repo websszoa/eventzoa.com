@@ -51,6 +51,10 @@ const anyvid = localFont({
 
 const keywords = APP_KEYWORDS.split(",").map((keyword) => keyword.trim());
 
+// 축제 상태·D-day·오늘 행사 수가 날짜에 따라 바뀌므로 페이지를 1시간마다 다시 만든다.
+// (로그인·관리자 페이지처럼 쿠키를 읽는 페이지는 자동으로 매 요청 렌더링된다.)
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
   metadataBase: new URL(APP_SITE_URL),
   title: {
@@ -175,7 +179,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <PageFooter />
-        <Toaster theme="light" position="top-center" />
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            classNames: {
+              title: "font-anyvid",
+              description: "font-anyvid",
+            },
+            style: { boxShadow: "none" },
+          }}
+        />
         <PageAuthToast />
         <script
           type="application/ld+json"

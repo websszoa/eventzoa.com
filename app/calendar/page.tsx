@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { connection } from "next/server";
 
 import { APP_NAME } from "@/lib/constants";
 import { getEventInfoType } from "@/lib/event-data";
@@ -18,8 +17,6 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default async function CalendarPage() {
-  await connection();
-
   const festivals: CalendarFestival[] = events.flatMap((event) => {
     const startDate = event.event.startDate;
 

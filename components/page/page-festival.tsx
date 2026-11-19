@@ -149,6 +149,7 @@ export default function PageFestival({
           [
             festival.title,
             festival.description,
+            festival.type,
             festival.region,
             festival.place,
           ].join(" "),

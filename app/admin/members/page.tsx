@@ -4,6 +4,7 @@ import { ShieldCheck, UserCheck, UsersRound } from "lucide-react";
 import AdminMemberDialog, {
   type AdminMemberDialogData,
 } from "@/components/dialog/admin-member-dialog";
+import PageAdminNav from "@/components/page/page-admin-nav";
 import { requireAdmin } from "@/lib/admin";
 import { createAdminClient } from "@/lib/supabase/admin";
 
@@ -46,6 +47,7 @@ export default async function AdminMembersPage() {
             <p className="mt-3 text-sm leading-6 text-slate-500">
               가입 회원과 계정 상태를 확인하고 관리합니다.
             </p>
+            <PageAdminNav activeHref="/admin/members" />
           </div>
         </div>
 

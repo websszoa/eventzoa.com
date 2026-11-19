@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import type { User } from "@supabase/supabase-js";
 import { toast } from "sonner";
 import {
   ChevronRight,
@@ -42,11 +43,67 @@ export type HeaderMember = {
   role: "user" | "admin";
 };
 
-export default function PageHeaderSheet({
-  member,
-}: {
-  member: HeaderMember | null;
-}) {
+async function loadHeaderMember(user: User): Promise<HeaderMember> {
+  const { data: profile } = await createClient()
+    .from("profiles")
+    .select("display_name, avatar_url, visit_count, role")
+    .eq("id", user.id)
+    .maybeSingle();
+  const metadata = user.user_metadata;
+
+  return {
+    name:
+      profile?.display_name ||
+      metadata.full_name ||
+      metadata.name ||
+      user.email?.split("@")[0] ||
+      "회원",
+    avatarUrl:
+      profile?.avatar_url || metadata.avatar_url || metadata.picture || null,
+    visitCount: profile?.visit_count ?? 1,
+    role: profile?.role === "admin" ? "admin" : "user",
+  };
+}
+
+// 로그인 정보는 브라우저에서 불러온다.
+// 서버에서 쿠키를 읽으면 모든 페이지가 매 요청마다 새로 렌더링되어 캐시할 수 없기 때문이다.
+function useHeaderMember() {
+  const [member, setMember] = useState<HeaderMember | null>(null);
+
+  useEffect(() => {
+    const supabase = createClient();
+    let active = true;
+
+    async function sync(user: User | null) {
+      const next = user ? await loadHeaderMember(user) : null;
+      if (active) setMember(next);
+    }
+
+    void supabase.auth.getUser().then(({ data: { user } }) => sync(user));
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (
+        event === "SIGNED_IN" ||
+        event === "SIGNED_OUT" ||
+        event === "USER_UPDATED"
+      ) {
+        // 콜백 안에서 Supabase를 바로 호출하면 교착될 수 있어 다음 틱으로 미룬다.
+        setTimeout(() => void sync(session?.user ?? null), 0);
+      }
+    });
+
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, []);
+
+  return member;
+}
+
+export default function PageHeaderSheet() {
+  const member = useHeaderMember();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -109,147 +166,152 @@ export default function PageHeaderSheet({
         </SheetTrigger>
 
         <SheetContent className="gap-0">
-        <SheetHeader className="border-b border-blue-100">
-          <SheetTitle className="flex items-center gap-3 pb-1 pr-10 text-2xl font-bold tracking-[-0.06em] text-blue-700">
-            <span>{APP_NAME}</span>
-          </SheetTitle>
-          <SheetDescription className="sr-only">
-            메뉴와 서비스 정보를 확인할 수 있습니다.
-          </SheetDescription>
-        </SheetHeader>
+          <SheetHeader className="border-b border-blue-100">
+            <SheetTitle className="flex items-center gap-3 pb-1 pr-10 text-2xl font-bold tracking-[-0.06em] text-blue-700">
+              <span>{APP_NAME}</span>
+            </SheetTitle>
+            <SheetDescription className="sr-only">
+              메뉴와 서비스 정보를 확인할 수 있습니다.
+            </SheetDescription>
+          </SheetHeader>
 
-        <div className="border-b border-blue-100 bg-blue-50 px-6 py-8 text-center">
-          <PageMemberAvatar
-            src={member?.avatarUrl}
-            fallbackSrc={faceImage}
-            name={member?.name || "이벤트조아"}
-            alt={member ? `${member.name} 프로필` : "프로필 이미지"}
-            className="mx-auto mb-3 size-16 border-2 border-blue-100"
-            fallbackClassName="bg-blue-100 text-xl font-bold text-blue-700"
-          />
-          <p className="text-2xl font-bold font-cafe24 text-slate-900">
-            {member ? `${member.name}님, 환영합니다!` : "환영합니다!"}
-          </p>
-          <p className="mt-2 text-sm text-slate-700 font-anyvid">
-            {member
-              ? `${member.visitCount.toLocaleString("ko-KR")}번째 방문이에요.`
-              : "전국의 다양한 축제와 행사 정보를 확인해보세요."}
-          </p>
-        </div>
+          <div className="border-b border-blue-100 bg-blue-50 px-6 py-8 text-center">
+            <PageMemberAvatar
+              src={member?.avatarUrl}
+              fallbackSrc={faceImage}
+              name={member?.name || "이벤트조아"}
+              alt={member ? `${member.name} 프로필` : "프로필 이미지"}
+              className="mx-auto mb-3 size-16 border-2 border-blue-100"
+              fallbackClassName="bg-blue-100 text-xl font-bold text-blue-700"
+            />
+            <p className="text-2xl font-bold font-cafe24 text-slate-900">
+              {member ? `${member.name}님, 환영합니다!` : "환영합니다!"}
+            </p>
+            <p className="mt-2 text-sm text-slate-700 font-anyvid">
+              {member
+                ? `${member.visitCount.toLocaleString("ko-KR")}번째 방문이에요.`
+                : "전국의 다양한 축제와 행사 정보를 확인해보세요."}
+            </p>
+          </div>
 
-        <ScrollArea className="min-h-0 flex-1 py-3">
-          <nav aria-label="사이드 메뉴" className="space-y-1 px-2">
-            {siteMenu.map((item) => {
-              const Icon = item.icon;
+          <ScrollArea className="min-h-0 flex-1 py-3">
+            <nav aria-label="사이드 메뉴" className="space-y-1 px-2">
+              {siteMenu.map((item) => {
+                const Icon = item.icon;
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                >
-                  <span className="flex items-center gap-3">
-                    <Icon className="size-4" aria-hidden="true" />
-                    <span>{item.label}</span>
-                  </span>
-                  <ChevronRight className="size-4" aria-hidden="true" />
-                </Link>
-              );
-            })}
-            <Separator className="my-2 bg-slate-200" />
-            {sideInfoMenu.map((item) => {
-              const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    <span className="flex items-center gap-3">
+                      <Icon className="size-4" aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </span>
+                    <ChevronRight className="size-4" aria-hidden="true" />
+                  </Link>
+                );
+              })}
+              <Separator className="my-2 bg-slate-200" />
+              {sideInfoMenu.map((item) => {
+                const Icon = item.icon;
 
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                >
-                  <span className="flex items-center gap-3">
-                    <Icon className="size-4" aria-hidden="true" />
-                    <span>{item.label}</span>
-                  </span>
-                  <ChevronRight className="size-4" aria-hidden="true" />
-                </Link>
-              );
-            })}
-            <Separator className="my-2 bg-slate-200" />
-            {!member && (
-              <Button
-                type="button"
-                variant="ghost"
-                onClick={() => {
-                  setIsOpen(false);
-                  setIsLoginOpen(true);
-                }}
-                className="h-auto w-full justify-between rounded-lg px-4 py-3.5 text-sm font-normal text-slate-600 hover:bg-blue-50 hover:text-blue-600"
-              >
-                <span className="flex items-center gap-3">
-                  <LogIn className="size-4" aria-hidden="true" />
-                  <span>로그인</span>
-                </span>
-              </Button>
-            )}
-            {member && (
-              <>
-                <Link
-                  href="/mypage"
-                  onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                >
-                  <span className="flex items-center gap-3">
-                    <UserRound className="size-4" aria-hidden="true" />
-                    <span>마이페이지</span>
-                  </span>
-                  <ChevronRight className="size-4" aria-hidden="true" />
-                </Link>
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    <span className="flex items-center gap-3">
+                      <Icon className="size-4" aria-hidden="true" />
+                      <span>{item.label}</span>
+                    </span>
+                    <ChevronRight className="size-4" aria-hidden="true" />
+                  </Link>
+                );
+              })}
+              <Separator className="my-2 bg-slate-200" />
+              {!member && (
                 <Button
                   type="button"
                   variant="ghost"
-                  disabled={isLoggingOut}
-                  onClick={handleLogout}
+                  onClick={() => {
+                    setIsOpen(false);
+                    setIsLoginOpen(true);
+                  }}
                   className="h-auto w-full justify-between rounded-lg px-4 py-3.5 text-sm font-normal text-slate-600 hover:bg-blue-50 hover:text-blue-600"
                 >
                   <span className="flex items-center gap-3">
-                    <LogOut className="size-4" aria-hidden="true" />
-                    <span>{isLoggingOut ? "로그아웃 중..." : "로그아웃"}</span>
+                    <LogIn className="size-4" aria-hidden="true" />
+                    <span>로그인</span>
                   </span>
                 </Button>
-                {member.role === "admin" && (
-                  <>
-                    <Separator className="my-2 bg-slate-200" />
-                    {adminMenu.map((item) => {
-                      const Icon = item.icon;
+              )}
+              {member && (
+                <>
+                  <Link
+                    href="/mypage"
+                    onClick={() => setIsOpen(false)}
+                    className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    <span className="flex items-center gap-3">
+                      <UserRound className="size-4" aria-hidden="true" />
+                      <span>마이페이지</span>
+                    </span>
+                    <ChevronRight className="size-4" aria-hidden="true" />
+                  </Link>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    disabled={isLoggingOut}
+                    onClick={handleLogout}
+                    className="h-auto w-full justify-between rounded-lg px-4 py-3.5 text-sm font-normal text-slate-600 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    <span className="flex items-center gap-3">
+                      <LogOut className="size-4" aria-hidden="true" />
+                      <span>
+                        {isLoggingOut ? "로그아웃 중..." : "로그아웃"}
+                      </span>
+                    </span>
+                  </Button>
+                  {member.role === "admin" && (
+                    <>
+                      <Separator className="my-2 bg-slate-200" />
+                      {adminMenu.map((item) => {
+                        const Icon = item.icon;
 
-                      return (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
-                        >
-                          <span className="flex items-center gap-3">
-                            <Icon className="size-4" aria-hidden="true" />
-                            <span>{item.label}</span>
-                          </span>
-                          <ChevronRight className="size-4" aria-hidden="true" />
-                        </Link>
-                      );
-                    })}
-                  </>
-                )}
-              </>
-            )}
-          </nav>
-        </ScrollArea>
+                        return (
+                          <Link
+                            key={item.href}
+                            href={item.href}
+                            onClick={() => setIsOpen(false)}
+                            className="flex items-center justify-between rounded-lg px-4 py-3.5 text-sm text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600"
+                          >
+                            <span className="flex items-center gap-3">
+                              <Icon className="size-4" aria-hidden="true" />
+                              <span>{item.label}</span>
+                            </span>
+                            <ChevronRight
+                              className="size-4"
+                              aria-hidden="true"
+                            />
+                          </Link>
+                        );
+                      })}
+                    </>
+                  )}
+                </>
+              )}
+            </nav>
+          </ScrollArea>
 
-        <div className="mt-auto flex shrink-0 flex-col items-center border-t border-slate-100 bg-slate-50 px-4 py-4 text-center font-anyvid text-xs leading-5 text-muted-foreground">
-          <p className="break-keep">{APP_COPYRIGHT}</p>
-          <p className="break-keep">{APP_SLOGAN}</p>
-        </div>
+          <div className="mt-auto flex shrink-0 flex-col items-center border-t border-slate-100 bg-slate-50 px-4 py-4 text-center font-anyvid text-xs leading-5 text-muted-foreground">
+            <p className="break-keep">{APP_COPYRIGHT}</p>
+            <p className="break-keep">{APP_SLOGAN}</p>
+          </div>
         </SheetContent>
       </Sheet>
       <PageLoginDialog open={isLoginOpen} onOpenChange={setIsLoginOpen} />

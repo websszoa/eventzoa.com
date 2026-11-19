@@ -7,23 +7,42 @@ Language: ko-KR
 
 ## Core pages
 
-- /festivals: 전국 축제 검색과 필터
+- /festivals: 전국 축제 검색과 필터 (지역, 개최 월, 개최 상태, 가격, 키워드)
 - /list: 전국 축제 목록
 - /calendar: 날짜별 축제 캘린더
 - /map: 위치 기반 전국 축제 지도
-- /notifications: 축제 소식, 공지사항, 뉴스레터
+- /blog: 축제 추천과 여행 정보 글
+- /newsletter: 이벤트조아 뉴스레터 모음
+- /notifications: 공지사항과 서비스 업데이트
 - /about: 서비스 소개와 정보 운영 원칙
 - /contact: 행사 등록, 정보 수정, 오류 신고 문의
 
 ## Festival detail pages
 
-Festival detail URLs use `/festivals/{slug}`. Each page provides the festival name, description, dates, operating hours, venue, address, admission information, parking, programs, organizer, contact information, map link, and official website when available.
+Festival detail URLs use `/festivals/{slug}`. Each page provides the festival name, description, dates, operating hours, venue, address, admission information, parking, programs, organizer, contact information, map link, and official website when available. Each page also links to related festivals in the same region or category.
+
+## Filtered festival lists
+
+`/festivals` accepts URL filters, so filtered lists can be shared and cited:
+
+- Region: `/festivals?region=서울` (comma-separated for several regions)
+- Month: `/festivals?month=10`
+- Status: `/festivals?status=upcoming` (tbd, upcoming, ongoing, ended)
+- Price: `/festivals?price=free`
+- Keyword: `/festivals?keyword=불꽃`
+- Include past festivals: `/festivals?past=include`
 
 ## Content policy
 
 - Festival information is organized from publicly available and organizer-provided information.
 - Visitors should confirm time-sensitive details on the linked official festival website before visiting.
 - Corrections can be requested through `/contact?type=correction`.
+
+## Legal
+
+- /terms: 이용약관
+- /privacy: 개인정보처리방침
+- /policy: 운영 정책
 
 ## Crawling
 

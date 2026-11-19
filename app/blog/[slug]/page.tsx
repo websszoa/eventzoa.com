@@ -10,6 +10,9 @@ import { createPageMetadata } from "@/lib/seo";
 
 type BlogArticleProps = { params: Promise<{ slug: string }> };
 
+// 빌드 때 만든 주소만 허용한다. 없는 주소는 200 빈 페이지 대신 진짜 404를 돌려준다.
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   return (await getNotificationPosts()).filter((post) => post.category === "festival").map((post) => ({ slug: post.slug }));
 }

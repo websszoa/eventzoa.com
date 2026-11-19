@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { connection } from "next/server";
 
 import PageList, { type EventListItem } from "@/components/page/page-list";
 import events from "@/data/events/events_2026.json";
@@ -42,15 +41,14 @@ function getDDay(startDate: string, today: string) {
 }
 
 export default async function ListPage() {
-  await connection();
-
   const today = new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
   }).format(new Date());
   const eventList: EventListItem[] = events.map((event) => {
     const { startDate, endDate } = event.event;
     const schedule = startDate && endDate ? { startDate, endDate } : null;
-    const [year = "", month = "", day = ""] = schedule?.startDate.split("-") ?? [];
+    const [year = "", month = "", day = ""] =
+      schedule?.startDate.split("-") ?? [];
     const price = formatEventInfoValue(event.info.entrance);
 
     return {
